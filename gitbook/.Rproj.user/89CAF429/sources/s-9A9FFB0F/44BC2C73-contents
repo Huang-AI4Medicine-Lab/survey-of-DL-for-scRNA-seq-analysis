@@ -1,8 +1,9 @@
 --- 
-title: "Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis"
+title: "Deep learning tackles single-cell analysis" 
+subtitle: "A survey of deep learning for scRNA-seq analysis"
 author: "**Mario Flores, Zhentao Liu, Tinghe Zhang, Md Musaddaqui Hasib, Yu-Chiao Chiu, Zhenqing Ye, Karla Paniagua, Sumin Jo, Jianqiu Zhang, Shou-Jiang Gao, Yufang Jin, Yidong Chen, and Yufei Huang**"
-# date: "`r Sys.Date()`"
-date: "2021-09-11"
+date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 number_sections: yes
@@ -12,7 +13,8 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 # biblio-style: cell.cls
 link-citations: yes
-github-repo: Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/gitbook
+github-repo: Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis
+always_allow_html: yes
 ---
 
 
