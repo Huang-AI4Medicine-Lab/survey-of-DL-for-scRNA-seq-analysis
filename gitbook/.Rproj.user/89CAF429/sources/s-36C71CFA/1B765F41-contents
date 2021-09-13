@@ -1,0 +1,34 @@
+
+# Tables  {#ch-7}
+
+
+
+```{r Table1, fig.cap="Deep Learning algorithms reviewed in the paper"}
+knitr::include_graphics("Table/Table1.png") 
+```
+
+
+```{r Table2a, fig.cap="Simulated single-cell data/algorithms"}
+knitr::include_graphics("Table/Table2a.png")
+```
+
+```{r Table2b, fig.cap="Human single-cell data sources used by different DL algorithms"}
+knitr::include_graphics("Table/Table2b.png")
+```
+
+```{r Table2c, fig.cap="Mouse single-cell data sources used by different DL algorithms"}
+knitr::include_graphics("Table/Table2c.png")
+```
+
+```{r Table2d, fig.cap="Single-cell data derived from other species"}
+knitr::include_graphics("Table/Table2d.png")
+```
+
+```{r Table2e, fig.cap="Large single-cell data source used by various algorithms"}
+knitr::include_graphics("Table/Table2e.png")
+```
+
+```{r Table3, fig.cap="Evaluation metrics used in surveyed DL algorithms"}
+knitr::include_graphics("Table/Table3.png")
+```
+
