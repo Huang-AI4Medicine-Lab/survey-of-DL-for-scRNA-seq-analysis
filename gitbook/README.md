@@ -40,4 +40,9 @@ Hello, this is Sumin. Any feedback and contributions will be appreciated :)
 
 Email: sumin.jo@utsa.edu
 
-[Huang-AI4Medicine-Lab](https://huang-ai4medcine-lab.github.io/survey-of-DL-for-scRNA-seq-analysis)
+[Huang-AI4Medicine-Lab](https://github.com/Huang-AI4Medicine-Lab)
+
+
+
+
+
