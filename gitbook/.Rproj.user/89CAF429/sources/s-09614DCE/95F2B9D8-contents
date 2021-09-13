@@ -1,4 +1,4 @@
-# Deep learning tackles single-cell analysis – A survey of deep learning for scRNA-seq analysis ([View this book](https://huang-ai4medicine-lab.github.io/survey-of-DL-for-scRNA-seq-analysis/gitbook/_book/index.html))
+# Deep learning tackles single-cell analysis – A survey of deep learning for scRNA-seq analysis ([View this book](https://huang-ai4medicine-lab.github.io/survey-of-DL-for-scRNA-seq-analysis/gitbook/_book))
 
 **Mario Flores<sup>1§</sup>, Zhentao Liu<sup>1</sup>, Tinghe Zhang<sup>1</sup>, Md Musaddaqui Hasib<sup>1</sup>, Yu-Chiao Chiu<sup>2</sup>, Zhenqing Ye<sup>2,3</sup>, Karla Paniagua<sup>1</sup>, Sumin Jo<sup>1</sup>, Jianqiu Zhang<sup>1</sup>, Shou-Jiang Gao<sup>4,6</sup>, Yufang Jin<sup>1</sup>, Yidong Chen<sup>2,3§</sup>, and Yufei Huang<sup>5,6§</sup>**
 
