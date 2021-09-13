@@ -2,6 +2,6 @@ h1:bibliography-book.bib-packages.bib bibliography: [book.bib, packages.bib]
 h1:bibliography-references.bib bibliography: References.bib
 h1:biblio-style-cell.cls biblio-style: cell.cls
 h1:about-the-authors About the authors
-h4:corresponding-authors-mario-flores-mario.floresutsa.edu-yidong-chen-cheny8uthscsa.edu-and-yufei-huang-yuh119pitt.edu : Mario Flores (mario.flores@utsa.edu), Yidong Chen (cheny8@uthscsa.edu), and Yufei Huang (yuh119@pitt.edu)
-h4:author-affiliations 
+h4:corresponding-authors 
+h4:affiliations 
 

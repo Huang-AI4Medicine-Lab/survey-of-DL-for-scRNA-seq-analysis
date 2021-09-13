@@ -66,9 +66,14 @@ library(survival)
 <!-- **Yufei Huang<sup>5,6</sup>**, PhD,  is a Professor in UPMC Hillman Cancer Center and Department of Medicine, School of Medicine, University of Pittsburgh. His current research interests include uncovering the functions of m6A mRNA methylation, cancer virology, and medical AI & deep learning. -->
 
 
-#### **<sup>§</sup>Corresponding authors**: Mario Flores (mario.flores@utsa.edu), Yidong Chen (cheny8@uthscsa.edu), and Yufei Huang (yuh119@pitt.edu) {-}
+#### **<sup>§</sup> Corresponding authors** {-}
+Mario Flores (mario.flores@utsa.edu)
 
-#### **Author Affiliations** {-}
+Yidong Chen (cheny8@uthscsa.edu)
+
+Yufei Huang (yuh119@pitt.edu) 
+
+#### **Affiliations** {-}
 
 <sup>1</sup>Department of Electrical and Computer Engineering, the University of Texas at San Antonio, San Antonio, TX 78249, USA
 
