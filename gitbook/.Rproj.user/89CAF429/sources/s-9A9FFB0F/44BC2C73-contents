@@ -12,7 +12,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 # biblio-style: cell.cls
 link-citations: yes
-github-repo: Huang-AI4Medcine-Lab/survey-of-DL-for-scRNA-seq-analysis
+github-repo: Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis
 ---
 
 
@@ -94,7 +94,7 @@ Any feedback and contributions will be appreciated.
 
 Mail: sumin.jo@utsa.edu
 
-Website: [Huang-AI4Medcine-Lab](https://github.com/Huang-AI4Medcine-Lab)
+Website: [Huang-AI4Medicine-Lab](https://github.com/Huang-AI4Medicine-Lab)
 
 
 
