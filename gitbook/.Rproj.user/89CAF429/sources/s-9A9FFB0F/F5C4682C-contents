@@ -1,0 +1,9 @@
+book_filename: "survey-of-DL-for-scRNA-seq-analysis"
+language:
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+
+# You can use a field named rmd_files to define your own list and order of Rmd files
+# for the book. For example,
+# rmd_files: ["index.Rmd", "abstract.Rmd", "intro.Rmd"]
