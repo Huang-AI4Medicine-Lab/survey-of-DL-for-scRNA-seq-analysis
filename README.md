@@ -2,7 +2,7 @@
 
 **Mario Flores<sup>1§</sup>, Zhentao Liu<sup>1</sup>, Tinghe Zhang<sup>1</sup>, Md Musaddaqui Hasib<sup>1</sup>, Yu-Chiao Chiu<sup>2</sup>, Zhenqing Ye<sup>2,3</sup>, Karla Paniagua<sup>1</sup>, Sumin Jo<sup>1</sup>, Jianqiu Zhang<sup>1</sup>, Shou-Jiang Gao<sup>4,6</sup>, Yufang Jin<sup>1</sup>, Yidong Chen<sup>2,3§</sup>, and Yufei Huang<sup>5,6§</sup>**
 
-<sup>§</sup>Corresponding authors: Mario Flores (mario.flores@utsa.edu); Yidong Chen (cheny8@uthscsa.edu); Yufei Huan (yuh119@pitt.edu)
+<sup>§</sup>Corresponding authors: Mario Flores (mario.flores@utsa.edu); Yidong Chen (cheny8@uthscsa.edu); Yufei Huang (yuh119@pitt.edu)
 
 <sup>1</sup>Department of Electrical and Computer Engineering, the University of Texas at San Antonio, San Antonio, TX 78249, USA
 
