@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="ch-4.html"/>
-
+<link rel="next" href="ch-6.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -140,8 +140,36 @@ div.csl-indent {
 <li class="chapter" data-level="5.3.1" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-1"><i class="fa fa-check"></i><b>5.3.1</b> Dimension reduction by AEs with gene-interaction constrained architecture</a></li>
 <li class="chapter" data-level="5.3.2" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-2"><i class="fa fa-check"></i><b>5.3.2</b> Dhaka: a VAE-based dimension reduction model</a></li>
 <li class="chapter" data-level="5.3.3" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-3"><i class="fa fa-check"></i><b>5.3.3</b> cvis: a VAE for capturing low-dimensional structures</a></li>
+<li class="chapter" data-level="5.3.4" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.3.4</b> </a></li>
+<li class="chapter" data-level="5.3.5" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.3.5</b> </a></li>
+<li class="chapter" data-level="5.3.6" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.3.6</b> </a></li>
+<li class="chapter" data-level="5.3.7" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.3.7</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="ch-5.html"><a href="ch-5.html#ch-5-4"><i class="fa fa-check"></i><b>5.4</b> multi-functional</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.4.1</b> </a></li>
+<li class="chapter" data-level="5.4.2" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.4.2</b> </a></li>
+<li class="chapter" data-level="5.4.3" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.4.3</b> </a></li>
+<li class="chapter" data-level="5.4.4" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.4.4</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="ch-5.html"><a href="ch-5.html#ch-5-5"><i class="fa fa-check"></i><b>5.5</b> Doublet Classification</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.5.1</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="ch-5.html"><a href="ch-5.html#ch-5-6"><i class="fa fa-check"></i><b>5.6</b> Automated Cell Type</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.6.1</b> </a></li>
+<li class="chapter" data-level="5.6.2" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.6.2</b> </a></li>
+<li class="chapter" data-level="5.6.3" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.6.3</b> </a></li>
+<li class="chapter" data-level="5.6.4" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.6.4</b> </a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="ch-5.html"><a href="ch-5.html#ch-5-7"><i class="fa fa-check"></i><b>5.7</b> Biological Function Prediction</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.7.1</b> </a></li>
+<li class="chapter" data-level="5.7.2" data-path="ch-5.html"><a href="ch-5.html#ch-5-3-4"><i class="fa fa-check"></i><b>5.7.2</b> </a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="ch-6.html"><a href="ch-6.html"><i class="fa fa-check"></i><b>6</b> Conclusion and Discussions</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -350,17 +378,88 @@ L_{t}(\Theta)= \sum_{i=1}^{N}\sum_{j=1,j\neq i}^{N} p_{j\vert i}\log{\frac{p_{j 
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are two different cells, <span class="math inline">\(p_{i\vert j}\)</span> measures the local cell relationship in the data space, and <span class="math inline">\(q_{j \vert i}\)</span> measures such relationship in the latent space as</p>
 <p><span class="math display" id="eq:eq28">\[\begin{equation}
-p_{i \vert j} = \frac{exp(- \frac{\|}{})}{} \tag{5.18}
+p_{i \vert j} = \frac{exp(- \frac{\|x_{i}-x_{j} \|^{2}}{2\sigma_{i}^{2}})}{\sum_{k\ne i}exp(- \frac{\|x_{i}-x_{k} \|^{2}}{2\sigma_{i}^{2}})},\space q_{j \vert i} = \frac{(1+\|z_{i}-z_{j} \|^{2})^{-1}}{\sum_{k\ne i}(1+\|z_{i}-z_{k} \|^{2})^{-1}} \tag{5.18}
 \end{equation}\]</span></p>
-<p>with σ_i defined as the perplexity <span class="citation">(<a href="#ref-RN147" role="doc-biblioref">Maaten 2008</a>)</span>. Because t-SNE algorithm preserves the local structure of high dimensional space after projecting to the lower dimension, L_t promotes the learning of local structures of cells.
-Evaluation matrics. KNN preservation and log-likelihood of low dimensional mapping are used to evaluate model performance.</p>
-<p>Results. scvis was tested on the simulated data and outperformed t-SNE in a nine-dimensional space task. scvis preserved both local structure and global structure. The relative positions of all clusters were well kept but outliers were scattered around clusters. Using simulated data and comparing to t-SNE, scvis generally produced consistent and better patterns among different runs while t-SNE could not. scvis also presented good results on adding new data to an existing embedding, with median accuracy on new data at 98.1% for K= 5 and 94.8% for K= 65, when train K cluster on original data then test the classifier on new generated sample points. scvis was subsequently tested on four real datasets including metastatic melanoma, oligodendroglioma, mouse bipolar and mouse retina datasets. In each dataset, scvis was showed to preserve both the global and local structure of the data.</p>
+<p>with <span class="math inline">\(\sigma_{i}\)</span> defined as the perplexity <span class="citation">(<a href="#ref-RN147" role="doc-biblioref">Maaten 2008</a>)</span>. Because t-SNE algorithm preserves the local structure of high dimensional space after projecting to the lower dimension, <span class="math inline">\(L_{t}\)</span> promotes the learning of local structures of cells.</p>
+<p><em>Evaluation matrics.</em> KNN preservation and log-likelihood of low dimensional mapping are used to evaluate model performance.</p>
+<p><em>Results.</em> scvis was tested on the simulated data and outperformed t-SNE in a nine-dimensional space task. scvis preserved both local structure and global structure. The relative positions of all clusters were well kept but outliers were scattered around clusters. Using simulated data and comparing to t-SNE, scvis generally produced consistent and better patterns among different runs while t-SNE could not. scvis also presented good results on adding new data to an existing embedding, with median accuracy on new data at 98.1% for K= 5 and 94.8% for K= 65, when train K cluster on original data then test the classifier on new generated sample points. scvis was subsequently tested on four real datasets including metastatic melanoma, oligodendroglioma, mouse bipolar and mouse retina datasets. In each dataset, scvis was showed to preserve both the global and local structure of the data.</p>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-Maaten, G. van der, L. &amp; Hinton. 2008. <span>“Visualizing Data Using t-SNE.”</span> Journal Article. <em>J. Mach. Learn</em> 9: 2579–2605.
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.3.7">
+<h3><span class="header-section-number">5.3.7</span> </h3>
+
 </div>
 </div>
+<div id="ch-5-4" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> multi-functional</h2>
+
+<div id="ch-5-3-4" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> </h3>
+
+</div>
+</div>
+<div id="ch-5-5" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Doublet Classification</h2>
+
+<div id="ch-5-3-4" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> </h3>
+
+</div>
+</div>
+<div id="ch-5-6" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Automated Cell Type</h2>
+
+<div id="ch-5-3-4" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> </h3>
+
+</div>
+</div>
+<div id="ch-5-7" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Biological Function Prediction</h2>
+
+<div id="ch-5-3-4" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> </h3>
+
+</div>
+<div id="ch-5-3-4" class="section level3" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> </h3>
+
 </div>
 </div>
 </div>
@@ -375,8 +474,8 @@ Maaten, G. van der, L. &amp; Hinton. 2008. <span>“Visualizing Data Using t-SNE
           </div>
         </div>
       </div>
-<a href="ch-4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="ch-4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

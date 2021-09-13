@@ -1,0 +1,26 @@
+{
+    "id": "DA326077",
+    "path": "D:/GitHub/survey-of-DL-for-scRNA-seq-analysis/gitbook/05.3.3-scvis.Rmd",
+    "project_path": "05.3.3-scvis.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1631564500567.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "29,0",
+        "scrollLine": "16"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1631565081,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1631565081444,
+    "read_only": false,
+    "read_only_alternatives": []
+}
