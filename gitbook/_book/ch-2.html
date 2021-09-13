@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Overview of scRNA-seq processing pipeline | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</title>
+  <meta name="description" content="2 Overview of scRNA-seq processing pipeline | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Overview of scRNA-seq processing pipeline | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Overview of scRNA-seq processing pipeline | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  
+  
+  
+
+<meta name="author" content="Mario Flores, Zhentao Liu, Tinghe Zhang, Md Musaddaqui Hasib, Yu-Chiao Chiu, Zhenqing Ye, Karla Paniagua, Sumin Jo, Jianqiu Zhang, Shou-Jiang Gao, Yufang Jin, Yidong Chen, and Yufei Huang" />
+
+
+<meta name="date" content="2021-09-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ch-1.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Front Matter</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i>Authors</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html"><i class="fa fa-check"></i>About this book</a>
+<ul>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#key-points"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="ch-1.html"><a href="ch-1.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="ch-2.html"><a href="ch-2.html"><i class="fa fa-check"></i><b>2</b> Overview of scRNA-seq processing pipeline</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ch-2" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Overview of scRNA-seq processing pipeline</h1>
+<p>Various scRNA-seq techniques (like SMART-seq, Drop-seq, and 10X genomics sequencing [24, 25] are available nowadays with their sets of advantages and disadvantages. Despite the differences in the scRNA-seq techniques, the data content and processing steps of scRNA-seq data are quite standard and conventional. A typical scRNA-seq dataset consists of three files: genes quantified (gene IDs), cells quantified (cellular barcode), and a count matrix (number of cells x number of genes), irrespective of the technology or pipeline used. A series of essential steps in scRNA-seq data processing pipeline and optional tools for each step with both ML and DL approaches are illustrated in Fig.<a href="ch-2.html#fig:Figure1">2.1</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure1"></span>
+<img src="Figures/Figure1.png" alt="Single cell data analysis steps for both conventional ML methods (bottom) and DL methods (top). Depending on the input data and analysis objectives, major scRNA-se analysis steps are illustrated in the center flow chart. The convential ML approaches along with optional analysis modules are presented below each analysis step. Deep learning approaches are categorized as neural network models (DNN, CNN, CapsNet, and DANN), Generalive Adversarial Network (GAN), Variational Autoencoder, and Autoencoder. For each DL approach, optional algorithms are listed on top of each step in the pipeline." width="803" />
+<p class="caption">
+Figure 2.1: Single cell data analysis steps for both conventional ML methods (bottom) and DL methods (top). Depending on the input data and analysis objectives, major scRNA-se analysis steps are illustrated in the center flow chart. The convential ML approaches along with optional analysis modules are presented below each analysis step. Deep learning approaches are categorized as neural network models (DNN, CNN, CapsNet, and DANN), Generalive Adversarial Network (GAN), Variational Autoencoder, and Autoencoder. For each DL approach, optional algorithms are listed on top of each step in the pipeline.
+</p>
+</div>
+<p>With the advantage of identifying each cell and unique molecular identifiers (UMIs) for expressions of each gene in a single cell, scRNA-seq data are embedded with increased technical noise and biases [23]. Quality control (QC) is the first and the key step to filter out dead cells, double-cells, or cells with failed chemistry or other technical artifacts. The most commonly adopted three QC covariates include the number of counts (count depth) per barcode identifying each cell, the number of genes per barcode, and the fraction of counts from mitochondrial genes per barcode [24].</p>
+<p>Normalization is designed to eliminate imbalanced sampling, cell differentiation, viability, and many other factors. Approaches tailored for scRNA-seq have been developed including the Bayesian-based method coupled with spike-in, or BASiCS [25], deconvolution approach, scran [26], and sctransfrom in Seurat where regularized Negative Binomial regression was proposed [27]. Two important steps, batch correction and imputation, will be carried out if required by the analysis:
+• Batch Correction is a common source of technical variation in high-throughput sequencing experiments due to variant experimental conditions such as technicians and experimental time, imposing a major challenge in scRNA-seq data analysis. Batch effect correction algorithms include detection of mutual nearest neighbors (MNNs) [28], canonical correlation analysis (CCA) with Seurat [29], and Hormony algorithm through cell-type representation [30].
+• Imputation step is necessary to handle high sparsity data matrix, due to missing value or dropout in scRNA-seq data analysis. Several tools have been developed to “impute” zero values in scRNA-seq data, such as SCRABBLE [31], SAVER [32] and scImpute [33].
+Dimensionality reduction and visualization are essential steps to represent biological meaningful variation and high dimensionality with significantly reduced computational cost. Dimensionality reduction methods, such as PCA, are widely used in scRNA-seq data analysis to achieve that purpose. More advanced nonlinear approaches that preserve the topological structure and avoid overcrowding in lower dimension representation, such as LLE [34] (used in SLICER [35]), tSNE [36], and UMAP [37] have also been developed and adopted as a standard in single-cell data visualization.</p>
+<p>Clustering analysis is a key step to identify cell subpopulations or distinct cell types to unravel the extent of heterogeneity and their associated cell-type-specific markers. Unsupervised clustering is frequently used here to categorize cells into clusters by their similarity often taken the aforementioned dimensionality-reduced representations as input, such as community detection algorithm Louvain [38] and Leiden [39], or data-driven dimensionality reduction followed with k-Means cluster by SIMLR [40].</p>
+<p>Feature selection is another important step in single-cell RNA-seq analysis is to select a subset of genes, or features, for cell-type identification and functional enrichment of each cluster. This step is achieved by differential expression analysis designed for scRNA-seq, such as MAST that used linear model fitting and likelihood ratio testing [41]; SCDE that adopted a Bayesian approach with a Negative Binomial model for gene expression and Poisson process for dropouts [42], or DEsingle that utilized a Zero-Inflated Negative Binomial model to estimate the dropouts [43].</p>
+<p>Besides these key steps, downstream analysis can include cell type identification, coexpression analysis, prediction of perturbation response, where DL has also been applied. Other advanced analyses including trajectory inference and velocity and pseudotime analysis are not discussed here because most of the approaches on these topics are non-DL based.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/edit/main/02-overview-of-scRNA-seq-pipeline.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["survey-of-DL-for-scRNA-seq-analysis.pdf", "survey-of-DL-for-scRNA-seq-analysis.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

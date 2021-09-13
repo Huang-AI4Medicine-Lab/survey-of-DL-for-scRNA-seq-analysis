@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.11)  13 SEP 2021 13:32
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.11)  13 SEP 2021 14:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -884,66 +884,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
 [9] [10]
 Chapter 1.
-
-Package natbib Warning: Citation `RN87' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN98' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN101' on page 11 undefined on input line 193
-.
-
-
-Package natbib Warning: Citation `RN78' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN85' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN59' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN91' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN99' on page 11 undefined on input line 193.
-
-
-
-Package natbib Warning: Citation `RN87' on page 11 undefined on input line 195.
-
-
 [11
 
-] [12] (./survey-of-DL-for-scRNA-seq-analysis.bbl [13] [14
+] [12] [13] [14
 
 ]
+Chapter 2.
+File: Figures/Figure1.pdf Graphic file (type pdf)
+<use Figures/Figure1.pdf>
 
-Package natbib Warning: Empty `thebibliography' environment on input line 3.
+LaTeX Warning: Float too large for page by 4.53807pt on input line 217.
 
-)
+[15] [16] (./survey-of-DL-for-scRNA-seq-analysis.bbl [17] [18
 
-Package natbib Warning: There were undefined citations.
-
-[15] (./survey-of-DL-for-scRNA-seq-analysis.aux)
+] [19]) [20] (./survey-of-DL-for-scRNA-seq-analysis.aux)
 Package rerunfilecheck Info: File `survey-of-DL-for-scRNA-seq-analysis.out' has
  not changed.
-(rerunfilecheck)             Checksum: 0699DBE06A98C27A9DC860B4D15DE105;536.
+(rerunfilecheck)             Checksum: A8804E4F63A1D591296C6731D350C192;796.
  ) 
 Here is how much of TeX's memory you used:
- 16336 strings out of 478532
- 291431 string characters out of 5861061
- 754001 words of memory out of 5000000
- 36365 multiletter control sequences out of 15000+600000
- 409881 words of font info for 80 fonts, out of 8000000 for 9000
+ 16378 strings out of 478532
+ 292086 string characters out of 5861061
+ 754933 words of memory out of 5000000
+ 36402 multiletter control sequences out of 15000+600000
+ 409889 words of font info for 81 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 87i,6n,120p,1308b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,6n,120p,1299b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on survey-of-DL-for-scRNA-seq-analysis.pdf (15 pages).
+Output written on survey-of-DL-for-scRNA-seq-analysis.pdf (20 pages).

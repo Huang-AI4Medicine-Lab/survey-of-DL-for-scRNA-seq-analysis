@@ -202,6 +202,35 @@ In this review, we focus more on the DL algorithms with a much detailed explanat
 
 --\textgreater{}
 
+\hypertarget{ch-2}{%
+\chapter{Overview of scRNA-seq processing pipeline}\label{ch-2}}
+
+Various scRNA-seq techniques (like SMART-seq, Drop-seq and 10X genomics sequencing {[}21, 22{]} are available nowadays with their sets of advantages and disadvantages. However, the data content and processing steps of different scRNA-seq techniques are quite standard and conventional. A typical scRNA-seq dataset consists of three files: genes quantified (gene IDs), cells quantified (cellular barcode) and a count matrix (number of cells × number of genes), irrespective of the technology or pipeline used. Conventionall, a series of essential steps are applied to these matrices for different analysis objectives as illustrated Fig. 1. These steps are:
+
+\begin{figure}
+
+{\centering \includegraphics{Figures/Figure1} 
+
+}
+
+\caption{Single cell data analysis steps for both conventional ML methods (bottom) and DL methods (top). Depending on the input data and analysis objectives, major scRNA-se analysis steps are illustrated in the center flow chart. The convential ML approaches along with optional analysis modules are presented below each analysis step. Deep learning approaches are categorized as neural network models (DNN, CNN, CapsNet, and DANN), Generalive Adversarial Network (GAN), Variational Autoencoder, and Autoencoder. For each DL approach, optional algorithms are listed on top of each step in the pipeline.}\label{fig:Figure1}
+\end{figure}
+
+of the technology or pipeline used. A series of essential steps in scRNA-seq data processing pipeline and optional tools for each step with both ML and DL approaches are illustrated in Fig. 1.
+
+With the advantage of identifying each cell and unique molecular identifiers (UMIs) for expressions of each gene in a single cell, scRNA-seq data are embedded with increased technical noise and biases {[}23{]}. Quality control (QC) is the first and the key step to filter out dead cells, double-cells, or cells with failed chemistry or other technical artifacts. The most commonly adopted three QC covariates include the number of counts (count depth) per barcode identifying each cell, the number of genes per barcode, and the fraction of counts from mitochondrial genes per barcode {[}24{]}.
+
+Normalization is designed to eliminate imbalanced sampling, cell differentiation, viability, and many other factors. Approaches tailored for scRNA-seq have been developed including the Bayesian-based method coupled with spike-in, or BASiCS {[}25{]}, deconvolution approach, scran {[}26{]}, and sctransfrom in Seurat where regularized Negative Binomial regression was proposed {[}27{]}. Two important steps, batch correction and imputation, will be carried out if required by the analysis:
+• Batch Correction is a common source of technical variation in high-throughput sequencing experiments due to variant experimental conditions such as technicians and experimental time, imposing a major challenge in scRNA-seq data analysis. Batch effect correction algorithms include detection of mutual nearest neighbors (MNNs) {[}28{]}, canonical correlation analysis (CCA) with Seurat {[}29{]}, and Hormony algorithm through cell-type representation {[}30{]}.
+• Imputation step is necessary to handle high sparsity data matrix, due to missing value or dropout in scRNA-seq data analysis. Several tools have been developed to ``impute'' zero values in scRNA-seq data, such as SCRABBLE {[}31{]}, SAVER {[}32{]} and scImpute {[}33{]}.
+Dimensionality reduction and visualization are essential steps to represent biological meaningful variation and high dimensionality with significantly reduced computational cost. Dimensionality reduction methods, such as PCA, are widely used in scRNA-seq data analysis to achieve that purpose. More advanced nonlinear approaches that preserve the topological structure and avoid overcrowding in lower dimension representation, such as LLE {[}34{]} (used in SLICER {[}35{]}), tSNE {[}36{]}, and UMAP {[}37{]} have also been developed and adopted as a standard in single-cell data visualization.
+
+Clustering analysis is a key step to identify cell subpopulations or distinct cell types to unravel the extent of heterogeneity and their associated cell-type-specific markers. Unsupervised clustering is frequently used here to categorize cells into clusters by their similarity often taken the aforementioned dimensionality-reduced representations as input, such as community detection algorithm Louvain {[}38{]} and Leiden {[}39{]}, or data-driven dimensionality reduction followed with k-Means cluster by SIMLR {[}40{]}.
+
+Feature selection is another important step in single-cell RNA-seq analysis is to select a subset of genes, or features, for cell-type identification and functional enrichment of each cluster. This step is achieved by differential expression analysis designed for scRNA-seq, such as MAST that used linear model fitting and likelihood ratio testing {[}41{]}; SCDE that adopted a Bayesian approach with a Negative Binomial model for gene expression and Poisson process for dropouts {[}42{]}, or DEsingle that utilized a Zero-Inflated Negative Binomial model to estimate the dropouts {[}43{]}.
+
+Besides these key steps, downstream analysis can include cell type identification, coexpression analysis, prediction of perturbation response, where DL has also been applied. Other advanced analyses including trajectory inference and velocity and pseudotime analysis are not discussed here because most of the approaches on these topics are non-DL based.
+
   \bibliography{book.bib,packages.bib}
 
 \end{document}
