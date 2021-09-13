@@ -2,8 +2,7 @@
 
 **Mario Flores<sup>1§</sup>, Zhentao Liu<sup>1</sup>, Tinghe Zhang<sup>1</sup>, Md Musaddaqui Hasib<sup>1</sup>, Yu-Chiao Chiu<sup>2</sup>, Zhenqing Ye<sup>2,3</sup>, Karla Paniagua<sup>1</sup>, Sumin Jo<sup>1</sup>, Jianqiu Zhang<sup>1</sup>, Shou-Jiang Gao<sup>4,6</sup>, Yufang Jin<sup>1</sup>, Yidong Chen<sup>2,3§</sup>, and Yufei Huang<sup>5,6§</sup>**
 
-<!--  
-Mario Flores$^{1\S}$, Zhentao Liu$^{1}$, Tinghe Zhang$^{1}$, Md Musaddaqui Hasib$^{1}$, Yu-Chiao Chiu$^{2}$, Zhenqing Ye$^{2,3}$, Karla Paniagua$^{1}$, Sumin Jo$^{1}$, Jianqiu Zhang$^{1}$, Shou-Jiang Gao$^{4,6}$, Yufang Jin$^{1}$, Yidong Chen$^{2,3\S}$, and Yufei Huang$^{5,6\S}$ -->
+<sup>§</sup>Corresponding authors: Mario Flores (mario.flores@utsa.edu); Yidong Chen (cheny8@uthscsa.edu); Yufei Huan (yuh119@pitt.edu)
 
 <sup>1</sup>Department of Electrical and Computer Engineering, the University of Texas at San Antonio, San Antonio, TX 78249, USA
 
@@ -17,7 +16,7 @@ Mario Flores$^{1\S}$, Zhentao Liu$^{1}$, Tinghe Zhang$^{1}$, Md Musaddaqui Hasib
 
 <sup>6</sup>UPMC Hillman Cancer Center, University of Pittsburgh, PA 15232, USA
 
-<sup>§</sup>Corresponding authors: Mario Flores (mario.flores@utsa.edu); Yidong Chen (cheny8@uthscsa.edu); Yufei Huan (yuh119@pitt.edu)
+
 
 
 
