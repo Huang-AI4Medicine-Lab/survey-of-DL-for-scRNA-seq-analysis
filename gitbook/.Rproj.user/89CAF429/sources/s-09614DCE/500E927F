@@ -3,7 +3,7 @@
     "path": "D:/GitHub/survey-of-DL-for-scRNA-seq-analysis/gitbook/README.md",
     "project_path": "README.md",
     "type": "markdown",
-    "hash": "0",
+    "hash": "4130181427",
     "contents": "",
     "dirty": false,
     "created": 1631556198236.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "30,0",
+        "cursorPosition": "42,98",
         "scrollLine": "25"
     },
     "folds": "",
-    "lastKnownWriteTime": 1631556254,
+    "lastKnownWriteTime": 1631556734,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1631556254184,
+    "last_content_update": 1631556734407,
     "read_only": false,
     "read_only_alternatives": []
 }
