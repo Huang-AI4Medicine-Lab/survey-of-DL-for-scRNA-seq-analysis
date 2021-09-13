@@ -6,7 +6,7 @@ bookdown::gitbook:
         <li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
+    edit: https://github.com/Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/edit/main/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</title>
+  <meta name="description" content="Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  
+  
+  
+
+<meta name="author" content="Mario Flores, Zhentao Liu, Tinghe Zhang, Md Musaddaqui Hasib, Yu-Chiao Chiu, Zhenqing Ye, Karla Paniagua, Sumin Jo, Jianqiu Zhang, Shou-Jiang Gao, Yufang Jin, Yidong Chen, and Yufei Huang" />
+
+
+<meta name="date" content="2021-09-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path=""><a href="#front-matter"><i class="fa fa-check"></i>Front Matter</a>
+<ul>
+<li class="chapter" data-level="" data-path=""><a href="#authors"><i class="fa fa-check"></i>Authors</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</h1>
+<p class="author"><em><strong>Mario Flores, Zhentao Liu, Tinghe Zhang, Md Musaddaqui Hasib, Yu-Chiao Chiu, Zhenqing Ye, Karla Paniagua, Sumin Jo, Jianqiu Zhang, Shou-Jiang Gao, Yufang Jin, Yidong Chen, and Yufei Huang</strong></em></p>
+<p class="date"><em>2021-09-13</em></p>
+</div>
+<div id="front-matter" class="section level1 unnumbered">
+<h1>Front Matter</h1>
+<div id="authors" class="section level3 unnumbered">
+<h3>Authors</h3>
+<p><strong>Mario Flores<sup>1§</sup></strong>, PhD, is an Assistant Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio, and joint program Faculty of Biomedical Engineering at the University of Texas Health San Antonio. Before joined ECE, he was a postdoctoral fellow at the National Center for Biotechnology Information of the National Institutes of Health from 2015 to 2019. His research focuses on DNA and RNA sequence methods, transcriptomics analysis, epigenetics, comparative genomics, and deep learning to study mechanisms of gene regulation, single-cell RNA-seq, and Natural Language Processing.</p>
+<p><strong>Zhentao Liu<sup>1</sup></strong> is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on deep learning for cancer genomics and drug response prediction.</p>
+<p><strong>Tinghe Zhang<sup>1</sup></strong> is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on deep learning for cancer genomics and drug response prediction.</p>
+<p><strong>Md Musaddaqui Hasib<sup>1</sup></strong> is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on interpretable deep learning for cancer genomics.</p>
+<p><strong>Yu-Chiao Chiu<sup>2</sup></strong>, PhD, is a postdoctoral fellow at the Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His postdoctoral research is focused on developing deep learning models for pharmacogenomic studies.</p>
+<p><strong>Zhenqing Ye<sup>2,3</sup></strong>, PhD, is an assistant professor in the Department of Population Health Sciences and the director of Computational Biology and Bioinformatics at Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His research focuses on computational methods on next generation sequencing and single-cell RNA-seq data analysis.</p>
+<p><strong>Karla Paniagua<sup>1</sup></strong>* is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. Her research focuses on ~</p>
+<p><strong>Sumin Jo<sup>1</sup></strong> is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. Her research focuses on m6A mRNA methylation and deep learning for biomedical applications.</p>
+<p><strong>Jianqiu Zhang<sup>1</sup></strong>, PhD, is an Associate Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio. Her current research focuses on deep learning for biomedical applications such as m6A mRNA methylation.</p>
+<p><strong>Shou-Jiang Gao<sup>4,6</sup></strong>, PhD, is a Professor in UPMC Hillman Cancer Center and Department of Microbiology and Molecular Genetics, University of Pittsburgh. His current research interests include Kaposi’s sarcoma-associate herpesvirus (KSHV), AIDS-related malignancies, translational and cancer therapeutics, and systems biology.</p>
+<p><strong>Yufang Jin<sup>1</sup></strong>, PhD, is a Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio. Her research focuses on mathematical modeling of cellular responses in immune systems, data-driven modeling and analysis of macrophage activations, and deep learning applications.</p>
+<p><strong>Yidong Chen<sup>2,3</sup></strong>, PhD, is a Professor in the Department of Population Health Sciences and the director of Computational Biology and Bioinformatics at Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His research interests include bioinformatics methods in next-generation sequencing technologies, integrative genomic data analysis, genetic data visualization and management, and machine learning in translational cancer research</p>
+<p><strong>Yufei Huang<sup>5,6</sup></strong>, PhD, is a Professor in UPMC Hillman Cancer Center and Department of Medicine, School of Medicine, University of Pittsburgh. His current research interests include uncovering the functions of m6A mRNA methylation, cancer virology, and medical AI &amp; deep learning.</p>
+<div id="corresponding-authors-mario-flores-mario.floresutsa.edu-yidong-chen-cheny8uthscsa.edu-and-yufei-huan-yuh119pitt.edu" class="section level4 unnumbered">
+<h4><strong><sup>§</sup>Corresponding authors</strong>: Mario Flores (<a href="mailto:mario.flores@utsa.edu" class="email">mario.flores@utsa.edu</a>), Yidong Chen (<a href="mailto:cheny8@uthscsa.edu" class="email">cheny8@uthscsa.edu</a>), and Yufei Huan (<a href="mailto:yuh119@pitt.edu" class="email">yuh119@pitt.edu</a>)</h4>
+</div>
+<div id="author-affiliations" class="section level4 unnumbered">
+<h4><strong>Author Affiliations</strong></h4>
+<p><sup>1</sup>Department of Electrical and Computer Engineering, the University of Texas at San Antonio, San Antonio, TX 78249, USA</p>
+<p><sup>2</sup>Greehey Children’s Cancer Research Institute, University of Texas Health San Antonio, San Antonio, TX 78229, USA</p>
+<p><sup>3</sup>Department of Population Health Sciences, University of Texas Health San Antonio, San Antonio, TX 78229, USA</p>
+<p><sup>4</sup>Department of Microbiology and Molecular Genetics, University of Pittsburgh, Pittsburgh, Pennsylvania, PA 15232, USA</p>
+<p><sup>5</sup>Department of Medicine, School of Medicine, University of Pittsburgh, PA 15232, USA</p>
+<p><sup>6</sup>UPMC Hillman Cancer Center, University of Pittsburgh, PA 15232, USA</p>
+<hr />
+<p><strong>Book Maintainer</strong></p>
+<p>Hello there :D</p>
+<p>Any feedback and contributions will be appreciated.</p>
+<p>Mail: <a href="mailto:sumin.jo@utsa.edu" class="email">sumin.jo@utsa.edu</a></p>
+<p>Website: <a href="https://github.com/Huang-AI4Medicine-Lab">Huang-AI4Medcine-Lab</a></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/edit/main/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["survey-of-DL-for-scRNA-seq-analysis.pdf", "survey-of-DL-for-scRNA-seq-analysis.epub"],
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

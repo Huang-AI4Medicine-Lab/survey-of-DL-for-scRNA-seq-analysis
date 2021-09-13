@@ -1,7 +1,9 @@
-h1:url-your-book-url-like-httpsbookdown.orgyihuibookdown url: your book url like https://bookdown.org/yihui/bookdown
-h1:cover-image-path-to-the-social-sharing-image-like-imagescover.jpg cover-image: path to the social sharing image like images/cover.jpg
-h1:about About
-h2:usage Usage
-h2:render-book Render book
-h2:preview-book Preview book
+h1:author-mario-flores-zhentao-liu-tinghe-zhang-md-musaddaqui-hasib-yu-chiao-chiu-zhenqing-ye-karla-paniagua-jianqiu-zhang-shou-jiang-gao-yufang-jin-yidong-chen-and-yufei-huang author: 
+h1:date-2021-09-11 date: 
+h1:bibliography-references.bib bibliography: References.bib
+h1:biblio-style-cell.cls biblio-style: cell.cls
+h1:front-matter Front Matter
+h3:authors Authors
+h4:corresponding-authors-mario-flores-mario.floresutsa.edu-yidong-chen-cheny8uthscsa.edu-and-yufei-huan-yuh119pitt.edu : Mario Flores (mario.flores@utsa.edu), Yidong Chen (cheny8@uthscsa.edu), and Yufei Huan (yuh119@pitt.edu)
+h4:author-affiliations 
 
