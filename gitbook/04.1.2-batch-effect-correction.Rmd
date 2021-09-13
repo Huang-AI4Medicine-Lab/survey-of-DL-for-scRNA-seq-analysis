@@ -1,0 +1,46 @@
+
+
+### Batch effect correction {#ch-4-1-2}
+
+
+When evaluating the performance of a batch correction method, we need to consider how well it mixes the shared cell types between different batches and at the same time identifies batch-specific cells. The existing metrics can be classified as cluster-level and cell-level metrics. Cluster level metrics are those used for evaluating clustering performance and include adjusted rand index (ARI), normalized mutual information (NMI), and silhouette coefficients. They are easy to compute but do not measure local mixture of cells from different batches. This drawback is addressed by the cell-level metrics, which includes k-nearest neighbor batch-effect test (kBET), local inverse Simpson’s index (LISI), and classifier-based. Because the cluster-level metrics will be discussed in detail in Section \@ref(ch-4-2-3), we focus on discussing cell-level metrics in this section. 
+
+
+Entropy of mixing. This metric evaluates the mixing of cells from different batches in the neighborhood of each cell [28]. It first randomly sample N cells and then for each cell it calculates the regional entropy of mixing as   
+
+$$E = \sum_{i=1}^{C}p_{i}\log{(p_{i})}$$
+
+where $C$ is the number of batches and $p_{i}$ is the proportion of cells from batch $i$ among $N$ nearest cells (e.g. $N$ = 100). The total entropy is the sum of reginal entropies. The computation repeats $K$ times to obtain an empirical distribution of the entropy of mixing. 
+
+**Maximum Mean Discrepancy (MMD)** is a non-parametric distance between distributions based on the reproducing kernel Hilbert space (RKHS) [51], or, MMD is a distance-based measure between two distribution $p$ and $q$ based on the mean embeddings $\mu_{p}$ and $\mu_{q}$ in a reproducing kernel Hilbert space $F$,
+
+$$MMD(F,p,q)=\sup_{f \in F}\|\mu_{p}-\mu_{q}\|_{f}$$
+
+MMD will vanish for most finite samples $x_{k}$ and $y_{k}$ only if two distributions are the same.
+
+
+**k-Nearest neighbor batch-effect test (kBET)**. kBET assesses the batch mixing by comparing the batch-specific distribution within $k$-nearest neighbors (kNNs) of a cell with the global distribution of batches [52]. It uses a $X^2$-based test for random neighborhoods of fixed size to determine whether they are well mixed. Given a dataset of $N$ cells from $L$ batches with $N_{l}$ denoting the number of cells in batch $l$. Under the null hypothesis that cells are ‘well mixed’, that is the absence of batch effect, we have the test statistics as 
+
+$$a_{n}^{k} = \sum_{l=1}^{L}\frac{(N_{nl}^{k}-k*f_{l})^{2}}{k*f_{l}} \sim X^{2}_{L-1}$$
+
+where $N_{nl}^{k}$ is the number of cells from batch $l$ in the $k$-nearest neighbors of cell $n$, $f_{l}$ is the global fraction of cells in batch $l$, or $f_{l}=\frac{N_{l}}{N}$,  and  $X_{L-1}^2$ denotes the $X^2$ distribution with $L-1$ degrees of freedom. The averaged rejection rate of the $Χ^2$ test for all cells is used to define the performance of a batch correction method. 
+
+**Local Inverse Simpson’s Index (LISI).**  Like kBET, LISI also compares the batch mixing at local level with global batch distribution. However, unlike kBET, which is agnostic of cell types, LISI requires well mixing of cells from the same cell type but not of those from different types [30]. LISI evaluates cell-type-specific mixing using an inverse Simpson’s Index in a local neighborhood of each cell. LISI builds Gaussian kernel-based distributions of local neighborhoods sensitive to local diversity. It calculates inverse Simpson’s Index in the k-nearest neighbors of cell $n$ for all batches as $\frac{1}{\lambda(n)}=\frac{1}{\sum_{l=1}^{L}(p(l))^{2}}$, where $p(l)$ denotes the proportion of batch $l$ in the $k$-nearest neighbors. The score reports the effective number of batches in the $k$-nearest neighbors of cell $n$. Inverse Simpson’s Index in the $k$-nearest neighbors of cell $n$ can also be calculated to evaluate the diversity of different cell types. However, in an ideal case, LISI score should be 1, reflecting a separation of unique cell types.
+
+**Classifier-based.**  Although LISI addresses the issue of cell-type proportion of different batches but it is hard to summarize all single cell-level LISI scores into a simple statistic for comparing across different methods [15]. The classifier-based approach addresses this issue by using two distinct local classifiers for each single cell. The first classifier classifies every single cell as positive and negative cells. A single cell $n$ is positive if at least 50$%$ cells of its k-nearest neighbor (KNN) cells are from the same cell-type label, otherwise ‘negative’. The positive cells are further classified into true and false positive cells, where true positive cells are those surrounded by appropriate portions of cells with L batches. In other words, if we sample $k$ cells from this cell-type cluster, the expected number of cells from batch $l$ will be $k*f_{l}$, where $f_{l}$ is the global fraction of cells in batch $l$. A positive cell in this cluster is a true positive when the observed cell numbers for each batch among its $k$ neighbors are within 3 standard deviations around the expected numbers. The proportions of positive cells and true positive cells are used as the summary metrics to evaluate the overall performance of batch effect removal. The higher the proportions, the better the algorithm.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

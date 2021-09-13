@@ -1,0 +1,11 @@
+
+### scGMAI  {#ch-5-1-5}
+
+Technically, scGMAI [58] is a model for clustering but it includes an AE in the first step to combat dropout. The scGAMI’s AE model is implemented with TensorFlow. 
+
+*Model. * To impute the missing values, scGMAI applies an AE like LATE to reconstruct log-transformed expressions with dropout. One difference is that it chooses Softplus as the activation function since it is smoother than ReLU and thus more suitable for scRNA-seq data. The MSE loss as in (9) is adopted. 
+After imputation, scGMAI uses fast independent component analysis (ICA) on the AE reconstructed expression to reduce the dimension and then applies a Gaussian mixture model on the ICA reduced data to perform the clustering. 
+
+*Evaluation metrics.* It used clustering metrics including NMI, ARI, Homogeneity, and Completeness to evaluate the performance. 
+
+*Results.* To assess the performance, the AE in scGMAI was replaced by five other imputation methods including SAVER [32], MAGIC [55], DCA [23], scImpute [33], and CIDR[59]. A scGMAI implementation without AE was also compared. Seventeen scRNA-seq data (part of them are listed in Table \@ref(tab:Table2) as marked) were used to evaluate cell clustering performances. The results indicated that the AEs significantly improved the clustering performance in eight of seventeen scRNA-Seq datasets.

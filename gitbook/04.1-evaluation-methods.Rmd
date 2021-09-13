@@ -1,0 +1,5 @@
+
+
+## Evaluation methods {#ch-4-1}
+
+An extensive list of evaluation methods has been proposed for different scRNA-seq analysis tasks [18, 48, 49]. We provide an overview here the methods adopted in the surveyed papers. We discuss them according to the key categories on which the surveyed papers are organized, namely, imputation, batch effect correction, dimension reduction and clustering, cell type identification, and functional analysis.    

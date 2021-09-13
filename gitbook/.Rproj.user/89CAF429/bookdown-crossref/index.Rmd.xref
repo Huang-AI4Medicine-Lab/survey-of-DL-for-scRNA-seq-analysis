@@ -1,9 +1,9 @@
 h1:author-mario-flores-zhentao-liu-tinghe-zhang-md-musaddaqui-hasib-yu-chiao-chiu-zhenqing-ye-karla-paniagua-jianqiu-zhang-shou-jiang-gao-yufang-jin-yidong-chen-and-yufei-huang author: 
 h1:date-2021-09-11 date: 
+h1:bibliography-book.bib-packages.bib bibliography: [book.bib, packages.bib]
 h1:bibliography-references.bib bibliography: References.bib
 h1:biblio-style-cell.cls biblio-style: cell.cls
-h1:front-matter Front Matter
-h3:authors Authors
+h1:contributors Contributors
 h4:corresponding-authors-mario-flores-mario.floresutsa.edu-yidong-chen-cheny8uthscsa.edu-and-yufei-huan-yuh119pitt.edu : Mario Flores (mario.flores@utsa.edu), Yidong Chen (cheny8@uthscsa.edu), and Yufei Huan (yuh119@pitt.edu)
 h4:author-affiliations 
 

@@ -8,7 +8,8 @@ site: bookdown::bookdown_site
 output: bookdown::gitbook
 number_sections: yes
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
+# bibliography: [book.bib, packages.bib]
 # bibliography: References.bib
 biblio-style: apalike
 # biblio-style: cell.cls
@@ -34,37 +35,37 @@ library(survival)
 
 ----------------------------------------------
 
-# Front Matter {-}
+# Contributors {-}
 
-### Authors {-}
+<!-- ### Authors {-} -->
 
-**Mario Flores^1§^**, PhD, is an Assistant Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio, and joint program Faculty of Biomedical Engineering at the University of Texas Health San Antonio. Before joined ECE, he was a postdoctoral fellow at the National Center for Biotechnology Information of the National Institutes of Health from 2015 to 2019. His research focuses on DNA and RNA sequence methods, transcriptomics analysis, epigenetics, comparative genomics, and deep learning to study mechanisms of gene regulation, single-cell RNA-seq, and Natural Language Processing.
+<!-- **Mario Flores^1§^**, PhD, is an Assistant Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio, and joint program Faculty of Biomedical Engineering at the University of Texas Health San Antonio. Before joined ECE, he was a postdoctoral fellow at the National Center for Biotechnology Information of the National Institutes of Health from 2015 to 2019. His research focuses on DNA and RNA sequence methods, transcriptomics analysis, epigenetics, comparative genomics, and deep learning to study mechanisms of gene regulation, single-cell RNA-seq, and Natural Language Processing. -->
 
-**Zhentao Liu<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on deep learning for cancer genomics and drug response prediction.
+<!-- **Zhentao Liu<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on deep learning for cancer genomics and drug response prediction. -->
 
-**Tinghe Zhang<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on deep learning for cancer genomics and drug response prediction.
+<!-- **Tinghe Zhang<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on deep learning for cancer genomics and drug response prediction. -->
 
-**Md Musaddaqui Hasib<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on interpretable deep learning for cancer genomics.
+<!-- **Md Musaddaqui Hasib<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. His research focuses on interpretable deep learning for cancer genomics. -->
 
-**Yu-Chiao Chiu<sup>2</sup>**, PhD, is a postdoctoral fellow at the Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His postdoctoral research is focused on developing deep learning models for pharmacogenomic studies.
+<!-- **Yu-Chiao Chiu<sup>2</sup>**, PhD, is a postdoctoral fellow at the Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His postdoctoral research is focused on developing deep learning models for pharmacogenomic studies. -->
 
-**Zhenqing Ye<sup>2,3</sup>**, PhD, is an assistant professor in the Department of Population Health Sciences and the director of Computational Biology and Bioinformatics at Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His research focuses on computational methods on next generation sequencing and single-cell RNA-seq data analysis.
+<!-- **Zhenqing Ye<sup>2,3</sup>**, PhD, is an assistant professor in the Department of Population Health Sciences and the director of Computational Biology and Bioinformatics at Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His research focuses on computational methods on next generation sequencing and single-cell RNA-seq data analysis. -->
 
-**Karla Paniagua<sup>1</sup>*** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. Her research focuses on ~
-
-
-**Sumin Jo<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. Her research focuses on m6A mRNA methylation and deep learning for biomedical applications.
+<!-- **Karla Paniagua<sup>1</sup>*** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. Her research focuses on ~ -->
 
 
-**Jianqiu Zhang<sup>1</sup>**, PhD, is an Associate Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio. Her current research focuses on deep learning for biomedical applications such as m6A mRNA methylation.
+<!-- **Sumin Jo<sup>1</sup>** is a PhD student in the Department of Electrical and Computer Engineering, the University of Texas at San Antonio. Her research focuses on m6A mRNA methylation and deep learning for biomedical applications. -->
 
-**Shou-Jiang Gao<sup>4,6</sup>**, PhD, is a Professor in UPMC Hillman Cancer Center and Department of Microbiology and Molecular Genetics, University of Pittsburgh. His current research interests include Kaposi’s sarcoma-associate herpesvirus (KSHV), AIDS-related malignancies, translational and cancer therapeutics, and systems biology.
 
-**Yufang Jin<sup>1</sup>**, PhD, is a Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio. Her research focuses on mathematical modeling of cellular responses in immune systems, data-driven modeling and analysis of macrophage activations, and deep learning applications.
+<!-- **Jianqiu Zhang<sup>1</sup>**, PhD, is an Associate Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio. Her current research focuses on deep learning for biomedical applications such as m6A mRNA methylation. -->
 
-**Yidong Chen<sup>2,3</sup>**, PhD,  is a Professor in the Department of Population Health Sciences and the director of Computational Biology and Bioinformatics at Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His research interests include bioinformatics methods in next-generation sequencing technologies, integrative genomic data analysis, genetic data visualization and management, and machine learning in translational cancer research
+<!-- **Shou-Jiang Gao<sup>4,6</sup>**, PhD, is a Professor in UPMC Hillman Cancer Center and Department of Microbiology and Molecular Genetics, University of Pittsburgh. His current research interests include Kaposi’s sarcoma-associate herpesvirus (KSHV), AIDS-related malignancies, translational and cancer therapeutics, and systems biology. -->
 
-**Yufei Huang<sup>5,6</sup>**, PhD,  is a Professor in UPMC Hillman Cancer Center and Department of Medicine, School of Medicine, University of Pittsburgh. His current research interests include uncovering the functions of m6A mRNA methylation, cancer virology, and medical AI & deep learning.
+<!-- **Yufang Jin<sup>1</sup>**, PhD, is a Professor in the Department of Electrical and Computer Engineering at the University of Texas at San Antonio. Her research focuses on mathematical modeling of cellular responses in immune systems, data-driven modeling and analysis of macrophage activations, and deep learning applications. -->
+
+<!-- **Yidong Chen<sup>2,3</sup>**, PhD,  is a Professor in the Department of Population Health Sciences and the director of Computational Biology and Bioinformatics at Greehey Children’s Cancer Research Institute at the University of Texas Health San Antonio. His research interests include bioinformatics methods in next-generation sequencing technologies, integrative genomic data analysis, genetic data visualization and management, and machine learning in translational cancer research -->
+
+<!-- **Yufei Huang<sup>5,6</sup>**, PhD,  is a Professor in UPMC Hillman Cancer Center and Department of Medicine, School of Medicine, University of Pittsburgh. His current research interests include uncovering the functions of m6A mRNA methylation, cancer virology, and medical AI & deep learning. -->
 
 
 #### **<sup>§</sup>Corresponding authors**: Mario Flores (mario.flores@utsa.edu), Yidong Chen (cheny8@uthscsa.edu), and Yufei Huan (yuh119@pitt.edu) {-}
