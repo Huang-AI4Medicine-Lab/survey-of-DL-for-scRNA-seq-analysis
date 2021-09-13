@@ -1,0 +1,22 @@
+
+### scVI: single-cell variational inference  {#ch-5-4-1}
+scVI [13] is designed to address a range of fundamental analysis tasks, including batch correction, visualization, clustering, and differential expression. 
+Model. scVI  is a VAE that models the counts of each cell from different batches. scVI adopts a ZINB distribution for x_gn
+p(x_gn│π_gn,L_n 〖,ν〗_gn,α)=π_gn δ(0)+(1-π_gn )NB(L_n ν_gn,α_g )
+(31)
+which is defined similarly as Eq (11) in DCA, except that L_n denotes the scaling factor for cell n, which follows a log-Normal (logN) prior as p(L_n )= logN(μ_(L_n ),σ_(L_n)^2 ), therefore, v_gn represents the mean counts normalized by L_n. Now, let s_n∈{0,1}^B be the batch ID of cell n with B being the total number of batches. Then, ν_gn and π_g are further modeled as functions of the d-dimension latent variable z_n∈R^d and the batch ID s_n by the decoder networks D_(θ_ν ) and D_(θ_π ) as 
+	ν_n=D_(θ_ν ) (z_n,s_n ),  π_n=D_(θ_π ) (z_n,s_n )
+(32)
+where the gth element of ν_n and π_n are ν_gn  and π_g, respectively, and  θ_ν, and θ_π are the decoder weights. Note that the lower layers of the two decoders are shared. For inference, both z_n and L_n are considered as latent variables and therefore q(x_n,s_n )=q(z_n│x_n,s_n )q(L_n│x_n,s_n )  is a mean-field approximate to the intractable posterior distribution p(z_n,L_n│x_n,s_n ) and  
+	q(z_n│x_n,s_n )= N(〖μ_z〗_n,diag( σ_(Z_n)^2 )), 
+q(L_n│x_n,s_n ) =  logN(〖μ_L〗_n,diag( σ_(L_n)^2 ))	(33)
+whose means and variances {〖μ_z〗_n,σ_(Z_n)^2 } and {〖μ_L〗_n,σ_(L_n)^2 } are defined by the encoder networks E_Z and E_L applied to x_n and s_n as
+	  {〖μ_z〗_n,σ_(Z_n)^2 }=E_(ϕ_z ) (x_n,s_n ),   
+{〖μ_L〗_n,σ_(L_n)^2 }=E_(ϕ_L ) (z_n,s_n )
+(34)
+where  ϕ_z, and ϕ_L are the encoder weights. Note that, like the decoders, the lower layers of the two encoders are also shared. Overall, the model parameters to be estimated by the variational optimization is Θ={θ_ν,θ_π,ϕ_z,ϕ_L,α_g }. After inference is made, the latent vectors z_n are used for visualization and clustering. ν_gn provides a batch-corrected, size-factor normalized estimate of gene expression for each gene g in each cell n.  An added advantage of the probabilistic representation by scVI is that it provides a natural probabilistic treatment of the subsequent differential analysis, resulting in lower variance in the adopted hypothesis tests. 
+
+*Evaluation metrics:* Run-time vs. dataset size was used to assess the scalability. To assess imputation, randomly selected non-zero entries in the count matrix were used as hold-out data and the L_1distance between the imputed and the original values in the hold-out data were used to measure the imputation accuracy. For clustering, ARI, NMI, and the Silhouette index were used. The entropy of bach mixing was adopted to measure batch correction performance.
+
+*Results:* scVI was evaluated for its scalability, the performance of imputation. For scalability, ScVI was shown to be faster than most nonDL algorithms and scalable to handle twice as many cells as nonDL algorithms with a fixed memory. For imputation, ScVI, together with other ZINB-based models, performed better than methods using alternative distributions. However, it underperformed for the dataset (HEMATO) with fewer cells. For the latent space, scVI was shown to provide a comparable stratification of cells into previously annotated cell types. Although scVI failed to ravel SIMLR, it is among the best in capturing biological structures (hierarchical structure, dynamics, etc.) and recognizing noise in data. For batch correction, it outperforms ComBat. For normalizing sequencing depth, the size factor inferred by scVI was shown to be strongly correlated with the sequencing depth. Interestingly, the negative binomial distribution in the ZINB was found to explain the proportions of zero expressions in the cells, whereas the zero probability π_gn is found to be more correlated with alignment errors. For differential expression analysis, scVI was shown to be among the best.    
+
