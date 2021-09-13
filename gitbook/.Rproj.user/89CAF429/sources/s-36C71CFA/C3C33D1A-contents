@@ -1,5 +1,0 @@
-
-# Overview of datasets and evaluation metrics {#ch-4}
-
-A variety of datasets and performance evaluation metrics have been used to demonstrate the performance of the surveyed DL models for different tasks. We summarize these datasets and evaluation metrics in Table \@ref(fig:Table2a) & \@ref(fig:Table3). We detail the mathematical definition of the evaluation metrics in the following. 
-
