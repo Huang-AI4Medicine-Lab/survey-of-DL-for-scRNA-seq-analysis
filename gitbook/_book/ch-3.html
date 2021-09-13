@@ -21,7 +21,7 @@
   
   
 
-<meta name="author" content="Mario Flores, Zhentao Liu, Tinghe Zhang, Md Musaddaqui Hasib, Yu-Chiao Chiu, Zhenqing Ye, Karla Paniagua, Sumin Jo, Jianqiu Zhang, Shou-Jiang Gao, Yufang Jin, Yidong Chen, and Yufei Huang" />
+<meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
 
 
 <meta name="date" content="2021-09-13" />
@@ -95,7 +95,7 @@ div.csl-indent {
 <li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Contributors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html"><i class="fa fa-check"></i>About this book</a>
 <ul>
 <li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
@@ -170,6 +170,7 @@ div.csl-indent {
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-6.html"><a href="ch-6.html"><i class="fa fa-check"></i><b>6</b> Conclusion and Discussions</a></li>
+<li class="chapter" data-level="7" data-path="ch-7.html"><a href="ch-7.html"><i class="fa fa-check"></i><b>7</b> Tables</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -199,21 +200,10 @@ Figure 3.1: Graphical models of the surveyed DL models including A) Variational 
 </p>
 </div>
 <p>Unsupervised learning is the key step in the scRNA-Seq analysis, including batch correction, dimension reduction, imputation, and clustering, which lend themselves naturally to unsupervised DL models including the variational autoencoder (VAE), the autoencoder (AE), or generative adversarial networks (GAN). Also, adversarial transfer learning has been applied for cell-type classification. We started our review by introducing the general formulations of VAE, AE, and GAN for scRNA-seq together with their training strategies. These general formulations facilitate understanding the methodologies used by different papers in developing their specific algorithms, enabling us to focus on the different features of each method and bring attention to their uniqueness and novelty.</p>
-<!-- ## math example -->
-<!-- $p$ is unknown but expected to be around 1/3. Standard error will be approximated -->
-<!-- $$ -->
-<!-- SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027 -->
-<!-- $$ -->
-<!-- You can also use math in footnotes like this^[where we mention $p = \frac{a}{b}$]. -->
-<!-- We will approximate standard error to 0.027[^longnote] -->
-<!-- [^longnote]: $p$ is unknown but expected to be around 1/3. Standard error will be approximated -->
-<!--     $$ -->
-<!--     SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027 -->
-<!--     $$ -->
 
 <div id="ch-3-1" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Variational Autoencoder (VAEs) for scRNA-Seq data</h2>
-<p>Let <span class="math inline">\(x_{n}\)</span> represent a <span class="math inline">\(G \times 1\)</span> vector of gene expression (UMI counts or normalized, log-transformed expression) of <span class="math inline">\(G\)</span> genes in cell n, where <span class="math inline">\(x_{gn}\)</span> denotes gene <span class="math inline">\(g\)</span>’s expression, which is assumed to follow some distribution <span class="math inline">\(p(x_{gn} \vert v_{gn}, \alpha_{gn} )\)</span> (e.g., zero-inflated negative binomial (ZINB) or Gaussian), where <span class="math inline">\(v_{gn}\)</span> and <span class="math inline">\(\alpha_{gn}\)</span> are parameters of the distribution (e.g., mean, variance, or dispersion) (Fig.2A). We consider the first parameter <span class="math inline">\(v_{gn}\)</span> to be of particular interest (e.g., the mean counts) for the scRNA-seq analysis and is thus further modeled as a function of a d-dimension latent variable <span class="math inline">\(z_{n} \in R^{d}\)</span> and an observed variable <span class="math inline">\(s_{n}\)</span> (e.g., the batch ID) by a decoder neural network <span class="math inline">\(D_{\theta}\)</span> (Fig.2A) as</p>
+<p>Let <span class="math inline">\(x_{n}\)</span> represent a <span class="math inline">\(G \times 1\)</span> vector of gene expression (UMI counts or normalized, log-transformed expression) of <span class="math inline">\(G\)</span> genes in cell n, where <span class="math inline">\(x_{gn}\)</span> denotes gene <span class="math inline">\(g\)</span>’s expression, which is assumed to follow some distribution <span class="math inline">\(p(x_{gn} \vert v_{gn}, \alpha_{gn} )\)</span> (e.g., zero-inflated negative binomial (ZINB) or Gaussian), where <span class="math inline">\(v_{gn}\)</span> and <span class="math inline">\(\alpha_{gn}\)</span> are parameters of the distribution (e.g., mean, variance, or dispersion) (Fig.<a href="#Figure2"><strong>??</strong></a>A). We consider the first parameter <span class="math inline">\(v_{gn}\)</span> to be of particular interest (e.g., the mean counts) for the scRNA-seq analysis and is thus further modeled as a function of a d-dimension latent variable <span class="math inline">\(z_{n} \in R^{d}\)</span> and an observed variable <span class="math inline">\(s_{n}\)</span> (e.g., the batch ID) by a decoder neural network <span class="math inline">\(D_{\theta}\)</span> (Fig.<a href="#Figure2"><strong>??</strong></a>A) as</p>
 <p><span class="math display" id="eq:eq1">\[\begin{equation}
 v_{n} = D_{\theta}(z_{n}, s_{n}) \tag{3.1}
 \end{equation}\]</span></p>
@@ -230,7 +220,7 @@ v_{n} = D_{\theta}(z_{n}, s_{n}) \tag{3.1}
 <p><span class="math display" id="eq:eq4">\[\begin{equation}
   q(z_{n} \vert x_{n},s_{n})= N(\mu_{z_{n}},diag({\sigma_{Z_{n}}}^2)) \tag{3.4}
 \end{equation}\]</span></p>
-<p>whose means and variances <span class="math inline">\({\mu_{z_{n}},{\sigma_{Z_{n}}}^2}\)</span> are given by an encoder network <span class="math inline">\(E_{\phi}\)</span> applied to <span class="math inline">\(x_{n}\)</span> and <span class="math inline">\(s_{n}\)</span> (Fig.<a href="ch-3.html#fig:Figure2">3.1</a>-A) as</p>
+<p>whose means and variances <span class="math inline">\({\mu_{z_{n}},{\sigma_{Z_{n}}}^2}\)</span> are given by an encoder network <span class="math inline">\(E_{\phi}\)</span> applied to <span class="math inline">\(x_{n}\)</span> and <span class="math inline">\(s_{n}\)</span> (Fig.<a href="ch-3.html#fig:Figure2">3.1</a>A) as</p>
 <p><span class="math display" id="eq:eq5">\[\begin{equation}
    {\mu_{z_{n}},{\sigma_{Z_{n}}}^2} = E_{\phi}(x_{n},s_{n}) \tag{3.5}
 \end{equation}\]</span></p>
@@ -240,28 +230,15 @@ v_{n} = D_{\theta}(z_{n}, s_{n}) \tag{3.1}
 L(\Theta) = - L(\Theta) + \sum_{k=1}^{K}\lambda_{k}L_{k}(\Theta)\tag{3.6}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(L_{k}\forall{k}=1,…,K\)</span> are <span class="math inline">\(K\)</span> additional function-specific losses introduced to constrain the model for different functions (clustering, cell type prediction, etc), and <span class="math inline">\(\lambda_{k}\)</span>s are the Lagrange multipliers. With this general formulation, for each paper, we focus on the survey the specific choice of data distribution <span class="math inline">\(p(x_{gn} \vert v_{gn},\alpha_{gn})\)</span> that defines <span class="math inline">\(L(\Theta)\)</span>, different <span class="math inline">\(L_{k}\)</span> designed for specific functions, and how the decoder and encoder are applied to model different aspects of scRNA-seq data.</p>
-<!-- See Figure \@ref(fig:cars-plot). -->
-<!-- ```{r cars-plot, fig.cap="The cars data.", echo=FALSE} -->
-<!-- par(mar = c(4, 4, .2, .1)) -->
-<!-- plot(cars)  # a scatterplot -->
-<!-- ``` -->
-<!-- Also see Equation \@ref(eq:mean). -->
-<!-- \begin{equation} -->
-<!-- \bar{X} = \frac{\sum_{i=1}^n X_i}{n} (\#eq:mean) -->
-<!-- \end{equation} -->
-<!-- And see Table \@ref(tab:mtcars). -->
-<!-- ```{r mtcars, echo=FALSE} -->
-<!-- knitr::kable(mtcars[1:5, 1:5], caption = "The mtcars data.") -->
-<!-- ``` -->
 
 </div>
 <div id="ch-3-2" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Autoencoders (AEs) for scRNA-seq data</h2>
-<p>AEs have been proposed to learn the low dimensional latent representation of expression <span class="math inline">\(x_{n}\)</span>. The AE includes an encoder <span class="math inline">\(E_{\phi}\)</span> and a decoder <span class="math inline">\(D_{\theta}\)</span> (Fig. <a href="ch-3.html#fig:Figure2">3.1</a>-B) such that</p>
+<p>AEs have been proposed to learn the low dimensional latent representation of expression <span class="math inline">\(x_{n}\)</span>. The AE includes an encoder <span class="math inline">\(E_{\phi}\)</span> and a decoder <span class="math inline">\(D_{\theta}\)</span> (Fig.<a href="ch-3.html#fig:Figure2">3.1</a>B) such that</p>
 <p><span class="math display" id="eq:eq7">\[\begin{equation}
     z_{n}=E_{\phi}(x_{n}); \hat{x_{n}} = D_{\theta}(z_{n})  \tag{3.7}
 \end{equation}\]</span></p>
-<p>where like VAE <span class="math inline">\(z_{n} \in R^{d}\)</span> is the d-dimension latent variable, <span class="math inline">\(\Theta = \{\theta,\phi\}\)</span> are encoder and decoder weight parameters, and <span class="math inline">\(\hat{x_{n}}\)</span> defines the parameters (e.g. mean) of data distribution and thus the likelihood <span class="math inline">\(p(x_{n} \vert \Theta)\)</span> (Fig.<a href="ch-2.html#fig:Figure1">2.1</a>-B). Note that the mean of <span class="math inline">\(p(x_{n}\vert \Theta)\)</span> is often considered as the imputed and denoised expression of <span class="math inline">\(x_{n}\)</span>. For most common AEs, <span class="math inline">\(p(x_{n}\vert \Theta)\)</span> assumes a Gaussian distribution and <span class="math inline">\(\hat{x_{n}}\)</span> becomes the mean of the Gaussian and can be directly used as imputed, normalized gene expression. Nevertheless, additional designs can be introduced to attend imputation specifically. <span class="math inline">\(p(x_{n}\vert \Theta)\)</span> can also be negative binomial (NB) or ZINB as in DCA [23] to model the reads count directly with their parameters defined as functions of <span class="math inline">\(\hat{x_{n}}\)</span>. Additional design can be included in the AE model for batch correction, clustering, and other functions.</p>
+<p>where like VAE <span class="math inline">\(z_{n} \in R^{d}\)</span> is the d-dimension latent variable, <span class="math inline">\(\Theta = \{\theta,\phi\}\)</span> are encoder and decoder weight parameters, and <span class="math inline">\(\hat{x_{n}}\)</span> defines the parameters (e.g. mean) of data distribution and thus the likelihood <span class="math inline">\(p(x_{n} \vert \Theta)\)</span> (Fig.<a href="ch-2.html#fig:Figure1">2.1</a>B). Note that the mean of <span class="math inline">\(p(x_{n}\vert \Theta)\)</span> is often considered as the imputed and denoised expression of <span class="math inline">\(x_{n}\)</span>. For most common AEs, <span class="math inline">\(p(x_{n}\vert \Theta)\)</span> assumes a Gaussian distribution and <span class="math inline">\(\hat{x_{n}}\)</span> becomes the mean of the Gaussian and can be directly used as imputed, normalized gene expression. Nevertheless, additional designs can be introduced to attend imputation specifically. <span class="math inline">\(p(x_{n}\vert \Theta)\)</span> can also be negative binomial (NB) or ZINB as in DCA [23] to model the reads count directly with their parameters defined as functions of <span class="math inline">\(\hat{x_{n}}\)</span>. Additional design can be included in the AE model for batch correction, clustering, and other functions.</p>
 <p>The training of the AE is generally carried out by stochastic gradient descent algorithms to minimize the loss with the general expression similar to that of VAE in eq.<a href="ch-3.html#eq:eq6">(3.6)</a></p>
 <p><span class="math display" id="eq:eq8">\[\begin{equation}
     L(\Theta)=L_{0}(\Theta)+\sum_{k=1}^{K}\lambda_{k}L_{k}(\Theta) \tag{3.8}
@@ -275,7 +252,7 @@ L_{0}(\Theta)=\sum_{n=1}^{N}\|x_{n}-\hat{x_{n}}\|_{2}^{2} \tag{3.9}
 </div>
 <div id="ch-3-3" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Generative adversarial networks (GANs) for scRNA-seq data</h2>
-<p>GANs have been used for imputation, data generation and augmentation of the scRNA-seq analysis. Without loss of generality, the GAN, when applied to scRNA-seq, is designed to learn to generate gene expression profiles from <span class="math inline">\(p_{x}\)</span>, the distribution of <span class="math inline">\(x_{n}\)</span>, the count or normalized expression vectors of the scRNA data. The vanilla GAN consists of two deep neural networks [2]. The first network is the generator <span class="math inline">\(G_{\theta}(z_{n},y_{n})\)</span> with parameter <span class="math inline">\(\theta\)</span>, which is essentially a decoder that takes a noise vector <span class="math inline">\(z_{n}\)</span> from the distribution <span class="math inline">\(p_{z}\)</span> and a class label <span class="math inline">\(y\)</span> (e.g. cell type) as input and is trained to generate <span class="math inline">\(x_{f}\)</span>, a “fake” sample of a gene expression profile (Fig.<a href="ch-3.html#fig:Figure2">3.1</a>-C). Note that including a class label <span class="math inline">\(y_{n}\)</span> at the input is optional and when it is included, the model is known as the conditional GAN. The second network is the discriminator network <span class="math inline">\(D_{\phi_{D}}\)</span> with parameters <span class="math inline">\(\phi_{D}\)</span>, which is a classifier trained to distinguish between the “real” sample <span class="math inline">\(x\)</span> and fake data <span class="math inline">\(x_{f}\)</span> (Fig.<a href="ch-2.html#fig:Figure1">2.1</a>-C). The generator <span class="math inline">\(G_{\theta}\)</span> and discriminator <span class="math inline">\(D_{\phi_{D}}\)</span> are trained to outplay each other, resulting in a minimax game, in which <span class="math inline">\(G_{\theta}\)</span> is forced by <span class="math inline">\(D_{\phi_{D}}\)</span> to produce better samples, which, when converge, can fool the discriminator <span class="math inline">\(D_{\phi_{D}}\)</span>, thus becoming samples from <span class="math inline">\(p_{x}\)</span>. The vanilla GAN suffers heavily from training instability and mode collapsing [44]. To that end, Wasserstein GAN (WGAN) was developed to effectively improve the training stability and convergence [45]. The WGAN loss computes the Wasserstein distance, also called the earth moving distance between the real and fake sample distributions [46]:</p>
+<p>GANs have been used for imputation, data generation and augmentation of the scRNA-seq analysis. Without loss of generality, the GAN, when applied to scRNA-seq, is designed to learn to generate gene expression profiles from <span class="math inline">\(p_{x}\)</span>, the distribution of <span class="math inline">\(x_{n}\)</span>, the count or normalized expression vectors of the scRNA data. The vanilla GAN consists of two deep neural networks [2]. The first network is the generator <span class="math inline">\(G_{\theta}(z_{n},y_{n})\)</span> with parameter <span class="math inline">\(\theta\)</span>, which is essentially a decoder that takes a noise vector <span class="math inline">\(z_{n}\)</span> from the distribution <span class="math inline">\(p_{z}\)</span> and a class label <span class="math inline">\(y\)</span> (e.g. cell type) as input and is trained to generate <span class="math inline">\(x_{f}\)</span>, a “fake” sample of a gene expression profile (Fig.<a href="ch-3.html#fig:Figure2">3.1</a>C). Note that including a class label <span class="math inline">\(y_{n}\)</span> at the input is optional and when it is included, the model is known as the conditional GAN. The second network is the discriminator network <span class="math inline">\(D_{\phi_{D}}\)</span> with parameters <span class="math inline">\(\phi_{D}\)</span>, which is a classifier trained to distinguish between the “real” sample <span class="math inline">\(x\)</span> and fake data <span class="math inline">\(x_{f}\)</span> (Fig.<a href="ch-2.html#fig:Figure1">2.1</a>C). The generator <span class="math inline">\(G_{\theta}\)</span> and discriminator <span class="math inline">\(D_{\phi_{D}}\)</span> are trained to outplay each other, resulting in a minimax game, in which <span class="math inline">\(G_{\theta}\)</span> is forced by <span class="math inline">\(D_{\phi_{D}}\)</span> to produce better samples, which, when converge, can fool the discriminator <span class="math inline">\(D_{\phi_{D}}\)</span>, thus becoming samples from <span class="math inline">\(p_{x}\)</span>. The vanilla GAN suffers heavily from training instability and mode collapsing [44]. To that end, Wasserstein GAN (WGAN) was developed to effectively improve the training stability and convergence [45]. The WGAN loss computes the Wasserstein distance, also called the earth moving distance between the real and fake sample distributions [46]:</p>
 <p><span class="math display" id="eq:eq10">\[\begin{equation}
   L(\Theta)=\max_{\phi_{D}}\sum_{n=1}^{N}D_{\phi_{D}}(x_{n})-\sum{n=1}^{N}D_{\phi_{D}}(G_{\theta}(z_{n},y_{n})) \tag{3.10}
 \end{equation}\]</span></p>

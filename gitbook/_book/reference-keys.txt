@@ -10,6 +10,7 @@ eq:eq7
 eq:eq8
 eq:eq9
 eq:eq10
+fig:Figure3
 eq:eq11
 eq:eq12
 eq:eq13
@@ -28,6 +29,13 @@ eq:eq25
 eq:eq26
 eq:eq27
 eq:eq28
+fig:Table1
+fig:Table2a
+fig:Table2b
+fig:Table2c
+fig:Table2d
+fig:Table2e
+fig:Table3
 ch-1
 ch-2
 ch-3
@@ -75,3 +83,4 @@ ch-5-7
 ch-5-7-1
 ch-5-7-2
 ch-6
+ch-7

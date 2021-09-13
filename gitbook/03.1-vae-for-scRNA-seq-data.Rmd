@@ -2,7 +2,7 @@
 ## Variational Autoencoder (VAEs) for scRNA-Seq data {#ch-3-1}
 
 
-Let $x_{n}$ represent a $G \times 1$ vector of gene expression (UMI counts or normalized, log-transformed expression) of $G$ genes in cell n, where $x_{gn}$ denotes gene $g$’s expression,  which is assumed to follow some distribution $p(x_{gn} \vert v_{gn}, \alpha_{gn} )$ (e.g., zero-inflated negative binomial (ZINB) or Gaussian), where $v_{gn}$ and $\alpha_{gn}$ are parameters of the distribution (e.g., mean, variance, or dispersion) (Fig.2A). We consider the first parameter $v_{gn}$ to be of particular interest (e.g., the mean counts) for the scRNA-seq analysis and is thus further modeled as a function of a d-dimension latent variable $z_{n} \in R^{d}$ and an observed variable $s_{n}$ (e.g., the batch ID) by a decoder neural network $D_{\theta}$ (Fig.2A) as
+Let $x_{n}$ represent a $G \times 1$ vector of gene expression (UMI counts or normalized, log-transformed expression) of $G$ genes in cell n, where $x_{gn}$ denotes gene $g$’s expression,  which is assumed to follow some distribution $p(x_{gn} \vert v_{gn}, \alpha_{gn} )$ (e.g., zero-inflated negative binomial (ZINB) or Gaussian), where $v_{gn}$ and $\alpha_{gn}$ are parameters of the distribution (e.g., mean, variance, or dispersion) (Fig.\@ref(Figure2)A). We consider the first parameter $v_{gn}$ to be of particular interest (e.g., the mean counts) for the scRNA-seq analysis and is thus further modeled as a function of a d-dimension latent variable $z_{n} \in R^{d}$ and an observed variable $s_{n}$ (e.g., the batch ID) by a decoder neural network $D_{\theta}$ (Fig.\@ref(Figure2)A) as
 
 \begin{equation}
 v_{n} = D_{\theta}(z_{n}, s_{n}) (\#eq:eq1)
@@ -32,7 +32,7 @@ where $q(z_{n}│x_{n},s_{n})$ is an approximate to the intractable posterior di
 \end{equation}
 
 
-whose means and variances ${\mu_{z_{n}},{\sigma_{Z_{n}}}^2}$ are given by an encoder network $E_{\phi}$ applied to $x_{n}$ and $s_{n}$ (Fig.\@ref(fig:Figure2)-A) as
+whose means and variances ${\mu_{z_{n}},{\sigma_{Z_{n}}}^2}$ are given by an encoder network $E_{\phi}$ applied to $x_{n}$ and $s_{n}$ (Fig.\@ref(fig:Figure2)A) as
 
 
 \begin{equation}
@@ -58,25 +58,6 @@ where  $L_{k}\forall{k}=1,…,K$ are $K$ additional function-specific losses int
 
 
 
-
-<!-- See Figure \@ref(fig:cars-plot). -->
-
-<!-- ```{r cars-plot, fig.cap="The cars data.", echo=FALSE} -->
-<!-- par(mar = c(4, 4, .2, .1)) -->
-<!-- plot(cars)  # a scatterplot -->
-<!-- ``` -->
-
-<!-- Also see Equation \@ref(eq:mean). -->
-
-<!-- \begin{equation} -->
-<!-- \bar{X} = \frac{\sum_{i=1}^n X_i}{n} (\#eq:mean) -->
-<!-- \end{equation} -->
-
-<!-- And see Table \@ref(tab:mtcars). -->
-
-<!-- ```{r mtcars, echo=FALSE} -->
-<!-- knitr::kable(mtcars[1:5, 1:5], caption = "The mtcars data.") -->
-<!-- ``` -->
 
 
 

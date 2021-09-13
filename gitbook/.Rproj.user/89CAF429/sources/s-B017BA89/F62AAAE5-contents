@@ -1,4 +1,0 @@
-
-## Biological function prediction {#ch-5-7}
-
-Predicting biological function and/reponse to treatment at single cell level or cell types is critical to understand cell system functioning and potent response to stimulation. Utilize DL models that captures gene-gene relationship and their property at latent space, several models we reviewed below provide some exciting approach to achieve complex biological functions and outcomes.

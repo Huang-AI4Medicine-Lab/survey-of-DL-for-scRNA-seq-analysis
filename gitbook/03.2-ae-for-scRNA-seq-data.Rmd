@@ -2,13 +2,13 @@
 ## Autoencoders (AEs) for scRNA-seq data {#ch-3-2}
 
 
-AEs have been proposed to learn the low dimensional latent representation of expression $x_{n}$. The AE includes an encoder $E_{\phi}$ and a decoder $D_{\theta}$ (Fig. \@ref(fig:Figure2)-B) such that
+AEs have been proposed to learn the low dimensional latent representation of expression $x_{n}$. The AE includes an encoder $E_{\phi}$ and a decoder $D_{\theta}$ (Fig.\@ref(fig:Figure2)B) such that
 
 \begin{equation}
 	z_{n}=E_{\phi}(x_{n}); \hat{x_{n}} = D_{\theta}(z_{n})	(\#eq:eq7)
 \end{equation}
 
-where like VAE $z_{n} \in R^{d}$ is the d-dimension latent variable,  $\Theta = \{\theta,\phi\}$ are encoder and decoder weight parameters, and $\hat{x_{n}}$ defines the parameters (e.g. mean) of data distribution and thus the likelihood $p(x_{n} \vert \Theta)$ (Fig.\@ref(fig:Figure1)-B). Note that the mean of $p(x_{n}\vert \Theta)$ is often considered as the imputed and denoised expression of $x_{n}$. For most common AEs, $p(x_{n}\vert \Theta)$ assumes a Gaussian distribution and $\hat{x_{n}}$ becomes the mean of the Gaussian and can be directly used as imputed, normalized gene expression. Nevertheless, additional designs can be introduced to attend imputation specifically.  $p(x_{n}\vert \Theta)$ can also be negative binomial (NB) or ZINB as in DCA [23] to model the reads count directly with their parameters defined as functions of $\hat{x_{n}}$. Additional design can be included in the AE model for batch correction, clustering, and other functions. 
+where like VAE $z_{n} \in R^{d}$ is the d-dimension latent variable,  $\Theta = \{\theta,\phi\}$ are encoder and decoder weight parameters, and $\hat{x_{n}}$ defines the parameters (e.g. mean) of data distribution and thus the likelihood $p(x_{n} \vert \Theta)$ (Fig.\@ref(fig:Figure1)B). Note that the mean of $p(x_{n}\vert \Theta)$ is often considered as the imputed and denoised expression of $x_{n}$. For most common AEs, $p(x_{n}\vert \Theta)$ assumes a Gaussian distribution and $\hat{x_{n}}$ becomes the mean of the Gaussian and can be directly used as imputed, normalized gene expression. Nevertheless, additional designs can be introduced to attend imputation specifically.  $p(x_{n}\vert \Theta)$ can also be negative binomial (NB) or ZINB as in DCA [23] to model the reads count directly with their parameters defined as functions of $\hat{x_{n}}$. Additional design can be included in the AE model for batch correction, clustering, and other functions. 
 
 The training of the AE is generally carried out by stochastic gradient descent algorithms to minimize the loss with the general expression similar to that of VAE in eq.\@ref(eq:eq6) 
 
