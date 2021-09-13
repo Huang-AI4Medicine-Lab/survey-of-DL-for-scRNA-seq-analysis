@@ -34,6 +34,11 @@ Since its selection as the method of the year in 2013, single-cell technologies 
 >  deep learning; single-cell RNA-seq; imputation; dimention reduction; clustering; batch correction; cell type identification; functional prediction; visualization
 
 
+
+### [View this book](https://huang-ai4medicine-lab.github.io/survey-of-DL-for-scRNA-seq-analysis/gitbook/_book/index.html)
+
+
+
 # 
 ### **Book Maintainer**
 Hello, this is Sumin. Any feedback and contributions will be appreciated :)
