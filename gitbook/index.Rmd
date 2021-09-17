@@ -6,8 +6,8 @@ site: bookdown::bookdown_site
 output: bookdown::gitbook
 number_sections: yes
 documentclass: book
-bibliography: [book.bib]
-# bibliography: [book.bib, packages.bib]
+# bibliography: [book.bib]
+bibliography: [book.bib, packages.bib]
 # bibliography: References.bib
 biblio-style: apalike
 # biblio-style: cell.cls

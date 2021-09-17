@@ -1,0 +1,75 @@
+packages <- installed.packages()
+lapply(packages, require, character.only = TRUE)
+
+rm(list=ls())
+
+
+################################################################################
+
+
+setwd("D:/m6A_Code")
+
+
+
+################################################################################
+
+
+rm(list=ls())
+# ls = list.files( paste0(getwd(), "/Data/SampleList"), pattern = ".txt")
+# dir =  list.files( paste0(getwd(), "/Data/SampleList"), pattern = ".txt", full.names = T )
+# SampleList = list()
+# for(i in 1: length(ls)){
+#   SampleList[[ls[i]]] = read.table(dir[i])
+# }
+# 
+# saveRDS(SampleList, "SampleList.rds")
+SampleList <- readRDS("D:/m6A_Code/SampleList.rds")
+names(SampleList)
+
+
+LogDir = "G:/HumanTissueSample/BAM/"
+
+ls=list.files(path = getwd(), pattern = "[[overlap]]", full.names = T)
+ls
+sel=6
+allsites <- readRDS(ls[sel])
+
+
+Thresh=0.9
+MaxNum=max(allsites$overlap)
+subset = allsites[allsites$overlap >= MaxNum*Thresh, ]
+subset2 = allsites2[allsites2$overlap >= MaxNum*Thresh, ]
+PeakWindow=25
+for(i in 1:nrow(sample_list)){
+  df = subset[ subset$sample == sample_list[i,], ]
+  df$start = df$start - PeakWindow
+  df$end = df$end + PeakWindow
+  df = df[, -c(5)]
+  gr = as_granges(df)
+  df=as.data.frame(gr)
+  
+  df2 = subset2[ subset2$sample == sample_list[i,], ]
+  df2$start = df2$start - PeakWindow
+  df2$end = df2$end + PeakWindow
+  df2 = df2[, -c(5)]
+  gr2 = as_granges(df2)
+  df2=as.data.frame(gr2)
+  
+  
+  
+  fid = paste0(LogDir, sample_list[i,], "/", 
+               sample_list[i,], "_Input.log")
+  log=read.table(fid, fill=NA)
+  
+  
+  
+  SeqDepth=as.numeric(log[2,3])*2
+  
+  
+
+
+
+
+
+
+

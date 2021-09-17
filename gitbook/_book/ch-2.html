@@ -24,7 +24,7 @@
 <meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
 
 
-<meta name="date" content="2021-09-14" />
+<meta name="date" content="2021-09-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,24 +193,87 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ch-2" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Overview of scRNA-seq processing pipeline</h1>
-<p>Various scRNA-seq techniques (like SMART-seq, Drop-seq, and 10X genomics sequencing [24, 25] are available nowadays with their sets of advantages and disadvantages. Despite the differences in the scRNA-seq techniques, the data content and processing steps of scRNA-seq data are quite standard and conventional. A typical scRNA-seq dataset consists of three files: genes quantified (gene IDs), cells quantified (cellular barcode), and a count matrix (number of cells x number of genes), irrespective of the technology or pipeline used. A series of essential steps in scRNA-seq data processing pipeline and optional tools for each step with both ML and DL approaches are illustrated in Fig.<a href="ch-2.html#fig:Figure1">2.1</a>.</p>
+<p>Various scRNA-seq techniques (like SMART-seq, Drop-seq, and 10X genomics sequencing <span class="citation">(<a href="#ref-RN81" role="doc-biblioref">Eisenstein 2020</a>; <a href="#ref-RN97" role="doc-biblioref">Vallejos, Marioni, and Richardson 2015</a>)</span><!--[24, 25]--> are available nowadays with their sets of advantages and disadvantages. Despite the differences in the scRNA-seq techniques, the data content and processing steps of scRNA-seq data are quite standard and conventional. A typical scRNA-seq dataset consists of three files: genes quantified (gene IDs), cells quantified (cellular barcode), and a count matrix (number of cells x number of genes), irrespective of the technology or pipeline used. A series of essential steps in scRNA-seq data processing pipeline and optional tools for each step with both ML and DL approaches are illustrated in Fig.<a href="ch-2.html#fig:Figure1">2.1</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure1"></span>
 <img src="Figures/Figure1.png" alt="Single cell data analysis steps for both conventional ML methods (bottom) and DL methods (top). Depending on the input data and analysis objectives, major scRNA-se analysis steps are illustrated in the center flow chart. The convential ML approaches along with optional analysis modules are presented below each analysis step. Deep learning approaches are categorized as neural network models (DNN, CNN, CapsNet, and DANN), Generalive Adversarial Network (GAN), Variational Autoencoder, and Autoencoder. For each DL approach, optional algorithms are listed on top of each step in the pipeline." width="803" />
 <p class="caption">
 Figure 2.1: Single cell data analysis steps for both conventional ML methods (bottom) and DL methods (top). Depending on the input data and analysis objectives, major scRNA-se analysis steps are illustrated in the center flow chart. The convential ML approaches along with optional analysis modules are presented below each analysis step. Deep learning approaches are categorized as neural network models (DNN, CNN, CapsNet, and DANN), Generalive Adversarial Network (GAN), Variational Autoencoder, and Autoencoder. For each DL approach, optional algorithms are listed on top of each step in the pipeline.
 </p>
 </div>
-<p>With the advantage of identifying each cell and unique molecular identifiers (UMIs) for expressions of each gene in a single cell, scRNA-seq data are embedded with increased technical noise and biases [23]. Quality control (QC) is the first and the key step to filter out dead cells, double-cells, or cells with failed chemistry or other technical artifacts. The most commonly adopted three QC covariates include the number of counts (count depth) per barcode identifying each cell, the number of genes per barcode, and the fraction of counts from mitochondrial genes per barcode [24].</p>
-<p><strong>Normalization</strong> is designed to eliminate imbalanced sampling, cell differentiation, viability, and many other factors. Approaches tailored for scRNA-seq have been developed including the Bayesian-based method coupled with spike-in, or BASiCS [25], deconvolution approach, scran [26], and sctransfrom in Seurat where regularized Negative Binomial regression was proposed [27]. Two important steps, batch correction and imputation, will be carried out if required by the analysis:</p>
+<p>With the advantage of identifying each cell and unique molecular identifiers (UMIs) for expressions of each gene in a single cell, scRNA-seq data are embedded with increased technical noise and biases [23]. Quality control (QC) is the first and the key step to filter out dead cells, double-cells, or cells with failed chemistry or other technical artifacts. The most commonly adopted three QC covariates include the number of counts (count depth) per barcode identifying each cell, the number of genes per barcode, and the fraction of counts from mitochondrial genes per barcode <span class="citation">(<a href="#ref-RN81" role="doc-biblioref">Eisenstein 2020</a>)</span><!--[24]-->.</p>
+<p><strong>Normalization</strong> is designed to eliminate imbalanced sampling, cell differentiation, viability, and many other factors. Approaches tailored for scRNA-seq have been developed including the Bayesian-based method coupled with spike-in, or BASiCS <span class="citation">(<a href="#ref-RN97" role="doc-biblioref">Vallejos, Marioni, and Richardson 2015</a>)</span><!--[25]-->, deconvolution approach, scran <span class="citation">(<a href="#ref-RN89" role="doc-biblioref">Lun, Bach, and Marioni 2016</a>)</span><!--[26]-->, and sctransfrom in Seurat where regularized Negative Binomial regression was proposed <span class="citation">(<a href="#ref-RN83" role="doc-biblioref">Hafemeister and Satija 2019</a>)</span><!--[27]-->. Two important steps, batch correction and imputation, will be carried out if required by the analysis:</p>
 <ul>
-<li><p><strong>Batch Correction</strong> is a common source of technical variation in high-throughput sequencing experiments due to variant experimental conditions such as technicians and experimental time, imposing a major challenge in scRNA-seq data analysis. Batch effect correction algorithms include detection of mutual nearest neighbors (MNNs) [28], canonical correlation analysis (CCA) with Seurat [29], and Hormony algorithm through cell-type representation [30].</p></li>
-<li><p><strong>Imputation</strong> step is necessary to handle high sparsity data matrix, due to missing value or dropout in scRNA-seq data analysis. Several tools have been developed to “impute” zero values in scRNA-seq data, such as SCRABBLE [31], SAVER [32] and scImpute [33].
-Dimensionality reduction and visualization are essential steps to represent biological meaningful variation and high dimensionality with significantly reduced computational cost. Dimensionality reduction methods, such as PCA, are widely used in scRNA-seq data analysis to achieve that purpose. More advanced nonlinear approaches that preserve the topological structure and avoid overcrowding in lower dimension representation, such as LLE [34] (used in SLICER [35]), tSNE [36], and UMAP [37] have also been developed and adopted as a standard in single-cell data visualization.</p></li>
+<li><p><strong>Batch Correction</strong> is a common source of technical variation in high-throughput sequencing experiments due to variant experimental conditions such as technicians and experimental time, imposing a major challenge in scRNA-seq data analysis. Batch effect correction algorithms include detection of mutual nearest neighbors (MNNs) <span class="citation">(<a href="#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span> <!--[28]-->, canonical correlation analysis (CCA) with Seurat <span class="citation">(<a href="#ref-RN79" role="doc-biblioref">Butler et al. 2018</a>)</span><!--[29]-->, and Hormony algorithm through cell-type representation <span class="citation">(<a href="#ref-RN74" role="doc-biblioref">Korsunsky et al. 2019</a>)</span><!--[30]-->.</p></li>
+<li><p><strong>Imputation</strong> step is necessary to handle high sparsity data matrix, due to missing value or dropout in scRNA-seq data analysis. Several tools have been developed to “impute” zero values in scRNA-seq data, such as SCRABBLE <span class="citation">(<a href="#ref-RN29" role="doc-biblioref">Peng et al. 2019</a>)</span><!--[31]-->, SAVER <span class="citation">(<a href="#ref-RN30" role="doc-biblioref">Huang et al. 2018</a>)</span><!--[32]--> and scImpute <span class="citation">(<a href="#ref-RN31" role="doc-biblioref">Li and Li 2018</a>)</span><!--[33]-->.
+Dimensionality reduction and visualization are essential steps to represent biological meaningful variation and high dimensionality with significantly reduced computational cost. Dimensionality reduction methods, such as PCA, are widely used in scRNA-seq data analysis to achieve that purpose. More advanced nonlinear approaches that preserve the topological structure and avoid overcrowding in lower dimension representation, such as LLE <span class="citation">(<a href="#ref-RN32" role="doc-biblioref">Roweis and Saul 2000</a>)</span><!--[34]--> (used in SLICER <span class="citation">(<a href="#ref-RN33" role="doc-biblioref">Welch, Hartemink, and Prins 2016</a>)</span><!--[35]-->), tSNE <span class="citation">(<a href="#ref-RN34" role="doc-biblioref">Linderman et al. 2019</a>)</span><!--[36]-->, and UMAP <span class="citation">(<a href="#ref-RN35" role="doc-biblioref">Becht et al. 2018</a>)</span><!--[37]--> have also been developed and adopted as a standard in single-cell data visualization.</p></li>
 </ul>
-<p><strong>Clustering analysis</strong> is a key step to identify cell subpopulations or distinct cell types to unravel the extent of heterogeneity and their associated cell-type-specific markers. Unsupervised clustering is frequently used here to categorize cells into clusters by their similarity often taken the aforementioned dimensionality-reduced representations as input, such as community detection algorithm Louvain [38] and Leiden [39], or data-driven dimensionality reduction followed with k-Means cluster by SIMLR [40].</p>
-<p><strong>Feature selection</strong> is another important step in single-cell RNA-seq analysis is to select a subset of genes, or features, for cell-type identification and functional enrichment of each cluster. This step is achieved by differential expression analysis designed for scRNA-seq, such as MAST that used linear model fitting and likelihood ratio testing [41]; SCDE that adopted a Bayesian approach with a Negative Binomial model for gene expression and Poisson process for dropouts [42], or DEsingle that utilized a Zero-Inflated Negative Binomial model to estimate the dropouts [43].</p>
+<p><strong>Clustering analysis</strong> is a key step to identify cell subpopulations or distinct cell types to unravel the extent of heterogeneity and their associated cell-type-specific markers. Unsupervised clustering is frequently used here to categorize cells into clusters by their similarity often taken the aforementioned dimensionality-reduced representations as input, such as community detection algorithm Louvain <span class="citation">(<a href="#ref-RN36" role="doc-biblioref">Subelj and Bajec 2011</a>)</span><!--[38]--> and Leiden <span class="citation">(<a href="#ref-RN37" role="doc-biblioref">Traag, Waltman, and Eck 2019</a>)</span><!--[39]-->, or data-driven dimensionality reduction followed with k-Means cluster by SIMLR <span class="citation">(<a href="#ref-RN38" role="doc-biblioref">Wang et al. 2017</a>)</span><!--[40]-->.</p>
+<p><strong>Feature selection</strong> is another important step in single-cell RNA-seq analysis is to select a subset of genes, or features, for cell-type identification and functional enrichment of each cluster. This step is achieved by differential expression analysis designed for scRNA-seq, such as MAST that used linear model fitting and likelihood ratio testing <span class="citation">(<a href="#ref-RN40" role="doc-biblioref">Finak et al. 2015</a>)</span><!--[41]-->; SCDE that adopted a Bayesian approach with a Negative Binomial model for gene expression and Poisson process for dropouts <span class="citation">(<a href="#ref-RN41" role="doc-biblioref">Kharchenko, Silberstein, and Scadden 2014</a>)</span><!--[42]-->, or DEsingle that utilized a Zero-Inflated Negative Binomial model to estimate the dropouts <span class="citation">(<a href="#ref-RN42" role="doc-biblioref">Miao et al. 2018</a>)</span><!--[43]-->.</p>
 <p>Besides these key steps, downstream analysis can include cell type identification, coexpression analysis, prediction of perturbation response, where DL has also been applied. Other advanced analyses including trajectory inference and velocity and pseudotime analysis are not discussed here because most of the approaches on these topics are non-DL based.</p>
 
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-RN35" class="csl-entry">
+Becht, E., L. McInnes, J. Healy, C. A. Dutertre, I. W. H. Kwok, L. G. Ng, F. Ginhoux, and E. W. Newell. 2018. <span>“Dimensionality Reduction for Visualizing Single-Cell Data Using UMAP.”</span> Journal Article. <em>Nat Biotechnol</em>. <a href="https://doi.org/10.1038/nbt.4314">https://doi.org/10.1038/nbt.4314</a>.
+</div>
+<div id="ref-RN79" class="csl-entry">
+Butler, A., P. Hoffman, P. Smibert, E. Papalexi, and R. Satija. 2018. <span>“Integrating Single-Cell Transcriptomic Data Across Different Conditions, Technologies, and Species.”</span> Journal Article. <em>Nat Biotechnol</em> 36 (5): 411–20. <a href="https://doi.org/10.1038/nbt.4096">https://doi.org/10.1038/nbt.4096</a>.
+</div>
+<div id="ref-RN81" class="csl-entry">
+Eisenstein, M. 2020. <span>“Single-Cell RNA-Seq Analysis Software Providers Scramble to Offer Solutions.”</span> Journal Article. <em>Nat Biotechnol</em> 38 (3): 254–57. <a href="https://doi.org/10.1038/s41587-020-0449-8">https://doi.org/10.1038/s41587-020-0449-8</a>.
+</div>
+<div id="ref-RN40" class="csl-entry">
+Finak, G., A. McDavid, M. Yajima, J. Deng, V. Gersuk, A. K. Shalek, C. K. Slichter, et al. 2015. <span>“MAST: A Flexible Statistical Framework for Assessing Transcriptional Changes and Characterizing Heterogeneity in Single-Cell RNA Sequencing Data.”</span> Journal Article. <em>Genome Biol</em> 16: 278. <a href="https://doi.org/10.1186/s13059-015-0844-5">https://doi.org/10.1186/s13059-015-0844-5</a>.
+</div>
+<div id="ref-RN83" class="csl-entry">
+Hafemeister, C., and R. Satija. 2019. <span>“Normalization and Variance Stabilization of Single-Cell RNA-Seq Data Using Regularized Negative Binomial Regression.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 296. <a href="https://doi.org/10.1186/s13059-019-1874-1">https://doi.org/10.1186/s13059-019-1874-1</a>.
+</div>
+<div id="ref-RN84" class="csl-entry">
+Haghverdi, L., A. T. L. Lun, M. D. Morgan, and J. C. Marioni. 2018. <span>“Batch Effects in Single-Cell RNA-Sequencing Data Are Corrected by Matching Mutual Nearest Neighbors.”</span> Journal Article. <em>Nat Biotechnol</em> 36 (5): 421–27. <a href="https://doi.org/10.1038/nbt.4091">https://doi.org/10.1038/nbt.4091</a>.
+</div>
+<div id="ref-RN30" class="csl-entry">
+Huang, M., J. Wang, E. Torre, H. Dueck, S. Shaffer, R. Bonasio, J. I. Murray, A. Raj, M. Li, and N. R. Zhang. 2018. <span>“SAVER: Gene Expression Recovery for Single-Cell RNA Sequencing.”</span> Journal Article. <em>Nat Methods</em> 15 (7): 539–42. <a href="https://doi.org/10.1038/s41592-018-0033-z">https://doi.org/10.1038/s41592-018-0033-z</a>.
+</div>
+<div id="ref-RN41" class="csl-entry">
+Kharchenko, P. V., L. Silberstein, and D. T. Scadden. 2014. <span>“Bayesian Approach to Single-Cell Differential Expression Analysis.”</span> Journal Article. <em>Nat Methods</em> 11 (7): 740–42. <a href="https://doi.org/10.1038/nmeth.2967">https://doi.org/10.1038/nmeth.2967</a>.
+</div>
+<div id="ref-RN74" class="csl-entry">
+Korsunsky, I., N. Millard, J. Fan, K. Slowikowski, F. Zhang, K. Wei, Y. Baglaenko, M. Brenner, P. R. Loh, and S. Raychaudhuri. 2019. <span>“Fast, Sensitive and Accurate Integration of Single-Cell Data with Harmony.”</span> Journal Article. <em>Nat Methods</em> 16 (12): 1289–96. <a href="https://doi.org/10.1038/s41592-019-0619-0">https://doi.org/10.1038/s41592-019-0619-0</a>.
+</div>
+<div id="ref-RN31" class="csl-entry">
+Li, W. V., and J. J. Li. 2018. <span>“An Accurate and Robust Imputation Method scImpute for Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Nat Commun</em> 9 (1): 997. <a href="https://doi.org/10.1038/s41467-018-03405-7">https://doi.org/10.1038/s41467-018-03405-7</a>.
+</div>
+<div id="ref-RN34" class="csl-entry">
+Linderman, G. C., M. Rachh, J. G. Hoskins, S. Steinerberger, and Y. Kluger. 2019. <span>“Fast Interpolation-Based t-SNE for Improved Visualization of Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Nat Methods</em> 16 (3): 243–45. <a href="https://doi.org/10.1038/s41592-018-0308-4">https://doi.org/10.1038/s41592-018-0308-4</a>.
+</div>
+<div id="ref-RN89" class="csl-entry">
+Lun, A. T., K. Bach, and J. C. Marioni. 2016. <span>“Pooling Across Cells to Normalize Single-Cell RNA Sequencing Data with Many Zero Counts.”</span> Journal Article. <em>Genome Biol</em> 17: 75. <a href="https://doi.org/10.1186/s13059-016-0947-7">https://doi.org/10.1186/s13059-016-0947-7</a>.
+</div>
+<div id="ref-RN42" class="csl-entry">
+Miao, Z., K. Deng, X. Wang, and X. Zhang. 2018. <span>“DEsingle for Detecting Three Types of Differential Expression in Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Bioinformatics</em> 34 (18): 3223–24. <a href="https://doi.org/10.1093/bioinformatics/bty332">https://doi.org/10.1093/bioinformatics/bty332</a>.
+</div>
+<div id="ref-RN29" class="csl-entry">
+Peng, T., Q. Zhu, P. Yin, and K. Tan. 2019. <span>“SCRABBLE: Single-Cell RNA-Seq Imputation Constrained by Bulk RNA-Seq Data.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 88. <a href="https://doi.org/10.1186/s13059-019-1681-8">https://doi.org/10.1186/s13059-019-1681-8</a>.
+</div>
+<div id="ref-RN32" class="csl-entry">
+Roweis, S. T., and L. K. Saul. 2000. <span>“Nonlinear Dimensionality Reduction by Locally Linear Embedding.”</span> Journal Article. <em>Science</em> 290 (5500): 2323–26. <a href="https://doi.org/10.1126/science.290.5500.2323">https://doi.org/10.1126/science.290.5500.2323</a>.
+</div>
+<div id="ref-RN36" class="csl-entry">
+Subelj, L., and M. Bajec. 2011. <span>“Unfolding Communities in Large Complex Networks: Combining Defensive and Offensive Label Propagation for Core Extraction.”</span> Journal Article. <em>Phys Rev E Stat Nonlin Soft Matter Phys</em> 83 (3 Pt 2): 036103. <a href="https://doi.org/10.1103/PhysRevE.83.036103">https://doi.org/10.1103/PhysRevE.83.036103</a>.
+</div>
+<div id="ref-RN37" class="csl-entry">
+Traag, V. A., L. Waltman, and N. J. van Eck. 2019. <span>“From Louvain to Leiden: Guaranteeing Well-Connected Communities.”</span> Journal Article. <em>Sci Rep</em> 9 (1): 5233. <a href="https://doi.org/10.1038/s41598-019-41695-z">https://doi.org/10.1038/s41598-019-41695-z</a>.
+</div>
+<div id="ref-RN97" class="csl-entry">
+Vallejos, C. A., J. C. Marioni, and S. Richardson. 2015. <span>“BASiCS: Bayesian Analysis of Single-Cell Sequencing Data.”</span> Journal Article. <em>PLoS Comput Biol</em> 11 (6): e1004333. <a href="https://doi.org/10.1371/journal.pcbi.1004333">https://doi.org/10.1371/journal.pcbi.1004333</a>.
+</div>
+<div id="ref-RN38" class="csl-entry">
+Wang, B., J. Zhu, E. Pierson, D. Ramazzotti, and S. Batzoglou. 2017. <span>“Visualization and Analysis of Single-Cell RNA-Seq Data by Kernel-Based Similarity Learning.”</span> Journal Article. <em>Nat Methods</em> 14 (4): 414–16. <a href="https://doi.org/10.1038/nmeth.4207">https://doi.org/10.1038/nmeth.4207</a>.
+</div>
+<div id="ref-RN33" class="csl-entry">
+Welch, J. D., A. J. Hartemink, and J. F. Prins. 2016. <span>“SLICER: Inferring Branched, Nonlinear Cellular Trajectories from Single Cell RNA-Seq Data.”</span> Journal Article. <em>Genome Biol</em> 17 (1): 106. <a href="https://doi.org/10.1186/s13059-016-0975-3">https://doi.org/10.1186/s13059-016-0975-3</a>.
+</div>
 </div>
             </section>
 

@@ -1,4 +1,4 @@
-h1:bibliography-book.bib-packages.bib bibliography: [book.bib, packages.bib]
+h1:bibliography-book.bib bibliography: [book.bib]
 h1:bibliography-references.bib bibliography: References.bib
 h1:biblio-style-cell.cls biblio-style: cell.cls
 h1:about-the-authors About the authors

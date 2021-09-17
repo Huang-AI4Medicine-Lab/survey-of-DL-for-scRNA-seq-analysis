@@ -1,0 +1,473 @@
+
+packages <- installed.packages()
+lapply(packages, require, character.only = TRUE)
+
+rm(list=ls())
+
+
+################################################################################
+
+
+setwd("D:/m6A_Code")
+
+
+
+
+# ################################################################################
+# 
+# rm(list=ls())
+# # ls = list.files( paste0(getwd(), "/Data/SampleList"), pattern = ".txt")
+# # dir =  list.files( paste0(getwd(), "/Data/SampleList"), pattern = ".txt", full.names = T )
+# # SampleList = list()
+# # for(i in 1: length(ls)){
+# #   SampleList[[ls[i]]] = read.table(dir[i])
+# # }
+# # 
+# # saveRDS(SampleList, "SampleList.rds")
+# SampleList <- readRDS("D:/m6A_Code/SampleList.rds")
+# names(SampleList)
+# 
+# sel=9
+# type=c("peak", "motif", "deepm6A"); 
+# # peakdir=paste0("D:/m6A_Code/Data/MetDB_CellData/exomepeak/Homo_sapiens/human_hg19/"); k=1
+# # motifdir=paste0("D:/m6A_Code/Data/MetDB_CellData/MotifSites/[DRACH_motif]"); k=2
+# # deepm6Adir=FileID=paste0("D:/m6A_Code/Data/MetDB_CellData/Deep_m6A_Sites/"); k=3
+# peakdir=paste0("D:/m6A_Code/Data/HumanTissueSample/peak/"); k=1
+# # motifdir=paste0("D:/m6A_Code/Data/HumanTissueSample/MotifSites/[DRACH_motif]"); k=2
+# # motifdir=paste0("D:/m6A_Code/Data/MouseTissueSample/MotifSites/[DRACH_motif]"); k=2
+# 
+# 
+# sample_list = SampleList[[sel]]
+# for(i in 1:nrow(sample_list)){
+#   print(i)
+#   fid = paste0(peakdir,
+#                sample_list[i,], 
+#                "/exomePeak_output/exomePeak.Rdata"
+#   )
+#   load(fid)
+#   peak_file <- tmp_rs
+#   
+#   peak <- peak_file[["PEAK"]]
+#   READS_COUNT <- peak_file[["READS_COUNT"]]
+#   SAMPLE_ID <- peak_file[["SAMPLE_ID"]]
+#   
+#   #rename the columns
+#   colnames(READS_COUNT)[SAMPLE_ID$ip] <- paste0("IP", (1:length(SAMPLE_ID$ip)))
+#   colnames(READS_COUNT)[SAMPLE_ID$input] <- paste0("Input", (1:length(SAMPLE_ID$input)))
+#   
+#   peak_xls = paste0(peakdir,
+#                     sample_list[i,], 
+#                     "/exomePeak_output/con_peak.xls"
+#   ); con_peak=TRUE
+#   read_peak <- read.table(peak_xls, sep="\t", header=T, stringsAsFactors=F)
+#   select_peak <- cbind(read_peak$chr, read_peak$chromStart, read_peak$chromEnd, read_peak$name, as.character(read_peak$strand), read_peak$score, read_peak$lg.p, read_peak$lg.fdr, read_peak$fold_enrchment)
+#   colnames(select_peak) <- c("seqnames", "start", "end", "gene_id", "strand", "score", "lg.p", "lg.fdr", "fold_enrchment")
+#   
+#   
+#   ## get size factor
+#   reads_count <- READS_COUNT[,-((ncol(READS_COUNT)-1):ncol(READS_COUNT))]
+#   totalreads <- data.frame(counts=colSums(reads_count))
+#   
+#   ##judue the peak type: consistent peak or all peak
+#   if(con_peak==TRUE){
+#     peak_loci <- peak$loci2peak_consistent
+#   }else{
+#     peak_loci <- peak$loci2peak_merged
+#   }
+#   
+#   # peak_reads_count
+#   no_peak=length(peak_loci[,1])
+#   peak_reads_count = READS_COUNT[1:no_peak,]
+#   no_sample=length(peak_reads_count[1,])-2
+#   
+#   # cut the unnecessary information (just data.frame formation)
+#   peak_reads_count = READS_COUNT[1:no_peak,1:no_sample]
+#   
+#   # count
+#   for (ipeak in 1:no_peak) {
+#     temp=peak_loci[ipeak,]
+#     temp2=colSums(READS_COUNT[temp[1]:temp[2],1:no_sample])
+#     peak_reads_count[ipeak,1:no_sample]=temp2
+#   }
+#   
+#   # remove the overlapping window effects  ====> confirm with Cameron
+#   ReadLength = 150
+#   WindowSize = 30
+#   peak_reads_count = round (peak_reads_count * WindowSize / ReadLength);
+#   
+#   
+#   ## peak site read
+#   peak_site_reads <- cbind(select_peak, peak_reads_count)#, peak_report[,2:3])
+#   peak_site_reads <- peak_site_reads[which(!is.na(peak_site_reads$gene_id)), ]
+#   peak_site_infor <- list(peak_site_reads, totalreads)
+#   
+#   
+#   if(con_peak==TRUE){
+#     
+#     fid = paste0(peakdir,
+#                  sample_list[i,], 
+#                  "/exomePeak_output/con_peak_info.rds"
+#     )
+#     saveRDS(peak_site_infor, fid)
+#     fid = paste0(peakdir,
+#                  sample_list[i,], 
+#                  "/exomePeak_output/con_peak_info.xlsx"
+#     )    
+#     write_xlsx(peak_site_infor, fid)
+#     
+#   }else{
+#     
+#     fid = paste0(peakdir,
+#                  sample_list[i,], 
+#                  "/exomePeak_output/all_peak_info.rds"
+#     )
+#     saveRDS(peak_site_infor, fid)
+#     fid = paste0(peakdir,
+#                  sample_list[i,], 
+#                  "/exomePeak_output/all_peak_info.xlsx"
+#     )    
+#     write_xlsx(peak_site_infor, fid)
+#   }
+#   
+# }
+# 
+# 
+# 
+# ################################################################################
+# 
+# 
+# rm(list=ls())
+# # ls = list.files( paste0(getwd(), "/Data/SampleList"), pattern = ".txt")
+# # dir =  list.files( paste0(getwd(), "/Data/SampleList"), pattern = ".txt", full.names = T )
+# # SampleList = list()
+# # for(i in 1: length(ls)){
+# #   SampleList[[ls[i]]] = read.table(dir[i])
+# # }
+# # 
+# # saveRDS(SampleList, "SampleList.rds")
+# SampleList <- readRDS("D:/m6A_Code/SampleList.rds")
+# names(SampleList)
+# 
+# sel=9
+# 
+# 
+# type=c("peak", "motif", "deepm6A"); 
+# # peakdir=paste0("D:/m6A_Code/Data/MetDB_CellData/exomepeak/Homo_sapiens/human_hg19/"); k=1
+# # motifdir=paste0("D:/m6A_Code/Data/MetDB_CellData/MotifSites/[DRACH_motif]"); k=2
+# # deepm6Adir=FileID=paste0("D:/m6A_Code/Data/MetDB_CellData/Deep_m6A_Sites/"); k=3
+# # peakdir=paste0("D:/m6A_Code/Data/HumanTissueSample/peak/"); k=1
+# # motifdir=paste0("D:/m6A_Code/Data/HumanTissueSample/MotifSites/[DRACH_motif]"); k=2
+# # motifdir=paste0("D:/m6A_Code/Data/MouseTissueSample/MotifSites/[DRACH_motif]"); k=2
+# 
+# peakinfodir=paste0("D:/m6A_Code/Data/HumanTissueSample/peak/")
+# # peakdir=paste0("D:/m6A_Code/Data/HumanTissueSample/peak/"); k=1
+# motifdir=paste0("D:/m6A_Code/Data/HumanTissueSample/MotifSites/[DRACH_motif]"); k=2
+# 
+# sample_list = SampleList[[sel]]
+# combined=data.frame()
+# for(i in 1:nrow(sample_list)){
+#   print(i)
+#   if(type[k]=="peak"){
+#     FileID = paste0(peakdir, sample_list[i,], "/exomePeak_output/[BED6]peak.bed")
+#     df1=read.table(FileID)
+#     colnames(df1) = c("seqnames", "start", "end", "name", "score", "strand")
+#   }else if(type[k]=="motif"){
+#     FileID = paste0(motifdir, sample_list[i,], ".rds")
+#     df1=readRDS(FileID)
+#     colnames(df1) = c("seqnames", "start", "end", "strand")
+#   }else if(type[k]=="deepm6A"){
+#     FileID = paste0(deepm6Adir, sample_list[i,], "_ip/CandidateSingleBasePeak.xls")
+#     df1=read.table(FileID); df1=df1[-c(1), ]
+#     colnames(df1) = c("seqnames", "start", "end", "name", "score", "strand", "motif")
+#   }
+#   
+#   df1 = df1[df1$seqnames=="chr1" |
+#               df1$seqnames=="chr2" |
+#               df1$seqnames=="chr3" |
+#               df1$seqnames=="chr4" |
+#               df1$seqnames=="chr5" |
+#               df1$seqnames=="chr6" |
+#               df1$seqnames=="chr7" |
+#               df1$seqnames=="chr8" |
+#               df1$seqnames=="chr9" |
+#               df1$seqnames=="chr10" |
+#               df1$seqnames=="chr11" |
+#               df1$seqnames=="chr12" |
+#               df1$seqnames=="chr13" |
+#               df1$seqnames=="chr14" |
+#               df1$seqnames=="chr15" |
+#               df1$seqnames=="chr16" |
+#               df1$seqnames=="chr17" |
+#               df1$seqnames=="chr18" |
+#               df1$seqnames=="chr19" |
+#               df1$seqnames=="chr20" |
+#               df1$seqnames=="chr21" |
+#               df1$seqnames=="chr22" |
+#               df1$seqnames=="chrX" |
+#               df1$seqnames=="chrY",  ]
+#   
+#   if( !is.null(df1$name) ){ df1 = df1[!is.na(df1$name), ] }
+#   
+#   df1$start = as.numeric(df1$start)
+#   df1$end = as.numeric(df1$end)
+#   
+#   if(type[k]=="motif"|type[k]=="deepm6A"){
+#     if( !identical(df1$start, df1$end) ){ df1$start = df1$start + 1 }
+#   }
+#   
+#   df1 = df1[order(df1$start, decreasing = F), ]
+#   df1 = df1[order(df1$seqnames, decreasing = F), ]
+#   rownames(df1) = NULL
+#   
+#   gr1 = GRanges(df1)
+#   
+#   if( !is.null(df1$score) ){gr1 = reduce_ranges_directed( gr1, score=max(score) )
+#   }else if( is.null(df1$score) ){gr1 = reduce_ranges_directed( gr1 )}
+#   
+#   
+#   FileID = paste0(peakinfodir, sample_list[i,], "/exomePeak_output/con_peak_info.rds")
+#   df2=readRDS(FileID)
+#   df2=df2[[1]]
+#   
+#   df2 = df2[df2$seqnames=="chr1" |
+#               df2$seqnames=="chr2" |
+#               df2$seqnames=="chr3" |
+#               df2$seqnames=="chr4" |
+#               df2$seqnames=="chr5" |
+#               df2$seqnames=="chr6" |
+#               df2$seqnames=="chr7" |
+#               df2$seqnames=="chr8" |
+#               df2$seqnames=="chr9" |
+#               df2$seqnames=="chr10" |
+#               df2$seqnames=="chr11" |
+#               df2$seqnames=="chr12" |
+#               df2$seqnames=="chr13" |
+#               df2$seqnames=="chr14" |
+#               df2$seqnames=="chr15" |
+#               df2$seqnames=="chr16" |
+#               df2$seqnames=="chr17" |
+#               df2$seqnames=="chr18" |
+#               df2$seqnames=="chr19" |
+#               df2$seqnames=="chr20" |
+#               df2$seqnames=="chr21" |
+#               df2$seqnames=="chr22" |
+#               df2$seqnames=="chrX" |
+#               df2$seqnames=="chrY",  ]
+#   
+#   if( !is.null(df2$gene_id) ){ df2 = df2[!is.na(df2$gene_id), ] }
+#   
+#   df2$start = as.numeric(df2$start)
+#   df2$end = as.numeric(df2$end)
+#   
+#   df2 = df2[order(df2$start, decreasing = F), ]
+#   df2 = df2[order(df2$seqnames, decreasing = F), ]
+#   rownames(df2) = NULL
+#   
+#   gr2 = GRanges(df2)
+#   if( !is.null(df2$score) ){gr2 = reduce_ranges_directed(gr2, 
+#                                                          IP1 = max(IP1), 
+#                                                          Input1=max(Input1) )
+#   }else if( is.null(df2$score) ){gr2 = reduce_ranges_directed( gr2 )}
+#   gr1 = find_overlaps_directed(gr1, gr2)
+#   
+#   df1 = as.data.frame(gr1)
+#   df1$strand = as.character(df1$strand)
+#   df1$strand[df1$strand=="+"] = "p"
+#   df1$strand[df1$strand=="-"] = "n"  
+#   df1$Tag = paste0(df1$seqnames, "_", df1$start, "_", df1$end, "_", df1$strand)
+#   df1$strand[df1$strand=="p"] = "+"
+#   df1$strand[df1$strand=="n"] = "-"
+#   
+#   if(!is.na(summary(duplicated(df1$Tag))[3])){
+#     print("Error - check duplicated elements")
+#     break
+#   }
+#   
+#   df1 = cbind(sample=sample_list[i,], df1)
+#   combined = rbind.data.frame(combined, df1)
+# }
+# 
+# combined=combined[order(combined$start, decreasing = F),]
+# combined=combined[order(combined$seqnames, decreasing = F),]
+# rownames(combined) = NULL
+# 
+# 
+# fid = paste0(getwd(),"/Data/", strsplit(names(SampleList[sel]),".txt"), "_", type[k], "_ExpCount.rds")
+# saveRDS(combined, fid ) 
+# 
+
+################################################################################
+
+
+rm(list=ls())
+
+ls=list.files(path = getwd(), pattern = "[[overlap]]", full.names = T)
+ls
+
+
+sel=7
+allsites <- readRDS(ls[sel])
+
+check <- function(x){if(!is.na(x)) {return(x)}else{return(0)}}
+strsplit(ls[sel], "/")[[1]][3] %>% strsplit(., "_") %>% .[[1]] %>% .[2] %>% as.numeric(.) %>% 
+  check(.) %>% assign("MaxNum", ., envir = .GlobalEnv) 
+MaxNum = strsplit(ls[sel], "/")[[1]][3] %>% strsplit(., "_") %>% .[[1]] %>% .[4] %>% as.numeric(.) %>% 
+  check(.) %>% sum(MaxNum, . )
+
+allsites$Is_m6A_Atlas[allsites$Is_m6A_Atlas==1]=c("Yes")
+allsites$Is_m6A_Atlas[allsites$Is_m6A_Atlas==0]=c("No")
+
+class1 = allsites
+
+ratio=(MaxNum/100); if(ratio<0.3){ratio=0.5}
+
+
+
+
+
+source=class1
+source$sample = as.factor(source$sample)
+
+High=0.80
+Low=0.20
+d1 = source[source$overlap >= MaxNum*High, ]
+d2 = source[source$overlap <= MaxNum*Low, ]
+
+test=list()
+
+test[["aov_all"]] = aov(Input1 ~ sample, data = source) %>%
+  summary(.) %>% unlist(.) %>% as.data.frame(.)
+test[[paste0("aov_High", High*100, "%")]] = aov(Input1 ~ sample, data = d1) %>%
+  summary(.) %>% unlist(.) %>% as.data.frame(.)
+test[[paste0("aov_Low", Low*100, "%")]] = aov(Input1 ~ sample, data = d2) %>%
+  summary(.) %>% unlist(.) %>% as.data.frame(.)
+
+test[["LeveneTest_all"]] = leveneTest(Input1 ~ sample, data = source) 
+test[[paste0("LeveneTest_High", High*100, "%")]] = leveneTest(Input1 ~ sample, data = d1)
+test[[paste0("LeveneTest_Low", Low*100, "%")]] = leveneTest(Input1 ~ sample, data = d2)
+
+test[["bartlett.test_all"]] = bartlett.test(Input1 ~ sample, data = source) %>% 
+  unlist(.) %>% as.data.frame(.)
+test[[paste0("bartlett.test_High", High*100, "%")]] = bartlett.test(Input1 ~ sample, data = d1) %>% 
+  unlist(.) %>% as.data.frame(.)
+test[[paste0("bartlett.test_Low", Low*100, "%")]] = bartlett.test(Input1 ~ sample, data = d2) %>% 
+  unlist(.) %>% as.data.frame(.)
+
+test[["oneway.test_all"]] = oneway.test(Input1 ~ sample, data = source) %>% 
+  unlist(.) %>% as.data.frame(.)
+test[[paste0("oneway.test_High", High*100, "%")]] = oneway.test(Input1 ~ sample, data = d1) %>% 
+  unlist(.) %>% as.data.frame(.)
+test[[paste0("oneway.test_Low", Low*100, "%")]] = oneway.test(Input1 ~ sample, data = d2) %>% 
+  unlist(.) %>% as.data.frame(.)
+
+
+variancetest = data.frame()
+variancetest = rbind( variancetest,
+                      cbind( test = "aov", class="all", p.value=test[[1]]$.[9] ),
+                      cbind( test = "aov", class=paste0("High", High*100, "%"), p.value=test[[2]]$.[9] ),
+                      cbind( test = "aov", class=paste0("Low", Low*100, "%"), p.value=test[[3]]$.[9] ),
+                      cbind( test = "LeveneTest", class="all", p.value=test[[4]]$`Pr(>F)`[1] ),
+                      cbind( test = "LeveneTest", class=paste0("High", High*100, "%"), p.value=test[[5]]$`Pr(>F)`[1] ),
+                      cbind( test = "LeveneTest",class=paste0("Low", Low*100, "%"), p.value=test[[6]]$`Pr(>F)`[1] ),
+                      # cbind( test = "bartlett.test", class="all", p.value=test[[7]]$.[4] ),
+                      # cbind( test = "bartlett.test", class=paste0("High", High*100, "%"), p.value=test[[8]]$.[4]  ),
+                      # cbind( test = "bartlett.test", class=paste0("Low", Low*100, "%"), p.value=test[[9]]$.[4]  ),
+                      cbind( test = "oneway.test", class="all", p.value=test[[7]]$.[4] ),
+                      cbind( test = "oneway.test", class=paste0("High", High*100, "%"), p.value=test[[8]]$.[4]  ),
+                      cbind( test = "oneway.test", class=paste0("Low", Low*100, "%"), p.value=test[[9]]$.[4]  ),
+                      cbind( test = "bartlett.test", class="all", p.value=test[[10]]$.[3] ),
+                      cbind( test = "bartlett.test", class=paste0("High", High*100, "%"), p.value=test[[11]]$.[3]  ),
+                      cbind( test = "bartlett.test",class=paste0("Low", Low*100, "%"), p.value=test[[12]]$.[3]  )
+  )
+
+
+tt= strsplit(ls[sel], "]")[[1]][2] %>% strsplit(., ".rds") %>% paste0( ., "_ExpCount1" )
+W=16*ratio
+H=9*ratio
+data=class1
+temp = data.frame()
+High=0.9
+Low=0.1
+d1 = data[data$overlap >= MaxNum*High, ]
+d2 = data[data$overlap <= MaxNum*Low, ]
+temp = rbind( temp,
+              cbind( level=paste0("Top", High*100, "%"), d1 ),
+              cbind( level=paste0("Low", Low*100, "%"), d2 )
+)
+p=ggplot(temp, aes(x=Input1, col = level)) +
+  geom_density(size = 1, alpha=0.4) + theme_bw() +facet_wrap(sample~.)+
+  scale_x_continuous(trans = "log10") 
+saveRDS(p, file=paste0(getwd(),"/[Plot]",tt,".rds"))
+ggsave(paste0(getwd(),"/[Plot]", tt, ".png"), plot=p, width=W, height = H)
+ggsave(paste0(getwd(),"/[Plot]", tt, ".pdf"), plot=p, width=W, height = H)
+
+
+tt= strsplit(ls[sel], "]")[[1]][2] %>% strsplit(., ".rds") %>% paste0( ., "_ExpCount2" )
+High=0.90
+Low=0.1
+data = class1
+d1 = data[data$overlap >= MaxNum*High, ]
+d2 = data[data$overlap <= MaxNum*Low, ]
+temp = rbind.data.frame( cbind( level=paste0("Top", High*100, "%_Input"), count=d1$Input1 ),
+                         cbind( level=paste0("Top", High*100, "%_IP"), count=d1$IP1 ),
+                         cbind( level=paste0("Low", Low*100, "%_Input"), count=d2$Input1 ), 
+                         cbind( level=paste0("Low", Low*100, "%_IP"), count=d2$IP1 )
+)
+temp$count = as.numeric(temp$count)
+p=ggplot(temp, aes(x=count, col = level)) +
+  geom_density(size = 1, alpha=0.4) + theme_bw() +
+  scale_x_continuous(trans = "log10") 
+saveRDS(p, file=paste0(getwd(),"/[Plot]",tt,".rds"))
+ggsave(paste0(getwd(),"/[Plot]", tt, ".png"), plot=p, width=W, height = H)
+ggsave(paste0(getwd(),"/[Plot]", tt, ".pdf"), plot=p, width=W, height = H)
+
+
+tt= strsplit(ls[sel], "]")[[1]][2] %>% strsplit(., ".rds") %>% paste0( ., "_ExpCount3" )
+High=0.90
+Low=0.1
+data = class1
+d1 = data[data$overlap >= MaxNum*High, ]
+d2 = data[data$overlap <= MaxNum*Low, ]
+temp=data.frame()
+temp = rbind( temp,
+              cbind( level=paste0("Top", High*100, "%"), d1 ),
+              cbind( level=paste0("Low", Low*100, "%"), d2 )
+)
+p=ggplot(temp, aes(x=Input1, col = sample)) +
+  theme_bw() + geom_density(alpha=0.4) + facet_grid(level~.) +
+  scale_x_continuous(trans = "log10") + 
+  theme(legend.position = "none")
+saveRDS(p, file=paste0(getwd(),"/[Plot]",tt,".rds"))
+ggsave(paste0(getwd(),"/[Plot]", tt, ".png"), plot=p, width=W, height = H)
+ggsave(paste0(getwd(),"/[Plot]", tt, ".pdf"), plot=p, width=W, height = H)
+
+
+tt= strsplit(ls[sel], "]")[[1]][2] %>% strsplit(., ".rds") %>% paste0( ., "_ExpCount4" )
+High=0.90
+Low=0.1
+data = class1
+d1 = data[data$overlap >= MaxNum*High, ]
+d2 = data[data$overlap <= MaxNum*Low, ]
+temp=data.frame()
+temp = rbind( temp,
+              cbind( level=paste0("Top", High*100, "%"), d1 ),
+              cbind( level=paste0("Low", Low*100, "%"), d2 )
+)
+p=ggplot(temp, aes(x=Input1, col = level)) +
+  geom_density(size = 1, alpha=0.4) + theme_bw() +
+  facet_wrap(sample~.)
+saveRDS(p, file=paste0(getwd(),"/[Plot]",tt,".rds"))
+ggsave(paste0(getwd(),"/[Plot]", tt, ".png"), plot=p, width=W, height = H)
+ggsave(paste0(getwd(),"/[Plot]", tt, ".pdf"), plot=p, width=W, height = H)
+
+
+
+
+
+
+
+
+
+
+
+
