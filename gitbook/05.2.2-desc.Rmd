@@ -1,7 +1,7 @@
 
 ### DESC: batch correction based on clustering {#ch-5-2-2}
 
-DESC [64] is an AE that removes batch effect through clustering with hypothesis that batch differences in expressions are smaller than true biological variations between cell types, and, therefore, properly performing clustering on cells across multiple batches can remove batch effects without the need to define batches explicitly.  
+DESC [@RN88]<!--[64]--> is an AE that removes batch effect through clustering with hypothesis that batch differences in expressions are smaller than true biological variations between cell types, and, therefore, properly performing clustering on cells across multiple batches can remove batch effects without the need to define batches explicitly.  
 
 *Model.* DESC has a conventional AE architecture. Its encoder takes normalized, log-transformed expression as the input and uses decoder output $\hat{x}_{n}$ as the reconstructed gene expression, which is equivalent to a Gaussian data distribution with $\hat{x}_{n}$ being the mean.  The loss function is
 \begin{equation}
@@ -9,7 +9,7 @@ DESC [64] is an AE that removes batch effect through clustering with hypothesis 
 \end{equation}
 
 
-where $L_{0}$ is reconstruction MSE as defined in Eq. (\@ref(eq:eq8)) and $L_{c}$ is the clustering loss that regularizes the learned feature representations to form clusters. The clustering loss follows the design in the deep embedded clustering [65] . Let $k \in \{1,…K\}$ be the cluster index of a cell and assume that there are $K$ clusters. Then, the clustering loss is defined as a Kullback–Leibler (KL) divergence
+where $L_{0}$ is reconstruction MSE as defined in Eq. (\@ref(eq:eq8)) and $L_{c}$ is the clustering loss that regularizes the learned feature representations to form clusters. The clustering loss follows the design in the deep embedded clustering [@RN119]<!--[65]--> . Let $k \in \{1,…K\}$ be the cluster index of a cell and assume that there are $K$ clusters. Then, the clustering loss is defined as a Kullback–Leibler (KL) divergence
 
 \begin{equation}
 L_{c}(\Theta) - KL(P\|Q)  = \sum_{n=1}^{N} \sum_{k=1}^{K}p_{nk}\log{\frac{p_{nk}}{q_{nk}}} (\#eq:eq20)
@@ -33,7 +33,7 @@ A standard $k$-means clustering algorithm is used to initialize cluster centers.
 
 *Evaluation metrics.* ARI was used for clustering and the KL divergence (Eq. \@ref(eq:eq20)) was used to assess the batch effect removal. 
 
-*Results.* DESC was applied to the macaque retina dataset, which includes animal level, region level, and sample-level batch effects. The results showed that DESC is effective in removing the batch effect, whereas CCA [29], MNN [28], Seurat 3.0 [9], scVI [13], BERMUDA [61], and scanorama [66] were all sensitive to batch definitions. DESC was then applied to human pancreas datasets to test its ability to remove batch effects from multiple scRNA-seq platforms and yielded the highest ARI among the comparing approaches mentioned above. When applied to human PBMC data with interferon-beta stimulation, where biological variations are compounded by batch effect, DESC was shown to be the best in removing batch effect while preserving biological variations. DESC was also shown to remove batch effect for the monocytes and mouse bone marrow data and DESC was shown to preserve the pseudotemporal structure.  Finally, DESC scales linearly with the number of cells and its running time is not affected by the increasing number of batches.
+*Results.* DESC was applied to the macaque retina dataset, which includes animal level, region level, and sample-level batch effects. The results showed that DESC is effective in removing the batch effect, whereas CCA [@RN79]<!--[29]-->, MNN [@RN84]<!--[28]-->, Seurat 3.0 [@RN96]<!--[9]-->, scVI [@RN88]<!--[13]-->, BERMUDA [@RN183]<!--[61]-->, and scanorama [@RN121]<!--[66]--> were all sensitive to batch definitions. DESC was then applied to human pancreas datasets to test its ability to remove batch effects from multiple scRNA-seq platforms and yielded the highest ARI among the comparing approaches mentioned above. When applied to human PBMC data with interferon-beta stimulation, where biological variations are compounded by batch effect, DESC was shown to be the best in removing batch effect while preserving biological variations. DESC was also shown to remove batch effect for the monocytes and mouse bone marrow data and DESC was shown to preserve the pseudotemporal structure.  Finally, DESC scales linearly with the number of cells and its running time is not affected by the increasing number of batches.
 
 
 

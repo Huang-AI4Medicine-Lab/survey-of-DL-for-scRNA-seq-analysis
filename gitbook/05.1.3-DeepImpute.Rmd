@@ -1,7 +1,7 @@
 
 ### DeepImpute (Deep neural network Imputation) {#ch-5-1-3}
 
-DeepImpute [17] is a deep neural network model that imputes genes in a divide-and-conquer approach. DeepImpute implemented in Keras framework/TenorFlow environment.
+DeepImpute [@RN46]<!--[17]--> is a deep neural network model that imputes genes in a divide-and-conquer approach. DeepImpute implemented in Keras framework/TenorFlow environment.
 
 *Model.* For each dataset, DeepImpute selects to impute a list of genes or highly variable genes (variance over mean ratio, default = 0.5). Each sub-neural network aims to understand the relationship between the input genes (input layer) and a subset of target genes (output layer). Genes are first divided into N random subsets of size 512 called target genes. For each subset, a neural network of four layers (input, dense, dropout and output layers) is trained where the input layer includes genes (predictor genes) who are among top 5 best correlated genes to target genes but not part of the target genes in the subset. The loss is defined as the weighted MSE 
 

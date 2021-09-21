@@ -1,7 +1,7 @@
 
 ### iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks {#ch-5-2-3}
 
-iMAP [67] combines AE and GAN for batch effect removal. It is designed to remove batch biases while preserving dataset-specific biological variations. 
+iMAP [@RN123]<!--[67]--> combines AE and GAN for batch effect removal. It is designed to remove batch biases while preserving dataset-specific biological variations. 
 
 *Model.*  iMAP consists of two processing stages, each including a separate DL model. In the first stage, a special AE, whose decoder combines the output of two separate decoders $D_{\theta_{1}}$ and $D_{\theta_{2}}, is trained such that
 
@@ -22,7 +22,7 @@ L_{t}(\Theta)= \sum_{n=1}^{N} \| z_{n}-E_{\phi}(D_{\theta}(z_{n},\tilde{s}_{n}))
 \end{equation}
 
 where $\tilde{s_{n}}$ is a random batch number. Minimizing $L_{t}(\Theta)$ further ensures the reconstructed expression $\hat{x_{n}}$ would be batch agnostic and has the same content as $x_{n}$. 
-However, the author indicated that due to the limitation of AE, this step is still insufficient for batch removal. Therefore, a second stage is included to apply a GAN model to make expression distributions of the shared cell type across different baches indistinguishable. To identified the shared cell types, a mutual nearest neighbors (MNN) strategy adapted from [28] was developed to identify MNN pairs across batches using batch effect independent  $z_{n}$ as opposed to $x_{n}$. Then, a mapping generator $G_{\theta_{G}}$ is trained using MNN pairs based on GAN such that $x_{n}^{(A)} =G_{\theta_{G}}(x_{n}^{(s)})$, where $x_{n}^{(S)}$ and $x_{n}^{(A)}$  are the MNN pairs from batch $S$ and an anchor batch $A$. The WGAN-GP loss as in Eq. (\@ref(eq:eq10)) was adopted for the GAN training. After training, $G_{\theta_{G}}$ is applied to all cells of a batch to generate batch-corrected expression.   
+However, the author indicated that due to the limitation of AE, this step is still insufficient for batch removal. Therefore, a second stage is included to apply a GAN model to make expression distributions of the shared cell type across different baches indistinguishable. To identified the shared cell types, a mutual nearest neighbors (MNN) strategy adapted from [@RN84]<!--[28]--> was developed to identify MNN pairs across batches using batch effect independent  $z_{n}$ as opposed to $x_{n}$. Then, a mapping generator $G_{\theta_{G}}$ is trained using MNN pairs based on GAN such that $x_{n}^{(A)} =G_{\theta_{G}}(x_{n}^{(s)})$, where $x_{n}^{(S)}$ and $x_{n}^{(A)}$  are the MNN pairs from batch $S$ and an anchor batch $A$. The WGAN-GP loss as in Eq. (\@ref(eq:eq10)) was adopted for the GAN training. After training, $G_{\theta_{G}}$ is applied to all cells of a batch to generate batch-corrected expression.   
 
 *Evaluation matrics.* The classifier-based metric as described in section \@ref(ch-4-2-2) was used.
 

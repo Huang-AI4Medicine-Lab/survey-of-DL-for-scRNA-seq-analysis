@@ -13,7 +13,7 @@ $$H_{acc}=-1\frac{1}{M}\sum_{i=1}^{M}\sum_{j=1}^{N_{i}}p_{i}(x_{j})\log{p_{i}(x_
 
 $$H_{pur}=-1\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M_{i}}q_{i}(x_{j})\log{q_{i}(x_{j})}$$
 
-where $M$ is the total number of predicted clusters from the clustering algorithm, $N$ is the number of ground-truth clusters, $M_{i}$, (or $N_{i}$) is the number of predicted clusters (or ground-truth clusters) in the ith ground -truth cluster (or predicted cluster), respectively.  $p_{i}(x_{j})$ (or $q_{i}(x_{j}))$ are the proportions of cells in the $j$th ground-truth cluster (or predicted cluster) relative to the total number of cells in the $i$th predicted cluster (or ground-truth clusters), respectively. A smaller value of $H_{acc}$ means the cells in a predicted cluster are constantly labeled  from the same ground-truth group, while A smaller value of $H_{pur}$ means the cells in the ground-truth groups are homogeneous with the same predicted cluster labels [18]. However, smaller $H_{acc}$ (or $H_{pur}$ ) can lead to over-clustering (or under-cluster), when each predicted cluster contains 1 cell ($H_{acc}$ = 0) or all cells in one predicted cluster ($H_{pur}$ = 0). 
+where $M$ is the total number of predicted clusters from the clustering algorithm, $N$ is the number of ground-truth clusters, $M_{i}$, (or $N_{i}$) is the number of predicted clusters (or ground-truth clusters) in the ith ground -truth cluster (or predicted cluster), respectively.  $p_{i}(x_{j})$ (or $q_{i}(x_{j}))$ are the proportions of cells in the $j$th ground-truth cluster (or predicted cluster) relative to the total number of cells in the $i$th predicted cluster (or ground-truth clusters), respectively. A smaller value of $H_{acc}$ means the cells in a predicted cluster are constantly labeled  from the same ground-truth group, while A smaller value of $H_{pur}$ means the cells in the ground-truth groups are homogeneous with the same predicted cluster labels [@RN44]<!--[18]-->. However, smaller $H_{acc}$ (or $H_{pur}$ ) can lead to over-clustering (or under-cluster), when each predicted cluster contains 1 cell ($H_{acc}$ = 0) or all cells in one predicted cluster ($H_{pur}$ = 0). 
 
 
 
@@ -23,7 +23,7 @@ where $M$ is the total number of predicted clusters from the clustering algorith
 
 
 $$ARI = \frac{RI-E[RI]}{\max(RI)-E[RI]}$$
-where $E[RI]$ is the expected Rand Index [50].
+where $E[RI]$ is the expected Rand Index [@RN107]<!--[50]-->.
 
 
 

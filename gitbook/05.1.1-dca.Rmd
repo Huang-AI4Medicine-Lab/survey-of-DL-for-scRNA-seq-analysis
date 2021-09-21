@@ -1,7 +1,7 @@
 
 ### DCA:deep count autoencoder {#ch-5-1-1}
 
-DCA [15] is an AE designed for imputation (Fig.\@ref(fig:Figure2)-B. DCA is implemented in Python as a command line and also integrated into the Scanpy framework.
+DCA [@RN53]<!--[15]--> is an AE designed for imputation (Fig.\@ref(fig:Figure2)-B. DCA is implemented in Python as a command line and also integrated into the Scanpy framework.
 
 *Model.* DCA models UMI counts of a cell with missing values using the ZINB distribution as
 
@@ -31,7 +31,7 @@ Once the DCA is trained, the mean counts $v_{n}$ are used as the denoised and im
 
 *Evaluation metrics.* A Density Resampled Estimate of Mutual Information (DREMI) measure was adapted for the higher dimensionality and sparsity of scRNA-seq data. 
 
-*Results.* For evaluation, DCA is compared to other methods using simulated data (using Splatter R package), and a real bulk transcriptomics data from a developmental C. elegans time-course experiment was used with added simulating single-cell specific noise. For this. gene expression was measured from 206 developmentally synchronized young adults over a twelve-hour period (C elegans). Single-cell specific noise was added in silico by genewise subtracting values drawn from the exponential distribution such that 80$%$ of values were zeros.  The paper analyzed the Bulk contains less noise than single-cell transcriptomics data and can thus aid in evaluating single-cell denoising methods by providing a good ground truth model. The authors also did a comparison of other methods like SAVER [32], scImpute [33], and MAGIC[55]. DCA denoising recovered original time-course gene expression pattern while removing single-cell specific noise. Overall, DCA demonstrates the strongest recovery of the top 500 genes most strongly associated with development in the original data without noise; is shown to outperform other existing methods in capturing cell population structure in real data (using PBMC, CITE-seq, runtime scales linearly with the number of cells. 
+*Results.* For evaluation, DCA is compared to other methods using simulated data (using Splatter R package), and a real bulk transcriptomics data from a developmental C. elegans time-course experiment was used with added simulating single-cell specific noise. For this. gene expression was measured from 206 developmentally synchronized young adults over a twelve-hour period (C elegans). Single-cell specific noise was added in silico by genewise subtracting values drawn from the exponential distribution such that 80$%$ of values were zeros.  The paper analyzed the Bulk contains less noise than single-cell transcriptomics data and can thus aid in evaluating single-cell denoising methods by providing a good ground truth model. The authors also did a comparison of other methods like SAVER [@RN30]<!--[32]-->, scImpute [@RN31]<!--[33]-->, and MAGIC [@RN111]<!--[55]-->. DCA denoising recovered original time-course gene expression pattern while removing single-cell specific noise. Overall, DCA demonstrates the strongest recovery of the top 500 genes most strongly associated with development in the original data without noise; is shown to outperform other existing methods in capturing cell population structure in real data (using PBMC, CITE-seq, runtime scales linearly with the number of cells. 
 
 
 

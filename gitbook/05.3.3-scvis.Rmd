@@ -1,7 +1,7 @@
 
 ### cvis: a VAE for capturing low-dimensional structures  {#ch-5-3-3}
 
-scvis [73] is a VAE network that learns the low-dimensional representations capture both local and global neighboring structures in scRNA-Seq data. 
+scvis [@RN127]<!--[73]--> is a VAE network that learns the low-dimensional representations capture both local and global neighboring structures in scRNA-Seq data. 
 
 *Model:* scvis adopts the generic VAE formulation described in section \@ref(ch-3-1) However, it has a unique loss function defined as  
 
@@ -9,7 +9,7 @@ scvis [73] is a VAE network that learns the low-dimensional representations capt
 L(\Theta)= - \mathcal{L}(\Theta) + \lambda L_{t}(\Theta) (\#eq:eq26)
 \end{equation}
 
-where $L(\Theta)$ is ELBO as in Eq. (\@ref(eq:eq3)) and $L_{t}$ is a regularizer using non-symmetrized t-SNE objective function [73], which is defined as
+where $L(\Theta)$ is ELBO as in Eq. (\@ref(eq:eq3)) and $L_{t}$ is a regularizer using non-symmetrized t-SNE objective function [@RN127]<!--[73]-->, which is defined as
 
 \begin{equation}
 L_{t}(\Theta)= \sum_{i=1}^{N}\sum_{j=1,j\neq i}^{N} p_{j\vert i}\log{\frac{p_{j \vert i}}{q_{j \vert i}} } (\#eq:eq27)
@@ -22,7 +22,7 @@ p_{i \vert j} = \frac{exp(- \frac{\|x_{i}-x_{j} \|^{2}}{2\sigma_{i}^{2}})}{\sum_
 \end{equation}
 
 
-with $\sigma_{i}$ defined as the perplexity [@RN147]. Because t-SNE algorithm preserves the local structure of high dimensional space after projecting to the lower dimension,  $L_{t}$ promotes the learning of local structures of cells. 
+with $\sigma_{i}$ defined as the perplexity [@RN147]<!--[74]-->. Because t-SNE algorithm preserves the local structure of high dimensional space after projecting to the lower dimension,  $L_{t}$ promotes the learning of local structures of cells. 
 
 *Evaluation matrics.*  KNN preservation and log-likelihood of low dimensional mapping are used to evaluate model performance.
 

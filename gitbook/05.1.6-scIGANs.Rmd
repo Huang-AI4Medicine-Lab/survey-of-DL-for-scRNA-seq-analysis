@@ -1,9 +1,9 @@
 
 ### scIGANs  {#ch-5-1-6}
 
-Imputation approaches based on information from cells with similar expressions suffer from oversmoothing, especially for rare cell types. scIGANs [16]  is a GAN-based imputation algorithm, which overcomes this problem by using the observed samples with missing values to train a GAN to generate samples with imputed expressions. 
+Imputation approaches based on information from cells with similar expressions suffer from oversmoothing, especially for rare cell types. scIGANs [@RN102]<!--[16]-->  is a GAN-based imputation algorithm, which overcomes this problem by using the observed samples with missing values to train a GAN to generate samples with imputed expressions. 
 
-*Model.* The gene expression vector $x_{n}$ is first reshaped into a square image-like format and scIGAN takes the reshaped data as input. The model follows a BEGAN [60] framework, which substitutes the generator with an autoencoder that includes an encoder E and a decoder G and also replaces the discriminator $D$ with a function $R_{\phi_{R}}$) that computes the reconstruction error of the autoencoder (e.g. MSE).  Then, the Wasserstein distance between the reconstruction errors of the real and generated samples are computed as the loss
+*Model.* The gene expression vector $x_{n}$ is first reshaped into a square image-like format and scIGAN takes the reshaped data as input. The model follows a BEGAN [@RN116]<!--[60]--> framework, which substitutes the generator with an autoencoder that includes an encoder E and a decoder G and also replaces the discriminator $D$ with a function $R_{\phi_{R}}$) that computes the reconstruction error of the autoencoder (e.g. MSE).  Then, the Wasserstein distance between the reconstruction errors of the real and generated samples are computed as the loss
 
 \begin{equation}
 L(\theta,\phi) = \max_{\phi_{R}}\sum_{n=1}^{N}R_{\phi_{R}}(x_{n})-\sum_{n=1}^{N}R_{\phi_{R}}(G_{\theta}(E_{\phi}(x_{n}),y) (\#eq:eq16)

@@ -11,13 +11,13 @@ where $P_{U}(i)=\frac{\vert U_{i} \vert}{N}$ and $P_{V}(j)=\frac{\vert V_{j} \ve
 
 $$MI(U,V)=\sum_{i=1}^{\vert U \vert}\sum_{j=1}^{\vert V \vert}P_{UV}(i,j)\log{\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)}}$$
 
-The NMI is a normalization of the $MI$ score between 0 and 1. For example, the average NMI is defined as [53]
+The NMI is a normalization of the $MI$ score between 0 and 1. For example, the average NMI is defined as [@RN250]<!--[53]-->
 
 $$NMI(U,V)=\frac{2 \times MI(U,V)}{[H(U) + H(V)]}$$
 
 **Homogeneity, Completeness, and V-Measure.** The homogeneity score (HS) measures the extent to which its clusters contain only samples that belong to one cell type, or $HS=1-H(P(U\vert V))/H(P(U))$, where $H()$ is the entropy, and $U$ is the ground-truth assignment and $V$ is the predicted assignment. The $HS$ range from 0 to 1, where 1 indicates perfectly homogeneous labelling.  Similarly, the completeness score (CS) is defined as $CS=1-H(P(V \vert U))/H(P(V))$, its values range from 0 to 1, where 1 indicates all member from a ground-truth label are assigned to a single cluster.
 
-The V-Measure [54] is the harmonic mean between $HS$ and $CS$, defined as $V_{\beta}=\frac{(1+\beta)HS×CS}{\beta HC+CS}$, where $\beta$ indicates the weight of $HS$. V-Measure is a more symmetric, i.e. switching the true and predicted cluster labels does not change V-Measure.
+The V-Measure [54*(Reference Not Found)*]<!--[54]--> is the harmonic mean between $HS$ and $CS$, defined as $V_{\beta}=\frac{(1+\beta)HS×CS}{\beta HC+CS}$, where $\beta$ indicates the weight of $HS$. V-Measure is a more symmetric, i.e. switching the true and predicted cluster labels does not change V-Measure.
     
     
     

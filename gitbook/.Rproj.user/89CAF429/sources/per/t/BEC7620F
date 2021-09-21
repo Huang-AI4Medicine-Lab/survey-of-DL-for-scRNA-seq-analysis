@@ -1,0 +1,26 @@
+{
+    "id": "BEC7620F",
+    "path": "D:/GitHub/survey-of-DL-for-scRNA-seq-analysis/gitbook/05.3.7-scsGAN.Rmd",
+    "project_path": "05.3.7-scsGAN.Rmd",
+    "type": "r_markdown",
+    "hash": "630953093",
+    "contents": "",
+    "dirty": false,
+    "created": 1632189762704.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "9,1192",
+        "scrollLine": "6"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1632189617,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1632189617,
+    "read_only": false,
+    "read_only_alternatives": []
+}
