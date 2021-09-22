@@ -1,0 +1,26 @@
+{
+    "id": "8E583E43",
+    "path": "D:/GitHub/survey-of-DL-for-scRNA-seq-analysis/gitbook/05.6-automatedCellType.Rmd",
+    "project_path": "05.6-automatedCellType.Rmd",
+    "type": "r_markdown",
+    "hash": "4276826149",
+    "contents": "",
+    "dirty": false,
+    "created": 1632333582931.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "5,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1631566463,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1631566463,
+    "read_only": false,
+    "read_only_alternatives": []
+}

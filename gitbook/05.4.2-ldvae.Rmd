@@ -1,7 +1,7 @@
 
 ### LDVAE: linearly decoded variational autoencoder {#ch-5-4-2}
 
-LDVAE [87] is an adaption of scVI to improve the model interpretability but it still benefits from the scalability and efficiency of scVI.  Also, this formulation applies to general VAE models and thus is not restricted to scRNA-seq analysis.
+LDVAE [@RN143]<!--[87]--> is an adaption of scVI to improve the model interpretability but it still benefits from the scalability and efficiency of scVI.  Also, this formulation applies to general VAE models and thus is not restricted to scRNA-seq analysis.
 
 *Model.*  LDVAE follows scVI’s formulation but replaces the decoder $D_{\theta_{ν}}$ in (\@ref(eq:eq32)) by a linear model
 

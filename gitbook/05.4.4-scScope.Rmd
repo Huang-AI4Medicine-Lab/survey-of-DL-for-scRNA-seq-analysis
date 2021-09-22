@@ -1,6 +1,6 @@
 
 ### scScope {#ch-5-4-4}
-scScope [92] is an AE with recurrent steps designed for imputation and batch correction.  
+scScope [@RN152]<!--[92]--> is an AE with recurrent steps designed for imputation and batch correction.  
 
 *Model.* scScope has the following model design for batch correction and imputation. 
 1. Batch correction: A batch correction layer is applied to the input expression as

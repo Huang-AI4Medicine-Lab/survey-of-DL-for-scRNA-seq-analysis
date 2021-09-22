@@ -1,0 +1,5 @@
+
+##  Automated cell type identification {#ch-5-6}
+
+scRNA-Seq is able to catalog cell types in complex tissues under different conditions. However, the commonly adopted manual cell typing approach based on known markers is time-consuming and less reproducible. We survey deep learning models that take the task of automated cell type identification. 
+

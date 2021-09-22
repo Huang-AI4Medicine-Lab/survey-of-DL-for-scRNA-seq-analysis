@@ -1,6 +1,6 @@
 
 ### scVI: single-cell variational inference  {#ch-5-4-1}
-scVI [13] is designed to address a range of fundamental analysis tasks, including batch correction, visualization, clustering, and differential expression. 
+scVI [@RN88]<!--[13]--> is designed to address a range of fundamental analysis tasks, including batch correction, visualization, clustering, and differential expression. 
 
 *Model.* scVI  is a VAE that models the counts of each cell from different batches. scVI adopts a ZINB distribution for $x_{gn}$
 
