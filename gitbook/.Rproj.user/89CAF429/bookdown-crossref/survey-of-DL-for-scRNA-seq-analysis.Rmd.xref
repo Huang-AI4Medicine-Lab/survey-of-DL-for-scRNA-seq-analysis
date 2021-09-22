@@ -1,0 +1,68 @@
+h1:bibliography-book.bib bibliography: [book.bib]
+h1:bibliography-references.bib bibliography: References.bib
+h1:biblio-style-cell.cls biblio-style: cell.cls
+h1:about-the-authors About the authors
+h4:corresponding-authors 
+h4:affiliations 
+h1:about-this-book About this book
+h2:abstract Abstract
+h2:key-points Key Points
+h1:ch-1 Introduction
+h1:ch-2 Overview of scRNA-seq processing pipeline
+fig:Figure1 Single cell data analysis steps for both conventional ML methods (bottom) and DL methods (top). Depending on the input data and analysis objectives, major scRNA-se analysis steps are illustrated in the center flow chart. The convential ML approaches along with optional analysis modules are presented below each analysis step. Deep learning approaches are categorized as neural network models (DNN, CNN, CapsNet, and DANN), Generalive Adversarial Network (GAN), Variational Autoencoder, and Autoencoder. For each DL approach, optional algorithms are listed on top of each step in the pipeline.
+h1:ch-3 Overview of common deep learning models for scRNA-seq analysis
+fig:Figure2 Graphical models of the surveyed DL models including A) Variational Autoencoder (VAE); B) Autoencoder (AE); and C) Generative Adversarial Network (GAN)
+h2:ch-3-1 Variational Autoencoder (VAEs) for scRNA-Seq data
+h2:ch-3-2 Autoencoders (AEs) for scRNA-seq data
+h2:ch-3-3 Generative adversarial networks (GANs) for scRNA-seq data
+h1:ch-4 Overview of datasets and evaluation metrics
+h2:ch-4-1 Evaluation methods
+h3:ch-4-1-1 Imputation
+h3:ch-4-1-2 Batch effect correction
+h3:ch-4-1-3 Clustering
+h1:ch-5 Survey of deep learning models for scRNA-Seq analysis
+fig:Figure3 Add figure caption here
+h2:ch-5-1 Imputation
+h3:ch-5-1-1 DCA:deep count autoencoder
+h3:ch-5-1-2 SAVER-X: single-cell analysis via expression recovery harnessing external data
+h3:ch-5-1-3 DeepImpute (Deep neural network Imputation)
+h3:ch-5-1-4 LATE: Learning with AuToEncoder
+h3:ch-5-1-5 scGMAI
+h3:ch-5-1-6 scIGANs
+h2:ch-5-2 Batch effect correction
+h3:ch-5-2-1 BERMUDA: Batch Effect ReMoval Using Deep Autoencoders
+h3:ch-5-2-2 DESC: batch correction based on clustering
+h3:ch-5-2-3 iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks
+h2:ch-5-3 Dimension reduction, latent representation, clustering, and data augmentation
+h3:ch-5-3-1 Dimension reduction by AEs with gene-interaction constrained architecture
+h3:ch-5-3-2 Dhaka: a VAE-based dimension reduction model
+h3:ch-5-3-3 cvis: a VAE for capturing low-dimensional structures
+h3:ch-5-3-4 scVAE: VAE for single-cell gene expression data
+h3:ch-5-3-5 VASC: VAE for scRNA-seq
+h3:ch-5-3-6 scDeepCluster
+h3:ch-5-3-7 cscGAN: Conditional single-cell generative adversarial neural networks
+h2:ch-5-4 Multi-functional models
+h3:ch-5-4-1 scVI: single-cell variational inference
+h3:ch-5-4-2 LDVAE: linearly decoded variational autoencoder
+h3:ch-5-4-3 SAUCIE
+h3:ch-5-4-4 scScope
+h2:ch-5-5 Doublet Classification
+h3:ch-5-5-1 Solo
+h2:ch-5-6 Automated cell type identification
+h3:ch-5-6-1 DigitalDLSorter
+h3:ch-5-6-2 scCapsNet
+h3:ch-5-6-3 netAE: network-enhanced autoencoder
+h3:ch-5-6-4 scDGN - supervised adversarial alignment of single-cell RNA-seq data
+h2:ch-5-7 Biological function prediction
+h3:ch-5-7-1 CNNC: convolutional neural network for coexpression
+h3:ch-5-7-2 scGen, a generative model to predict perturbation response of single cells across cell types
+h1:ch-6 Conclusion and Discussions
+h1:ch-7 Tables
+fig:Table1 Deep Learning algorithms reviewed in the paper
+fig:Table2a Simulated single-cell data/algorithms
+fig:Table2b Human single-cell data sources used by different DL algorithms
+fig:Table2c Mouse single-cell data sources used by different DL algorithms
+fig:Table2d Single-cell data derived from other species
+fig:Table2e Large single-cell data source used by various algorithms
+fig:Table3 Evaluation metrics used in surveyed DL algorithms
+
