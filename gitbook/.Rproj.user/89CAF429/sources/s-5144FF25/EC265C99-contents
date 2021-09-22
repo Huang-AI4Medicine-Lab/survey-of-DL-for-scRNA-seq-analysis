@@ -1,3 +1,7 @@
+body {
+  text-justify:auto;
+  text-align: justify;
+}
 p.caption {
   color: #777;
   margin-top: 10px;
@@ -13,6 +17,3 @@ pre code {
   white-space: inherit;
 }
 
-body {
-  text-align: justify;
-}

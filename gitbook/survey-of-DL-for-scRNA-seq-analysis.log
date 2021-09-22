@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.11)  13 SEP 2021 14:26
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.9.11)  22 SEP 2021 18:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -497,7 +497,8 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip63
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count311
-) (./survey-of-DL-for-scRNA-seq-analysis.aux)
+)
+No file survey-of-DL-for-scRNA-seq-analysis.aux.
 \openout1 = `survey-of-DL-for-scRNA-seq-analysis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
@@ -805,10 +806,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 82.
 LaTeX Info: Redefining \pageref on input line 82.
 LaTeX Info: Redefining \nameref on input line 82.
-(./survey-of-DL-for-scRNA-seq-analysis.out) (./survey-of-DL-for-scRNA-seq-analy
-sis.out)
 \@outlinefile=\write3
 \openout3 = `survey-of-DL-for-scRNA-seq-analysis.out'.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 84.
@@ -843,7 +845,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 84.
 (c:/Users/Sumin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (860.88005pt too wide) in paragraph at lines 84--84
+Overfull \hbox (1015.20006pt too wide) in paragraph at lines 84--84
  [][] 
  []
 
@@ -852,63 +854,1290 @@ Overfull \hbox (860.88005pt too wide) in paragraph at lines 84--84
 
 ] [2
 
-] (./survey-of-DL-for-scRNA-seq-analysis.toc
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 6.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 6.
-)
+]
 \tf@toc=\write4
 \openout4 = `survey-of-DL-for-scRNA-seq-analysis.toc'.
 
 [3] [4
 
-] [5] [6] [7] [8
+]
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.00092pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 104.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 104.
+[5] [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 185--187
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 
  []
 
-[9] [10]
+[7] [8]
 Chapter 1.
-[11
 
-] [12] [13] [14
+Package natbib Warning: Citation `RN87' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN98' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN191' on page 9 undefined on input line 174.
+
+
+
+Package natbib Warning: Citation `RN78' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN85' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN59' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN91' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN99' on page 9 undefined on input line 174.
+
+
+Package natbib Warning: Citation `RN87' on page 9 undefined on input line 176.
+
+
+Package natbib Warning: Citation `RN96' on page 9 undefined on input line 176.
+
+
+Package natbib Warning: Citation `RN100' on page 9 undefined on input line 176.
+
+
+[9
+
+]
+
+Package natbib Warning: Citation `RN95' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN76' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN88' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN76' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN53' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN76' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN102' on page 10 undefined on input line 178
+.
+
+
+Package natbib Warning: Citation `RN46' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN44' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN93' on page 10 undefined on input line 178.
+
+
+
+Package natbib Warning: Citation `RN75' on page 10 undefined on input line 178.
+
+
+
+LaTeX Warning: Reference `fig:Table1' on page 10 undefined on input line 180.
+
+
+Package natbib Warning: Citation `RN94' on page 10 undefined on input line 180.
+
+
+
+Package natbib Warning: Citation `RN90' on page 10 undefined on input line 180.
+
+
+
+Package natbib Warning: Citation `RN80' on page 10 undefined on input line 180.
+
+
+[10] [11] [12
 
 ]
 Chapter 2.
+
+Package natbib Warning: Citation `RN81' on page 13 undefined on input line 187.
+
+
+
+Package natbib Warning: Citation `RN97' on page 13 undefined on input line 187.
+
+
+
+LaTeX Warning: Reference `fig:Figure1' on page 13 undefined on input line 187.
+
 File: Figures/Figure1.pdf Graphic file (type pdf)
 <use Figures/Figure1.pdf>
 
-LaTeX Warning: Float too large for page by 4.53807pt on input line 217.
+Overfull \hbox (235.29764pt too wide) in paragraph at lines 191--192
+ [][] 
+ []
 
-[15] [16] (./survey-of-DL-for-scRNA-seq-analysis.bbl [17] [18
 
-] [19]) [20] (./survey-of-DL-for-scRNA-seq-analysis.aux)
-Package rerunfilecheck Info: File `survey-of-DL-for-scRNA-seq-analysis.out' has
- not changed.
-(rerunfilecheck)             Checksum: A8804E4F63A1D591296C6731D350C192;796.
+Package natbib Warning: Citation `RN81' on page 13 undefined on input line 198.
+
+
+
+Package natbib Warning: Citation `RN97' on page 13 undefined on input line 200.
+
+
+
+Package natbib Warning: Citation `RN89' on page 13 undefined on input line 200.
+
+
+
+Package natbib Warning: Citation `RN83' on page 13 undefined on input line 200.
+
+
+
+Package natbib Warning: Citation `RN84' on page 13 undefined on input line 204.
+
+
+
+Package natbib Warning: Citation `RN79' on page 13 undefined on input line 204.
+
+
+
+Package natbib Warning: Citation `RN74' on page 13 undefined on input line 204.
+
+
+[13] [14]
+
+Package natbib Warning: Citation `RN29' on page 15 undefined on input line 206.
+
+
+
+Package natbib Warning: Citation `RN30' on page 15 undefined on input line 206.
+
+
+
+Package natbib Warning: Citation `RN31' on page 15 undefined on input line 206.
+
+
+
+Package natbib Warning: Citation `RN32' on page 15 undefined on input line 207.
+
+
+
+Package natbib Warning: Citation `RN33' on page 15 undefined on input line 207.
+
+
+
+Package natbib Warning: Citation `RN34' on page 15 undefined on input line 207.
+
+
+
+Package natbib Warning: Citation `RN35' on page 15 undefined on input line 207.
+
+
+
+Package natbib Warning: Citation `RN36' on page 15 undefined on input line 210.
+
+
+
+Package natbib Warning: Citation `RN37' on page 15 undefined on input line 210.
+
+
+
+Package natbib Warning: Citation `RN38' on page 15 undefined on input line 210.
+
+
+
+Package natbib Warning: Citation `RN40' on page 15 undefined on input line 212.
+
+
+
+Package natbib Warning: Citation `RN41' on page 15 undefined on input line 212.
+
+
+
+Package natbib Warning: Citation `RN42' on page 15 undefined on input line 212.
+
+
+[15] [16
+
+]
+Chapter 3.
+File: Figures/Figure2.pdf Graphic file (type pdf)
+<use Figures/Figure2.pdf>
+
+Overfull \hbox (208.59424pt too wide) in paragraph at lines 221--222
+ [][] 
+ []
+
+
+Overfull \hbox (1.3919pt too wide) in paragraph at lines 231--231
+[]\TU/lmr/bx/n/14.4 Variational Autoencoder (VAEs) for scRNA-
+ []
+
+
+LaTeX Warning: Reference `fig:Figure2' on page 17 undefined on input line 233.
+
+
+LaTeX Warning: Reference `fig:Figure2' on page 17 undefined on input line 233.
+
+[17]
+Overfull \hbox (124.47124pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 18 \TU/lmr/m/sl/10 CHAPTER 3.  OVERVIEW OF COMMON DEEP LEARNING 
+MODELS FOR SCRNA-SEQ ANALYSIS
+ []
+
+[18]
+
+LaTeX Warning: Reference `eq:eq1' on page 19 undefined on input line 239.
+
+Missing character: There is no 𝛩 (U+1D6E9) in font [lmroman10-regular]:mapping=
+tex-text;!
+
+LaTeX Warning: Reference `fig:Figure2' on page 19 undefined on input line 259.
+
+Missing character: There is no 𝜋 (U+1D70B) in font [lmroman10-regular]:mapping=
+tex-text;!
+
+LaTeX Warning: Reference `eq:eq2' on page 19 undefined on input line 265.
+
+
+LaTeX Warning: Reference `eq:eq4' on page 19 undefined on input line 265.
+
+
+LaTeX Warning: Reference `eq:eq2' on page 19 undefined on input line 265.
+
+[19]
+
+LaTeX Warning: Reference `fig:Figure2' on page 20 undefined on input line 278.
+
+
+LaTeX Warning: Reference `fig:Figure1' on page 20 undefined on input line 284.
+
+
+Package natbib Warning: Citation `RN80' on page 20 undefined on input line 284.
+
+
+
+LaTeX Warning: Reference `eq:eq6' on page 20 undefined on input line 286.
+
+
+Overfull \hbox (124.47124pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 20 \TU/lmr/m/sl/10 CHAPTER 3.  OVERVIEW OF COMMON DEEP LEARNING 
+MODELS FOR SCRNA-SEQ ANALYSIS
+ []
+
+[20]
+
+Package natbib Warning: Citation `RN98' on page 21 undefined on input line 303.
+
+
+
+LaTeX Warning: Reference `fig:Figure2' on page 21 undefined on input line 303.
+
+
+LaTeX Warning: Reference `fig:Figure1' on page 21 undefined on input line 303.
+
+
+Package natbib Warning: Citation `RN104' on page 21 undefined on input line 303
+.
+
+
+Package natbib Warning: Citation `RN107' on page 21 undefined on input line 303
+.
+
+
+Package natbib Warning: Citation `RN181' on page 21 undefined on input line 303
+.
+
+
+LaTeX Warning: Reference `eq:eq10' on page 21 undefined on input line 309.
+
+
+LaTeX Warning: Reference `eq:eq10' on page 21 undefined on input line 309.
+
+
+Package natbib Warning: Citation `RN104' on page 21 undefined on input line 309
+.
+
+
+Package natbib Warning: Citation `RN103' on page 21 undefined on input line 309
+.
+
+
+Overfull \hbox (46.74341pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 3.3.  GENERATIVE ADVERSARIAL NETWORKS (GANS) FOR SCRNA-SEQ DATA
+ \TU/lmr/m/n/10 21
+ []
+
+[21]
+Overfull \hbox (124.47124pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 22 \TU/lmr/m/sl/10 CHAPTER 3.  OVERVIEW OF COMMON DEEP LEARNING 
+MODELS FOR SCRNA-SEQ ANALYSIS
+ []
+
+[22]
+Chapter 4.
+
+LaTeX Warning: Reference `fig:Table2a' on page 23 undefined on input line 314.
+
+
+LaTeX Warning: Reference `fig:Table3' on page 23 undefined on input line 314.
+
+
+Package natbib Warning: Citation `RN44' on page 23 undefined on input line 319.
+
+
+
+Package natbib Warning: Citation `RN45' on page 23 undefined on input line 319.
+
+
+
+Package natbib Warning: Citation `RN43' on page 23 undefined on input line 319.
+
+
+[23
+
+]
+
+Package natbib Warning: Citation `RN44' on page 24 undefined on input line 340.
+
+
+
+Package natbib Warning: Citation `RN107' on page 24 undefined on input line 349
+.
+
+
+Overfull \hbox (3.26453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 24 \TU/lmr/m/sl/10 CHAPTER 4.  OVERVIEW OF DATASETS AND EVALUATI
+ON METRICS
+ []
+
+[24]
+
+LaTeX Warning: Reference `ch-4-2-3' on page 25 undefined on input line 366.
+
+
+Package natbib Warning: Citation `RN84' on page 25 undefined on input line 368.
+
+
+
+Package natbib Warning: Citation `RN185' on page 25 undefined on input line 374
+.
+
+[25]
+
+Package natbib Warning: Citation `RN105' on page 26 undefined on input line 380
+.
+
+
+Package natbib Warning: Citation `RN74' on page 26 undefined on input line 386.
+
+
+
+Package natbib Warning: Citation `RN53' on page 26 undefined on input line 388.
+
+
+
+Overfull \hbox (3.26453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 26 \TU/lmr/m/sl/10 CHAPTER 4.  OVERVIEW OF DATASETS AND EVALUATI
+ON METRICS
+ []
+
+[26]
+
+LaTeX Warning: Reference `ch-4-2-1' on page 27 undefined on input line 394.
+
+
+Package natbib Warning: Citation `RN250' on page 27 undefined on input line 404
+.
+
+[27]
+Overfull \hbox (3.26453pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 28 \TU/lmr/m/sl/10 CHAPTER 4.  OVERVIEW OF DATASETS AND EVALUATI
+ON METRICS
+ []
+
+[28]
+Chapter 5.
+
+LaTeX Warning: Reference `fig:Figure1' on page 29 undefined on input line 415.
+
+
+LaTeX Warning: Reference `ch-3' on page 29 undefined on input line 415.
+
+
+LaTeX Warning: Reference `fig:Table1' on page 29 undefined on input line 415.
+
+
+LaTeX Warning: Reference `fig:Table2a' on page 29 undefined on input line 415.
+
+
+LaTeX Warning: Reference `fig:Table3' on page 29 undefined on input line 415.
+
+
+LaTeX Warning: Reference `fig:Figure3' on page 29 undefined on input line 415.
+
+File: Figures/Figure3.pdf Graphic file (type pdf)
+<use Figures/Figure3.pdf>
+
+Overfull \hbox (336.33273pt too wide) in paragraph at lines 419--420
+ [][] 
+ []
+
+
+Package natbib Warning: Citation `RN46' on page 29 undefined on input line 429.
+
+
+
+Package natbib Warning: Citation `RN53' on page 29 undefined on input line 434.
+
+
+
+LaTeX Warning: Reference `fig:Figure2' on page 29 undefined on input line 434.
+
+[29
+
+]
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 30 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[30]
+Missing character: There is no 𝜋 (U+1D70B) in font [lmroman10-bold]:mapping=tex
+-text;!
+Missing character: There is no 𝜋 (U+1D70B) in font [lmroman7-bold]:mapping=tex-
+text;!
+Missing character: There is no 𝛼 (U+1D6FC) in font [lmroman10-bold]:mapping=tex
+-text;!
+Missing character: There is no 𝛼 (U+1D6FC) in font [lmroman7-bold]:mapping=tex-
+text;!
+Missing character: There is no 𝜋 (U+1D70B) in font [lmroman10-bold]:mapping=tex
+-text;!
+Missing character: There is no 𝛼 (U+1D6FC) in font [lmroman10-bold]:mapping=tex
+-text;!
+Missing character: There is no 𝜋 (U+1D70B) in font [lmroman7-bold]:mapping=tex-
+text;!
+Missing character: There is no 𝛼 (U+1D6FC) in font [lmroman7-bold]:mapping=tex-
+text;!
+
+LaTeX Warning: Reference `eq:eq7' on page 31 undefined on input line 449.
+
+
+Package natbib Warning: Citation `RN30' on page 31 undefined on input line 464.
+
+
+
+Package natbib Warning: Citation `RN31' on page 31 undefined on input line 464.
+
+
+
+Package natbib Warning: Citation `RN111' on page 31 undefined on input line 464
+.
+
+[31]
+
+Package natbib Warning: Citation `RN204' on page 32 undefined on input line 469
+.
+
+
+LaTeX Warning: Reference `eq:eq11' on page 32 undefined on input line 476.
+
+
+LaTeX Warning: Reference `eq:eq13' on page 32 undefined on input line 477.
+
+
+Package natbib Warning: Citation `RN80' on page 32 undefined on input line 481.
+
+
+
+Package natbib Warning: Citation `RN88' on page 32 undefined on input line 481.
+
+
+
+Package natbib Warning: Citation `RN31' on page 32 undefined on input line 481.
+
+
+
+Package natbib Warning: Citation `RN111' on page 32 undefined on input line 481
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 32 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[32]
+
+Package natbib Warning: Citation `RN46' on page 33 undefined on input line 486.
+
+
+
+LaTeX Warning: Reference `fig:Table2a' on page 33 undefined on input line 498.
+
+[33]
+
+Package natbib Warning: Citation `RN184' on page 34 undefined on input line 503
+.
+
+
+LaTeX Warning: Reference `eq:eq9' on page 34 undefined on input line 505.
+
+
+Package natbib Warning: Citation `RN109' on page 34 undefined on input line 514
+.
+
+
+Package natbib Warning: Citation `RN30' on page 34 undefined on input line 521.
+
+
+
+Package natbib Warning: Citation `RN111' on page 34 undefined on input line 521
+.
+
+
+Package natbib Warning: Citation `RN80' on page 34 undefined on input line 521.
+
+
+
+Package natbib Warning: Citation `RN31' on page 34 undefined on input line 521.
+
+
+
+Package natbib Warning: Citation `RN113' on page 34 undefined on input line 521
+.
+
+
+LaTeX Warning: Reference `fig:Table2a' on page 34 undefined on input line 521.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 34 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[34]
+
+Package natbib Warning: Citation `RN102' on page 35 undefined on input line 526
+.
+
+
+Package natbib Warning: Citation `RN116' on page 35 undefined on input line 528
+.
+
+[35]
+
+Package natbib Warning: Citation `RN46' on page 36 undefined on input line 544.
+
+
+
+Package natbib Warning: Citation `RN183' on page 36 undefined on input line 549
+.
+
+
+LaTeX Warning: Reference `eq:eq9' on page 36 undefined on input line 556.
+
+
+Package natbib Warning: Citation `RN185' on page 36 undefined on input line 556
+.
+
+
+Package natbib Warning: Citation `RN186' on page 36 undefined on input line 562
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 36 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[36]
+
+Package natbib Warning: Citation `RN84' on page 37 undefined on input line 566.
+
+
+
+Package natbib Warning: Citation `RN115' on page 37 undefined on input line 566
+.
+
+
+Package natbib Warning: Citation `RN96' on page 37 undefined on input line 566.
+
+
+
+Package natbib Warning: Citation `RN88' on page 37 undefined on input line 566.
+
+
+
+Package natbib Warning: Citation `RN88' on page 37 undefined on input line 571.
+
+
+
+LaTeX Warning: Reference `eq:eq8' on page 37 undefined on input line 578.
+
+
+Package natbib Warning: Citation `RN119' on page 37 undefined on input line 578
+.
+
+[37]
+
+LaTeX Warning: Reference `eq:eq20' on page 38 undefined on input line 598.
+
+
+Package natbib Warning: Citation `RN79' on page 38 undefined on input line 600.
+
+
+
+Package natbib Warning: Citation `RN84' on page 38 undefined on input line 600.
+
+
+
+Package natbib Warning: Citation `RN96' on page 38 undefined on input line 600.
+
+
+
+Package natbib Warning: Citation `RN88' on page 38 undefined on input line 600.
+
+
+
+Package natbib Warning: Citation `RN183' on page 38 undefined on input line 600
+.
+
+
+Package natbib Warning: Citation `RN121' on page 38 undefined on input line 600
+.
+
+
+Package natbib Warning: Citation `RN123' on page 38 undefined on input line 605
+.
+
+Missing character: There is no 𝜃 (U+1D703) in font [lmroman10-regular]:mapping=
+tex-text;!
+Missing character: There is no θ (U+03B8) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no θ (U+03B8) in font [lmroman10-regular]:mapping=t
+ex-text;!
+
+LaTeX Warning: Reference `eq:eq7' on page 38 undefined on input line 619.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 38 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[38]
+
+Package natbib Warning: Citation `RN84' on page 39 undefined on input line 626.
+
+
+
+LaTeX Warning: Reference `eq:eq10' on page 39 undefined on input line 626.
+
+
+LaTeX Warning: Reference `ch-4-2-2' on page 39 undefined on input line 628.
+
+
+Overfull \hbox (171.06563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.3.  DIMENSION REDUCTION, LATENT REPRESENTATION, CLUSTERING, A
+ND DATA AUGMENTATION \TU/lmr/m/n/10 39
+ []
+
+[39]
+
+Package natbib Warning: Citation `RN193' on page 40 undefined on input line 640
+.
+
+
+Package natbib Warning: Citation `RN187' on page 40 undefined on input line 644
+.
+
+
+Package natbib Warning: Citation `RN104' on page 40 undefined on input line 644
+.
+
+
+Package natbib Warning: Citation `RN38' on page 40 undefined on input line 646.
+
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 40 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[40]
+
+Package natbib Warning: Citation `RN125' on page 41 undefined on input line 651
+.
+
+
+Package natbib Warning: Citation `RN188' on page 41 undefined on input line 657
+.
+
+
+Package natbib Warning: Citation `RN189' on page 41 undefined on input line 657
+.
+
+
+Package natbib Warning: Citation `RN127' on page 41 undefined on input line 662
+.
+
+
+LaTeX Warning: Reference `ch-3-1' on page 41 undefined on input line 664.
+
+
+LaTeX Warning: Reference `eq:eq3' on page 41 undefined on input line 670.
+
+
+Package natbib Warning: Citation `RN127' on page 41 undefined on input line 670
+.
+
+
+Overfull \hbox (171.06563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.3.  DIMENSION REDUCTION, LATENT REPRESENTATION, CLUSTERING, A
+ND DATA AUGMENTATION \TU/lmr/m/n/10 41
+ []
+
+[41]
+
+Package natbib Warning: Citation `RN147' on page 42 undefined on input line 682
+.
+
+
+Package natbib Warning: Citation `RN129' on page 42 undefined on input line 691
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 42 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[42]
+
+Package natbib Warning: Citation `RN88' on page 43 undefined on input line 697.
+
+
+
+Package natbib Warning: Citation `RN127' on page 43 undefined on input line 697
+.
+
+
+Package natbib Warning: Citation `RN131' on page 43 undefined on input line 702
+.
+
+
+Package natbib Warning: Citation `RN132' on page 43 undefined on input line 704
+.
+
+
+Overfull \hbox (171.06563pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 5.3.  DIMENSION REDUCTION, LATENT REPRESENTATION, CLUSTERING, A
+ND DATA AUGMENTATION \TU/lmr/m/n/10 43
+ []
+
+[43]
+
+Package natbib Warning: Citation `RN133' on page 44 undefined on input line 713
+.
+
+
+LaTeX Warning: Reference `eq:eq11' on page 44 undefined on input line 715.
+
+
+LaTeX Warning: Reference `eq:eq12' on page 44 undefined on input line 715.
+
+
+LaTeX Warning: Reference `eq:eq13' on page 44 undefined on input line 721.
+
+
+LaTeX Warning: Reference `eq:eq20' on page 44 undefined on input line 721.
+
+
+Package natbib Warning: Citation `RN53' on page 44 undefined on input line 725.
+
+
+
+Package natbib Warning: Citation `RN135' on page 44 undefined on input line 725
+.
+
+
+Package natbib Warning: Citation `RN38' on page 44 undefined on input line 725.
+
+
+
+Package natbib Warning: Citation `RN113' on page 44 undefined on input line 725
+.
+
+
+Package natbib Warning: Citation `RN127' on page 44 undefined on input line 725
+.
+
+
+Package natbib Warning: Citation `RN253' on page 44 undefined on input line 725
+.
+
+
+Package natbib Warning: Citation `RN139' on page 44 undefined on input line 730
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 44 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[44]
+
+LaTeX Warning: Reference `ch-3-3' on page 45 undefined on input line 732.
+
+
+Package natbib Warning: Citation `RN140' on page 45 undefined on input line 732
+.
+
+
+Package natbib Warning: Citation `RN252' on page 45 undefined on input line 734
+.
+
+
+Package natbib Warning: Citation `RN190' on page 45 undefined on input line 736
+.
+
+
+Package natbib Warning: Citation `RN141' on page 45 undefined on input line 736
+.
+
+[45]
+
+Package natbib Warning: Citation `RN88' on page 46 undefined on input line 746.
+
+
+
+LaTeX Warning: Reference `eq:eq11' on page 46 undefined on input line 754.
+
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
+(Font)              scaled to size 10.0pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
+(Font)              scaled to size 7.0pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
+(Font)              scaled to size 5.0pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 10.00092pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 7.00064pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
+(Font)              scaled to size 5.00046pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 9.99893pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 6.99925pt on input line 757.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
+(Font)              scaled to size 4.99947pt on input line 757.
+Missing character: There is no ν (U+03BD) in font [lmroman10-bold]:mapping=tex-
+text;!
+Missing character: There is no ν (U+03BD) in font [lmroman10-bold]:mapping=tex-
+text;!
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 46 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[46]
+
+Package natbib Warning: Citation `RN143' on page 47 undefined on input line 782
+.
+
+
+LaTeX Warning: Reference `eq:eq32' on page 47 undefined on input line 784.
+
+Missing character: There is no ν (U+03BD) in font [lmroman10-bold]:mapping=tex-
+text;!
+[47]
+
+Package natbib Warning: Citation `RN76' on page 48 undefined on input line 799.
+
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 48 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[48]
+
+LaTeX Warning: Reference `eq:eq9' on page 49 undefined on input line 843.
+
+
+Package natbib Warning: Citation `RN145' on page 49 undefined on input line 847
+.
+
+
+Package natbib Warning: Citation `RN84' on page 49 undefined on input line 847.
+
+
+
+Package natbib Warning: Citation `RN79' on page 49 undefined on input line 847.
+
+
+
+Package natbib Warning: Citation `RN150' on page 49 undefined on input line 847
+.
+
+
+Package natbib Warning: Citation `RN148' on page 49 undefined on input line 847
+.
+
+
+Package natbib Warning: Citation `RN147' on page 49 undefined on input line 847
+.
+
+
+Package natbib Warning: Citation `RN146' on page 49 undefined on input line 847
+.
+
+
+Package natbib Warning: Citation `RN111' on page 49 undefined on input line 847
+.
+
+
+Package natbib Warning: Citation `RN31' on page 49 undefined on input line 847.
+
+
+
+Package natbib Warning: Citation `RN152' on page 49 undefined on input line 852
+.
+
+[49]
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 50 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[50]
+
+Package natbib Warning: Citation `RN154' on page 51 undefined on input line 896
+.
+
+
+Package natbib Warning: Citation `RN190' on page 51 undefined on input line 902
+.
+
+
+Package natbib Warning: Citation `RN191' on page 51 undefined on input line 902
+.
+
+
+Package natbib Warning: Citation `RN192' on page 51 undefined on input line 902
+.
+
+[51]
+
+Package natbib Warning: Citation `RN156' on page 52 undefined on input line 912
+.
+
+
+Package natbib Warning: Citation `RN220' on page 52 undefined on input line 914
+.
+
+
+Package natbib Warning: Citation `RN221' on page 52 undefined on input line 914
+.
+
+
+Package natbib Warning: Citation `RN220' on page 52 undefined on input line 914
+.
+
+
+Package natbib Warning: Citation `RN249' on page 52 undefined on input line 914
+.
+
+
+Package natbib Warning: Citation `RN220' on page 52 undefined on input line 918
+.
+
+
+Package natbib Warning: Citation `RN248' on page 52 undefined on input line 918
+.
+
+
+Package natbib Warning: Citation `RN245' on page 52 undefined on input line 918
+.
+
+
+Package natbib Warning: Citation `RN247' on page 52 undefined on input line 918
+.
+
+
+Package natbib Warning: Citation `RN157' on page 52 undefined on input line 923
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 52 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[52]
+
+Package natbib Warning: Citation `RN159' on page 53 undefined on input line 937
+.
+
+
+Package natbib Warning: Citation `RN157' on page 53 undefined on input line 937
+.
+
+
+Package natbib Warning: Citation `RN161' on page 53 undefined on input line 943
+.
+
+
+Package natbib Warning: Citation `RN163' on page 53 undefined on input line 943
+.
+
+[53]
+
+Package natbib Warning: Citation `RN165' on page 54 undefined on input line 948
+.
+
+
+LaTeX Warning: Reference `eq:eq32' on page 54 undefined on input line 950.
+
+
+Package natbib Warning: Citation `RN166' on page 54 undefined on input line 956
+.
+
+
+LaTeX Warning: Reference `eq:eq34' on page 54 undefined on input line 956.
+
+
+Package natbib Warning: Citation `RN169' on page 54 undefined on input line 960
+.
+
+
+Package natbib Warning: Citation `RN172' on page 54 undefined on input line 965
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 54 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[54]
+
+Package natbib Warning: Citation `RN244' on page 55 undefined on input line 973
+.
+
+
+LaTeX Warning: Reference `eq:eq46' on page 55 undefined on input line 973.
+
+
+Package natbib Warning: Citation `RN193' on page 55 undefined on input line 977
+.
+
+
+Package natbib Warning: Citation `RN194' on page 55 undefined on input line 977
+.
+
+
+Package natbib Warning: Citation `RN84' on page 55 undefined on input line 977.
+
+
+
+Package natbib Warning: Citation `RN88' on page 55 undefined on input line 977.
+
+
+
+Package natbib Warning: Citation `RN96' on page 55 undefined on input line 977.
+
+
+[55]
+
+Package natbib Warning: Citation `RN174' on page 56 undefined on input line 987
+.
+
+
+Package natbib Warning: Citation `RN195' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN196' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN197' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN178' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN198' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN176' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN199' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN178' on page 56 undefined on input line 993
+.
+
+
+Package natbib Warning: Citation `RN200' on page 56 undefined on input line 993
+.
+
+
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 56 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[56]
+
+Package natbib Warning: Citation `RN179' on page 57 undefined on input line 998
+.
+
+
+Package natbib Warning: Citation `RN201' on page 57 undefined on input line 100
+4.
+
+
+Package natbib Warning: Citation `RN179' on page 57 undefined on input line 100
+4.
+
+
+Package natbib Warning: Citation `RN218' on page 57 undefined on input line 100
+4.
+
+
+Package natbib Warning: Citation `RN226' on page 57 undefined on input line 100
+4.
+
+
+Package natbib Warning: Citation `RN202' on page 57 undefined on input line 100
+4.
+
+[57]
+Overfull \hbox (58.49234pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 58 \TU/lmr/m/sl/10 CHAPTER 5.  SURVEY OF DEEP LEARNING MODELS FO
+R SCRNA-SEQ ANALYSIS
+ []
+
+[58]
+Chapter 6.
+[59
+
+] [60
+
+]
+Chapter 7.
+File: Table/Table1.pdf Graphic file (type pdf)
+<use Table/Table1.pdf>
+
+LaTeX Warning: Float too large for page by 24.07199pt on input line 1021.
+
+File: Table/Table2a.pdf Graphic file (type pdf)
+<use Table/Table2a.pdf>
+
+Overfull \hbox (175.2748pt too wide) in paragraph at lines 1025--1026
+ [][] 
+ []
+
+File: Table/Table2b.pdf Graphic file (type pdf)
+<use Table/Table2b.pdf>
+
+LaTeX Warning: Float too large for page by 24.07884pt on input line 1039.
+
+File: Table/Table2c.pdf Graphic file (type pdf)
+<use Table/Table2c.pdf>
+
+LaTeX Warning: Float too large for page by 24.06218pt on input line 1048.
+
+File: Table/Table2d.pdf Graphic file (type pdf)
+<use Table/Table2d.pdf>
+
+Overfull \hbox (162.6637pt too wide) in paragraph at lines 1052--1053
+ [][] 
+ []
+
+File: Table/Table2e.pdf Graphic file (type pdf)
+<use Table/Table2e.pdf>
+
+Overfull \hbox (159.16579pt too wide) in paragraph at lines 1061--1062
+ [][] 
+ []
+
+File: Table/Table3.pdf Graphic file (type pdf)
+<use Table/Table3.pdf>
+
+LaTeX Warning: Float too large for page by 24.05618pt on input line 1075.
+
+No file survey-of-DL-for-scRNA-seq-analysis.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[61] [62] [63] [64] [65] [66] [67] (./survey-of-DL-for-scRNA-seq-analysis.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `survey-of-DL-for-scRNA-seq-analysis.out' 
+has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `survey-of-DL-for-scRNA-seq-analysis
+.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  FD271D659D22984CA3289151A00B4F0C;4676.
  ) 
 Here is how much of TeX's memory you used:
- 16378 strings out of 478532
- 292086 string characters out of 5861061
- 754933 words of memory out of 5000000
- 36402 multiletter control sequences out of 15000+600000
- 409889 words of font info for 81 fonts, out of 8000000 for 9000
+ 16568 strings out of 478532
+ 295248 string characters out of 5861061
+ 764364 words of memory out of 5000000
+ 36574 multiletter control sequences out of 15000+600000
+ 411382 words of font info for 95 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 87i,6n,120p,1299b,454s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,9n,120p,1995b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on survey-of-DL-for-scRNA-seq-analysis.pdf (20 pages).
+Output written on survey-of-DL-for-scRNA-seq-analysis.pdf (67 pages).
