@@ -1,9 +1,15 @@
-h1:ch-7 Tables
-fig:Table1 Deep Learning algorithms reviewed in the paper
-fig:Table2a Simulated single-cell data/algorithms
-fig:Table2b Human single-cell data sources used by different DL algorithms
-fig:Table2c Mouse single-cell data sources used by different DL algorithms
-fig:Table2d Single-cell data derived from other species
-fig:Table2e Large single-cell data source used by various algorithms
-fig:Table3 Evaluation metrics used in surveyed DL algorithms
+h1:ch7 Tables
+h2:deep-learning-algorithms-reviewed-in-the-paper Deep Learning algorithms reviewed in the paper
+tab:Table1 Deep Learning algorithms reviewed in the paper
+h2:simulated-single-cell-dataalgorithms Simulated single-cell data/algorithms
+tab:Table2a Simulated single-cell data/algorithms
+h2:human-single-cell-data-sources-used-by-different-dl-algorithms Human single-cell data sources used by different DL algorithms
+tab:Table2b Human single-cell data sources used by different DL algorithms
+h2:mouse-single-cell-data-sources-used-by-different-dl-algorithms Mouse single-cell data sources used by different DL algorithms
+tab:Table2c Mouse single-cell data sources used by different DL algorithms
+h2:single-cell-data-derived-from-other-species Single-cell data derived from other species
+tab:Table2d Single-cell data derived from other species
+h2:large-single-cell-data-source-used-by-various-algorithms Large single-cell data source used by various algorithms
+h2:evaluation-metrics-used-in-surveyed-dl-algorithms Evaluation metrics used in surveyed DL algorithms
+h2:references References
 

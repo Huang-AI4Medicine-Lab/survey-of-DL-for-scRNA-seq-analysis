@@ -1,0 +1,26 @@
+{
+    "id": "9AB73B4B",
+    "path": "D:/GitHub/survey-of-DL-for-scRNA-seq-analysis/gitbook/05.2.3-imap.Rmd",
+    "project_path": "05.2.3-imap.Rmd",
+    "type": "r_markdown",
+    "hash": "769477564",
+    "contents": "",
+    "dirty": false,
+    "created": 1632388408851.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "26,89",
+        "scrollLine": "25"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1632188362,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1632188362,
+    "read_only": false,
+    "read_only_alternatives": []
+}

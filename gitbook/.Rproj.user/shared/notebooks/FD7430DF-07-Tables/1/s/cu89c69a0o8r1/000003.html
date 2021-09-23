@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+<script src="lib/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="lib/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="lib/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="lib/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="lib/kePrint-0.0.1/kePrint.js"></script>
+<link href="lib/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+</head>
+<body>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; "><table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>Human single-cell data sources used by different DL algorithms</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Title </th>
+   <th style="text-align:left;"> Algorithm </th>
+   <th style="text-align:left;"> Cell_Origin </th>
+   <th style="text-align:left;"> Number_of_Cells </th>
+   <th style="text-align:left;"> Data_Sources </th>
+   <th style="text-align:left;"> Refs </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 68k PBMCs </td>
+   <td style="text-align:left;"> DCA, SAVER-X, LATE, scVAE, scDeepCluster, scCapsNet, scDGN </td>
+   <td style="text-align:left;"> Blood </td>
+   <td style="text-align:left;"> 68,579 </td>
+   <td style="text-align:left;"> 10X Single Cell Gene Expression Datasets </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Human pluripotent </td>
+   <td style="text-align:left;"> DCA </td>
+   <td style="text-align:left;"> hESCs </td>
+   <td style="text-align:left;"> 1,876 </td>
+   <td style="text-align:left;"> GSE102176 </td>
+   <td style="text-align:left;"> [122] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CITE-seq </td>
+   <td style="text-align:left;"> SAVER-X </td>
+   <td style="text-align:left;"> Cord blood mononuclear cells </td>
+   <td style="text-align:left;"> 8,005 </td>
+   <td style="text-align:left;"> GSE100866 </td>
+   <td style="text-align:left;"> [123] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Midbrain and Dopaminergic Neuron Development </td>
+   <td style="text-align:left;"> SAVER-X </td>
+   <td style="text-align:left;"> Brain/ embryo ventral midbrain cells </td>
+   <td style="text-align:left;"> 1,977 </td>
+   <td style="text-align:left;"> GSE76381 </td>
+   <td style="text-align:left;"> [124] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> HCA </td>
+   <td style="text-align:left;"> SAVER-X </td>
+   <td style="text-align:left;"> Immune cell, Human Cell Atlas </td>
+   <td style="text-align:left;"> 500,000 </td>
+   <td style="text-align:left;"> HCA data portal </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Breast tumor </td>
+   <td style="text-align:left;"> SAVER-X </td>
+   <td style="text-align:left;"> Immune cell in tumor micro-environment </td>
+   <td style="text-align:left;"> 45,000 </td>
+   <td style="text-align:left;"> GSE114725 </td>
+   <td style="text-align:left;"> [125] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 293T cells </td>
+   <td style="text-align:left;"> DeepImpute, iMAP </td>
+   <td style="text-align:left;"> Embryonic kidney </td>
+   <td style="text-align:left;"> 13,480 </td>
+   <td style="text-align:left;"> 10X Single Cell Gene Expression Datasets </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Jurkat </td>
+   <td style="text-align:left;"> DeepImpute, iMAP </td>
+   <td style="text-align:left;"> Blood/ lymphocyte </td>
+   <td style="text-align:left;"> 3,200 </td>
+   <td style="text-align:left;"> 10X Single Cell Gene Expression Datasets </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ESC, Time-course </td>
+   <td style="text-align:left;"> scGAN </td>
+   <td style="text-align:left;"> ESC </td>
+   <td style="text-align:left;"> 350,758 </td>
+   <td style="text-align:left;"> GSE75748 </td>
+   <td style="text-align:left;"> [126] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baron-Hum-1 </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;"> Pancreatic islets </td>
+   <td style="text-align:left;"> 1,937 </td>
+   <td style="text-align:left;"> GSM2230757 </td>
+   <td style="text-align:left;"> [127] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Baron-Hum-2 </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;"> Pancreatic islets </td>
+   <td style="text-align:left;"> 1,724 </td>
+   <td style="text-align:left;"> GSM2230758 </td>
+   <td style="text-align:left;"> [127] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Camp </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;"> Liver cells </td>
+   <td style="text-align:left;"> 303 </td>
+   <td style="text-align:left;"> GSE96981 </td>
+   <td style="text-align:left;"> [128] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CEL-seq2 </td>
+   <td style="text-align:left;"> PERMUDA, DESC </td>
+   <td style="text-align:left;"> Pancreas/Islets of Langerhans </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> GSE85241 </td>
+   <td style="text-align:left;"> [129] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Darmanis </td>
+   <td style="text-align:left;"> scGMAI, sclGAN, VASC </td>
+   <td style="text-align:left;"> Brain/cortex </td>
+   <td style="text-align:left;"> 466 </td>
+   <td style="text-align:left;"> GSE67835 </td>
+   <td style="text-align:left;"> [130] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tirosh-brain </td>
+   <td style="text-align:left;"> Dhaka, scvis </td>
+   <td style="text-align:left;"> Oligodendroglioma </td>
+   <td style="text-align:left;"> &gt;4,800 </td>
+   <td style="text-align:left;"> GSE70630 </td>
+   <td style="text-align:left;"> [131] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Patel </td>
+   <td style="text-align:left;"> Dhaka </td>
+   <td style="text-align:left;"> Primary glioblastoma cells </td>
+   <td style="text-align:left;"> 875 </td>
+   <td style="text-align:left;"> GSE57872 </td>
+   <td style="text-align:left;"> [132] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Li </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;"> Blood </td>
+   <td style="text-align:left;"> 561 </td>
+   <td style="text-align:left;"> GSE146974 </td>
+   <td style="text-align:left;"> [61] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Tirosh-skin </td>
+   <td style="text-align:left;"> scvis </td>
+   <td style="text-align:left;"> melanoma </td>
+   <td style="text-align:left;"> 4,645 </td>
+   <td style="text-align:left;"> GSE72056 </td>
+   <td style="text-align:left;"> [67] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> xenograft 3, and 4 </td>
+   <td style="text-align:left;"> Dhaka </td>
+   <td style="text-align:left;"> Breast tumor </td>
+   <td style="text-align:left;"> ~250 </td>
+   <td style="text-align:left;"> EGAS00001002170 </td>
+   <td style="text-align:left;"> [133] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Petropoulos </td>
+   <td style="text-align:left;"> VASC/netAE </td>
+   <td style="text-align:left;"> Human embryos </td>
+   <td style="text-align:left;"> 1,529 </td>
+   <td style="text-align:left;"> E-MTAB-3929 </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pollen </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> 348 </td>
+   <td style="text-align:left;"> SRP041736 </td>
+   <td style="text-align:left;"> [134] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Xin </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;"> Pancreatic cells (a-, ß-, d-) </td>
+   <td style="text-align:left;"> 1,600 </td>
+   <td style="text-align:left;"> GSE81608 </td>
+   <td style="text-align:left;"> [135] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Yan </td>
+   <td style="text-align:left;"> scGMAI, VASC </td>
+   <td style="text-align:left;"> embryonic stem cells </td>
+   <td style="text-align:left;"> 124 </td>
+   <td style="text-align:left;"> GSE36552 </td>
+   <td style="text-align:left;"> [136] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> PBMC3k </td>
+   <td style="text-align:left;"> VASC, scVI </td>
+   <td style="text-align:left;"> Blood </td>
+   <td style="text-align:left;"> 2,700 </td>
+   <td style="text-align:left;"> SRP073767 </td>
+   <td style="text-align:left;"> [96] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CyTOF, Dengue </td>
+   <td style="text-align:left;"> SAUCIE </td>
+   <td style="text-align:left;"> Dengue infection </td>
+   <td style="text-align:left;"> 11 M, ~42 antibodies </td>
+   <td style="text-align:left;"> Cytobank, 82023 </td>
+   <td style="text-align:left;"> [14] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CyTOF, ccRCC </td>
+   <td style="text-align:left;"> SAUCIE </td>
+   <td style="text-align:left;"> Immunue profile of 73 ccRCC patients </td>
+   <td style="text-align:left;"> 3.5 M, ~40 antibodies </td>
+   <td style="text-align:left;"> Cytobank: 875 </td>
+   <td style="text-align:left;"> [137] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> CyTOF, breast </td>
+   <td style="text-align:left;"> SAUCIE </td>
+   <td style="text-align:left;"> 3 patients </td>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:left;"> Flow Repository: FR-FCM-ZYJP </td>
+   <td style="text-align:left;"> [125] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Chung, BC </td>
+   <td style="text-align:left;"> DigitalDLSorter </td>
+   <td style="text-align:left;"> Breast tumor </td>
+   <td style="text-align:left;"> 515 </td>
+   <td style="text-align:left;"> GSE75688 </td>
+   <td style="text-align:left;"> [88] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Li, CRC </td>
+   <td style="text-align:left;"> DigitalDLSorter </td>
+   <td style="text-align:left;"> Colorectal cancer </td>
+   <td style="text-align:left;"> 2,591 </td>
+   <td style="text-align:left;"> GSE81861 </td>
+   <td style="text-align:left;"> [89] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Pancreatic datasets </td>
+   <td style="text-align:left;"> scDGN </td>
+   <td style="text-align:left;"> Pancreas </td>
+   <td style="text-align:left;"> 14,693 </td>
+   <td style="text-align:left;"> SeuratData </td>
+   <td style="text-align:left;">  </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Kang, PBMC </td>
+   <td style="text-align:left;"> scGen </td>
+   <td style="text-align:left;"> PBMC stimulated by INF-ß </td>
+   <td style="text-align:left;"> ~15,000 </td>
+   <td style="text-align:left;"> GSE96583 </td>
+   <td style="text-align:left;"> [116] </td>
+  </tr>
+</tbody>
+</table></div> <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"]]}})</script><script async src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

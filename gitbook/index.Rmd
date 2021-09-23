@@ -32,11 +32,21 @@ knitr::opts_chunk$set(echo = FALSE,
                       # fig.height = 9,
                       dev = "png",
                       cache = TRUE)
+
+#knitr::opts_chunk$set(echo=TRUE)
+options(knitr.table.format = "html")
+
+
 ```
 
 ```{r library, include=FALSE}
 library(gtsummary)
 library(survival)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+library(formattable)
+library(dplyr)
 ```
 
 

@@ -1,0 +1,26 @@
+{
+    "id": "60A843AA",
+    "path": "D:/GitHub/survey-of-DL-for-scRNA-seq-analysis/gitbook/05-survey-of-dl-models-for-scRNA-seq-analysis.Rmd",
+    "project_path": "05-survey-of-dl-models-for-scRNA-seq-analysis.Rmd",
+    "type": "r_markdown",
+    "hash": "1621351438",
+    "contents": "",
+    "dirty": false,
+    "created": 1632388317047.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "7,49",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1632388350,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1632388350774,
+    "read_only": false,
+    "read_only_alternatives": []
+}
