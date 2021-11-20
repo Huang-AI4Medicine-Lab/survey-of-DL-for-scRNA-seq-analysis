@@ -10090,9 +10090,67 @@
                     ]
                 ]
             },
-            "note": "R package version 0.23",
+            "note": "R package version 0.24",
             "title": "Bookdown: Authoring books and technical documents with r markdown",
             "title-short": "Bookdown",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=dplyr",
+            "author": [
+                {
+                    "family": "Wickham",
+                    "given": "Hadley"
+                },
+                {
+                    "family": "François",
+                    "given": "Romain"
+                },
+                {
+                    "family": "Henry",
+                    "given": "Lionel"
+                },
+                {
+                    "family": "Müller",
+                    "given": "Kirill"
+                }
+            ],
+            "id": "R-dplyr",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.0.7",
+            "title": "Dplyr: A grammar of data manipulation",
+            "title-short": "Dplyr",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=formattable",
+            "author": [
+                {
+                    "family": "Ren",
+                    "given": "Kun"
+                },
+                {
+                    "family": "Russell",
+                    "given": "Kenton"
+                }
+            ],
+            "id": "R-formattable",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 0.2.1",
+            "title": "Formattable: Create formattable data structures",
+            "title-short": "Formattable",
             "type": "book"
         },
         {
@@ -10107,12 +10165,12 @@
                     "given": "Michael"
                 },
                 {
-                    "family": "Hannum",
-                    "given": "Margie"
-                },
-                {
                     "family": "Larmarange",
                     "given": "Joseph"
+                },
+                {
+                    "family": "Lavery",
+                    "given": "Jessica"
                 },
                 {
                     "family": "Whiting",
@@ -10131,9 +10189,30 @@
                     ]
                 ]
             },
-            "note": "R package version 1.4.2",
+            "note": "R package version 1.5.0",
             "title": "Gtsummary: Presentation-ready data summary and analytic result tables",
             "title-short": "Gtsummary",
+            "type": "book"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=kableExtra",
+            "author": [
+                {
+                    "family": "Zhu",
+                    "given": "Hao"
+                }
+            ],
+            "id": "R-kableExtra",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "note": "R package version 1.3.4",
+            "title": "kableExtra: Construct complex table with kable and pipe syntax",
+            "title-short": "kableExtra",
             "type": "book"
         },
         {
@@ -10152,7 +10231,7 @@
                     ]
                 ]
             },
-            "note": "R package version 1.33",
+            "note": "R package version 1.36",
             "title": "Knitr: A general-purpose package for dynamic report generation in r",
             "title-short": "Knitr",
             "type": "book"
@@ -10209,7 +10288,7 @@
                     ]
                 ]
             },
-            "note": "R package version 2.10",
+            "note": "R package version 2.11",
             "title": "Rmarkdown: Dynamic documents for r",
             "title-short": "Rmarkdown",
             "type": "book"
@@ -10257,6 +10336,45 @@
             "title": "Bookdown: Authoring books and technical documents with R markdown",
             "title-short": "Bookdown",
             "type": "book"
+        },
+        {
+            "DOI": "10.32614/RJ-2021-053",
+            "URL": "https://doi.org/10.32614/RJ-2021-053",
+            "author": [
+                {
+                    "family": "Sjoberg",
+                    "given": "Daniel D."
+                },
+                {
+                    "family": "Whiting",
+                    "given": "Karissa"
+                },
+                {
+                    "family": "Curry",
+                    "given": "Michael"
+                },
+                {
+                    "family": "Lavery",
+                    "given": "Jessica A."
+                },
+                {
+                    "family": "Larmarange",
+                    "given": "Joseph"
+                }
+            ],
+            "container-title": "The R Journal",
+            "id": "gtsummary",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "570-580",
+            "title": "Reproducible summary tables with the gtsummary package",
+            "type": "article-journal",
+            "volume": "13"
         },
         {
             "URL": "https://yihui.org/knitr/",
