@@ -1,6 +1,0 @@
-"0",""
-"0","table2b=readRDS(""./Table/Table2b.rds"")"
-"0",""
-"0","kable(table2b, caption = ""Human single-cell data sources used by different DL algorithms"") %>%"
-"0","  kable_styling(""striped"", full_width = TRUE) %>%"
-"0","scroll_box(width = ""100%"")"

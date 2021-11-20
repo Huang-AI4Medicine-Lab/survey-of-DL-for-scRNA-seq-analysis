@@ -1,6 +1,0 @@
-
-## Dimension reduction, latent representation, clustering, and data augmentation {#ch-5-3}
-
-Dimension reduction is indispensable for many type of scRNA-seq data analysis, considering the limited number of cell types in each biospecimen. Furthermore, biological processes of interests often involve the complex coordination of many genes, therefore, latent representation which capture biological variation in reduced dimentions are useful in interpreting many experiment conditions. In addition, many deep learning models further exploit latent dimentions and generative factors to produce augmented data that may in return to enhance the clustering, e.g., due to low representation of certain cell types. Therefore, we categories all these algorithms together in this section. 
-
-
