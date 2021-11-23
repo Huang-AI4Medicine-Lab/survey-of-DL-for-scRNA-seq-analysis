@@ -1,0 +1,60 @@
+
+## Variational Autoencoder {#vae}
+
+
+Let $x_{n}$ represent a $G \times 1$ vector of gene expression (UMI counts or normalized, log-transformed expression) of $G$ genes in cell n, where $x_{gn}$ denotes gene $g$’s expression,  which is assumed to follow some distribution $p(x_{gn} \vert v_{gn}, \alpha_{gn} )$ (e.g., zero-inflated negative binomial (ZINB) or Gaussian), where $v_{gn}$ and $\alpha_{gn}$ are parameters of the distribution (e.g., mean, variance, or dispersion) (Fig.\@ref(fig:Figure2)A). We consider the first parameter $v_{gn}$ to be of particular interest (e.g., the mean counts) for the scRNA-seq analysis and is thus further modeled as a function of a d-dimension latent variable $z_{n} \in R^{d}$ and an observed variable $s_{n}$ (e.g., the batch ID) by a decoder neural network $D_{\theta}$ (Fig.\@ref(fig:Figure2)A) as
+
+\begin{equation}
+v_{n} = D_{\theta}(z_{n}, s_{n}) (\#eq:eq1)
+\end{equation}
+
+
+
+where the $g$th element of $v_{n}$ is $v_{gn}$ and $\theta$ is a vector of decoder weights, $z_{n} \in \mathbb{R}^{d}$ represents a latent representation of gene expression and is used for visualization and clustering and $s_{n}$ is an observed variable (e.g., the batch ID). For VAE, $z_{n}$ is commonly assumed to follow a multivariate standard normal prior, i.e., $p(z_{n})=N(0,I_{d})$ with $I_{d}$ being a $d \times d$ identity matrix. Further,$\alpha_{gn}$ of $p(x_{gn} \vert v_{gn}, \alpha_{gn})$ is a nuisance parameter, which has a prior distribution $p(\alpha_{gn})$ and can be either estimated or marginalized in variational inference. Now define $\Theta=\{\theta, \alpha_{ng}\forall{n},g\}$ as the collection of the unknown model parameters. Then, $p(x_{gn} \vert v_{gn}, \alpha_{gn})$ and (\@ref(eq:eq1)) together define the likelihood $p(x_{gn} \vert z_{n}, s_{gn}, \Theta)$.
+
+The goal of training or inference is to compute the maximum likelihood estimate of \Theta 
+
+\begin{equation}
+    \hat{\Theta}_{ML} = argmax_{\Theta}\sum_{n=1}^{N}\log(x_{n} \vert s_{n},\Theta) \approx argmax_{\Theta}\sum_{n=1}^{N}\textit{L}(\Theta) (\#eq:eq2)
+\end{equation}
+
+where $\textit{L}(\Theta)$ is the evidence lower bound (ELBO),
+
+\begin{equation}
+  \textit{L}(\Theta) = E_{q(z_{n} \vert x_{n},s_{n}, \Theta)}[\log{p(x_{n}\vert z_{n},s_{n}, \Theta)}] - D_{KL}[q(z_{n}\vert x_{n},s_{n},\Theta)\|p(z_{n})] (\#eq:eq3)
+\end{equation}
+
+and $q(z_{n}│x_{n},s_{n})$ is an approximate to $p(z_{n}│x_{n},s_{n})$ and assumed as 
+
+\begin{equation}
+  q(z_{n} \vert x_{n},s_{n})= N(\mu_{z_{n}},diag({\sigma_{Z_{n}}}^2)) (\#eq:eq4)
+\end{equation}
+
+with ${\mu_{z_{n}},{\sigma_{Z_{n}}}^2}$ given by an encoder network $E_{\phi}$ (Fig.\@ref(fig:Figure2)A) as
+
+\begin{equation}
+   {\mu_{z_{n}},{\sigma_{Z_{n}}}^2} = E_{\phi}(x_{n},s_{n}) (\#eq:eq5)
+\end{equation}
+
+where \pi is weights vector. Now, $\theta=\{ \theta,\phi, \alpha_{ng}, \forall{n}, g \}$ and (\@ref(eq:eq2)) is solved by the stochastic gradient descent approach while a model is trained. 
+
+All the surveyed papers that deploy VAE follow this general modeling process. However, a more general formulation has a loss function defined as
+
+\begin{equation}
+L(\Theta) = - L(\Theta) + \sum_{k=1}^{K}\lambda_{k}L_{k}(\Theta)(\#eq:eq6)
+\end{equation}
+
+where  $L_{k}\forall{k}=1,…,K$ are losses for different functions (clustering, cell type prediction, etc) and $\lambda_{k}$s are the Lagrange multipliers. With this general formulation, for each paper, we examined the specific choices of data distribution $p(x_{gn} \vert v_{gn},\alpha_{gn})$ that defines $L(\Theta)$, different $L_{k}$ designed for specific functions, and how the decoder and encoder were applied to model different aspects of scRNA-seq data.
+
+
+
+
+
+
+
+
+
+
+
+
+

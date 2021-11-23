@@ -1,0 +1,26 @@
+## Deep Learning algorithms reviewed in the paper
+```{r Table1b}
+table1b=readRDS("./Table/Table1b.rds")
+
+kable(table1b, caption = "Comparison of Deep Learning algorithms reviewed in the paper", align = "lccc") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+  group_rows(index =c("Imputation"=6,
+                      "Batch correction"=3,
+                      "Clustering, latent representation, dimension reduction, and data augmentation"=6,
+                      "Multi-functional models (IM: imputation, BC: batch correction, CL: clustering)"=4,
+                      "Cell type Identification"=4,
+                      "Function analysis"=2
+                      ),
+             label_row_css = "background-color: #666; color: #fff;"
+             ) %>%
+  column_spec(1, width="20em") %>%
+   footnote(general = "Abbreviation: NB: negative binomial distribution; ZINB: zero-inflated negative binomial distribution; TF: Transcription factor;",
+            general_title = ""
+           # number = c("Footnote 1; ", "Footnote 2; "),
+           # alphabet = c("Footnote A; ", "Footnote B; "),
+           # symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
+           ) %>%
+scroll_box(width = "100%")
+
+```
+

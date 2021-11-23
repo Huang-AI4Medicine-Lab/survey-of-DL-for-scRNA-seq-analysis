@@ -1,0 +1,31 @@
+
+### DeepImpute (Deep neural network Imputation) {#deepimpute}
+
+```{r Figure4, fig.cap="Add figure caption"}
+knitr::include_graphics("Figures/Figure4.png") 
+```
+
+DeepImpute [@RN46]<!--[17]--> imputes genes in a divide-and-conquer approach, using a bank of DNN models (Fig.\@ref(fig:Figure4) A) with 512 output, each to predict gene expression levels of a cell. 
+
+*Model.* For each dataset, DeepImpute selects to impute a list of genes or highly variable genes (variance over mean ratio, default = 0.5). Each sub-neural network aims to understand the relationship between the input genes (input layer) and a subset of target genes (output layer). Genes are first divided into N random subsets of size 512 called target genes. For each subset, a neural network of four layers (input, dense, dropout and output layers) is trained where the input layer includes genes (predictor genes) who are among top 5 best correlated genes to target genes but not part of the target genes in the subset. The loss is defined as the weighted MSE 
+
+\begin{equation}
+\mathcal{L}_{c}=\sum x_{n}(x_{n}-\hat{x}_{n})^{2}(\#eq:eq15)
+\end{equation}
+
+
+This function gives higher weights to genes with higher expression values, thus emphasizing accuracy on high confidence values and avoiding over penalizing genes with extremely low values. 
+
+*Evaluation metrics.* DeepImpute computes mean squared error (MSE) and Pearson's correlation coefficient between imputed and true expression. 
+
+*Result.* DeepImpute had the highest overall accuracy and offered faster computation time with less demand on computer memory compared to other methods like MAGIC, DrImpute, ScImpute, SAVER, VIPER, and DCA. Using simulated and experimental datasets (Table \@ref(tab:Table2a)), DeepImpute showed benefits in increasing clustering results and identifying significantly differentially expressed genes. DeepImpute and DCA, show overall advantages over other methods and between which DeepImpute performs even better. The properties of DeepImpute contribute to its superior performance include 1) a divide-and-conquer approach which contrary to an autoencoder as implemented in DCA, resulting in a lower complexity in each sub-model and stabilizing neural networks, and 2) the subnetworks are trained without using the target genes as the input which reduces overfitting while enforcing the network to understand true relationships between genes.
+
+
+
+
+
+
+
+
+
+

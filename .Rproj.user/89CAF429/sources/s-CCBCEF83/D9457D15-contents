@@ -1,0 +1,12 @@
+
+### scVAE: VAE for single-cell gene expression data  {#scVAE}
+
+scVAE [@RN129]<!--[75]--> includes multiple VAE models for denoising gene expression levels and learning the low-dimensional latent representation of cells. It investigates different choices of the likelihood functions in the VAE model to model different data sets. 
+
+*Model.* scVAE is a conventional fully connected network. However, different distributions have been discussed for $p(x_{gn}\vert v_{gn},\alpha_{gn})$ to model different data behaviors. Specifically, scVAE considers Poisson, constrained Poisson, and negative binomial distributions for count data, piece-wise categorical Poisson for data including both high and low counts, and zero-inflated version of these distributions to model missing values.  To model multiple modes in cell expressions, a Gaussian mixture is also considered for $q(z_{n}\vert x_{n},s_{n})$, resulting a GMVAE.  The inference process still follows that of a VAE as discussed in section 3.1.
+
+*Evaluation metrics.* ARI was used to assess the performance.
+
+*Results.* scVAEs were evaluated on the PBMC data and compared with factor analysis (FA) models. The results showed that GMVAE with negative binomial distribution achieved the highest lower bound and ARI. Zero-inflated Poisson distribution performed the second best. All scVAE models outperformed the baseline linear factor analysis model, which suggested that a non-linear model is needed to capture single-cell genomic features. GMVAE was also compared with Seurat and shown to perform better using the withheld data. However, scVAE performed no better than scVI [@RN88]<!--[13]--> or scvis [@RN127]<!--[73]-->, both are VAE models. 
+
+

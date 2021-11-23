@@ -1,0 +1,10 @@
+
+### LATE: Learning with AuToEncoder  {#late}
+
+LATE [@RN184]<!--[57]--> is an AE whose encoder takes the log-transformed expression as input. LATE implemented in Python with TensorFlow.
+
+*Model. * LATE sets zeros for all missing values at the input and generates the imputed expressions at the decoder's output. LATE experimented with three different network architectures composed of 1, 3 and 5 hidden layers. LATE minimizes the MSE loss as defined in Eq.\@ref(eq:eq9) (Eq9 in Draft-V20 is removed in 2nd-Revision). One problem with this model is that it assumes that all the zeros in the scRNA-seq data are missing values but some zeros could be real and reflect the actual lack of expression. 
+
+*Evaluation metrics.* Like DeepImpute, LATE used MSE to evaluate the performance. 
+
+*Result.* Using synthetic data generated from pre-imputed data followed with random dropout selection at different degree, LATE is shown to outperform other existing methods like MAGIC, SAVER, DCA, scVI, particularly when the ground truth contains only a few or no zeros. However, when the data contain many zero expression values, DCA achieved a lower MSE than LATE, although LATE still has a smaller MSE than scVI.  This result suggests that DCA likely does a better job identifying true zeros gene expression, partly due to that LATE does not make assumptions on the statistical distributions of the single-cell data that potentially have inflated zero counts.

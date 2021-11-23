@@ -1,0 +1,55 @@
+
+### SAUCIE {#saucie}
+
+SAUCIE [@RN76]<!--[14]--> is an AE designed to perform multiple functions, including clustering, batch correlation, imputation, and visualization. SAUCIE is applied to the normalized data instead of count data.  
+
+*Model.* SAUCIE includes multiple model components designed for different functions.
+
+1. Clustering: SAUCIE first introduced a "digital" binary encoding layer $\mathbf{h}^{c} \in \{0,1\}^{J}$ in the decoder $D$ that functions to encode the cluster ID. To learn this encoding, an entropy loss is introduced 
+\begin{equation}
+L_{D} = \sum_{k=1}^{K}p_{k}\log{p_{k}} (\#eq:eq37)
+\end{equation}
+
+where $p_{k}$ is the probability (proportion) of activation on neuron $k$ by the previous layer. Minimizing this entropy loss promotes sparse neurons, thus forcing a binary encoding. To encourage clustering behavior, SAUCIE also introduced an intracluster loss as
+
+\begin{equation}
+L_{C} = \sum_{i,j:h_{i}^{C}=h_{j}^{C}} \| \widehat{x}_{i}-\widehat{x}_{j}\|^{2} (\#eq:eq38)
+\end{equation}
+
+which computes the distance $L_{C}$ between the expressions of a pair of cells $(\widehat{x}_{i},\widehat{x}_{j})$ that have the same cluster ID $(h_{i}^{c}=h_{j}^{c})$. 
+
+2. Batch correction: To correct the batch effect, an MMD loss is introduced to measure the differences in terms of the distribution between batches in the latent space
+
+\begin{equation}
+L_{B} = \sum_{l=1,l\ne ref}^{B}MMD(\mathbf{z}_{ref},\mathbf{z}_{l}) (\#eq:eq39)
+\end{equation}
+
+where $B$ is the total number of batches and $z_{ref}$ is the latent variable of an arbitrarily chosen reference batch.
+
+3. Imputation and visualization: The output of the decoder is taken by SAUCIE as an imputed version of the input gene expression. To visualize the data without performing an additional dimension reduction directly, the dimension of the latent variable $z_{n}$ is forced to 2.
+
+Training the model includes two sequential runs. In the first run, an autoencoder is trained to minimize the loss $L_{0}+ \lambda_{B}L_{B}$ with $L_{0}$ being the MSE reconstruction loss defined in Eq.\@ref(eq:eq9) (Eq9 is removed)) so that a batch-corrected, imputed input $\tilde{x}$ can be obtained at the output of the decoder. In the second run, the bottleneck layer of the encoder from the first run is replaced by a 2-D latent code for visualization and a digital encoding layer is also introduced. This model takes the cleaned $\tilde{x}$ as the input and is trained for clustering by minimizing the loss $L_{0}+\lambda_{D}L_{D}+\lambda_{C}L_{C}$. After the model is trained, $\tilde{x}$ is the imputed, batch-corrected gene expression. The 2-D latent code is used for visualization and the binary encoder encodes the cluster ID. 
+
+*Evaluation metrics.*  For clustering, the Silhouette index was used. For batch correction, a mixing score similar in spirit to KBET is introduced to assess how well samples from two batches mix. For visualization, the precision and recall of the consistency of the neighboring cells of each cell between the original data space and the SAUCIE embedding space were calculated. For imputation, in addition to visual comprision of the imputed results, $R^{2}$ statistics of the imputation results on a synthetic data were reported. 
+
+*Results.* SAUCIE was evaluated for clustering, batch correction, imputation, and visualization on both simulated and real scRNA-seq and scCyToF datasets. The performance was compared to minibatch kmeans, Phenograph [@RN145]<!--[88]--> and 22 for clustering; MNN [@RN84]<!--[28]--> and canonical correlation analysis (CCA) [@RN79]<!--[29]--> for batch correction; PCA, Monocle2 [@RN150]<!--[89]-->, diffusion maps, UMAP [@RN148]<!--[90]-->, tSNE [@RN147]<!--[74]--> and PHATE [@RN146]<!--[91]--> for visualization; MAGIC [@RN111]<!--[55]-->, scImpute [@RN31]<!--[33]--> and nearest neighbors completion (NN completion) for imputation. Results showed that SAUCIE had a better or comparable performance with other approaches. Also, SAUCIE has better scalability and faster runtimes than any of the other models. SAUCIE's results on the scCyToF dengue dataset were further analyzed in greater detail. SAUCIE was able to identify subtypes of the T cell populations and demonstrated distinct cell manifold between acute and healthy subjects.   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 Introduction | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</title>
+  <meta name="description" content="1 Introduction | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 Introduction | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introduction | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  
+  
+  
+
+<meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
+
+
+<meta name="date" content="2021-11-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="about-this-book.html"/>
+<link rel="next" href="scRNA-seq-pipeline.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the authors</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html"><i class="fa fa-check"></i>About this book</a>
+<ul>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#key-points"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="scRNA-seq-pipeline.html"><a href="scRNA-seq-pipeline.html"><i class="fa fa-check"></i><b>2</b> Overview of scRNA-seq processing pipeline</a></li>
+<li class="chapter" data-level="3" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html"><i class="fa fa-check"></i><b>3</b> Overview of common deep learning models for scRNA-seq analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#vae"><i class="fa fa-check"></i><b>3.1</b> Variational Autoencoder</a></li>
+<li class="chapter" data-level="3.2" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#ae"><i class="fa fa-check"></i><b>3.2</b> Autoencoders (AEs) for scRNA-seq data</a></li>
+<li class="chapter" data-level="3.3" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#GANs"><i class="fa fa-check"></i><b>3.3</b> Generative adversarial networks (GANs) for scRNA-seq data</a></li>
+<li class="chapter" data-level="3.4" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#supervised"><i class="fa fa-check"></i><b>3.4</b> Supervised deep learning models</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html"><i class="fa fa-check"></i><b>4</b> Overview of datasets and evaluation metrics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#EvalMethod"><i class="fa fa-check"></i><b>4.1</b> Evaluation methods</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#imputation"><i class="fa fa-check"></i><b>4.1.1</b> Imputation</a></li>
+<li class="chapter" data-level="4.1.2" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#batch-effect-correction"><i class="fa fa-check"></i><b>4.1.2</b> Batch effect correction</a></li>
+<li class="chapter" data-level="4.1.3" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#clustering"><i class="fa fa-check"></i><b>4.1.3</b> Clustering</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Survey.html"><a href="Survey.html"><i class="fa fa-check"></i><b>5</b> Survey of deep learning models for scRNA-Seq analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Survey.html"><a href="Survey.html#imputation-2"><i class="fa fa-check"></i><b>5.1</b> Imputation</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="Survey.html"><a href="Survey.html#dca"><i class="fa fa-check"></i><b>5.1.1</b> DCA:deep count autoencoder</a></li>
+<li class="chapter" data-level="5.1.2" data-path="Survey.html"><a href="Survey.html#saver-x"><i class="fa fa-check"></i><b>5.1.2</b> SAVER-X: single-cell analysis via expression recovery harnessing external data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="Survey.html"><a href="Survey.html#deepimpute"><i class="fa fa-check"></i><b>5.1.3</b> DeepImpute (Deep neural network Imputation)</a></li>
+<li class="chapter" data-level="5.1.4" data-path="Survey.html"><a href="Survey.html#late"><i class="fa fa-check"></i><b>5.1.4</b> LATE: Learning with AuToEncoder</a></li>
+<li class="chapter" data-level="5.1.5" data-path="Survey.html"><a href="Survey.html#scGMAI"><i class="fa fa-check"></i><b>5.1.5</b> scGMAI</a></li>
+<li class="chapter" data-level="5.1.6" data-path="Survey.html"><a href="Survey.html#scIGANs"><i class="fa fa-check"></i><b>5.1.6</b> scIGANs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="Survey.html"><a href="Survey.html#batch-effect-correction-2"><i class="fa fa-check"></i><b>5.2</b> Batch effect correction</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Survey.html"><a href="Survey.html#bermuda"><i class="fa fa-check"></i><b>5.2.1</b> BERMUDA: Batch Effect ReMoval Using Deep Autoencoders</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Survey.html"><a href="Survey.html#desc"><i class="fa fa-check"></i><b>5.2.2</b> DESC: batch correction based on clustering</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Survey.html"><a href="Survey.html#imap"><i class="fa fa-check"></i><b>5.2.3</b> iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Survey.html"><a href="Survey.html#dimension-reduction"><i class="fa fa-check"></i><b>5.3</b> Dimension reduction, latent representation, clustering, and data augmentation</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="Survey.html"><a href="Survey.html#dimension-reduction-by-aes"><i class="fa fa-check"></i><b>5.3.1</b> Dimension reduction by AEs with gene-interaction constrained architecture</a></li>
+<li class="chapter" data-level="5.3.2" data-path="Survey.html"><a href="Survey.html#dhaka"><i class="fa fa-check"></i><b>5.3.2</b> Dhaka: a VAE-based dimension reduction model</a></li>
+<li class="chapter" data-level="5.3.3" data-path="Survey.html"><a href="Survey.html#scvis"><i class="fa fa-check"></i><b>5.3.3</b> scvis: a VAE for capturing low-dimensional structures</a></li>
+<li class="chapter" data-level="5.3.4" data-path="Survey.html"><a href="Survey.html#scVAE"><i class="fa fa-check"></i><b>5.3.4</b> scVAE: VAE for single-cell gene expression data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="Survey.html"><a href="Survey.html#VASC"><i class="fa fa-check"></i><b>5.3.5</b> VASC: VAE for scRNA-seq</a></li>
+<li class="chapter" data-level="5.3.6" data-path="Survey.html"><a href="Survey.html#scDeepCluster"><i class="fa fa-check"></i><b>5.3.6</b> scDeepCluster</a></li>
+<li class="chapter" data-level="5.3.7" data-path="Survey.html"><a href="Survey.html#scsGAN"><i class="fa fa-check"></i><b>5.3.7</b> cscGAN: Conditional single-cell generative adversarial neural networks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="Survey.html"><a href="Survey.html#multi-functional"><i class="fa fa-check"></i><b>5.4</b> Multi-functional models</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="Survey.html"><a href="Survey.html#scVI"><i class="fa fa-check"></i><b>5.4.1</b> scVI: single-cell variational inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="Survey.html"><a href="Survey.html#ldvae"><i class="fa fa-check"></i><b>5.4.2</b> LDVAE: linearly decoded variational autoencoder</a></li>
+<li class="chapter" data-level="5.4.3" data-path="Survey.html"><a href="Survey.html#saucie"><i class="fa fa-check"></i><b>5.4.3</b> SAUCIE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="Survey.html"><a href="Survey.html#scScope"><i class="fa fa-check"></i><b>5.4.4</b> scScope</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="Survey.html"><a href="Survey.html#doubletClassification"><i class="fa fa-check"></i><b>5.5</b> Doublet Classification</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="Survey.html"><a href="Survey.html#solo"><i class="fa fa-check"></i><b>5.5.1</b> Solo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="Survey.html"><a href="Survey.html#automatedCellType"><i class="fa fa-check"></i><b>5.6</b> Automated cell type identification</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="Survey.html"><a href="Survey.html#digitalDLSorter"><i class="fa fa-check"></i><b>5.6.1</b> DigitalDLSorter</a></li>
+<li class="chapter" data-level="5.6.2" data-path="Survey.html"><a href="Survey.html#scCapsNet"><i class="fa fa-check"></i><b>5.6.2</b> scCapsNet</a></li>
+<li class="chapter" data-level="5.6.3" data-path="Survey.html"><a href="Survey.html#netAE"><i class="fa fa-check"></i><b>5.6.3</b> netAE: network-enhanced autoencoder</a></li>
+<li class="chapter" data-level="5.6.4" data-path="Survey.html"><a href="Survey.html#scDGN"><i class="fa fa-check"></i><b>5.6.4</b> scDGN - supervised adversarial alignment of single-cell RNA-seq data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="Survey.html"><a href="Survey.html#biologicalFunctionPrediction"><i class="fa fa-check"></i><b>5.7</b> Biological function prediction</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="Survey.html"><a href="Survey.html#CNNC"><i class="fa fa-check"></i><b>5.7.1</b> CNNC: convolutional neural network for coexpression</a></li>
+<li class="chapter" data-level="5.7.2" data-path="Survey.html"><a href="Survey.html#scGen"><i class="fa fa-check"></i><b>5.7.2</b> scGen, a generative model to predict perturbation response of single cells across cell types</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html"><i class="fa fa-check"></i>Table</a>
+<ul>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#table1"><i class="fa fa-check"></i>Table1</a>
+<ul>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#a.-deep-learning-algorithms-reviewed-in-the-paper"><i class="fa fa-check"></i>A. Deep Learning algorithms reviewed in the paper</a></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#b.-comparison-of-deep-learning-algorithms-reviewed-in-the-paper"><i class="fa fa-check"></i>B. Comparison of Deep Learning algorithms reviewed in the paper</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#table2"><i class="fa fa-check"></i>Table2</a>
+<ul>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#a.-simulated-single-cell-dataalgorithms"><i class="fa fa-check"></i>A. Simulated single-cell data/algorithms</a></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#b.-human-single-cell-data-sources-used-by-different-dl-algorithms"><i class="fa fa-check"></i>B. Human single-cell data sources used by different DL algorithms</a></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#c.-mouse-single-cell-data-sources-used-by-different-dl-algorithms"><i class="fa fa-check"></i>C. Mouse single-cell data sources used by different DL algorithms</a></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#d.-single-cell-data-derived-from-other-species"><i class="fa fa-check"></i>D. Single-cell data derived from other species</a></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#e.-large-single-cell-data-source-used-by-various-algorithms"><i class="fa fa-check"></i>E. Large single-cell data source used by various algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#table3"><i class="fa fa-check"></i>Table3</a>
+<ul>
+<li class="chapter" data-level="" data-path="table.html"><a href="table.html#evaluation-metrics-used-in-surveyed-dl-algorithms"><i class="fa fa-check"></i>Evaluation metrics used in surveyed DL algorithms</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction</h1>
+<p>Single cell sequencing technology has been a rapidly developing area to study genomics, transcriptomics, proteomics, metabolomics, and cellular interactions at the single cell level for cell-type identification, tissue composition and reprogramming <span class="citation">(<a href="table.html#ref-RN87" role="doc-biblioref">Lahnemann et al. 2020</a>; <a href="table.html#ref-RN98" role="doc-biblioref">Vitak et al. 2017</a>)</span> <!-- [1,2].  -->. Specifically, sequencing of the transcriptome of single cells, or single-cell RNA-sequencing (scRNA-seq), has become the dominant technology in many frontier research areas such as disease progression and drug discovery <span class="citation">(<a href="table.html#ref-RN191" role="doc-biblioref">Wolock, Lopez, and Klein 2019</a>; <a href="table.html#ref-RN78" role="doc-biblioref">Bost et al. 2020</a>)</span> <!-- [3, 4] -->. One particular area where scRNA-seq has made a tangible impact is cancer, where scRNA-seq is becoming a powerful tool for understanding invasion, intratumor heterogeneity, metastasis, epigenetic alterations, detecting rare cancer stem cells, and therapeutic response (refs). Currently, scRNA-seq is applied to develop personalized therapeutic strategies that are potentially useful in cancer diagnosis, therapy resistance during cancer progression, and the survival of patients <span class="citation">(<a href="table.html#ref-RN85" role="doc-biblioref">Kinker et al. 2020</a>; <a href="table.html#ref-RN59" role="doc-biblioref">Navin 2015</a>)</span><!-- [5, 6] -->. The scRNA-seq has also been adopted to combat COVID-19 to elucidate how the innate and adaptive host immune system miscommunicates resulting in worsening the immunopathology produced during this viral infection <span class="citation">(<a href="table.html#ref-RN91" role="doc-biblioref">Mannarapu, Dariya, and Bandapalli 2021</a>; <a href="table.html#ref-RN99" role="doc-biblioref">Wauters et al. 2021</a>)</span><!-- [7, 8] -->.</p>
+<p>These studies have led to a massive amount of scRNA-seq data deposited to public databases such as 10X Single-cell gene expression dataset, Human Cell Atlas, and Mouse Cell Atlas. Expressions of millions of cells from 18 species have been collected and deposited, waiting for further analysis. On the other hand, due to biological and technical factors, scRNA-seq data presents several analytical challenges related to its complex characteristics like missing expression values, high technical and biological variance, noise and sparse gene coverage, and elusive cell identities <span class="citation">(<a href="table.html#ref-RN87" role="doc-biblioref">Lahnemann et al. 2020</a>)</span> <!--[1]-->. These characteristics make it difficult to directly apply commonly used bulk RNA-seq data analysis techniques and have called for novel statistical approaches for scRNA-seq data cleaning and computational algorithms for data analysis and interpretation. To this end, specialized scRNA-seq analysis pipelines such as Seurat <span class="citation">(<a href="table.html#ref-RN96" role="doc-biblioref">Stuart et al. 2019</a>)</span><!--[9]--> and Scanpy <span class="citation">(<a href="table.html#ref-RN100" role="doc-biblioref">Wolf, Angerer, and Theis 2018</a>)</span><!--[10]-->. along with a large collection of task-specific tools, have been developed to address the intricate technical and biological complexity of scRNA-seq data.</p>
+<p>Recently, deep learning has demonstrated its significant advantages in natural language processing and speech and facial recognition with massive data <span class="citation">(<a href="table.html#ref-RN95" role="doc-biblioref">Srinivasan et al. 2020</a>; <a href="table.html#ref-RN76" role="doc-biblioref">Amodio et al. 2019</a>; <a href="table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[11-13]-->. Such advantages have initiated the application of DL in scRNA-seq data analysis as a competitive alternative to conventional machine learning approaches for uncovering cell clustering <span class="citation">(<a href="table.html#ref-RN76" role="doc-biblioref">Amodio et al. 2019</a>; <a href="table.html#ref-RN53" role="doc-biblioref">Eraslan et al. 2019</a>)</span> <!--[14, 15]-->, cell type identification <span class="citation">(<a href="table.html#ref-RN76" role="doc-biblioref">Amodio et al. 2019</a>; <a href="table.html#ref-RN102" role="doc-biblioref">Y. Xu et al. 2020</a>)</span><!--[14, 16]-->, gene imputation <span class="citation">(<a href="table.html#ref-RN46" role="doc-biblioref">Arisdakessian et al. 2019</a>; <a href="table.html#ref-RN44" role="doc-biblioref">Tran et al. 2020</a>; <a href="table.html#ref-RN93" role="doc-biblioref">Petegrosso, Li, and Kuang 2020</a>)</span> <!--[17-19]-->, and batch correction <span class="citation">(<a href="table.html#ref-RN75" role="doc-biblioref">Abdelaal et al. 2019</a>)</span><!--[20]--> in scRNA-seq analysis. Compared to conventional machine learning (ML) approaches, DL is more powerful in capturing complex features of high-dimensional scRNA-seq data. It is also more versatile , where a single model can be trained to address multiple tasks or adapted and transferred to different tasks. Moreover, the DL training scales more favorably with the number of cells in scRNA-seq data size, making it particularly attractive for handling the ever-increasing volume of single cell data. Indeed, the growing body of DL-based tools has demonstrated DL’s exciting potential as a learning paradigm to significantly advance the tools we use to interrogate scRNA-seq data.</p>
+<p>In this paper, we present a comprehensive review of the recent advances of DL methods for solving the present challenges in scRNA-seq data analysis (Table<a href="table.html#tab:Table1a">5.1</a>) from the quality control, normalization/batch effect reduction, dimension reduction, visualization, feature selection, and data interpretation by surveying deep learning papers published up to April 2021. In order to maintain high quality for this review, we choose not to include any (bio)archival papers, although a proportion of these manuscripts contain important new findings that would be published after completing their peer-reviewed process. Previous efforts to review the recent advances in machine learning methods focused on efficient integration of single cell data <span class="citation">(<a href="table.html#ref-RN94" role="doc-biblioref">Picelli et al. 2013</a>; <a href="table.html#ref-RN90" role="doc-biblioref">Macosko et al. 2015</a>)</span> <!--[21, 22]-->. A recent review of DL applications on single cell data has summarized 21 DL algorithms that might be deployed in single cell studies <span class="citation">(<a href="table.html#ref-RN80" role="doc-biblioref">Chen, Ning, and Shi 2019</a>)</span><!--[23]-->. It also evaluated the clustering and data correction effect of these DL algorithms using 11 datasets.</p>
+<p>In this review, we focus more on the DL algorithms with a much detailed explanation and comparison. Further, to better understand the relationship of each surveyed DL model with the overall scRNA-seq analysis pipeline, we organize the surveys according to the challenge they address and discuss these DL models following the analysis pipeline. A unified mathematical description of the surveyed DL models is presented and the specific model features are discussed when reviewing each method. This will also shed light on the modeling connections among the surveyed DL methods and the recognization of the uniqueness of each model. Besides the models, we also summarize the evaluation matrics of these DL algorithms and compare the tools that integrate these DL algorithms. Access to these DL algorithms with the original research results, available datasets used by these methods are also listed to demonstrate the advantages and utility of the DL algorithms. We envision that this survey will serve as an important information portal for learning the application of DL for scRNA-seq analysis and inspire innovative use of DL to address a broader range of new challenges in emerging multi-omics and spatial single-cell sequencing.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="about-this-book.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="scRNA-seq-pipeline.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/edit/main/Manuscript/introduction.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["survey-of-DL-for-scRNA-seq-analysis.pdf", "survey-of-DL-for-scRNA-seq-analysis.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

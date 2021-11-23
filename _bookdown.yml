@@ -1,0 +1,60 @@
+book_filename: "survey-of-DL-for-scRNA-seq-analysis"
+language:
+  ui:
+    chapter_name: ""
+delete_merged_file: true
+
+# You can use a field named rmd_files to define your own list and order of Rmd files
+# for the book. For example,
+rmd_files: ["./Manuscript/index.Rmd",
+"./Manuscript/summary.Rmd", 
+"./Manuscript/introduction.Rmd", #
+"./Manuscript/overview-of-scRNA-seq-pipeline.Rmd", #
+"./Manuscript/overview-of-common-dl-models-for-scRNA-seq-analysis.Rmd", #
+"./Manuscript/vae-for-scRNA-seq-data.Rmd", ##
+"./Manuscript/ae-for-scRNA-seq-data.Rmd", ##
+"./Manuscript/gan-for-scRNA-seq-data.Rmd", ##
+"./Manuscript/supervised-dl-models.Rmd", ##
+"./Manuscript/overview-of-datasets-and-evaluation-metrics.Rmd", #
+"./Manuscript/evaluation-methods.Rmd", ##
+"./Manuscript/imputation.Rmd", ###
+"./Manuscript/batch-effect-correction.Rmd", ###
+"./Manuscript/clustering.Rmd", ###
+"./Manuscript/survey-of-dl-models-for-scRNA-seq-analysis.Rmd", #
+"./Manuscript/imputation-2.Rmd", ##
+"./Manuscript/dca.Rmd", ###
+"./Manuscript/saver-x.Rmd", ###
+"./Manuscript/DeepImpute.Rmd", ###
+"./Manuscript/late.Rmd", ###
+"./Manuscript/scGMAI.Rmd", ###
+"./Manuscript/scIGANs.Rmd", ###
+"./Manuscript/batch-effect-correction-2.Rmd", ##
+"./Manuscript/bermuda.Rmd", ###
+"./Manuscript/desc.Rmd", ###
+"./Manuscript/imap.Rmd", ###
+"./Manuscript/dimension-reduction.Rmd", ##
+"./Manuscript/dimension-reduction-by-aes.Rmd", ###
+"./Manuscript/dhaka.Rmd", ###
+"./Manuscript/scvis.Rmd", ###
+"./Manuscript/scVAE.Rmd", ###
+"./Manuscript/VASC.Rmd", ###
+"./Manuscript/scDeepCluster.Rmd", ###
+"./Manuscript/scsGAN.Rmd", ###
+"./Manuscript/multi-functional.Rmd", ##
+"./Manuscript/scVI.Rmd", ###
+"./Manuscript/ldvae.Rmd", ###
+"./Manuscript/saucie.Rmd", ###
+"./Manuscript/scScope.Rmd", ###
+"./Manuscript/doubletClassification.Rmd", ##
+"./Manuscript/solo.Rmd", ###
+"./Manuscript/automatedCellType.Rmd", ##
+"./Manuscript/digitalDLSorter.Rmd", ###
+"./Manuscript/scCapsNet.Rmd", ###
+"./Manuscript/netAE.Rmd", ###
+"./Manuscript/scDGN.Rmd", ###
+"./Manuscript/biologicalFunctionPrediction.Rmd", ##
+"./Manuscript/CNNC.Rmd", ###,
+"./Manuscript/scGen.Rmd", ###
+"./Manuscript/Tables.Rmd"
+]
+

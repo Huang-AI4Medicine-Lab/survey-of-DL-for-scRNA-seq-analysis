@@ -1,0 +1,30 @@
+
+### scvis: a VAE for capturing low-dimensional structures  {#scvis}
+
+scvis [@RN127]<!--[73]--> is a VAE network that learns the low-dimensional representations capture both local and global neighboring structures in scRNA-Seq data. 
+
+*Model:* scvis adopts the generic VAE formulation described in section \@ref(EvalMethod) However, it has a unique loss function defined as  
+
+\begin{equation}
+L(\Theta)= - \mathcal{L}(\Theta) + \lambda L_{t}(\Theta) (\#eq:eq26)
+\end{equation}
+
+where $L(\Theta)$ is ELBO as in Eq. (\@ref(eq:eq3)) and $L_{t}$ is a regularizer using non-symmetrized t-SNE objective function [@RN127]<!--[73]-->, which is defined as
+
+\begin{equation}
+L_{t}(\Theta)= \sum_{i=1}^{N}\sum_{j=1,j\neq i}^{N} p_{j\vert i}\log{\frac{p_{j \vert i}}{q_{j \vert i}} } (\#eq:eq27)
+\end{equation}
+
+where $i$ and $j$ are two different cells, $p_{i\vert j}$ measures the local cell relationship in the data space, and $q_{j \vert i}$ measures such relationship in the latent space as
+
+\begin{equation}
+p_{i \vert j} = \frac{exp(- \frac{\|x_{i}-x_{j} \|^{2}}{2\sigma_{i}^{2}})}{\sum_{k\ne i}exp(- \frac{\|x_{i}-x_{k} \|^{2}}{2\sigma_{i}^{2}})},\space q_{j \vert i} = \frac{(1+\|z_{i}-z_{j} \|^{2})^{-1}}{\sum_{k\ne i}(1+\|z_{i}-z_{k} \|^{2})^{-1}} (\#eq:eq28)
+\end{equation}
+
+
+with $\sigma_{i}$ defined as the perplexity [@RN147]<!--[74]-->. Because t-SNE algorithm preserves the local structure of high dimensional space after projecting to the lower dimension,  $L_{t}$ promotes the learning of local structures of cells. 
+
+*Evaluation matrics.*  KNN preservation and log-likelihood of low dimensional mapping are used to evaluate model performance.
+
+*Results.*  scvis was tested on the simulated data and outperformed t-SNE in a nine-dimensional space task. scvis preserved both local structure and global structure. The relative positions of all clusters were well kept but outliers were scattered around clusters. Using simulated data and comparing to t-SNE, scvis generally produced consistent and better patterns among different runs while t-SNE could not. scvis also presented good results on adding new data to an existing embedding,  with median accuracy on new data at 98.1% for K= 5 and 94.8% for K= 65, when train K cluster on original data then test the classifier on new generated sample points.  scvis was subsequently tested on four real datasets including metastatic melanoma, oligodendroglioma, mouse bipolar and mouse retina datasets. In each dataset, scvis was showed to preserve both the global and local structure of the data.
+

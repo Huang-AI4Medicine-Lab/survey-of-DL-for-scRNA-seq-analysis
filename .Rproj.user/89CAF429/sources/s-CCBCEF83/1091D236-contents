@@ -1,0 +1,11 @@
+
+### DigitalDLSorter {#ch-5-6-1}
+
+DigitalDLSorter [@RN156]<!--[96]--> was proposed to identify and quantify the immune cells infiltrated in tumors captured in bulk RNA-seq, utilizing single-cell RNA-seq data. 
+
+*Model.* DigitalDLSorter is a 4-layer DNN (Fig.\@ref(fig:Figure4)A, 2 hidden layers of 200 neurons each and an output of 10 cell types). The DigitalDLSorter is trained with two single-cell datasets: breast cancers [@RN220]<!--[97]--> and corectal cancers [@RN221]<!--[98]-->. For each cell, it is determined to be tumor cell or non-tumor cell using RNA-seq based CNV method [@RN220]<!--[97]-->, followed with using xCell algorithm [@RN249]<!--[99]--> to determine immune cell types for non-tumor cells. Different pseudo bulk (from 100 cells) RNA-seq datasets were prepared with known mixture proportion to train the DNN. The output of DigitalDLSorter is the predicted proportions of cell types in the input bulk sample.  
+
+*Evaluation.*  Pearson Correlation between the predicted and real cell type proportions was used to assess the performance. 
+
+*Result.* DigitalDLSorter was first tested on simulated bulk RNA-seq samples. DigitalDLSorter achieved excellent agreement (linear correlation of 0.99 for colorectual cancer, and good agreement in quadratic relationship for breast cancer) at predicting cell types proportion. The proportion of immune and nonimmune cell subtypes of test bulk TCGA samples was predicted by DigitalDLSorter and the results showed very good correlation to other deconvolution tools including TIMER [@RN220]<!--[97]-->, ESTIMATE [@RN248]<!--[100]-->, EPIC [@RN245]<!--[101]--> and MCPCounter [@RN247]<!--[102]-->. Using DigitalDLSorter predicted CD8+ (good prognosis for overall and disease-free survival) and Monocytes-Macrophages (MM, indicator for protumoral activity) proportions, it is found that patients with higher CD8+/MM ratio had better survival for both cancer types than those with lower CD8+/MM ratio. Both EPIC and MCPCounter yielded non-significant survival association using their cell proportion estimate.
+

@@ -1,0 +1,176 @@
+
+# Table  {-}
+[Table]: Table
+
+## Table1 {-}
+[Table1]: Table1
+### A. Deep Learning algorithms reviewed in the paper {-}
+```{r Table1a}
+table1a=readRDS("./Table/Table1a.rds")
+
+kable(table1a, caption = "Deep Learning algorithms reviewed in the paper", align = "lcccccc") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+  group_rows(index =c("Imputation"=6, 
+                      "Batch correction"=3, 
+                      "Clustering, latent representation, dimension reduction, and data augmentation"=6,
+                      "Multi-functional models (IM: imputation, BC: batch correction, CL: clustering)"=4,
+                      "Cell type Identification"=4,
+                      "Function analysis"=2
+                      ),
+             label_row_css = "background-color: #666; color: #fff;"
+             ) %>%
+  column_spec(1, width="1em") %>%
+   footnote(general = "DL Model keywords: AE: autoencoder, AE+TL: autoencoder with transfer learning, AE: variational autoencoder, GAN: Generative adversarial network, CNN: convolutional neural network, DNN: deep neural network, DANN: domain adversarial neural network, CapsNet: capsule neural network",
+            general_title = ""
+           # number = c("Footnote 1; ", "Footnote 2; "),
+           # alphabet = c("Footnote A; ", "Footnote B; "),
+           # symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
+           ) %>%
+scroll_box(width = "100%")
+
+```
+
+
+
+### B. Comparison of Deep Learning algorithms reviewed in the paper {-}
+```{r Table1b}
+table1b=readRDS("./Table/Table1b.rds")
+
+kable(table1b, caption = "Comparison of Deep Learning algorithms reviewed in the paper", align = "lcll") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+  group_rows(index =c("Imputation"=15,
+                      "Batch correction"=9,
+                      "Clustering, latent representation, dimension reduction, and data augmentation"=16,
+                      "Multi-functional models (IM: imputation, BC: batch correction, CL: clustering)"=10,
+                      "Cell type Identification"=8,
+                      "Function analysis"=4
+                      ),
+             label_row_css = "background-color: #666; color: #fff;"
+             ) %>%
+  column_spec(1, width="1em") %>%
+   footnote(general = "Abbreviation: NB: negative binomial distribution; ZINB: zero-inflated negative binomial distribution; TF: Transcription factor;",
+            general_title = ""
+           # number = c("Footnote 1; ", "Footnote 2; "),
+           # alphabet = c("Footnote A; ", "Footnote B; "),
+           # symbol = c("Footnote Symbol 1; ", "Footnote Symbol 2")
+           ) %>%
+scroll_box(width = "100%")
+
+```
+
+
+
+
+
+
+
+## Table2 {-}
+[Table2]: Table2
+### A. Simulated single-cell data/algorithms {-}
+```{r Table2a}
+
+table2=readRDS("./Table/Table2a.rds")
+
+kable(table2, caption = "Simulated single-cell data/algorithms") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+scroll_box(width = "100%")
+
+```
+
+
+### B. Human single-cell data sources used by different DL algorithms {-}
+```{r Table2b}
+
+table2b=readRDS("./Table/Table2b.rds")
+
+kable(table2b, caption = "Human single-cell data sources used by different DL algorithms") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+scroll_box(width = "100%")
+
+```
+
+
+### C. Mouse single-cell data sources used by different DL algorithms {-}
+```{r Table2c}
+
+table2c=readRDS("./Table/Table2c.rds")
+
+kable(table2c, caption = "Mouse single-cell data sources used by different DL algorithms") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+scroll_box(width = "100%")
+
+```
+
+
+
+### D. Single-cell data derived from other species {-}
+```{r Table2d}
+
+table2d=readRDS("./Table/Table2d.rds")
+
+kable(table2d, caption = "Single-cell data derived from other species") %>%
+  kable_styling("striped", full_width = TRUE) %>%
+   footnote(number = "Processed data is available at https://github.com/ttgump/scDeepCluster/tree/master/scRNA-seq%20data",
+           number_title = "") %>%
+scroll_box(width = "100%")
+
+```
+
+
+### E. Large single-cell data source used by various algorithms {-}
+Table: (\#tab:Table2e) Large single-cell data source used by various algorithms
+
+|Title|Sources|Notes| 
+|-----|-------|-----|
+|10X Single-cell gene expression dataset|  https://support.10xgenomics.com/single-cell-gene-expression/datasets | Contains large collection of scRNA-seq dataset generated using 10X system|
+|Tabula Muris|https://tabula-muris.ds.czbiohub.org/ |Compendium of scRNA-seq data from mouse|
+|HCA|https://data.humancellatlas.org/|Human single-cell atlas|
+|MCA|https://figshare.com/s/865e694ad06d5857db4b, or GSE108097|Mouse single-cell atlas|
+|scQuery|https://scquery.cs.cmu.edu/ |A web server cell type matching and key gene visualization. It is also a source for scRNA-seq collection (processed with common pipeline)|
+|SeuratData|https://github.com/satijalab/seurat-data|List of datasets, including PBMC and human pancreatic islet cells| 
+|cytoBank|https://cytobank.org/|Community of big data cytometry|
+
+
+
+
+## Table3 {-}
+[Table3]: Table3
+### Evaluation metrics used in surveyed DL algorithms {-}
+
+Table: (\#tab:Table3) Evaluation metrics used in surveyed DL algorithms
+
+|Evaluation Method|Equations|Explanation|
+|-----------------|---------|-----------|
+|Pseudobulk RNA-seq| |Average of normalized (log2-transformed) scRNA-seq counts across cells is calculated and then correlation coefficient between the pseudobulk and the actual bulk RNA-seq profile of the same cell type is evaluated.|
+|Mean squared error (MSE)|$MSE=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\hat{x}_{i})^{2}$|MSE assesses the quality of a predictor, or an estimator, from a collection of observed data $x$, with $\hat{x}$ being the predicted values.|
+|Pearson correlation|$\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X} \sigma_{Y}}$	where $cov()$ is the covariance, $\sigma_{X}$ and $\sigma_{Y}$ are the standard deviation of $X$ and $Y$, respectively.|
+|Spearman correlation|$\rho_{s}=\rho_{r_{X},r_{Y}}=\frac{cov(r_{X},r_{Y})}{\sigma_{r_{X}}\sigma_{r_{Y}}}$| The Spearman correlation coefficient is defined as the Pearson correlation coefficient between the rank variables, where $r_{X}$ is the rank of $X$.|
+|Entropy of accuracy, Hacc [20]|$H_{acc}=-\frac{1}{M}\sum_{i=1}^{M}\sum_{j=1}^{N_{i}}p_{i}\log{(p_{i}(x_{j}))}$| Measures the diversity of the ground-truth labels within each predicted cluster group. $p_{i}(x_{j})$ (or $q_{i}(x_{j})$) are the proportions of cells in the $j$th ground-truth cluster (or predicted cluster) relative to the total number of cells in the $i$th predicted cluster (or ground-truth clusters), respectively.|
+|Entropy of purity, Hpur [20]| |Measures the diversity of the predicted cluster labels within each ground-truth group|
+|Entropy of mixing [31]|$E=\sum_{i}$ |This metric evaluates the mixing of cells from different batches in the neighborhood of each cell. $C$ is the number of batches, and $p_{i}$ is the proportion of cells from batch $i$ among $N$ nearest cells.|
+|Mutual Information (MI) [157]|
+$MI(U,V) = \sum_{i=1}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})$ | where $P_{U}(i)=\frac{|U_{i}|}{N}$ and $P_{V}(j)=\frac{|V_{j}|}{N}$. Also, define the joint distribution probability is $P_{UV}(i,j)=\frac{|U_{i} \cap V_{j}|}{N}$. The $MI$ is a measure of mutual dependency between two cluster assignments $U$ and $V$.|
+|Normalized Mutual Information (NMI) [158]|$NMI(U,V)=\frac{2\times MI(U,V)}{[H(U)+H(V)]}$| where $H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{V}(i)log(P_V(i))$. The $NMI$ is a normalization of the $MI$ score between 0 and 1.|
+|Kullback–Leibler (KL) divergence [159]|$D_{KL} (P||Q)=∑_{x∈χ}P(x)log(\frac{P(x)}{Q(x)})$| where discrete probability distributions P and Q  are defined on the same probability space $χ$. This relative entropy is the measure for directed divergence between two distributions.|
+|Jaccard Index|$J(U,V)=\frac{|U\cap V|}{|U \cup V|}$| $0 ≤ J(U,V) ≤ 1$. $J = 1$ if clusters $U$ and $V$ are the same. If $U$ are $V$ are empty, $J$ is defined as 1.|
+|Fowlkes-Mallows Index for two clustering algorithms (FM)|$FM=\sqrt{\frac{TP}{TP+FP}\times\frac{TP}{TP+FN}}$| TP as the number of pairs of points that are present in the same cluster in both $U$ and $V$; $FP$ as the number of pairs of points that are present in the same cluster in $U$ but not in $V$; $FN$ as the number of pairs of points that are present in the same cluster in $V$ but not in $U$; and TN as the number of pairs of points that are in different clusters in both U and V.|
+
+<!-- |Rand index (RI)|$	RI=(a+b)/(█(n@2))	$|Measure of constancy between two clustering outcomes, where a (or b) is the count of number of pairs of cells in one cluster (or different clusters) from one clustering algorithm but also fall in the same cluster (or different clusters) from the other clustering algorithm.|  -->
+<!-- |Adjusted Rand index (ARI) [160]|$ARI=  (RI-E[RI])/(max⁡(RI)-E[RI]$  | ARI is a corrected-for-chance version of RI, where E[RI] is the expected Rand Index.| -->
+<!-- |Silhouette index |$	s(i)=(b(i)-a(i))/(max⁡(a(i),b(i)))$|where a(i) is the average dissimilarity of ith cell to all other cells in the same cluster, and b(i) is the average dissimilarity of ith cell to all cells in the closest cluster. The range of s(i) is [−1,1], with 1 to be well-clustered and -1 to be completely misclassified.|  -->
+<!-- |Maximum Mean Discrepancy (MMD) [58] |$ MMD(F,p,q)=   (sup)┬(f∈F)⁡〖‖μ_p-μ_q ‖_f 〗$|MMD is a non-parametric distance between distributions based on the reproducing kernel Hilbert space, or, a distance-based measure between two distribution p and q based on the mean embeddings p and q in a reproducing kernel Hilbert space F.| -->
+<!-- |k-Nearest neighbor batch-effect test (kBET) [161]|$a_n^k=∑_(l=1)^L▒〖〖(N〗_nl^k-k∙f_l)〗^2/(k∙f_l )  ~X_(L-1)^2	$|Given a dataset of N cells from L batches with N_l denoting the number of cells in batch l, N_nl^k is the number of cells from batch l in the k-nearest neighbors of cell n, fl is the global fraction of cells in batch l, or f_l=N_l/N,  and  X_(L-1)^2 denotes the X^2 distribution with L-1 degrees of freedom. It uses a X^2-based test for random neighborhoods of fixed size to determine the significance (“well mixed”).| -->
+<!-- |Local Inverse Simpson’s Index (LISI) [33]|$1/λ(n) =1/(Σ_(l=1)^L (p(l))^2 )	$| This is the inverse Simpson’s Index in the k-nearest neighbors of cell n for all batches, where p(l) denotes the proportion of batch l in the k-nearest neighbors. The score reports the effective number of batches in the k-nearest neighbors of cell n.| -->
+<!-- |Homogeneity	| $HS=1-(H(P(U│V)))/H(P(U)) $|	where H() is the entropy, and U is the ground-truth assignment and V is the predicted assignment. The HS range from 0 to 1, where 1 indicates perfectly homogeneous labelling.| -->
+<!-- |Completeness| $	CS=1-H(P(V│U))/H(P(V)) 	$|Its values range from 0 to 1, where 1 indicates all member from a ground-truth label are assigned to a single cluster.| -->
+<!-- |V-Measure [162]| $V_β=((1+β)HS×CS)/(βHC+CS)	$| where  indicates the weight of HS. V-Measure is symmetric, i.e. switching the true and predicted cluster labels does not change V-Measure.| -->
+<!-- |Precision, recall|$Precision=  TP/(TP+FP),recall=  TP/(TP+FN)	$| TP: true positive, FP: false positive, FN, false negative. | -->
+<!-- |Accuracy	| $Accuracy=  (TP+TN)/N	$| N: all samples tested, TN: true negative| -->
+<!-- |F1-score|$	F_1=  (2 Precision∙Recall)/(Precision+Recall)	$| A harmonic mean of precision and recall. It can be extended to F_β where β is a weight between precision and recall (similar to V-measure). | -->
+<!-- |AUC, RUROC	| ![](Figures/Table3_AUC_Figure.png)|Area Under Curve (grey area).  Receiver operating characteristic (ROC) curve (red line). The similar measure can be performed on Precision-Recall curve (PRC), or AUPRC. Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value for a predictive model (mostly for imbalanced dataset).| -->
+
+
+
+
+
+
