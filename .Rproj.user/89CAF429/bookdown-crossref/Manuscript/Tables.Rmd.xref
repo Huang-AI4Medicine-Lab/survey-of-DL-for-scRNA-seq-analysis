@@ -1,10 +1,10 @@
 h1:Table Table
-h2:table1 Table1
+h2:Table1 Table1
 h3:a.-deep-learning-algorithms-reviewed-in-the-paper A. Deep Learning algorithms reviewed in the paper
 tab:Table1a Deep Learning algorithms reviewed in the paper
 h3:b.-comparison-of-deep-learning-algorithms-reviewed-in-the-paper B. Comparison of Deep Learning algorithms reviewed in the paper
 tab:Table1b Comparison of Deep Learning algorithms reviewed in the paper
-h2:table2 Table2
+h2:Table2 Table2
 h3:a.-simulated-single-cell-dataalgorithms A. Simulated single-cell data/algorithms
 tab:Table2a Simulated single-cell data/algorithms
 h3:b.-human-single-cell-data-sources-used-by-different-dl-algorithms B. Human single-cell data sources used by different DL algorithms
@@ -15,7 +15,7 @@ h3:d.-single-cell-data-derived-from-other-species D. Single-cell data derived fr
 tab:Table2d Single-cell data derived from other species
 h3:e.-large-single-cell-data-source-used-by-various-algorithms E. Large single-cell data source used by various algorithms
 tab:Table2e Large single-cell data source used by various algorithms
-h2:table3 Table3
+h2:Table3 Table3
 h3:evaluation-metrics-used-in-surveyed-dl-algorithms Evaluation metrics used in surveyed DL algorithms
 tab:Table3 Evaluation metrics used in surveyed DL algorithms
 

@@ -26,8 +26,8 @@ Data_Sources=c("GSE98561",
                "13 accessions in ArrayExpress"
                )
 
-Refs=c("[156]",
-       "[118]"
+Refs=c("[@RN227]",
+       "[@RN198]"
        )
 
 
@@ -44,6 +44,6 @@ table2d=data.frame(Title=Title,
 
 
 saveRDS(table2d, "./Table/Table2d.rds")
-writexl::write_xlsx(table2d, "./Table/Table2d.xlsx")
+
 
 

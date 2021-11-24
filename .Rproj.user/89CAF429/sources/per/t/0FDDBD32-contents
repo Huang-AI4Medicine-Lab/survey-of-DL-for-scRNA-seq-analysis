@@ -39,7 +39,7 @@ rmd_files: ["index.Rmd",
 "./Manuscript/scVAE.Rmd", ###
 "./Manuscript/VASC.Rmd", ###
 "./Manuscript/scDeepCluster.Rmd", ###
-"./Manuscript/scsGAN.Rmd", ###
+"./Manuscript/cscGAN.Rmd", ###
 "./Manuscript/multi-functional.Rmd", ##
 "./Manuscript/scVI.Rmd", ###
 "./Manuscript/ldvae.Rmd", ###

@@ -7,9 +7,10 @@ knitr::include_graphics("Figures/Figure1.png")
 ```
 
 
-With the advantage of identifying each cell and unique molecular identifiers (UMIs) for expressions of each gene in a single cell, scRNA-seq data are embedded with increased technical noise and biases [23]. **Quality control (QC)** is the first and the key step to filter out dead cells, double-cells, or cells with failed chemistry or other technical artifacts. The most commonly adopted three QC covariates include the number of counts (count depth) per barcode identifying each cell, the number of genes per barcode, and the fraction of counts from mitochondrial genes per barcode [@RN81]<!--[24]-->. 
+With the advantage of identifying each cell and unique molecular identifiers (UMIs) for expressions of each gene in a single cell, scRNA-seq data are embedded with increased technical noise and biases [@RN80]<!--[23]-->. 
 
 
+**Quality control (QC)** is the first and the key step to filter out dead cells, double-cells, or cells with failed chemistry or other technical artifacts. The most commonly adopted three QC covariates include the number of counts (count depth) per barcode identifying each cell, the number of genes per barcode, and the fraction of counts from mitochondrial genes per barcode [@RN81]<!--[24]-->. 
 
 
 **Normalization** is designed to eliminate imbalanced sampling, cell differentiation, viability, and many other factors.  Approaches tailored for scRNA-seq have been developed including the Bayesian-based method coupled with spike-in, or BASiCS [@RN97]<!--[25]-->, deconvolution approach, scran [@RN89]<!--[26]-->, and sctransfrom in Seurat where regularized Negative Binomial regression was proposed [@RN83]<!--[27]-->.  Two important steps, batch correction and imputation, will be carried out if required by the analysis:
@@ -25,7 +26,7 @@ Dimensionality reduction and visualization are essential steps to represent biol
 
 
 
-**Dimensionality reduction and visualization** are essential steps to represent biologically meaningful variations and high dimensionality with significantly reduced computational cost. Dimensionality reduction methods, such as principal component analysis (PCA), are widely used in scRNA-seq data analysis to achieve that purpose. More advanced nonlinear approaches that preserve the topological structure and avoid overcrowding in lower dimension representation, such as LLE [38] (used in SLICER [39]), tSNE [40], and UMAP [41], have also been developed and adopted as a standard in single-cell data visualization. 
+**Dimensionality reduction and visualization** are essential steps to represent biologically meaningful variations and high dimensionality with significantly reduced computational cost. Dimensionality reduction methods, such as principal component analysis (PCA), are widely used in scRNA-seq data analysis to achieve that purpose. More advanced nonlinear approaches that preserve the topological structure and avoid overcrowding in lower dimension representation, such as LLE [@36] <!--[38] -->(used in SLICER [@RN37]<!--[39]-->), tSNE [@RN38]<!--[40]-->, and UMAP [@RN40]<!--[41]-->, have also been developed and adopted as a standard in single-cell data visualization.
 
 
 

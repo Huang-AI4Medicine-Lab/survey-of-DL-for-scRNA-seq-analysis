@@ -46,11 +46,11 @@ Simulation_Methods=c("Splatter/R",
                      "SIMLR, high-dimensional data generated from latent vector"
                      )
 
-Refs=c("[78]", 
-       "[54]", 
+Refs=c("[@RN133]", 
+       "[54, Reference Not Found]", 
        "", 
        "", 
-       "[43]"
+       "[@RN42]"
        )
 
 
@@ -62,7 +62,7 @@ table2=data.frame(Title=Title,
                   )
 
 
-saveRDS(table2, "./Table/Table2.rds")
+saveRDS(table2, "./Table/Table2a.rds")
 
 
 

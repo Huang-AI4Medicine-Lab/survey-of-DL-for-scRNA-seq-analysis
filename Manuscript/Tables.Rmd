@@ -2,8 +2,8 @@
 # Table  {#Table}
 <!-- [Table]: Table -->
 
-## Table1 {-}
-[Table1]: Table1
+## Table1 {- #Table1}
+
 ### A. Deep Learning algorithms reviewed in the paper {-}
 ```{r Table1a}
 table1a=readRDS("./Table/Table1a.rds")
@@ -60,8 +60,8 @@ scroll_box(width = "100%")
 
 
 
-## Table2 {-}
-[Table2]: Table2
+## Table2 {- #Table2}
+
 ### A. Simulated single-cell data/algorithms {-}
 ```{r Table2a}
 
@@ -126,8 +126,8 @@ scroll_box(width = "100%")
 
 
 
-## Table3 {-}
-[Table3]: Table3
+## Table3 {- #Table3}
+
 ### Evaluation metrics used in surveyed DL algorithms {-}
 ```{r Table3}
 

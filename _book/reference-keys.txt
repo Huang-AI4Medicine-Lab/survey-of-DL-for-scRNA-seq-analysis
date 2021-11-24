@@ -8,6 +8,7 @@ eq:eq5
 eq:eq6
 eq:eq7
 eq:eq8
+eq:eq9
 eq:eq10
 eq:eq10v2
 eq:11v2
@@ -22,6 +23,7 @@ eq:eq15
 eq:eq16
 eq:equ17
 eq:eq18
+eq:eq19
 eq:eq20
 eq:eq21
 eq:eq22
@@ -58,7 +60,7 @@ intro
 scRNA-seq-pipeline
 dl-model-for-scRNA-seq
 vae
-ae
+ch-3-2
 GANs
 supervised
 DatasetEvalMetric
@@ -85,7 +87,7 @@ scvis
 scVAE
 VASC
 scDeepCluster
-scsGAN
+cscGAN
 multi-functional
 scVI
 ldvae

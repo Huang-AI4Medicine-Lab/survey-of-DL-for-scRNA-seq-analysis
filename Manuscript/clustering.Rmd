@@ -3,7 +3,7 @@
 
 Evaluating the performance of clustering algorithms is not as trivial as counting the number of errors like supervised learning. In general, the clustering performance evaluation metric should not just take absolute corrected labelled cells  into account but also consider if the clustering defines a good similarity or separation in the dataset compared to ground truth. When ground truth is not available, evaluation must be performed using model itself such as clustering distance, dispersion, etc. Similar measures, such as Adjusted Rand Index (ARI) and Silhouette Index discussed in Section 4.2.1 (which one?) can also be employed here to measure the agreement between predicted assignment to the ground-truth assignment. 
 
-**Normalized Mutual Information (NMI).** The mutual information(MI) [47]  is a measure of mutual dependency between two cluster assignments $U$ and $V$. It quantifies the amount of information we could have about one assignment by observing the other assignment. For $N$ samples, we have the entropy for cluster assignments $U$ and $V$ as
+**Normalized Mutual Information (NMI).** The mutual information(MI) [@RN103]<!--[47]-->  is a measure of mutual dependency between two cluster assignments $U$ and $V$. It quantifies the amount of information we could have about one assignment by observing the other assignment. For $N$ samples, we have the entropy for cluster assignments $U$ and $V$ as
 
 $$H(U)=\sum_{i=1}^{\vert U \vert}P_{U}(i)\log{(P_{U}(i))},  H(V)=\sum_{i=1}^{\vert V \vert}P_{V}(i)\log{(P_{V}(i))}$$
 
