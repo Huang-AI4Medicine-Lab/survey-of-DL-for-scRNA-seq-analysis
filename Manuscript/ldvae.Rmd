@@ -1,0 +1,17 @@
+
+### LDVAE: linearly decoded variational autoencoder {#ldvae}
+
+LDVAE [@RN143]<!--[87]--> is an adaption of scVI to improve the model interpretability but it still benefits from the scalability and efficiency of scVI.  Also, this formulation applies to general VAE models and thus is not restricted to scRNA-seq analysis.
+
+**Model**  LDVAE follows scVI’s formulation but replaces the decoder $D_{\theta_{ν}}$ in Eq.\@ref(eq:eq32) by a linear model
+
+\begin{equation}
+	\mathbf{ν}_{n}=\mathbf{Wz}_{n}	(\#eq:eq35)
+\end{equation}
+
+where $\mathbf{W} \in \mathbb{R}^{d×G}$ is the wieight matrix. Being the linear decoder provides interpretability in the sense that the relationship between latent representation $z_{n}$ and gene expression $ν_{n}$ can be readily identified. LDVAE still follows the same loss and non-linear inference scheme as scVI. 
+
+**Evaluation metrics** The reconstruction errors of the VAEs were used to assess the performance.  
+
+**Results** LDVAE’s latent variable $z_{n}$ could be used for clustering of cells with similar accuracy as a VAE.  Although LDVAE had a higher reconstruction error than VAE, due to the linear decoder, the variations along the different axes of $z_{n}$ establish direct linear relationships with input genes. As an example from analyzing mouse embryo scRNA-seq, $z_{1,n}$, the second element of $z_{n}$, is shown to relate to simultaneous variations in the expression of gene $Pou5f1$ and $Tdgf1$. In contrast, such interpretability would be intractable without approximation for a VAE.  LDVAE was also shown to induce fewer correlations between latent variables and improved the grouping of the regulatory programs. LDVAE also scaled to a large dataset with ~2M cells.  
+

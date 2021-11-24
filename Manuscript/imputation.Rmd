@@ -1,0 +1,54 @@
+### Imputation {#imputation}
+
+The evaluation of the performance of imputation methods considers their ability to recover biological signals and improve downstream analyses. For this two main methods have been used. First is the evaluation of similarity between bulk and imputed scRNA-seq data. Second is the evaluation of imputation on unsupervised clustering.
+
+The first approach consist in assessing the similarity between bulk and imputed scRNA-seq data. For a given scRNA-seq dataset, the “pseudobulk”, or the average of normalized (log2-transformed) scRNA-seq counts across cells, is calculated first, and the Spearman’s rank correlation coefficient (SCC) between the pseudobulk and the bulk RNA-seq profile of the same cell type is evaluated. The statistical significance is assessed whether SCCs bewteen the bulk and pseudobulks from two imputation methods are equal.
+
+The second approach consist in measuring the accuracy of several clustering assignments methods using four metrics:
+
+* Entropy of accuracy ($H_{acc}$) and entropy of purity ($H_{pur}$). Hacc ($H_{pur}$) measures the diversity of the ground-truth labels (predicted cluster labels) within each predicted cluster group (ground-truth group), respectively. 
+
+
+$$H_{acc}=-1\frac{1}{M}\sum_{i=1}^{M}\sum_{j=1}^{N_{i}}p_{i}(x_{j})\log{p_{i}(x_{j})}$$
+
+$$H_{pur}=-1\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M_{i}}q_{i}(x_{j})\log{q_{i}(x_{j})}$$
+
+where $M$ is the total number of predicted clusters from the clustering algorithm, $N$ is the number of ground-truth clusters, $M_{i}$, (or $N_{i}$) is the number of predicted clusters (or ground-truth clusters) in the ith ground -truth cluster (or predicted cluster), respectively.  $p_{i}(x_{j})$ (or $q_{i}(x_{j}))$ are the proportions of cells in the $j$th ground-truth cluster (or predicted cluster) relative to the total number of cells in the $i$th predicted cluster (or ground-truth clusters), respectively. A smaller value of $H_{acc}$ means the cells in a predicted cluster are constantly labeled  from the same ground-truth group, while A smaller value of $H_{pur}$ means the cells in the ground-truth groups are homogeneous with the same predicted cluster labels [@RN44]<!--[18]-->. However, smaller $H_{acc}$ (or $H_{pur}$ ) can lead to over-clustering (or under-cluster), when each predicted cluster contains 1 cell ($H_{acc}$ = 0) or all cells in one predicted cluster ($H_{pur}$ = 0). 
+
+
+
+
+* Adjusted Rand index (ARI). Rand index (RI) is another measure of constancy between two clustering outcomes. If $a$ (or $b$) is the count of number of pairs of cells in one cluster (or different clusters) from one clustering algorithm but also fall in the same cluster (or different clusters) from the other clustering algorithm, then, $RI=(a+b)/{\binom{n}{2}}$, where $\binom{n}{2}$ is the total number of pairs when given n cells. The RI has a value between 0 and 1, with 0 indicating that the two clustering algorithms do not agree on any pair of cells and 1 indicating that the two clustering algorithms are exactly the same. ARI is a corrected-for-chance version of $RI$, or 
+
+
+
+$$ARI = \frac{RI-E[RI]}{\max(RI)-E[RI]}$$
+where $E[RI]$ is the expected Rand Index [@RN107]<!--[50]-->.
+
+
+
+* Median Silhouette index. The Silhouette index is defined as
+
+$$ s(i)=\frac{b(i)-a(i)}{\max(a(i),b(i))}$$ 
+
+where $a(i)$ is the average dissimilarity of $i$th cell to all other cells in the same cluster, and $b(i)$ is the average dissimilarity of $i$th cell to all cells in the closest cluster. The  range of $s(i)$ is [−1,1], with 1 to be well-clustered with appropriate labels, and -1 to be completely misclassified. $s(i) = 0$ indiates the cell could be assigned to nearest clusters (or overlapping clusters).  
+
+
+A good imputation method should allow perform downstream (clustering) analyses without introducing any artifacts or false signals. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

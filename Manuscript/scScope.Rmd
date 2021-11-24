@@ -1,0 +1,38 @@
+
+### scScope {#scScope}
+scScope [@RN152]<!--[92]--> is an AE with recurrent steps designed for imputation and batch correction.  
+
+**Model** scScope has the following model design for batch correction and imputation. 
+
+1. Batch correction: A batch correction layer is applied to the input expression as
+
+\begin{equation}
+\mathbf{x}_{n}^{c}=ReLu(\mathbf{x}_{n}-\boldsymbol{Bu}_{c} ) (\#eq:eq40)
+\end{equation}
+
+where and $ReLU$ is the ReLu activation function, $\boldsymbol{B} \in \mathbb{R}^{G×K}$ is the batch correction matrix, $\boldsymbol{u}_c \in \{0,1\}^{K×1}$  is an indicator vector with entry 1 indicates the batch of the input, and $K$ is the total number of batches. 
+
+2. Recursive imputation: Instead of using the reconstructed expression $\hat{x}_{n}$ as the imputed expression like in SAUCIE, scScope adds an imputer to $\hat{x}_{n}$ to recursively improve the imputation result. The imputer is a single-layer autoencoder, whose decoder performs the imputation as
+
+\begin{equation}
+\widehat{\widehat{x}}_{n} = P_{I}[D_{I}(\widehat{\widehat{\mathbf{z}}}_{n})] (\#eq:eq41)
+\end{equation}
+
+
+where $\widehat{\widehat{\mathbf{z}}}_{n}$ is the output of the imputer encoder, $D_{I}$ is the imputer decoder, and $P_{I}$ is a masking function that set the elements in $\widehat{\widehat{\mathbf{x}}}_{n}$ that correspond to the non-missing values to zero. Then, $\widehat{\widehat{\mathbf{x}}}_{n}$ will be fed back to fill the missing value in the batch corrected input as $x_{n}^{c}+\widehat{\widehat{\mathbf{x}}}_{n}$, which will be passed on to the main autoencoder.  This recursive imputation can iterate multiple cycles as selected. 
+The loss function modifies the conventional reconstruction loss $L_{0}$ as
+
+\begin{equation}
+L_{0} = \sum_{n=1}^{N}\sum_{t=1}^{T}\|P_{I}^{-}[x_{n}^{c}-\widehat{x}_{n}^{}t]\|^{2} (\#eq:eq42)
+\end{equation}
+
+where $T$ is the total number of recursion, $\widehat{x}_{n}^{t}$ is the reconstructed expression at $t$th recursion,  $P_{I}^{-}$ is another masking function that forces the loss to compute only the non-missing values in $x_{n}^{c}$.
+
+**Evaluation metrics** The performance was tested on both real and simulated datasets. ARI was used to evaluate the ability to match SAUCIE outputs to capture cell subpopulations.  For imputation, the reconstruction error on held-out biological data was used. For batch correction,  entropy of mixing was applied. 
+
+**Results** scScope was evaluated for its scalability, clustering, imputation, and batch correction. It was compared with PCA, MAGIC, ZINB-WaVE, SIMLR, AE, scVI, and DCA. For scalability and training speed, scScope was shown to offer scalability (for >100K cells) with high efficiency (faster than most of the approaches). For clustering results, scScope was shown to outperform most of the algorithms on small simulated datasets but offer similar performance on large simulated datasets. For batch correction, scScope performed comparably with other approaches but with faster runtime. For imputation, scScope produced smaller errors consistently across a different range of expression. scScope was further shown to be able to identify rear cell populations from a large mix of cells.
+
+
+
+
+
