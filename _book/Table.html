@@ -1,0 +1,4063 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Table | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</title>
+  <meta name="description" content="6 Table | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Table | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Table | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  
+  
+  
+
+<meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Survey.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About the authors</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html"><i class="fa fa-check"></i>About this book</a>
+<ul>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#key-points"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="scRNA-seq-pipeline.html"><a href="scRNA-seq-pipeline.html"><i class="fa fa-check"></i><b>2</b> Overview of scRNA-seq processing pipeline</a></li>
+<li class="chapter" data-level="3" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html"><i class="fa fa-check"></i><b>3</b> Overview of common deep learning models for scRNA-seq analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#vae"><i class="fa fa-check"></i><b>3.1</b> Variational Autoencoder</a></li>
+<li class="chapter" data-level="3.2" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#ch-3-2"><i class="fa fa-check"></i><b>3.2</b> Autoencoders (AEs) for scRNA-seq data</a></li>
+<li class="chapter" data-level="3.3" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#GANs"><i class="fa fa-check"></i><b>3.3</b> Generative adversarial networks (GANs) for scRNA-seq data</a></li>
+<li class="chapter" data-level="3.4" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#supervised"><i class="fa fa-check"></i><b>3.4</b> Supervised deep learning models</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html"><i class="fa fa-check"></i><b>4</b> Overview of datasets and evaluation metrics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#EvalMethod"><i class="fa fa-check"></i><b>4.1</b> Evaluation methods</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#imputation"><i class="fa fa-check"></i><b>4.1.1</b> Imputation</a></li>
+<li class="chapter" data-level="4.1.2" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#batch-effect-correction"><i class="fa fa-check"></i><b>4.1.2</b> Batch effect correction</a></li>
+<li class="chapter" data-level="4.1.3" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#clustering"><i class="fa fa-check"></i><b>4.1.3</b> Clustering</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Survey.html"><a href="Survey.html"><i class="fa fa-check"></i><b>5</b> Survey of deep learning models for scRNA-Seq analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Survey.html"><a href="Survey.html#imputation-2"><i class="fa fa-check"></i><b>5.1</b> Imputation</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="Survey.html"><a href="Survey.html#dca"><i class="fa fa-check"></i><b>5.1.1</b> DCA:deep count autoencoder</a></li>
+<li class="chapter" data-level="5.1.2" data-path="Survey.html"><a href="Survey.html#saver-x"><i class="fa fa-check"></i><b>5.1.2</b> SAVER-X: single-cell analysis via expression recovery harnessing external data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="Survey.html"><a href="Survey.html#deepimpute"><i class="fa fa-check"></i><b>5.1.3</b> DeepImpute (Deep neural network Imputation)</a></li>
+<li class="chapter" data-level="5.1.4" data-path="Survey.html"><a href="Survey.html#late"><i class="fa fa-check"></i><b>5.1.4</b> LATE: Learning with AuToEncoder</a></li>
+<li class="chapter" data-level="5.1.5" data-path="Survey.html"><a href="Survey.html#scGMAI"><i class="fa fa-check"></i><b>5.1.5</b> scGMAI</a></li>
+<li class="chapter" data-level="5.1.6" data-path="Survey.html"><a href="Survey.html#scIGANs"><i class="fa fa-check"></i><b>5.1.6</b> scIGANs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="Survey.html"><a href="Survey.html#batch-effect-correction-2"><i class="fa fa-check"></i><b>5.2</b> Batch effect correction</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Survey.html"><a href="Survey.html#bermuda"><i class="fa fa-check"></i><b>5.2.1</b> BERMUDA: Batch Effect ReMoval Using Deep Autoencoders</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Survey.html"><a href="Survey.html#desc"><i class="fa fa-check"></i><b>5.2.2</b> DESC: batch correction based on clustering</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Survey.html"><a href="Survey.html#imap"><i class="fa fa-check"></i><b>5.2.3</b> iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Survey.html"><a href="Survey.html#dimension-reduction"><i class="fa fa-check"></i><b>5.3</b> Dimension reduction, latent representation, clustering, and data augmentation</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="Survey.html"><a href="Survey.html#dimension-reduction-by-aes"><i class="fa fa-check"></i><b>5.3.1</b> Dimension reduction by AEs with gene-interaction constrained architecture</a></li>
+<li class="chapter" data-level="5.3.2" data-path="Survey.html"><a href="Survey.html#dhaka"><i class="fa fa-check"></i><b>5.3.2</b> Dhaka: a VAE-based dimension reduction model</a></li>
+<li class="chapter" data-level="5.3.3" data-path="Survey.html"><a href="Survey.html#scvis"><i class="fa fa-check"></i><b>5.3.3</b> scvis: a VAE for capturing low-dimensional structures</a></li>
+<li class="chapter" data-level="5.3.4" data-path="Survey.html"><a href="Survey.html#scVAE"><i class="fa fa-check"></i><b>5.3.4</b> scVAE: VAE for single-cell gene expression data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="Survey.html"><a href="Survey.html#VASC"><i class="fa fa-check"></i><b>5.3.5</b> VASC: VAE for scRNA-seq</a></li>
+<li class="chapter" data-level="5.3.6" data-path="Survey.html"><a href="Survey.html#scDeepCluster"><i class="fa fa-check"></i><b>5.3.6</b> scDeepCluster</a></li>
+<li class="chapter" data-level="5.3.7" data-path="Survey.html"><a href="Survey.html#cscGAN"><i class="fa fa-check"></i><b>5.3.7</b> cscGAN: Conditional single-cell generative adversarial neural networks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="Survey.html"><a href="Survey.html#multi-functional"><i class="fa fa-check"></i><b>5.4</b> Multi-functional models</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="Survey.html"><a href="Survey.html#scVI"><i class="fa fa-check"></i><b>5.4.1</b> scVI: single-cell variational inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="Survey.html"><a href="Survey.html#ldvae"><i class="fa fa-check"></i><b>5.4.2</b> LDVAE: linearly decoded variational autoencoder</a></li>
+<li class="chapter" data-level="5.4.3" data-path="Survey.html"><a href="Survey.html#saucie"><i class="fa fa-check"></i><b>5.4.3</b> SAUCIE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="Survey.html"><a href="Survey.html#scScope"><i class="fa fa-check"></i><b>5.4.4</b> scScope</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="Survey.html"><a href="Survey.html#doubletClassification"><i class="fa fa-check"></i><b>5.5</b> Doublet Classification</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="Survey.html"><a href="Survey.html#solo"><i class="fa fa-check"></i><b>5.5.1</b> Solo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="Survey.html"><a href="Survey.html#automatedCellType"><i class="fa fa-check"></i><b>5.6</b> Automated cell type identification</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="Survey.html"><a href="Survey.html#digitalDLSorter"><i class="fa fa-check"></i><b>5.6.1</b> DigitalDLSorter</a></li>
+<li class="chapter" data-level="5.6.2" data-path="Survey.html"><a href="Survey.html#scCapsNet"><i class="fa fa-check"></i><b>5.6.2</b> scCapsNet</a></li>
+<li class="chapter" data-level="5.6.3" data-path="Survey.html"><a href="Survey.html#netAE"><i class="fa fa-check"></i><b>5.6.3</b> netAE: network-enhanced autoencoder</a></li>
+<li class="chapter" data-level="5.6.4" data-path="Survey.html"><a href="Survey.html#scDGN"><i class="fa fa-check"></i><b>5.6.4</b> scDGN - supervised adversarial alignment of single-cell RNA-seq data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="Survey.html"><a href="Survey.html#biologicalFunctionPrediction"><i class="fa fa-check"></i><b>5.7</b> Biological function prediction</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="Survey.html"><a href="Survey.html#CNNC"><i class="fa fa-check"></i><b>5.7.1</b> CNNC: convolutional neural network for coexpression</a></li>
+<li class="chapter" data-level="5.7.2" data-path="Survey.html"><a href="Survey.html#scGen"><i class="fa fa-check"></i><b>5.7.2</b> scGen, a generative model to predict perturbation response of single cells across cell types</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Table.html"><a href="Table.html"><i class="fa fa-check"></i><b>6</b> Table</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#Table1"><i class="fa fa-check"></i>Table1</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#a.-deep-learning-algorithms-reviewed-in-the-paper"><i class="fa fa-check"></i>A. Deep Learning algorithms reviewed in the paper</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#b.-comparison-of-deep-learning-algorithms-reviewed-in-the-paper"><i class="fa fa-check"></i>B. Comparison of Deep Learning algorithms reviewed in the paper</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#Table2"><i class="fa fa-check"></i>Table2</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#a.-simulated-single-cell-dataalgorithms"><i class="fa fa-check"></i>A. Simulated single-cell data/algorithms</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#b.-human-single-cell-data-sources-used-by-different-dl-algorithms"><i class="fa fa-check"></i>B. Human single-cell data sources used by different DL algorithms</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#c.-mouse-single-cell-data-sources-used-by-different-dl-algorithms"><i class="fa fa-check"></i>C. Mouse single-cell data sources used by different DL algorithms</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#d.-single-cell-data-derived-from-other-species"><i class="fa fa-check"></i>D. Single-cell data derived from other species</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#e.-large-single-cell-data-source-used-by-various-algorithms"><i class="fa fa-check"></i>E. Large single-cell data source used by various algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#Table3"><i class="fa fa-check"></i>Table3</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#evaluation-metrics-used-in-surveyed-dl-algorithms"><i class="fa fa-check"></i>Evaluation metrics used in surveyed DL algorithms</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Table" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Table</h1>
+<!-- [Table]: Table -->
+<div id="Table1" class="section level2 unnumbered">
+<h2>Table1</h2>
+<div id="a.-deep-learning-algorithms-reviewed-in-the-paper" class="section level3 unnumbered">
+<h3>A. Deep Learning algorithms reviewed in the paper</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:Table1a">Table 6.1: </span>Deep Learning algorithms reviewed in the paper
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+App
+</th>
+<th style="text-align:center;">
+Algorithm
+</th>
+<th style="text-align:center;">
+Models
+</th>
+<th style="text-align:center;">
+Evaluation
+</th>
+<th style="text-align:center;">
+Environment
+</th>
+<th style="text-align:center;">
+Codes
+</th>
+<th style="text-align:center;">
+Refs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="6">
+<td colspan="7" style="background-color: #666; color: #fff;">
+<strong>Imputation</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DCA
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+DREMI
+</td>
+<td style="text-align:center;">
+Keras, Tensorflow, scanpy
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/theislab/dca" class="uri">https://github.com/theislab/dca</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN46" role="doc-biblioref">Arisdakessian et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+SAVER-X
+</td>
+<td style="text-align:center;">
+AE+TL
+</td>
+<td style="text-align:center;">
+t-SNE, ARI
+</td>
+<td style="text-align:center;">
+R/sctransfer
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/jingshuw/SAVERX" class="uri">https://github.com/jingshuw/SAVERX</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN185" role="doc-biblioref">Borgwardt et al. 2006</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DeepImpute
+</td>
+<td style="text-align:center;">
+DNN
+</td>
+<td style="text-align:center;">
+MSE, Pearson’s correlation
+</td>
+<td style="text-align:center;">
+Keras/Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/lanagarmire/DeepImpute" class="uri">https://github.com/lanagarmire/DeepImpute</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN93" role="doc-biblioref">Petegrosso, Li, and Kuang 2020</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+LATE
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+MSE
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/audreyqyfu/LATE" class="uri">https://github.com/audreyqyfu/LATE</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN105" role="doc-biblioref">Buttner et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scGAMI
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+NMI, ARI, HS and CS
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/QUST-AIBBDRC/scGMAI/" class="uri">https://github.com/QUST-AIBBDRC/scGMAI/</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN250" role="doc-biblioref">Cover 1999</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scIGANs
+</td>
+<td style="text-align:center;">
+GAN
+</td>
+<td style="text-align:center;">
+ARI, ACC, AUC, and F-score
+</td>
+<td style="text-align:center;">
+PyTorch
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/xuyungang/scIGANs" class="uri">https://github.com/xuyungang/scIGANs</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN44" role="doc-biblioref">Tran et al. 2020</a>)</span>
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="7" style="background-color: #666; color: #fff;">
+<strong>Batch correction</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+BERMUDA
+</td>
+<td style="text-align:center;">
+AE+TL
+</td>
+<td style="text-align:center;">
+kBET, entropy of Mixing, SI
+</td>
+<td style="text-align:center;">
+PyTorch
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/txWang/BERMUDA" class="uri">https://github.com/txWang/BERMUDA</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN184" role="doc-biblioref">Badsha et al. 2020</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DESC
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+ARI, KL
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/eleozzr/desc" class="uri">https://github.com/eleozzr/desc</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN183" role="doc-biblioref">T. Wang et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+iMAP
+</td>
+<td style="text-align:center;">
+AE+GAN
+</td>
+<td style="text-align:center;">
+kBET, LISI
+</td>
+<td style="text-align:center;">
+PyTorch
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/Svvord/iMAP" class="uri">https://github.com/Svvord/iMAP</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN118" role="doc-biblioref">X. Li et al. 2020</a>)</span>
+</td>
+</tr>
+<tr grouplength="6">
+<td colspan="7" style="background-color: #666; color: #fff;">
+<strong>Clustering, latent representation, dimension reduction, and data augmentation</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+Dhaka
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+ARI, Spearman Correlation
+</td>
+<td style="text-align:center;">
+Keras/Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/MicrosoftGenomics/Dhaka" class="uri">https://github.com/MicrosoftGenomics/Dhaka</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN121" role="doc-biblioref">Hie, Bryson, and Berger 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scvis
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+KNN preservation, log-likelihood
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://bitbucket.org/jerry00/scvis-dev/src/master/" class="uri">https://bitbucket.org/jerry00/scvis-dev/src/master/</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN187" role="doc-biblioref">Fowlkes and Mallows 1983</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scVAE
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+ARI
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/scvae/scvae" class="uri">https://github.com/scvae/scvae</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN125" role="doc-biblioref">Rashid et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+VASC
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+NMI, ARI, HS, and CS
+</td>
+<td style="text-align:center;">
+H5py, Keras
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/wang-research/VASC" class="uri">https://github.com/wang-research/VASC</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN188" role="doc-biblioref">Tirosh, Izar, et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scDeepCluster
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+ARI, NMI, clustering accuracy
+</td>
+<td style="text-align:center;">
+Keras, Scanpy
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/ttgump/scDeepCluster" class="uri">https://github.com/ttgump/scDeepCluster</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN127" role="doc-biblioref">Ding, Condon, and Shah 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+cscGAN
+</td>
+<td style="text-align:center;">
+GAN
+</td>
+<td style="text-align:center;">
+t-SNE, marker genes, MMD, AUC
+</td>
+<td style="text-align:center;">
+Scipy, Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/imsb-uke/scGAN" class="uri">https://github.com/imsb-uke/scGAN</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN131" role="doc-biblioref">D. Wang and Gu 2018</a>)</span>
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="7" style="background-color: #666; color: #fff;">
+<strong>Multi-functional models (IM: imputation, BC: batch correction, CL: clustering)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scVI
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+IM: L1 distance; CL: ARI, NMI, SI; BC: Entropy of Mixing
+</td>
+<td style="text-align:center;">
+PyTorch, Anndata
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/YosefLab/scvi-tools" class="uri">https://github.com/YosefLab/scvi-tools</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN102" role="doc-biblioref">Y. Xu et al. 2020</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+LDVAE
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+Reconstruction errors
+</td>
+<td style="text-align:center;">
+Part of scVI
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/YosefLab/scvi-tools" class="uri">https://github.com/YosefLab/scvi-tools</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN253" role="doc-biblioref">Xie, Girshick, and Farhadi, n.d.</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+SAUCIE
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+IM: R2 statistics; CL: SI; BC: modified kBET; Visualization: Precision/Recall
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/KrishnaswamyLab/SAUCIE/" class="uri">https://github.com/KrishnaswamyLab/SAUCIE/</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN76" role="doc-biblioref">Amodio et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scScope
+</td>
+<td style="text-align:center;">
+AE
+</td>
+<td style="text-align:center;">
+<a href="IM:Reconstruction" class="uri">IM:Reconstruction</a> errors; BC: Entropy of mixing; CL: ARI
+</td>
+<td style="text-align:center;">
+Tensorflow, Scikit-learn
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/AltschulerWu-Lab/scScope" class="uri">https://github.com/AltschulerWu-Lab/scScope</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN141" role="doc-biblioref">Lindenbaum and Krishnaswamy 2018</a>)</span>
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="7" style="background-color: #666; color: #fff;">
+<strong>Cell type Identification</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DigitalDLSorter
+</td>
+<td style="text-align:center;">
+DNN
+</td>
+<td style="text-align:center;">
+Pearson correlation
+</td>
+<td style="text-align:center;">
+R/Python/Keras
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/cartof/digitalDLSorter" class="uri">https://github.com/cartof/digitalDLSorter</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN143" role="doc-biblioref">Svensson et al. 2020</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scCapsNet
+</td>
+<td style="text-align:center;">
+CapsNet
+</td>
+<td style="text-align:center;">
+Cell-type Prediction accuracy
+</td>
+<td style="text-align:center;">
+Keras, Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/wanglf19/scCaps" class="uri">https://github.com/wanglf19/scCaps</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN191" role="doc-biblioref">Wolock, Lopez, and Klein 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+netAE
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+Cell-type Prediction accuracy, t-SNE for visualization
+</td>
+<td style="text-align:center;">
+PyTorch
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/LeoZDong/netAE" class="uri">https://github.com/LeoZDong/netAE</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN221" role="doc-biblioref">H. Li et al. 2017</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scDGN
+</td>
+<td style="text-align:center;">
+DANN
+</td>
+<td style="text-align:center;">
+Prediciton accuracy
+</td>
+<td style="text-align:center;">
+PyTorch
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/SongweiGe/scDGN" class="uri">https://github.com/SongweiGe/scDGN</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN245" role="doc-biblioref">Racle et al. 2017</a>)</span>
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="7" style="background-color: #666; color: #fff;">
+<strong>Function analysis</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+CNNC
+</td>
+<td style="text-align:center;">
+CNN
+</td>
+<td style="text-align:center;">
+AUROC, AUPRC, and accuracy
+</td>
+<td style="text-align:center;">
+Keras, Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/xiaoyeye/CNNC" class="uri">https://github.com/xiaoyeye/CNNC</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN159" role="doc-biblioref">N. D. Patel, Nguang, and Coghill 2007</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scGen
+</td>
+<td style="text-align:center;">
+VAE
+</td>
+<td style="text-align:center;">
+Correlation, visualization
+</td>
+<td style="text-align:center;">
+Tensorflow
+</td>
+<td style="text-align:center;">
+<a href="https://github.com/theislab/scgen" class="uri">https://github.com/theislab/scgen</a>
+</td>
+<td style="text-align:center;">
+<span class="citation">(<a href="Table.html#ref-RN174" role="doc-biblioref">Yuan and Bar-Joseph 2019</a>)</span>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> DL Model keywords: AE: autoencoder, AE+TL: autoencoder with transfer learning, AE: variational autoencoder, GAN: Generative adversarial network, CNN: convolutional neural network, DNN: deep neural network, DANN: domain adversarial neural network, CapsNet: capsule neural network
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div id="b.-comparison-of-deep-learning-algorithms-reviewed-in-the-paper" class="section level3 unnumbered">
+<h3>B. Comparison of Deep Learning algorithms reviewed in the paper</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:Table1b">Table 6.2: </span>Comparison of Deep Learning algorithms reviewed in the paper
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+App
+</th>
+<th style="text-align:center;">
+Algorithm
+</th>
+<th style="text-align:left;">
+Feature
+</th>
+<th style="text-align:left;">
+ApplicationNotes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="15">
+<td colspan="4" style="background-color: #666; color: #fff;">
+<strong>Imputation</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DCA
+</td>
+<td style="text-align:left;">
+Strongest recovery of the top 500 genes
+</td>
+<td style="text-align:left;">
+AE integrated into the Scanpy framework
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Choices of noise models, including NB, and ZINB
+</td>
+<td style="text-align:left;">
+High scalability of AE, up to millions of cells
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Outperform other existing methods in capturing cell population structure
+</td>
+<td style="text-align:left;">
+This method was compared to SAVER, scImpute, and MAGIC
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+Pretraining from existing data sets (transfer learning)
+</td>
+<td style="text-align:left;">
+SAVER-X pretraining on PBMCs outperformed other denoising methods, including DCA, scVI, scImpute, and MAGIC
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Decomposes the variation into three components
+</td>
+<td style="text-align:left;">
+SAVER-X was also applied for cross-species analysis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DeepImpute
+</td>
+<td style="text-align:left;">
+Divide-and-conquer approach, using a bank of DNN models
+</td>
+<td style="text-align:left;">
+DeepImpute had the highest overall accuracy and offered shorter computation time than other methods like MAGIC, DrImpute, ScImpute, SAVER, VIPER, and DCA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Reduced complexity by learning smaller sub-network
+</td>
+<td style="text-align:left;">
+DeepImpute showed benefits in improving clustering results and identifying significantly differentially expressed genes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Minimized overfitting by removing target genes from input
+</td>
+<td style="text-align:left;">
+Scalable and faster training time
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+LATE
+</td>
+<td style="text-align:left;">
+Takes the log-transformed expression as input
+</td>
+<td style="text-align:left;">
+LATE outperforms other existing methods like MAGIC, SAVER, DCA, scVI, particularly when the ground truth contains only a few or no zeros
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+No explicit distribution assumption on input data
+</td>
+<td style="text-align:left;">
+Better scalability than DCA and scVI up to 1.3 million cells with 10K genes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scGAMI
+</td>
+<td style="text-align:left;">
+A model designed for clustering but it includes an AE
+</td>
+<td style="text-align:left;">
+Significantly improved the clustering performance in eight of seventeen selected scRNA-seq datasets
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Uses fast independent component analysis algorithm: FastICA
+</td>
+<td style="text-align:left;">
+scGMI’s scalability needs to be improved
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scIGANs
+</td>
+<td style="text-align:left;">
+Trains a GAN model to generate samples with imputed expressions
+</td>
+<td style="text-align:left;">
+This framework forces the model to reconstruct the real samples and discriminate between real and generated samples.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Best reported performance in clustering compared to DCA, DeepImpute, SAVER, scImpute, MAGIC
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Scalable over 100K cells, also robust to small datasets
+</td>
+</tr>
+<tr grouplength="9">
+<td colspan="4" style="background-color: #666; color: #fff;">
+<strong>Batch correction</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+BERMUDA
+</td>
+<td style="text-align:left;">
+Preserves batch-specific biological signals through transfer-learning Preserves batch-specific cell populations
+</td>
+<td style="text-align:left;">
+Outperform other methods like mnnCorrect, BBKNN, Seurat, and scVI
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Removes batch effects even when the cell population compositions across different batches are vastly different
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Scalable by using mini-batch gradient descent algorithm during training
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DESC
+</td>
+<td style="text-align:left;">
+Removes batch effect through clustering with the hypothesis that batch differences in expressions are smaller than true biological variations
+</td>
+<td style="text-align:left;">
+DESC is effective in removing the batch effect, whereas CCA, MNN, Seurat 3.0, scVI, BERMUDA, and scanorama were sensitive to batch definitions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Does not require explicit batch information for batch removal
+</td>
+<td style="text-align:left;">
+DESC is biologically interpretable and can reveal both discrete and pseudo-temporal structures of cells
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Small memory footprint and GPU enabled
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+iMAP
+</td>
+<td style="text-align:left;">
+iMAP combines AE and GAN for batch effect removal
+</td>
+<td style="text-align:left;">
+iMAP was shown to separate the batch-specific cell types but mix batch shared cell types and outperformed other existing batch correction methods including Harmony, scVI, fastMNN, Seurat
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+It consists of two processing stages, each including a separate DL model
+</td>
+<td style="text-align:left;">
+Capable handling datasets from Smart-seq2 and 10X Genomics platforms
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Demonstrated the stability over hyperparameters, and scalability for thousands of cells.
+</td>
+</tr>
+<tr grouplength="16">
+<td colspan="4" style="background-color: #666; color: #fff;">
+<strong>Clustering, latent representation, dimension reduction, and data augmentation</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+Dhaka
+</td>
+<td style="text-align:left;">
+It was proposed to reduce the dimension of scRNA-seq data for efficient stratification of tumor subpopulations
+</td>
+<td style="text-align:left;">
+Dhaka was shown to have an ARI higher than most other comparing methods including t-SNE, PCA, SIMLR, NMF, an autoencoder, MAGIC, and scVI
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Dhaka can represent an evolutionary trajectory
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scvis
+</td>
+<td style="text-align:left;">
+VAE network that learns low-dimensional representations
+</td>
+<td style="text-align:left;">
+scvis was tested on the simulated data and outperformed t-SNE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Capture both local and global neighboring structures
+</td>
+<td style="text-align:left;">
+scvis is much more scalable than BH t-SNE (t-SNE takes O(M log(M)) time and O(M log(M)) space) for very large dataset (&gt;1 million cells)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scVAE
+</td>
+<td style="text-align:left;">
+scVAE includes multiple VAE models for denoising gene expression levels and learning the low-dimensional latent representation
+</td>
+<td style="text-align:left;">
+GMVAE was also compared with Seurat and shown to perform better, however, scVAE performed no better than scVI or scvis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Gaussian Mixture VAE (GMVAE) with negative binomial distribution achieved the highest lower bound and ARI
+</td>
+<td style="text-align:left;">
+Algorithm applicable to large datasets with million cells
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+VASC
+</td>
+<td style="text-align:left;">
+Another VAE for dimension reduction and latent representation
+</td>
+<td style="text-align:left;">
+VASC was compared with PCA, t-SNE, ZIFA, and SIMLR on 20 datasets
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Explicitly model dropout with a Zero-inflated layer
+</td>
+<td style="text-align:left;">
+In the study of embryonic development from zygote to blast cells, VASC shthe owed better performance to model embryo developmental progression
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+VASC is reported to handle a large number of cells or cell types
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Demonstrated model stability
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scDeepCluster
+</td>
+<td style="text-align:left;">
+AE network that simultaneously learns feature representation and performs clustering via explicit modeling of cell clusters
+</td>
+<td style="text-align:left;">
+It was tested on the simulation data with different dropout rates and compared with DCA, MPSSC and SIMLR CIDR, PCA + k-mean, scvis and DEC significantly outperforming them
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Running time of scDeepCluster scales linearly with the number of cells, suitable for large scRNA-seq datasets
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+cscGAN
+</td>
+<td style="text-align:left;">
+It was designed to augment the existing scRNA-seq samples by generating expression profiles of specific cell types or subpopulations
+</td>
+<td style="text-align:left;">
+cscGAN was shown to generate high-quality scRAN-seq data for specific cell types.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+The cscGAN learns the expression patterns of a specific subpopulation (few cells), and simultaneously learns the cells from all populations (a large number of cells).
+</td>
+<td style="text-align:left;">
+The augmentation in this method improved the identification of rare cell types and the ability to capture transitional cell states from trajectory analysis
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Better scalability than SUGAR (Synthesis Using Geometrically Aligned Random-walks)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Capable re-establish developmental trajectories through pseudo-time analysis via cscGAN data augmentation
+</td>
+</tr>
+<tr grouplength="10">
+<td colspan="4" style="background-color: #666; color: #fff;">
+<strong>Multi-functional models (IM: imputation, BC: batch correction, CL: clustering)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scVI
+</td>
+<td style="text-align:left;">
+Designed to address a range of fundamental analysis tasks, including batch correction, visualization, clustering, and differential expression
+</td>
+<td style="text-align:left;">
+ScVI was shown to be faster than most non-DL algorithms and scalable to handle twice as many cells as non-DL algorithms with a fixed memory
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Integrated a normalization procedure and batch correction
+</td>
+<td style="text-align:left;">
+For imputation, ScVI, together with other ZINB-based models, performed better than methods using alternative distributions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Similar scalability as DCA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+LDVAE
+</td>
+<td style="text-align:left;">
+Adaption of scVI to improve the model interpretability
+</td>
+<td style="text-align:left;">
+For LDVAE the variations along the different axes of the latent variable establish direct linear relationships with input genes.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+SAUCIE
+</td>
+<td style="text-align:left;">
+It is applied to the normalized data instead of count data
+</td>
+<td style="text-align:left;">
+Results showed that SAUCIE had a better or comparable performance with other approaches
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+SAUCIE has better scalability and faster runtimes than any of the other models
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Applications with single-cell CyTOF datasets
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scScope
+</td>
+<td style="text-align:left;">
+AE with recurrent steps designed for imputation and batch correction
+</td>
+<td style="text-align:left;">
+It was compared with PCA, MAGIC, ZINB-WaVE, SIMLR, AE, scVI, and DCA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Efficiently identify cell subpopulations from complex datasets with high dropout rates, large numbers of subpopulations and rare cell types
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+For scalability and training speed, scScope was shown to offer scalability (for &gt;100K cells) with high efficiency (faster than most of the approaches)
+</td>
+</tr>
+<tr grouplength="8">
+<td colspan="4" style="background-color: #666; color: #fff;">
+<strong>Cell type Identification</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+DigitalDLSorter
+</td>
+<td style="text-align:left;">
+A deconvolution model with 4-layer DNN
+</td>
+<td style="text-align:left;">
+DigitalDLSorter achieved excellent agreement (linear correlation of 0.99 for colorectal cancer, and good agreement in quadratic relationship for breast cancer) at predicting cell type proportion.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Designed to identify and quantify the immune cells infiltrated in tumors captured in bulk RNA-seq, utilizing single-cell RNA-seq data
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scCapsNet
+</td>
+<td style="text-align:left;">
+It takes log-transformed, normalized expressions as input and follows the general CapsNet model
+</td>
+<td style="text-align:left;">
+Interpretable capsule network designed for cell type prediction
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+scCapsNet makes the deep-learning black box transparent through the direct interpretation of internal parameters
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+netAE
+</td>
+<td style="text-align:left;">
+VAE-based semi-supervised cell type prediction model
+</td>
+<td style="text-align:left;">
+Deals with scenarios of having a small number of labeled cells.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Aiming at learning a low dimensional space from which the original space can be accurately reconstructed
+</td>
+<td style="text-align:left;">
+netAE outperformed most of the baseline methods including scVI, ZIFA, PCA and AE as well as a semi-supervised method scANVI
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scDGN
+</td>
+<td style="text-align:left;">
+scDGN takes the log-transformed, normalized expression as the input
+</td>
+<td style="text-align:left;">
+scDGN was tested for classifying cell types and aligning batches
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Supervised domain adversarial network
+</td>
+<td style="text-align:left;">
+scDGN outperformed many deep learning and traditional machine learning methods in classification accuracy, including DNN, CaSTLe, MNN, scVI, and Seurat
+</td>
+</tr>
+<tr grouplength="4">
+<td colspan="4" style="background-color: #666; color: #fff;">
+<strong>Function analysis</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+CNNC
+</td>
+<td style="text-align:left;">
+CNNC takes expression levels of two genes from many cells and transforms them into a 32 x 32 image-like normalized empirical probability function
+</td>
+<td style="text-align:left;">
+CNNC outperforms prior methods for inferring TF–gene and protein–protein interactions, causality inference, and functional assignments
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Inferring causal interactions between genes from scRNA-seq
+</td>
+<td style="text-align:left;">
+Was shown to have more than 20% higher AUPRC than other methods and reported almost no false-negative for the top 5% predictions
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+scGen
+</td>
+<td style="text-align:left;">
+ScGen follows the general VAE for scRNA-seq data but uses the “latent space arithmetics” to learn perturbations’ response
+</td>
+<td style="text-align:left;">
+Compared with other methods including CVAE, style transfer GAN, linear approaches based on vector arithmetics(VA) and PCA+VA, scGen predicted full distribution of ISG15 gene (strongest regulated gene by IFN-b) response to IFN- b
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;width: 1em; " indentlevel="1">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:left;">
+Designed to learn cell response to certain perturbation (drug treatment, gene knockout, etc)
+</td>
+<td style="text-align:left;">
+scGen can be used to translate the effect of a stimulation trained in study A to how stimulated cells would look in study B, given a control sample set
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup></sup> Abbreviation: NB: negative binomial distribution; ZINB: zero-inflated negative binomial distribution; TF: Transcription factor;
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+<div id="Table2" class="section level2 unnumbered">
+<h2>Table2</h2>
+<div id="a.-simulated-single-cell-dataalgorithms" class="section level3 unnumbered">
+<h3>A. Simulated single-cell data/algorithms</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table2a">Table 6.3: </span>Simulated single-cell data/algorithms
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Algorithm
+</th>
+<th style="text-align:left;">
+Number_of_Cells
+</th>
+<th style="text-align:left;">
+Simulation_Methods
+</th>
+<th style="text-align:left;">
+Refs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Splatter
+</td>
+<td style="text-align:left;">
+DCA, DeepImpute, PERMUDA, scDeepCluster, scVI, scScope, solo
+</td>
+<td style="text-align:left;">
+~2000
+</td>
+<td style="text-align:left;">
+Splatter/R
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN133" role="doc-biblioref">Tian 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CIDR
+</td>
+<td style="text-align:left;">
+sclGAN
+</td>
+<td style="text-align:left;">
+50
+</td>
+<td style="text-align:left;">
+CIDR simulation
+</td>
+<td style="text-align:left;">
+[54, Reference Not Found]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NB+dropout
+</td>
+<td style="text-align:left;">
+Dhaka
+</td>
+<td style="text-align:left;">
+500
+</td>
+<td style="text-align:left;">
+Hierachical model of NB/Gamma + random dropout
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bulk RNA-seq
+</td>
+<td style="text-align:left;">
+SAUCIE
+</td>
+<td style="text-align:left;">
+1076
+</td>
+<td style="text-align:left;">
+1076 CCLE bulk RNAseq + dropout conditional on expression level
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SIMLR
+</td>
+<td style="text-align:left;">
+scScope
+</td>
+<td style="text-align:left;">
+1 million
+</td>
+<td style="text-align:left;">
+SIMLR, high-dimensional data generated from latent vector
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN42" role="doc-biblioref">Miao et al. 2018</a>)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="b.-human-single-cell-data-sources-used-by-different-dl-algorithms" class="section level3 unnumbered">
+<h3>B. Human single-cell data sources used by different DL algorithms</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table2b">Table 6.4: </span>Human single-cell data sources used by different DL algorithms
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Algorithm
+</th>
+<th style="text-align:left;">
+Cell_Origin
+</th>
+<th style="text-align:left;">
+Number_of_Cells
+</th>
+<th style="text-align:left;">
+Data_Sources
+</th>
+<th style="text-align:left;">
+Refs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+68k PBMCs
+</td>
+<td style="text-align:left;">
+DCA, SAVER-X, LATE, scVAE, scDeepCluster, scCapsNet, scDGN
+</td>
+<td style="text-align:left;">
+Blood
+</td>
+<td style="text-align:left;">
+68,579
+</td>
+<td style="text-align:left;">
+10X Single Cell Gene Expression Datasets
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Human pluripotent
+</td>
+<td style="text-align:left;">
+DCA
+</td>
+<td style="text-align:left;">
+hESCs
+</td>
+<td style="text-align:left;">
+1,876
+</td>
+<td style="text-align:left;">
+GSE102176
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN179" role="doc-biblioref">Lotfollahi, Wolf, and Theis 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CITE-seq
+</td>
+<td style="text-align:left;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+Cord blood mononuclear cells
+</td>
+<td style="text-align:left;">
+8,005
+</td>
+<td style="text-align:left;">
+GSE100866
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN201" role="doc-biblioref">Duvenaud 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Midbrain and Dopaminergic Neuron Development
+</td>
+<td style="text-align:left;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+Brain/ embryo ventral midbrain cells
+</td>
+<td style="text-align:left;">
+1,977
+</td>
+<td style="text-align:left;">
+GSE76381
+</td>
+<td style="text-align:left;">
+[124, Ref Not Found]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HCA
+</td>
+<td style="text-align:left;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+Immune cell, Human Cell Atlas
+</td>
+<td style="text-align:left;">
+500,000
+</td>
+<td style="text-align:left;">
+HCA data portal
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Breast tumor
+</td>
+<td style="text-align:left;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+Immune cell in tumor micro-environment
+</td>
+<td style="text-align:left;">
+45,000
+</td>
+<td style="text-align:left;">
+GSE114725
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN218" role="doc-biblioref">Kang et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+293T cells
+</td>
+<td style="text-align:left;">
+DeepImpute, iMAP
+</td>
+<td style="text-align:left;">
+Embryonic kidney
+</td>
+<td style="text-align:left;">
+13,480
+</td>
+<td style="text-align:left;">
+10X Single Cell Gene Expression Datasets
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Jurkat
+</td>
+<td style="text-align:left;">
+DeepImpute, iMAP
+</td>
+<td style="text-align:left;">
+Blood/ lymphocyte
+</td>
+<td style="text-align:left;">
+3,200
+</td>
+<td style="text-align:left;">
+10X Single Cell Gene Expression Datasets
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ESC, Time-course
+</td>
+<td style="text-align:left;">
+scGAN
+</td>
+<td style="text-align:left;">
+ESC
+</td>
+<td style="text-align:left;">
+350,758
+</td>
+<td style="text-align:left;">
+GSE75748
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN226" role="doc-biblioref">Haber et al. 2017</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Baron-Hum-1
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Pancreatic islets
+</td>
+<td style="text-align:left;">
+1,937
+</td>
+<td style="text-align:left;">
+GSM2230757
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN202" role="doc-biblioref">Hagai et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Baron-Hum-2
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Pancreatic islets
+</td>
+<td style="text-align:left;">
+1,724
+</td>
+<td style="text-align:left;">
+GSM2230758
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN202" role="doc-biblioref">Hagai et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Camp
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Liver cells
+</td>
+<td style="text-align:left;">
+303
+</td>
+<td style="text-align:left;">
+GSE96981
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN206" role="doc-biblioref">Y. Peng et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CEL-seq2
+</td>
+<td style="text-align:left;">
+PERMUDA, DESC
+</td>
+<td style="text-align:left;">
+Pancreas/Islets of Langerhans
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+GSE85241
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN207" role="doc-biblioref">Stoeckius et al. 2017</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Darmanis
+</td>
+<td style="text-align:left;">
+scGMAI, sclGAN, VASC
+</td>
+<td style="text-align:left;">
+Brain/cortex
+</td>
+<td style="text-align:left;">
+466
+</td>
+<td style="text-align:left;">
+GSE67835
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN205" role="doc-biblioref">Azizi et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tirosh-brain
+</td>
+<td style="text-align:left;">
+Dhaka, scvis
+</td>
+<td style="text-align:left;">
+Oligodendroglioma
+</td>
+<td style="text-align:left;">
+&gt;4,800
+</td>
+<td style="text-align:left;">
+GSE70630
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN211" role="doc-biblioref">Chu et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Patel
+</td>
+<td style="text-align:left;">
+Dhaka
+</td>
+<td style="text-align:left;">
+Primary glioblastoma cells
+</td>
+<td style="text-align:left;">
+875
+</td>
+<td style="text-align:left;">
+GSE57872
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="#ref-210" role="doc-biblioref"><strong>210?</strong></a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Li
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Blood
+</td>
+<td style="text-align:left;">
+561
+</td>
+<td style="text-align:left;">
+GSE146974
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN183" role="doc-biblioref">T. Wang et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tirosh-skin
+</td>
+<td style="text-align:left;">
+scvis
+</td>
+<td style="text-align:left;">
+melanoma
+</td>
+<td style="text-align:left;">
+4,645
+</td>
+<td style="text-align:left;">
+GSE72056
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN123" role="doc-biblioref">D. Wang et al. 2021</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+xenograft 3, and 4
+</td>
+<td style="text-align:left;">
+Dhaka
+</td>
+<td style="text-align:left;">
+Breast tumor
+</td>
+<td style="text-align:left;">
+~250
+</td>
+<td style="text-align:left;">
+EGAS00001002170
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN208" role="doc-biblioref">Camp et al. 2017</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Petropoulos
+</td>
+<td style="text-align:left;">
+VASC/netAE
+</td>
+<td style="text-align:left;">
+Human embryos
+</td>
+<td style="text-align:left;">
+1,529
+</td>
+<td style="text-align:left;">
+E-MTAB-3929
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pollen
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+348
+</td>
+<td style="text-align:left;">
+SRP041736
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN209" role="doc-biblioref">Muraro et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Xin
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Pancreatic cells (a-, ß-, d-)
+</td>
+<td style="text-align:left;">
+1,600
+</td>
+<td style="text-align:left;">
+GSE81608
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN212" role="doc-biblioref">Darmanis et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Yan
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+embryonic stem cells
+</td>
+<td style="text-align:left;">
+124
+</td>
+<td style="text-align:left;">
+GSE36552
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN216" role="doc-biblioref">Tirosh, Venteicher, et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+PBMC3k
+</td>
+<td style="text-align:left;">
+VASC, scVI
+</td>
+<td style="text-align:left;">
+Blood
+</td>
+<td style="text-align:left;">
+2,700
+</td>
+<td style="text-align:left;">
+SRP073767
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN156" role="doc-biblioref">Torroja and Sanchez-Cabo 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CyTOF, Dengue
+</td>
+<td style="text-align:left;">
+SAUCIE
+</td>
+<td style="text-align:left;">
+Dengue infection
+</td>
+<td style="text-align:left;">
+11 M, ~42 antibodies
+</td>
+<td style="text-align:left;">
+Cytobank, 82023
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN76" role="doc-biblioref">Amodio et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CyTOF, ccRCC
+</td>
+<td style="text-align:left;">
+SAUCIE
+</td>
+<td style="text-align:left;">
+Immunue profile of 73 ccRCC patients
+</td>
+<td style="text-align:left;">
+3.5 M, ~40 antibodies
+</td>
+<td style="text-align:left;">
+Cytobank: 875
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN214" role="doc-biblioref">A. P. Patel et al. 2014</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CyTOF, breast
+</td>
+<td style="text-align:left;">
+SAUCIE
+</td>
+<td style="text-align:left;">
+3 patients
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Flow Repository: FR-FCM-ZYJP
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN218" role="doc-biblioref">Kang et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Chung, BC
+</td>
+<td style="text-align:left;">
+DigitalDLSorter
+</td>
+<td style="text-align:left;">
+Breast tumor
+</td>
+<td style="text-align:left;">
+515
+</td>
+<td style="text-align:left;">
+GSE75688
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN145" role="doc-biblioref">Levine et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Li, CRC
+</td>
+<td style="text-align:left;">
+DigitalDLSorter
+</td>
+<td style="text-align:left;">
+Colorectal cancer
+</td>
+<td style="text-align:left;">
+2,591
+</td>
+<td style="text-align:left;">
+GSE81861
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN150" role="doc-biblioref">Qiu et al. 2017</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pancreatic datasets
+</td>
+<td style="text-align:left;">
+scDGN
+</td>
+<td style="text-align:left;">
+Pancreas
+</td>
+<td style="text-align:left;">
+14,693
+</td>
+<td style="text-align:left;">
+SeuratData
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kang, PBMC
+</td>
+<td style="text-align:left;">
+scGen
+</td>
+<td style="text-align:left;">
+PBMC stimulated by INF-ß
+</td>
+<td style="text-align:left;">
+~15,000
+</td>
+<td style="text-align:left;">
+GSE96583
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN197" role="doc-biblioref">Y. X. Wang, Waterman, and Huang 2014</a>)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="c.-mouse-single-cell-data-sources-used-by-different-dl-algorithms" class="section level3 unnumbered">
+<h3>C. Mouse single-cell data sources used by different DL algorithms</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table2c">Table 6.5: </span>Mouse single-cell data sources used by different DL algorithms
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Algorithm
+</th>
+<th style="text-align:left;">
+Cell_Origin
+</th>
+<th style="text-align:left;">
+Number_of_Cells
+</th>
+<th style="text-align:left;">
+Data_Sources
+</th>
+<th style="text-align:left;">
+Refs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Brain cells from E18 mice
+</td>
+<td style="text-align:left;">
+DCA, SAUCIE
+</td>
+<td style="text-align:left;">
+Brain Cortex
+</td>
+<td style="text-align:left;">
+1,306,127
+</td>
+<td style="text-align:left;">
+10x: Single Cell Gene Expression Datasets
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Midbrain and Dopaminergic Neuron Development
+</td>
+<td style="text-align:left;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+Ventral Midbrain
+</td>
+<td style="text-align:left;">
+1,907
+</td>
+<td style="text-align:left;">
+GSE76381
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN137" role="doc-biblioref">La Manno et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mouse cell atlas
+</td>
+<td style="text-align:left;">
+SAVER-X
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+405,796
+</td>
+<td style="text-align:left;">
+GSE108097
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN224" role="doc-biblioref">Han et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+neuron9k
+</td>
+<td style="text-align:left;">
+DeepImpute
+</td>
+<td style="text-align:left;">
+Cortex
+</td>
+<td style="text-align:left;">
+9,128
+</td>
+<td style="text-align:left;">
+10x: Single Cell Gene Expression Datasets
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mouse Visual Cortex
+</td>
+<td style="text-align:left;">
+DeepImpute
+</td>
+<td style="text-align:left;">
+Brain cortex
+</td>
+<td style="text-align:left;">
+114,601
+</td>
+<td style="text-align:left;">
+GSE102827
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN225" role="doc-biblioref">Hrvatin et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+murine epidermis
+</td>
+<td style="text-align:left;">
+DeepImpute
+</td>
+<td style="text-align:left;">
+Epidermis
+</td>
+<td style="text-align:left;">
+1,422
+</td>
+<td style="text-align:left;">
+GSE67602
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN227" role="doc-biblioref">Joost et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+myeloid progenitors
+</td>
+<td style="text-align:left;">
+LATE, DESC, SAUCIE
+</td>
+<td style="text-align:left;">
+Bone marrow
+</td>
+<td style="text-align:left;">
+2,730
+</td>
+<td style="text-align:left;">
+GSE72857
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN228" role="doc-biblioref">Paul et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cell-cycle
+</td>
+<td style="text-align:left;">
+sclGAN
+</td>
+<td style="text-align:left;">
+mESC
+</td>
+<td style="text-align:left;">
+288
+</td>
+<td style="text-align:left;">
+E-MTAB-2805
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN229" role="doc-biblioref">Buettner et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A single-cell survey
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+Intestine
+</td>
+<td style="text-align:left;">
+7,721
+</td>
+<td style="text-align:left;">
+GSE92332
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN226" role="doc-biblioref">Haber et al. 2017</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tabula Muris
+</td>
+<td style="text-align:left;">
+iMAP
+</td>
+<td style="text-align:left;">
+Mouse cells
+</td>
+<td style="text-align:left;">
+&gt;100K
+</td>
+<td style="text-align:left;">
+NA
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Baron-Mou-1
+</td>
+<td style="text-align:left;">
+VASC
+</td>
+<td style="text-align:left;">
+Pancreas
+</td>
+<td style="text-align:left;">
+822
+</td>
+<td style="text-align:left;">
+GSM2230761
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN210" role="doc-biblioref">Baron et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Biase
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Embryos/SMARTer
+</td>
+<td style="text-align:left;">
+56
+</td>
+<td style="text-align:left;">
+GSE57249
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN230" role="doc-biblioref">Biase, Cao, and Zhong 2014</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Biase
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Embryos/Fluidigm
+</td>
+<td style="text-align:left;">
+90
+</td>
+<td style="text-align:left;">
+GSE59892
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN230" role="doc-biblioref">Biase, Cao, and Zhong 2014</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Deng
+</td>
+<td style="text-align:left;">
+scGMAI, VASC
+</td>
+<td style="text-align:left;">
+Liver
+</td>
+<td style="text-align:left;">
+317
+</td>
+<td style="text-align:left;">
+GSE45719
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN211" role="doc-biblioref">Chu et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Klein
+</td>
+<td style="text-align:left;">
+VASC, scDeepCluster, sclGAN
+</td>
+<td style="text-align:left;">
+Stem Cells
+</td>
+<td style="text-align:left;">
+2,717
+</td>
+<td style="text-align:left;">
+GSE65525
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN239" role="doc-biblioref">Klein et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Goolam
+</td>
+<td style="text-align:left;">
+VASC
+</td>
+<td style="text-align:left;">
+Mouse Embryo
+</td>
+<td style="text-align:left;">
+124
+</td>
+<td style="text-align:left;">
+E-METAB-3321
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN237" role="doc-biblioref">Goolam et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Kolodziejczyk
+</td>
+<td style="text-align:left;">
+VASC
+</td>
+<td style="text-align:left;">
+mESC
+</td>
+<td style="text-align:left;">
+704
+</td>
+<td style="text-align:left;">
+E-MTAB-2600
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN238" role="doc-biblioref">Kim et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Usoskin
+</td>
+<td style="text-align:left;">
+VASC
+</td>
+<td style="text-align:left;">
+Lumbar
+</td>
+<td style="text-align:left;">
+864
+</td>
+<td style="text-align:left;">
+GSE59739
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN241" role="doc-biblioref">Usoskin et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Zeisel
+</td>
+<td style="text-align:left;">
+VASC, scVI, SAUCIE, netAE
+</td>
+<td style="text-align:left;">
+Cortex, hippocampus
+</td>
+<td style="text-align:left;">
+3,005
+</td>
+<td style="text-align:left;">
+GSE60361
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN240" role="doc-biblioref">Zeisel et al. 2015</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bladder cells
+</td>
+<td style="text-align:left;">
+scDeepCluster
+</td>
+<td style="text-align:left;">
+Bladder
+</td>
+<td style="text-align:left;">
+12,884
+</td>
+<td style="text-align:left;">
+GSE129845
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN210" role="doc-biblioref">Baron et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HEMATO
+</td>
+<td style="text-align:left;">
+scVI
+</td>
+<td style="text-align:left;">
+Blood cell
+</td>
+<td style="text-align:left;">
+&gt;10,000
+</td>
+<td style="text-align:left;">
+GSE89754
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN234" role="doc-biblioref">Tusi et al. 2018</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+retinal bipolar cells
+</td>
+<td style="text-align:left;">
+scVI, scCapsNet, SAUCIE
+</td>
+<td style="text-align:left;">
+retinal
+</td>
+<td style="text-align:left;">
+~25,000
+</td>
+<td style="text-align:left;">
+GSE81905
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN163" role="doc-biblioref">Shekhar et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Embryo at 9 time points
+</td>
+<td style="text-align:left;">
+LDAVE
+</td>
+<td style="text-align:left;">
+embryos from E6.5 to E8.5
+</td>
+<td style="text-align:left;">
+116,312
+</td>
+<td style="text-align:left;">
+GSE87038
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN233" role="doc-biblioref">Pijuan-Sala et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Embryo at 9 time points
+</td>
+<td style="text-align:left;">
+LDAVE
+</td>
+<td style="text-align:left;">
+embryos from E9.5 to E13.5
+</td>
+<td style="text-align:left;">
+~2 millions
+</td>
+<td style="text-align:left;">
+GSE119945
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN232" role="doc-biblioref">Cao et al. 2019</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CyTOF
+</td>
+<td style="text-align:left;">
+SAUCIE
+</td>
+<td style="text-align:left;">
+Mouse thymus
+</td>
+<td style="text-align:left;">
+200K, ~38 antibodies
+</td>
+<td style="text-align:left;">
+Cytobank: 52942
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN236" role="doc-biblioref">Setty et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solo
+</td>
+<td style="text-align:left;">
+Solo
+</td>
+<td style="text-align:left;">
+Mouse kidneys
+</td>
+<td style="text-align:left;">
+~8,000
+</td>
+<td style="text-align:left;">
+GSE140262
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN154" role="doc-biblioref">Bernstein et al. 2020</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Nestorowa
+</td>
+<td style="text-align:left;">
+netAE
+</td>
+<td style="text-align:left;">
+hematopoietic stem and progenitor cells
+</td>
+<td style="text-align:left;">
+1,920
+</td>
+<td style="text-align:left;">
+GSE81682
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN235" role="doc-biblioref">Nestorowa et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+small intestinal epithelium
+</td>
+<td style="text-align:left;">
+scGen
+</td>
+<td style="text-align:left;">
+Infected with Salmonella and worm H. polygyrus
+</td>
+<td style="text-align:left;">
+1,957
+</td>
+<td style="text-align:left;">
+GSE92332
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN226" role="doc-biblioref">Haber et al. 2017</a>)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="d.-single-cell-data-derived-from-other-species" class="section level3 unnumbered">
+<h3>D. Single-cell data derived from other species</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:Table2d">Table 6.6: </span>Single-cell data derived from other species
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Algorithm
+</th>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+Tissue
+</th>
+<th style="text-align:left;">
+Number_of_Cells
+</th>
+<th style="text-align:left;">
+Data_Sources
+</th>
+<th style="text-align:left;">
+Refs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Worm neuron cells<span class="math inline">\(^{1}\)</span>
+</td>
+<td style="text-align:left;">
+scDeepCluster
+</td>
+<td style="text-align:left;">
+C. elegans
+</td>
+<td style="text-align:left;">
+Neuron
+</td>
+<td style="text-align:left;">
+4,186
+</td>
+<td style="text-align:left;">
+GSE98561
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN227" role="doc-biblioref">Joost et al. 2016</a>)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cross species, stimulation with LPS and dsRNA
+</td>
+<td style="text-align:left;">
+scGen
+</td>
+<td style="text-align:left;">
+Mouse, rat, rabbit, and pig
+</td>
+<td style="text-align:left;">
+bone marrow-derived phagocyte
+</td>
+<td style="text-align:left;">
+5,000 to 10,000 /species
+</td>
+<td style="text-align:left;">
+13 accessions in ArrayExpress
+</td>
+<td style="text-align:left;">
+<span class="citation">(<a href="Table.html#ref-RN198" role="doc-biblioref">Kanehisa et al. 2017</a>)</span>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>1</sup> Processed data is available at <a href="https://github.com/ttgump/scDeepCluster/tree/master/scRNA-seq%20data" class="uri">https://github.com/ttgump/scDeepCluster/tree/master/scRNA-seq%20data</a>
+</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+<div id="e.-large-single-cell-data-source-used-by-various-algorithms" class="section level3 unnumbered">
+<h3>E. Large single-cell data source used by various algorithms</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table2e">Table 6.7: </span>Large single-cell data source used by various algorithms
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Sources
+</th>
+<th style="text-align:left;">
+Notes
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+10X Single-cell gene expression dataset
+</td>
+<td style="text-align:left;">
+<a href="https://support.10xgenomics.com/single-cell-gene-expression/datasets" class="uri">https://support.10xgenomics.com/single-cell-gene-expression/datasets</a>
+</td>
+<td style="text-align:left;">
+Contains large collection of scRNA-seq dataset generated using 10X system
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tabula Muris
+</td>
+<td style="text-align:left;">
+<a href="https://tabula-muris.ds.czbiohub.org/" class="uri">https://tabula-muris.ds.czbiohub.org/</a>
+</td>
+<td style="text-align:left;">
+Compendium of scRNA-seq data from mouse
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+HCA
+</td>
+<td style="text-align:left;">
+<a href="https://data.humancellatlas.org/" class="uri">https://data.humancellatlas.org/</a>
+</td>
+<td style="text-align:left;">
+Human single-cell atlas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MCA
+</td>
+<td style="text-align:left;">
+<a href="https://figshare.com/s/865e694ad06d5857db4b" class="uri">https://figshare.com/s/865e694ad06d5857db4b</a>, or GSE108097
+</td>
+<td style="text-align:left;">
+Mouse single-cell atlas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+scQuery
+</td>
+<td style="text-align:left;">
+<a href="https://scquery.cs.cmu.edu/" class="uri">https://scquery.cs.cmu.edu/</a>
+</td>
+<td style="text-align:left;">
+A web server cell type matching and key gene visualization. It is also a source for scRNA-seq collection (processed with common pipeline)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SeuratData
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/satijalab/seurat-data" class="uri">https://github.com/satijalab/seurat-data</a>
+</td>
+<td style="text-align:left;">
+List of datasets, including PBMC and human pancreatic islet cells
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+cytoBank
+</td>
+<td style="text-align:left;">
+<a href="https://cytobank.org/" class="uri">https://cytobank.org/</a>
+</td>
+<td style="text-align:left;">
+Community of big data cytometry
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="Table3" class="section level2 unnumbered">
+<h2>Table3</h2>
+<div id="evaluation-metrics-used-in-surveyed-dl-algorithms" class="section level3 unnumbered">
+<h3>Evaluation metrics used in surveyed DL algorithms</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table3">Table 6.8: </span>Evaluation metrics used in surveyed DL algorithms
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+EvaluationMethod
+</th>
+<th style="text-align:left;">
+Equations
+</th>
+<th style="text-align:left;">
+Explanation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Pseudobulk RNA-seq
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Average of normalized (log2-transformed) scRNA-seq counts across cells is calculated and then correlation coefficient between the pseudobulk and the actual bulk RNA-seq profile of the same cell type is evaluated.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Mean squared error (MSE)
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MSE=\frac{1}{n} \sum_{i=1}^{n}(x_{i}- \hat{x}_{i})^{2}\)</span>
+</td>
+<td style="text-align:left;">
+MSE assesses the quality of a predictor, or an estimator, from a collection of observed data <span class="math inline">\(x\)</span>, with <span class="math inline">\(\hat{x}\)</span> being the predicted values.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Pearson correlation
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X}\sigma_{Y}}\)</span>
+</td>
+<td style="text-align:left;">
+where cov() is the covariance, <span class="math inline">\(\sigma X\)</span> and <span class="math inline">\(\sigma Y\)</span> are the standard deviation of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Spearman correlation
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\rho_{s}=\rho_{r_{X},r_{Y}}=\frac{cov(r_X,r_Y)}{\sigma_{r_X}\sigma_{r_Y}}\)</span>
+</td>
+<td style="text-align:left;">
+The Spearman correlation coefficient is defined as the Pearson correlation coefficient between the rank variables, where <span class="math inline">\(r_{X}\)</span> is the rank of <span class="math inline">\(X\)</span>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Entropy of accuracy, Hacc [21]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_{acc}=-\frac{1}{M} \sum_{i=1}^{M} \sum_{j=1}^{N_i} p_i(x_j)logp_{i}(x_{j})\)</span>
+</td>
+<td style="text-align:left;">
+Measures the diversity of the ground-truth labels within each predicted cluster group. <span class="math inline">\(p_{i}(x_{j})\)</span> (or <span class="math inline">\(q_{i}(x_{j})\)</span>) are the proportions of cells in the <span class="math inline">\(j\)</span>th ground-truth cluster (or predicted cluster) relative to the total number of cells in the <span class="math inline">\(i\)</span>th predicted cluster (or ground-truth clusters), respectively.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Entropy of purity, Hpur [21]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_{pur}=-\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M_i}q_i(x_j)logq_{i}(x_{j})\)</span>
+</td>
+<td style="text-align:left;">
+Measures the diversity of the predicted cluster labels within each ground-truth group
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Entropy of mixing [32]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(E=\sum_{i=1}^{C}p_{i}\log(p_{i})\)</span>
+</td>
+<td style="text-align:left;">
+This metric evaluates the mixing of cells from different batches in the neighborhood of each cell. <span class="math inline">\(C\)</span> is the number of batches, and <span class="math inline">\(p_{i}\)</span> is the proportion of cells from batch <span class="math inline">\(i\)</span> among <span class="math inline">\(N\)</span> nearest cells.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Mutual Information (MI) [164]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MI(U,V)=\sum_{i}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(P_{U}(i)=\frac{|U_{i}|}{N}\)</span> and <span class="math inline">\(P_{V}(j)=\frac{|V_{j}|}{N}\)</span>. Also, define the joint distribution probability is <span class="math inline">\(P_{UV}(i,j)=\frac{|U_{i} \cap V_{j}|}{N}\)</span>. The <span class="math inline">\(MI\)</span> is a measure of mutual dependency between two cluster assignments <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Normalized Mutual Information (NMI) [165]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(NMI(U,V)=\frac{2 \times MI(U,V)}{[H(U)+H(V)]}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{V}(i)log(P_V(i))\)</span>. The <span class="math inline">\(NMI\)</span> is a normalization of the <span class="math inline">\(MI\)</span> score between 0 and 1.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Kullback–Leibler (KL) divergence [166]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(D_{KL}(P||Q)=\sum_{x \in \chi}P(x)log(\frac{P(x)}{Q(x)})\)</span>
+</td>
+<td style="text-align:left;">
+where discrete probability distributions <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are defined on the same probability space <span class="math inline">\(&amp;lt;U+03C7&amp;gt;\)</span>. This relative entropy is the measure for directed divergence between two distributions.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Jaccard Index
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(J(U,V)=\frac{\lfloor U \cap V \rfloor}{\lfloor U \cup V \rfloor}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(0 = J(U,V) = 1\)</span>. <span class="math inline">\(J = 1\)</span> if clusters <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are the same. If <span class="math inline">\(U\)</span> are <span class="math inline">\(V\)</span> are empty, <span class="math inline">\(J\)</span> is defined as 1.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Fowlkes-Mallows Index for two clustering algorithms (FM)
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(FM=\sqrt{ \frac{TP}{TP + FP} \times \frac{TP}{TP+FN} }\)</span>
+</td>
+<td style="text-align:left;">
+TP as the number of pairs of points that are present in the same cluster in both <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>; <span class="math inline">\(FP\)</span> as the number of pairs of points that are present in the same cluster in <span class="math inline">\(U\)</span> but not in <span class="math inline">\(V\)</span>; <span class="math inline">\(FN\)</span> as the number of pairs of points that are present in the same cluster in <span class="math inline">\(V\)</span> but not in <span class="math inline">\(U\)</span>; and TN as the number of pairs of points that are in different clusters in both U and V.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Rand index (RI)
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(RI=\frac{(a+b)}{\binom{n}{2}}\)</span>
+</td>
+<td style="text-align:left;">
+Measure of constancy between two clustering outcomes, where <span class="math inline">\(a\)</span> (or <span class="math inline">\(b\)</span>) is the count of pairs of cells in one cluster (or different clusters) from one clustering algorithm but also fall in the same cluster (or different clusters) from the other clustering algorithm.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Adjusted Rand index (ARI) [167]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(ARI=\frac{RI-E[RI]}{max(RI)-E[RI]}\)</span>
+</td>
+<td style="text-align:left;">
+ARI is a corrected-for-chance version of RI, where <span class="math inline">\(E[RI]\)</span> is the expected Rand Index.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Silhouette index
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(s(i)=\frac{b(i)-a(i)}{max(a(i),b(i))}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(a(i)\)</span> is the average dissimilarity of ith cell to all other cells in the same cluster, and <span class="math inline">\(b(i)\)</span> is the average dissimilarity of ith cell to all cells in the closest cluster. The range of <span class="math inline">\(s(i)\)</span> is [-1,1], with 1 to be well-clustered and -1 to be completely misclassified.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Maximum Mean Discrepancy (MMD) [65]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MMD(F,p,q)=sup_{f \in F}||\mu_{p}-\mu_{q}||_{f}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MMD\)</span> is a non-parametric distance between distributions based on the reproducing kernel Hilbert space, or, a distance-based measure between two distribution <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> based on the mean embeddings <span class="math inline">\(\mu_{p}\)</span> and <span class="math inline">\(\mu_{q}\)</span> in a reproducing kernel Hilbert space <span class="math inline">\(F\)</span>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+k-Nearest neighbor batch-effect test (kBET) [168]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(a_{n}^{k}=\sum_{l=1}^{L}\frac{(N_{nl}^{k} - k \bullet f_{l})^{2}}{k \bullet f_{l}} ~ X_{L-1}^{2}\)</span>
+</td>
+<td style="text-align:left;">
+Given a dataset of <span class="math inline">\(N\)</span> cells from <span class="math inline">\(L\)</span> batches with <span class="math inline">\(N_l\)</span> denoting the number of cells in batch <span class="math inline">\(l\)</span>, <span class="math inline">\(N_{nl}^{k}\)</span> is the number of cells from batch <span class="math inline">\(l\)</span> in the <span class="math inline">\(k\)</span>-nearest neighbors of cell <span class="math inline">\(n\)</span>, <span class="math inline">\(f_{l}\)</span> is the global fraction of cells in batch <span class="math inline">\(l\)</span>, or <span class="math inline">\(f_{l}=\frac{N_l}{N}\)</span>, and <span class="math inline">\(X_{L-1}^{2}\)</span> denotes the <span class="math inline">\(X^{2}\)</span> distribution with <span class="math inline">\(L-1\)</span> degrees of freedom. It uses a <span class="math inline">\(X^{2}\)</span>-based test for random neighborhoods of fixed size to determine the significance (“well-mixed”).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Local Inverse Simpson’s Index (LISI) [34]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{1}{ \lambda(n)}=\frac{1}{\sum_{l=1}^{L}(p(l))^{2}}\)</span>
+</td>
+<td style="text-align:left;">
+This is the inverse Simpson’s Index in the <span class="math inline">\(k\)</span>-nearest neighbors of cell <span class="math inline">\(n\)</span> for all batches, where <span class="math inline">\(p(l)\)</span> denotes the proportion of batch <span class="math inline">\(l\)</span> in the <span class="math inline">\(k\)</span>-nearest neighbors. The score reports the effective number of batches in the <span class="math inline">\(k\)</span>-nearest neighbors of cell <span class="math inline">\(n\)</span>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Homogeneity
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(HS=1-\frac{H(P(U|V))}{H(P(U))}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(H()\)</span> is the entropy, and <span class="math inline">\(U\)</span> is the ground-truth assignment and <span class="math inline">\(V\)</span> is the predicted assignment. The <span class="math inline">\(HS\)</span> range from 0 to 1, where 1 indicates perfectly homogeneous labeling.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Completeness
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(CS=1-\frac{H(P(V|U))}{H(P(V))}\)</span>
+</td>
+<td style="text-align:left;">
+Its values range from 0 to 1, where 1 indicates all members from a ground-truth label are assigned to a single cluster.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+V-Measure [169]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(V_{\beta}=\frac{(1+\beta)HS \times CS}{\beta HS + CS}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(\beta\)</span> indicates the weight of <span class="math inline">\(HS\)</span>. <span class="math inline">\(V\)</span>-Measure is symmetric, i.e. switching the true and predicted cluster labels does not change <span class="math inline">\(V\)</span>-Measure.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Precision, recall
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(Precision = \frac{TP}{TP+FP}, recall=\frac{TP}{TP+FN}\)</span>
+</td>
+<td style="text-align:left;">
+TP: true positive, FP: false positive, FN, false negative.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Accuracy
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(Accuracy = \frac{TP+TN}{N}\)</span>
+</td>
+<td style="text-align:left;">
+N: all samples tested, TN: true negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+F1-score
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(F_{1}=\frac{2Precision \bullet Recall}{Precision+Recall}\)</span>
+</td>
+<td style="text-align:left;">
+A harmonic mean of precision and recall. It can be extended to <span class="math inline">\(F_\beta\)</span> where <span class="math inline">\(\beta\)</span> is a weight between precision and recall (similar to <span class="math inline">\(V\)</span>-measure).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+AUC, RUROC
+</td>
+<td style="text-align:left;">
+<img src="Figures/Table3_AUC_Figure.png" title="fig:" alt="curve" />
+</td>
+<td style="text-align:left;">
+Area Under Curve (grey area). Receiver operating characteristic (ROC) curve (red line). A similar measure can be performed on the Precision-Recall curve (PRC), or AUPRC. Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value for a predictive model (mostly for an imbalanced dataset).
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table: (\#tab:Table2e) Large single-cell data source used by various algorithms -->
+<!-- |Title|Sources|Notes|  -->
+<!-- |-----|-------|-----| -->
+<!-- |10X Single-cell gene expression dataset|  https://support.10xgenomics.com/single-cell-gene-expression/datasets | Contains large collection of scRNA-seq dataset generated using 10X system| -->
+<!-- |Tabula Muris|https://tabula-muris.ds.czbiohub.org/ |Compendium of scRNA-seq data from mouse| -->
+<!-- |HCA|https://data.humancellatlas.org/|Human single-cell atlas| -->
+<!-- |MCA|https://figshare.com/s/865e694ad06d5857db4b, or GSE108097|Mouse single-cell atlas| -->
+<!-- |scQuery|https://scquery.cs.cmu.edu/ |A web server cell type matching and key gene visualization. It is also a source for scRNA-seq collection (processed with common pipeline)| -->
+<!-- |SeuratData|https://github.com/satijalab/seurat-data|List of datasets, including PBMC and human pancreatic islet cells|  -->
+<!-- |cytoBank|https://cytobank.org/|Community of big data cytometry| -->
+<!-- ![curve](D:/Github/survey-of-DL-for-scRNA-seq-analysis/Figures/Table3_AUC_Figure.png) -->
+<!-- Table: (\#tab:Table3) Evaluation metrics used in surveyed DL algorithms -->
+<!-- |Evaluation Method|Equations|Explanation| -->
+<!-- |-----------------|---------|-----------| -->
+<!-- |Pseudobulk RNA-seq| |Average of normalized (log2-transformed) scRNA-seq counts across cells is calculated and then correlation coefficient between the pseudobulk and the actual bulk RNA-seq profile of the same cell type is evaluated.| -->
+<!-- |Mean squared error (MSE)|$MSE=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\hat{x}_{i})^{2}$|MSE assesses the quality of a predictor, or an estimator, from a collection of observed data $x$, with $\hat{x}$ being the predicted values.| -->
+<!-- |Pearson correlation|$\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X} \sigma_{Y}}$   where $cov()$ is the covariance, $\sigma_{X}$ and $\sigma_{Y}$ are the standard deviation of $X$ and $Y$, respectively.| -->
+<!-- |Spearman correlation|$\rho_{s}=\rho_{r_{X},r_{Y}}=\frac{cov(r_{X},r_{Y})}{\sigma_{r_{X}}\sigma_{r_{Y}}}$| The Spearman correlation coefficient is defined as the Pearson correlation coefficient between the rank variables, where $r_{X}$ is the rank of $X$.| -->
+<!-- |Entropy of accuracy, Hacc [20]|$H_{acc}=-\frac{1}{M}\sum_{i=1}^{M}\sum_{j=1}^{N_{i}}p_{i}\log{(p_{i}(x_{j}))}$| Measures the diversity of the ground-truth labels within each predicted cluster group. $p_{i}(x_{j})$ (or $q_{i}(x_{j})$) are the proportions of cells in the $j$th ground-truth cluster (or predicted cluster) relative to the total number of cells in the $i$th predicted cluster (or ground-truth clusters), respectively.| -->
+<!-- |Entropy of purity, Hpur [20]| |Measures the diversity of the predicted cluster labels within each ground-truth group| -->
+<!-- |Entropy of mixing [31]|$E=\sum_{i}$ |This metric evaluates the mixing of cells from different batches in the neighborhood of each cell. $C$ is the number of batches, and $p_{i}$ is the proportion of cells from batch $i$ among $N$ nearest cells.| -->
+<!-- |Mutual Information (MI) [157]| -->
+<!-- $MI(U,V) = \sum_{i=1}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})$ | where $P_{U}(i)=\frac{|U_{i}|}{N}$ and $P_{V}(j)=\frac{|V_{j}|}{N}$. Also, define the joint distribution probability is $P_{UV}(i,j)=\frac{|U_{i} \cap V_{j}|}{N}$. The $MI$ is a measure of mutual dependency between two cluster assignments $U$ and $V$.| -->
+<!-- |Normalized Mutual Information (NMI) [158]|$NMI(U,V)=\frac{2\times MI(U,V)}{[H(U)+H(V)]}$| where $H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{V}(i)log(P_V(i))$. The $NMI$ is a normalization of the $MI$ score between 0 and 1.| -->
+<!-- |Kullback–Leibler (KL) divergence [159]|$D_{KL} (P||Q)=∑_{x∈χ}P(x)log(\frac{P(x)}{Q(x)})$| where discrete probability distributions P and Q  are defined on the same probability space $χ$. This relative entropy is the measure for directed divergence between two distributions.| -->
+<!-- |Jaccard Index|$J(U,V)=\frac{|U\cap V|}{|U \cup V|}$| $0 ≤ J(U,V) ≤ 1$. $J = 1$ if clusters $U$ and $V$ are the same. If $U$ are $V$ are empty, $J$ is defined as 1.| -->
+<!-- |Fowlkes-Mallows Index for two clustering algorithms (FM)|$FM=\sqrt{\frac{TP}{TP+FP}\times\frac{TP}{TP+FN}}$| TP as the number of pairs of points that are present in the same cluster in both $U$ and $V$; $FP$ as the number of pairs of points that are present in the same cluster in $U$ but not in $V$; $FN$ as the number of pairs of points that are present in the same cluster in $V$ but not in $U$; and TN as the number of pairs of points that are in different clusters in both U and V.| -->
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-RN75" class="csl-entry">
+Abdelaal, T., L. Michielsen, D. Cats, D. Hoogduin, H. Mei, M. J. T. Reinders, and A. Mahfouz. 2019. <span>“A Comparison of Automatic Cell Identification Methods for Single-Cell RNA Sequencing Data.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 194. <a href="https://doi.org/10.1186/s13059-019-1795-z">https://doi.org/10.1186/s13059-019-1795-z</a>.
+</div>
+<div id="ref-RN252" class="csl-entry">
+Aibar, S., C. B. Gonzalez-Blas, T. Moerman, V. A. Huynh-Thu, H. Imrichova, G. Hulselmans, F. Rambow, et al. 2017. <span>“SCENIC: Single-Cell Regulatory Network Inference and Clustering.”</span> Journal Article. <em>Nat Methods</em> 14 (11): 1083–86. <a href="https://doi.org/10.1038/nmeth.4463">https://doi.org/10.1038/nmeth.4463</a>.
+</div>
+<div id="ref-RN195" class="csl-entry">
+Alavi, A., M. Ruffalo, A. Parvangada, Z. Huang, and Z. Bar-Joseph. 2018. <span>“A Web Server for Comparative Analysis of Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Nat Commun</em> 9 (1): 4768. <a href="https://doi.org/10.1038/s41467-018-07165-2">https://doi.org/10.1038/s41467-018-07165-2</a>.
+</div>
+<div id="ref-RN76" class="csl-entry">
+Amodio, M., D. van Dijk, K. Srinivasan, W. S. Chen, H. Mohsen, K. R. Moon, A. Campbell, et al. 2019. <span>“Exploring Single-Cell Data with Deep Multitasking Neural Networks.”</span> Journal Article. <em>Nat Methods</em> 16 (11): 1139–45. <a href="https://doi.org/10.1038/s41592-019-0576-7">https://doi.org/10.1038/s41592-019-0576-7</a>.
+</div>
+<div id="ref-RN249" class="csl-entry">
+Aran, D., Z. Hu, and A. J. Butte. 2017. <span>“xCell: Digitally Portraying the Tissue Cellular Heterogeneity Landscape.”</span> Journal Article. <em>Genome Biol</em> 18 (1): 220. <a href="https://doi.org/10.1186/s13059-017-1349-1">https://doi.org/10.1186/s13059-017-1349-1</a>.
+</div>
+<div id="ref-RN46" class="csl-entry">
+Arisdakessian, C., O. Poirion, B. Yunits, X. Zhu, and L. X. Garmire. 2019. <span>“DeepImpute: An Accurate, Fast, and Scalable Deep Neural Network Method to Impute Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 211. <a href="https://doi.org/10.1186/s13059-019-1837-6">https://doi.org/10.1186/s13059-019-1837-6</a>.
+</div>
+<div id="ref-RN205" class="csl-entry">
+Azizi, E., A. J. Carr, G. Plitas, A. E. Cornish, C. Konopacki, S. Prabhakaran, J. Nainys, et al. 2018. <span>“Single-Cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment.”</span> Journal Article. <em>Cell</em> 174 (5): 1293–1308 e36. <a href="https://doi.org/10.1016/j.cell.2018.05.060">https://doi.org/10.1016/j.cell.2018.05.060</a>.
+</div>
+<div id="ref-RN184" class="csl-entry">
+Badsha, M. B., R. Li, B. Liu, Y. I. Li, M. Xian, N. E. Banovich, and A. Q. Fu. 2020. <span>“Imputation of Single-Cell Gene Expression with an Autoencoder Neural Network.”</span> Journal Article. <em>Quant Biol</em> 8 (1): 78–94. <a href="https://doi.org/10.1007/s40484-019-0192-7">https://doi.org/10.1007/s40484-019-0192-7</a>.
+</div>
+<div id="ref-RN210" class="csl-entry">
+Baron, M., A. Veres, S. L. Wolock, A. L. Faust, R. Gaujoux, A. Vetere, J. H. Ryu, et al. 2016. <span>“A Single-Cell Transcriptomic Map of the Human and Mouse Pancreas Reveals Inter- and Intra-Cell Population Structure.”</span> Journal Article. <em>Cell Syst</em> 3 (4): 346–360 e4. <a href="https://doi.org/10.1016/j.cels.2016.08.011">https://doi.org/10.1016/j.cels.2016.08.011</a>.
+</div>
+<div id="ref-RN247" class="csl-entry">
+Becht, E., N. A. Giraldo, L. Lacroix, B. Buttard, N. Elarouci, F. Petitprez, J. Selves, et al. 2016. <span>“Estimating the Population Abundance of Tissue-Infiltrating Immune and Stromal Cell Populations Using Gene Expression.”</span> Journal Article. <em>Genome Biol</em> 17 (1): 218. <a href="https://doi.org/10.1186/s13059-016-1070-5">https://doi.org/10.1186/s13059-016-1070-5</a>.
+</div>
+<div id="ref-RN35" class="csl-entry">
+Becht, E., L. McInnes, J. Healy, C. A. Dutertre, I. W. H. Kwok, L. G. Ng, F. Ginhoux, and E. W. Newell. 2018. <span>“Dimensionality Reduction for Visualizing Single-Cell Data Using UMAP.”</span> Journal Article. <em>Nat Biotechnol</em>. <a href="https://doi.org/10.1038/nbt.4314">https://doi.org/10.1038/nbt.4314</a>.
+</div>
+<div id="ref-RN154" class="csl-entry">
+Bernstein, N. J., N. L. Fong, I. Lam, M. A. Roy, D. G. Hendrickson, and D. R. Kelley. 2020. <span>“Solo: Doublet Identification in Single-Cell RNA-Seq via Semi-Supervised Deep Learning.”</span> Journal Article. <em>Cell Syst</em> 11 (1): 95–101 e5. <a href="https://doi.org/10.1016/j.cels.2020.05.010">https://doi.org/10.1016/j.cels.2020.05.010</a>.
+</div>
+<div id="ref-RN116" class="csl-entry">
+Berthelot, Schumm, D., and L. Metz. 2017. <span>“BEGAN: Boundary Equilibrium Generative Adversarial Networks.”</span> Journal Article. <em>arXiv</em>.
+</div>
+<div id="ref-RN230" class="csl-entry">
+Biase, F. H., X. Cao, and S. Zhong. 2014. <span>“Cell Fate Inclination Within 2-Cell and 4-Cell Mouse Embryos Revealed by Single-Cell RNA Sequencing.”</span> Journal Article. <em>Genome Res</em> 24 (11): 1787–96. <a href="https://doi.org/10.1101/gr.177725.114">https://doi.org/10.1101/gr.177725.114</a>.
+</div>
+<div id="ref-RN185" class="csl-entry">
+Borgwardt, K. M., A. Gretton, M. J. Rasch, H. P. Kriegel, B. Scholkopf, and A. J. Smola. 2006. <span>“Integrating Structured Biological Data by Kernel Maximum Mean Discrepancy.”</span> Journal Article. <em>Bioinformatics</em> 22 (14): e49–57. <a href="https://doi.org/10.1093/bioinformatics/btl242">https://doi.org/10.1093/bioinformatics/btl242</a>.
+</div>
+<div id="ref-RN78" class="csl-entry">
+Bost, P., A. Giladi, Y. Liu, Y. Bendjelal, G. Xu, E. David, R. Blecher-Gonen, et al. 2020. <span>“Host-Viral Infection Maps Reveal Signatures of Severe COVID-19 Patients.”</span> Journal Article. <em>Cell</em> 181 (7): 1475–1488 e12. <a href="https://doi.org/10.1016/j.cell.2020.05.006">https://doi.org/10.1016/j.cell.2020.05.006</a>.
+</div>
+<div id="ref-RN229" class="csl-entry">
+Buettner, F., K. N. Natarajan, F. P. Casale, V. Proserpio, A. Scialdone, F. J. Theis, S. A. Teichmann, J. C. Marioni, and O. Stegle. 2015. <span>“Computational Analysis of Cell-to-Cell Heterogeneity in Single-Cell RNA-Sequencing Data Reveals Hidden Subpopulations of Cells.”</span> Journal Article. <em>Nat Biotechnol</em> 33 (2): 155–60. <a href="https://doi.org/10.1038/nbt.3102">https://doi.org/10.1038/nbt.3102</a>.
+</div>
+<div id="ref-RN79" class="csl-entry">
+Butler, A., P. Hoffman, P. Smibert, E. Papalexi, and R. Satija. 2018. <span>“Integrating Single-Cell Transcriptomic Data Across Different Conditions, Technologies, and Species.”</span> Journal Article. <em>Nat Biotechnol</em> 36 (5): 411–20. <a href="https://doi.org/10.1038/nbt.4096">https://doi.org/10.1038/nbt.4096</a>.
+</div>
+<div id="ref-RN105" class="csl-entry">
+Buttner, M., Z. Miao, F. A. Wolf, S. A. Teichmann, and F. J. Theis. 2019. <span>“A Test Metric for Assessing Single-Cell RNA-Seq Batch Correction.”</span> Journal Article. <em>Nat Methods</em> 16 (1): 43–49. <a href="https://doi.org/10.1038/s41592-018-0254-1">https://doi.org/10.1038/s41592-018-0254-1</a>.
+</div>
+<div id="ref-RN208" class="csl-entry">
+Camp, J. G., K. Sekine, T. Gerber, H. Loeffler-Wirth, H. Binder, M. Gac, S. Kanton, et al. 2017. <span>“Multilineage Communication Regulates Human Liver Bud Development from Pluripotency.”</span> Journal Article. <em>Nature</em> 546 (7659): 533–38. <a href="https://doi.org/10.1038/nature22796">https://doi.org/10.1038/nature22796</a>.
+</div>
+<div id="ref-RN232" class="csl-entry">
+Cao, J., M. Spielmann, X. Qiu, X. Huang, D. M. Ibrahim, A. J. Hill, F. Zhang, et al. 2019. <span>“The Single-Cell Transcriptional Landscape of Mammalian Organogenesis.”</span> Journal Article. <em>Nature</em> 566 (7745): 496–502. <a href="https://doi.org/10.1038/s41586-019-0969-x">https://doi.org/10.1038/s41586-019-0969-x</a>.
+</div>
+<div id="ref-RN80" class="csl-entry">
+Chen, G., B. Ning, and T. Shi. 2019. <span>“Single-Cell RNA-Seq Technologies and Related Computational Data Analysis.”</span> Journal Article. <em>Front Genet</em> 10: 317. <a href="https://doi.org/10.3389/fgene.2019.00317">https://doi.org/10.3389/fgene.2019.00317</a>.
+</div>
+<div id="ref-RN211" class="csl-entry">
+Chu, L. F., N. Leng, J. Zhang, Z. Hou, D. Mamott, D. T. Vereide, J. Choi, C. Kendziorski, R. Stewart, and J. A. Thomson. 2016. <span>“Single-Cell RNA-Seq Reveals Novel Regulators of Human Embryonic Stem Cell Differentiation to Definitive Endoderm.”</span> Journal Article. <em>Genome Biol</em> 17 (1): 173. <a href="https://doi.org/10.1186/s13059-016-1033-x">https://doi.org/10.1186/s13059-016-1033-x</a>.
+</div>
+<div id="ref-RN220" class="csl-entry">
+Chung, W., H. H. Eum, H. O. Lee, K. M. Lee, H. B. Lee, K. T. Kim, H. S. Ryu, et al. 2017. <span>“Single-Cell RNA-Seq Enables Comprehensive Tumour and Immune Cell Profiling in Primary Breast Cancer.”</span> Journal Article. <em>Nat Commun</em> 8: 15081. <a href="https://doi.org/10.1038/ncomms15081">https://doi.org/10.1038/ncomms15081</a>.
+</div>
+<div id="ref-RN250" class="csl-entry">
+Cover, Thomas M. 1999. <em>Elements of Information Theory</em>. Book. John Wiley &amp; Sons.
+</div>
+<div id="ref-RN186" class="csl-entry">
+Crow, M., A. Paul, S. Ballouz, Z. J. Huang, and J. Gillis. 2018. <span>“Characterizing the Replicability of Cell Types Defined by Single Cell RNA-Sequencing Data Using MetaNeighbor.”</span> Journal Article. <em>Nat Commun</em> 9 (1): 884. <a href="https://doi.org/10.1038/s41467-018-03282-0">https://doi.org/10.1038/s41467-018-03282-0</a>.
+</div>
+<div id="ref-RN212" class="csl-entry">
+Darmanis, S., S. A. Sloan, Y. Zhang, M. Enge, C. Caneda, L. M. Shuer, M. G. Hayden Gephart, B. A. Barres, and S. R. Quake. 2015. <span>“A Survey of Human Brain Transcriptome Diversity at the Single Cell Level.”</span> Journal Article. <em>Proc Natl Acad Sci U S A</em> 112 (23): 7285–90. <a href="https://doi.org/10.1073/pnas.1507125112">https://doi.org/10.1073/pnas.1507125112</a>.
+</div>
+<div id="ref-RN152" class="csl-entry">
+Deng, Y., F. Bao, Q. Dai, L. F. Wu, and S. J. Altschuler. 2019. <span>“Scalable Analysis of Cell-Type Composition from Single-Cell Transcriptomics Using Deep Recurrent Learning.”</span> Journal Article. <em>Nat Methods</em> 16 (4): 311–14. <a href="https://doi.org/10.1038/s41592-019-0353-7">https://doi.org/10.1038/s41592-019-0353-7</a>.
+</div>
+<div id="ref-RN111" class="csl-entry">
+Dijk, D. van, R. Sharma, J. Nainys, K. Yim, P. Kathail, A. J. Carr, C. Burdziak, et al. 2018. <span>“Recovering Gene Interactions from Single-Cell Data Using Data Diffusion.”</span> Journal Article. <em>Cell</em> 174 (3): 716–729 e27. <a href="https://doi.org/10.1016/j.cell.2018.05.061">https://doi.org/10.1016/j.cell.2018.05.061</a>.
+</div>
+<div id="ref-RN127" class="csl-entry">
+Ding, J., A. Condon, and S. P. Shah. 2018. <span>“Interpretable Dimensionality Reduction of Single Cell Transcriptome Data with Deep Generative Models.”</span> Journal Article. <em>Nat Commun</em> 9 (1): 2002. <a href="https://doi.org/10.1038/s41467-018-04368-5">https://doi.org/10.1038/s41467-018-04368-5</a>.
+</div>
+<div id="ref-RN165" class="csl-entry">
+Dong, Z., and G. Alterovitz. 2021. <span>“netAE: Semi-Supervised Dimensionality Reduction of Single-Cell RNA Sequencing to Facilitate Cell Labeling.”</span> Journal Article. <em>Bioinformatics</em> 37 (1): 43–49. <a href="https://doi.org/10.1093/bioinformatics/btaa669">https://doi.org/10.1093/bioinformatics/btaa669</a>.
+</div>
+<div id="ref-RN201" class="csl-entry">
+Duvenaud, et al., D. 2015. <span>“Advances in Neural Information Processing Systems 28.”</span> Journal Article, 2224–32.
+</div>
+<div id="ref-RN81" class="csl-entry">
+Eisenstein, M. 2020. <span>“Single-Cell RNA-Seq Analysis Software Providers Scramble to Offer Solutions.”</span> Journal Article. <em>Nat Biotechnol</em> 38 (3): 254–57. <a href="https://doi.org/10.1038/s41587-020-0449-8">https://doi.org/10.1038/s41587-020-0449-8</a>.
+</div>
+<div id="ref-RN53" class="csl-entry">
+Eraslan, G., L. M. Simon, M. Mircea, N. S. Mueller, and F. J. Theis. 2019. <span>“Single-Cell RNA-Seq Denoising Using a Deep Count Autoencoder.”</span> Journal Article. <em>Nat Commun</em> 10 (1): 390. <a href="https://doi.org/10.1038/s41467-018-07931-2">https://doi.org/10.1038/s41467-018-07931-2</a>.
+</div>
+<div id="ref-RN176" class="csl-entry">
+Fabregat, A., S. Jupe, L. Matthews, K. Sidiropoulos, M. Gillespie, P. Garapati, R. Haw, et al. 2018. <span>“The Reactome Pathway Knowledgebase.”</span> Journal Article. <em>Nucleic Acids Res</em> 46 (D1): D649–55. <a href="https://doi.org/10.1093/nar/gkx1132">https://doi.org/10.1093/nar/gkx1132</a>.
+</div>
+<div id="ref-RN40" class="csl-entry">
+Finak, G., A. McDavid, M. Yajima, J. Deng, V. Gersuk, A. K. Shalek, C. K. Slichter, et al. 2015. <span>“MAST: A Flexible Statistical Framework for Assessing Transcriptional Changes and Characterizing Heterogeneity in Single-Cell RNA Sequencing Data.”</span> Journal Article. <em>Genome Biol</em> 16: 278. <a href="https://doi.org/10.1186/s13059-015-0844-5">https://doi.org/10.1186/s13059-015-0844-5</a>.
+</div>
+<div id="ref-RN187" class="csl-entry">
+Fowlkes, E. B., and C. L. Mallows. 1983. <span>“A Method for Comparing Two Hierarchical Clusterings.”</span> Journal Article. <em>Journal of the American Statistical Association</em> 78 (383): 553–69.
+</div>
+<div id="ref-RN172" class="csl-entry">
+Ge, S., H. Wang, A. Alavi, E. Xing, and Z. Bar-Joseph. 2021. <span>“Supervised Adversarial Alignment of Single-Cell RNA-Seq Data.”</span> Journal Article. <em>J Comput Biol</em> 28 (5): 501–13. <a href="https://doi.org/10.1089/cmb.2020.0439">https://doi.org/10.1089/cmb.2020.0439</a>.
+</div>
+<div id="ref-RN237" class="csl-entry">
+Goolam, M., A. Scialdone, S. J. L. Graham, I. C. Macaulay, A. Jedrusik, A. Hupalowska, T. Voet, J. C. Marioni, and M. Zernicka-Goetz. 2016. <span>“Heterogeneity in Oct4 and Sox2 Targets Biases Cell Fate in 4-Cell Mouse Embryos.”</span> Journal Article. <em>Cell</em> 165 (1): 61–74. <a href="https://doi.org/10.1016/j.cell.2016.01.047">https://doi.org/10.1016/j.cell.2016.01.047</a>.
+</div>
+<div id="ref-RN129" class="csl-entry">
+Gronbech, C. H., M. F. Vording, P. N. Timshel, C. K. Sonderby, T. H. Pers, and O. Winther. 2020. <span>“scVAE: Variational Auto-Encoders for Single-Cell Gene Expression Data.”</span> Journal Article. <em>Bioinformatics</em> 36 (16): 4415–22. <a href="https://doi.org/10.1093/bioinformatics/btaa293">https://doi.org/10.1093/bioinformatics/btaa293</a>.
+</div>
+<div id="ref-RN119" class="csl-entry">
+Guo, Gao, X., and J. Yin. 2017. <span>“Improved Deep Embedded Clustering with Local Structure Preservation.”</span> Journal Article. <em>Proc. 26th International Joint Conference on Artificial Integlligence</em>, 1753–59.
+</div>
+<div id="ref-RN226" class="csl-entry">
+Haber, A. L., M. Biton, N. Rogel, R. H. Herbst, K. Shekhar, C. Smillie, G. Burgin, et al. 2017. <span>“A Single-Cell Survey of the Small Intestinal Epithelium.”</span> Journal Article. <em>Nature</em> 551 (7680): 333–39. <a href="https://doi.org/10.1038/nature24489">https://doi.org/10.1038/nature24489</a>.
+</div>
+<div id="ref-RN244" class="csl-entry">
+Hadsell, Raia, Sumit Chopra, and Yann LeCun. n.d. <span>“Dimensionality Reduction by Learning an Invariant Mapping.”</span> Conference Proceedings. In <em>2006 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’06)</em>, 2:1735–42. IEEE.
+</div>
+<div id="ref-RN83" class="csl-entry">
+Hafemeister, C., and R. Satija. 2019. <span>“Normalization and Variance Stabilization of Single-Cell RNA-Seq Data Using Regularized Negative Binomial Regression.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 296. <a href="https://doi.org/10.1186/s13059-019-1874-1">https://doi.org/10.1186/s13059-019-1874-1</a>.
+</div>
+<div id="ref-RN202" class="csl-entry">
+Hagai, T., X. Chen, R. J. Miragaia, R. Rostom, T. Gomes, N. Kunowska, J. Henriksson, et al. 2018. <span>“Gene Expression Variability Across Cells and Species Shapes Innate Immunity.”</span> Journal Article. <em>Nature</em> 563 (7730): 197–202. <a href="https://doi.org/10.1038/s41586-018-0657-2">https://doi.org/10.1038/s41586-018-0657-2</a>.
+</div>
+<div id="ref-RN84" class="csl-entry">
+Haghverdi, L., A. T. L. Lun, M. D. Morgan, and J. C. Marioni. 2018. <span>“Batch Effects in Single-Cell RNA-Sequencing Data Are Corrected by Matching Mutual Nearest Neighbors.”</span> Journal Article. <em>Nat Biotechnol</em> 36 (5): 421–27. <a href="https://doi.org/10.1038/nbt.4091">https://doi.org/10.1038/nbt.4091</a>.
+</div>
+<div id="ref-RN224" class="csl-entry">
+Han, X., R. Wang, Y. Zhou, L. Fei, H. Sun, S. Lai, A. Saadatpour, et al. 2018. <span>“Mapping the Mouse Cell Atlas by Microwell-Seq.”</span> Journal Article. <em>Cell</em> 172 (5): 1091–1107 e17. <a href="https://doi.org/10.1016/j.cell.2018.02.001">https://doi.org/10.1016/j.cell.2018.02.001</a>.
+</div>
+<div id="ref-RN121" class="csl-entry">
+Hie, B., B. Bryson, and B. Berger. 2019. <span>“Efficient Integration of Heterogeneous Single-Cell Transcriptomes Using Scanorama.”</span> Journal Article. <em>Nat Biotechnol</em> 37 (6): 685–91. <a href="https://doi.org/10.1038/s41587-019-0113-3">https://doi.org/10.1038/s41587-019-0113-3</a>.
+</div>
+<div id="ref-RN45" class="csl-entry">
+Hou, W., Z. Ji, H. Ji, and S. C. Hicks. 2020. <span>“A Systematic Evaluation of Single-Cell RNA-Sequencing Imputation Methods.”</span> Journal Article. <em>Genome Biol</em> 21 (1): 218. <a href="https://doi.org/10.1186/s13059-020-02132-x">https://doi.org/10.1186/s13059-020-02132-x</a>.
+</div>
+<div id="ref-RN225" class="csl-entry">
+Hrvatin, S., D. R. Hochbaum, M. A. Nagy, M. Cicconet, K. Robertson, L. Cheadle, R. Zilionis, et al. 2018. <span>“Single-Cell Analysis of Experience-Dependent Transcriptomic States in the Mouse Visual Cortex.”</span> Journal Article. <em>Nat Neurosci</em> 21 (1): 120–29. <a href="https://doi.org/10.1038/s41593-017-0029-5">https://doi.org/10.1038/s41593-017-0029-5</a>.
+</div>
+<div id="ref-RN30" class="csl-entry">
+Huang, M., J. Wang, E. Torre, H. Dueck, S. Shaffer, R. Bonasio, J. I. Murray, A. Raj, M. Li, and N. R. Zhang. 2018. <span>“SAVER: Gene Expression Recovery for Single-Cell RNA Sequencing.”</span> Journal Article. <em>Nat Methods</em> 15 (7): 539–42. <a href="https://doi.org/10.1038/s41592-018-0033-z">https://doi.org/10.1038/s41592-018-0033-z</a>.
+</div>
+<div id="ref-RN107" class="csl-entry">
+Hubert, L., and P. Arabie. 1985. <span>“Comparing Partitions.”</span> Journal Article. <em>Journal of Classification</em> 2: 193–218.
+</div>
+<div id="ref-RN199" class="csl-entry">
+Huynh-Thu, V. A., A. Irrthum, L. Wehenkel, and P. Geurts. 2010. <span>“Inferring Regulatory Networks from Expression Data Using Tree-Based Methods.”</span> Journal Article. <em>PLoS One</em> 5 (9). <a href="https://doi.org/10.1371/journal.pone.0012776">https://doi.org/10.1371/journal.pone.0012776</a>.
+</div>
+<div id="ref-RN132" class="csl-entry">
+Jang E., Gu S., and Poole B. 2016. <span>“Categorical Reparameterization with Gumbel-Softmax.”</span> Journal Article. <em>arXiv</em>.
+</div>
+<div id="ref-RN227" class="csl-entry">
+Joost, S., A. Zeisel, T. Jacob, X. Sun, G. La Manno, P. Lonnerberg, S. Linnarsson, and M. Kasper. 2016. <span>“Single-Cell Transcriptomics Reveals That Differentiation and Spatial Signatures Shape Epidermal and Hair Follicle Heterogeneity.”</span> Journal Article. <em>Cell Syst</em> 3 (3): 221–237 e9. <a href="https://doi.org/10.1016/j.cels.2016.08.010">https://doi.org/10.1016/j.cels.2016.08.010</a>.
+</div>
+<div id="ref-RN198" class="csl-entry">
+Kanehisa, M., M. Furumichi, M. Tanabe, Y. Sato, and K. Morishima. 2017. <span>“KEGG: New Perspectives on Genomes, Pathways, Diseases and Drugs.”</span> Journal Article. <em>Nucleic Acids Res</em> 45 (D1): D353–61. <a href="https://doi.org/10.1093/nar/gkw1092">https://doi.org/10.1093/nar/gkw1092</a>.
+</div>
+<div id="ref-RN218" class="csl-entry">
+Kang, H. M., M. Subramaniam, S. Targ, M. Nguyen, L. Maliskova, E. McCarthy, E. Wan, et al. 2018. <span>“Multiplexed Droplet Single-Cell RNA-Sequencing Using Natural Genetic Variation.”</span> Journal Article. <em>Nat Biotechnol</em> 36 (1): 89–94. <a href="https://doi.org/10.1038/nbt.4042">https://doi.org/10.1038/nbt.4042</a>.
+</div>
+<div id="ref-RN41" class="csl-entry">
+Kharchenko, P. V., L. Silberstein, and D. T. Scadden. 2014. <span>“Bayesian Approach to Single-Cell Differential Expression Analysis.”</span> Journal Article. <em>Nat Methods</em> 11 (7): 740–42. <a href="https://doi.org/10.1038/nmeth.2967">https://doi.org/10.1038/nmeth.2967</a>.
+</div>
+<div id="ref-RN238" class="csl-entry">
+Kim, J. K., A. A. Kolodziejczyk, T. Ilicic, S. A. Teichmann, and J. C. Marioni. 2015. <span>“Characterizing Noise Structure in Single-Cell RNA-Seq Distinguishes Genuine from Technical Stochastic Allelic Expression.”</span> Journal Article. <em>Nat Commun</em> 6: 8687. <a href="https://doi.org/10.1038/ncomms9687">https://doi.org/10.1038/ncomms9687</a>.
+</div>
+<div id="ref-RN85" class="csl-entry">
+Kinker, G. S., A. C. Greenwald, R. Tal, Z. Orlova, M. S. Cuoco, J. M. McFarland, A. Warren, et al. 2020. <span>“Pan-Cancer Single-Cell RNA-Seq Identifies Recurring Programs of Cellular Heterogeneity.”</span> Journal Article. <em>Nat Genet</em> 52 (11): 1208–18. <a href="https://doi.org/10.1038/s41588-020-00726-6">https://doi.org/10.1038/s41588-020-00726-6</a>.
+</div>
+<div id="ref-RN239" class="csl-entry">
+Klein, A. M., L. Mazutis, I. Akartuna, N. Tallapragada, A. Veres, V. Li, L. Peshkin, D. A. Weitz, and M. W. Kirschner. 2015. <span>“Droplet Barcoding for Single-Cell Transcriptomics Applied to Embryonic Stem Cells.”</span> Journal Article. <em>Cell</em> 161 (5): 1187–1201. <a href="https://doi.org/10.1016/j.cell.2015.04.044">https://doi.org/10.1016/j.cell.2015.04.044</a>.
+</div>
+<div id="ref-RN74" class="csl-entry">
+Korsunsky, I., N. Millard, J. Fan, K. Slowikowski, F. Zhang, K. Wei, Y. Baglaenko, M. Brenner, P. R. Loh, and S. Raychaudhuri. 2019. <span>“Fast, Sensitive and Accurate Integration of Single-Cell Data with Harmony.”</span> Journal Article. <em>Nat Methods</em> 16 (12): 1289–96. <a href="https://doi.org/10.1038/s41592-019-0619-0">https://doi.org/10.1038/s41592-019-0619-0</a>.
+</div>
+<div id="ref-RN178" class="csl-entry">
+Krishnaswamy, S., M. H. Spitzer, M. Mingueneau, S. C. Bendall, O. Litvin, E. Stone, D. Pe’er, and G. P. Nolan. 2014. <span>“Systems Biology. Conditional Density-Based Analysis of t Cell Signaling in Single-Cell Data.”</span> Journal Article. <em>Science</em> 346 (6213): 1250689. <a href="https://doi.org/10.1126/science.1250689">https://doi.org/10.1126/science.1250689</a>.
+</div>
+<div id="ref-RN137" class="csl-entry">
+La Manno, G., D. Gyllborg, S. Codeluppi, K. Nishimura, C. Salto, A. Zeisel, L. E. Borm, et al. 2016. <span>“Molecular Diversity of Midbrain Development in Mouse, Human, and Stem Cells.”</span> Journal Article. <em>Cell</em> 167 (2): 566–580 e19. <a href="https://doi.org/10.1016/j.cell.2016.09.027">https://doi.org/10.1016/j.cell.2016.09.027</a>.
+</div>
+<div id="ref-RN87" class="csl-entry">
+Lahnemann, D., J. Koster, E. Szczurek, D. J. McCarthy, S. C. Hicks, M. D. Robinson, C. A. Vallejos, et al. 2020. <span>“Eleven Grand Challenges in Single-Cell Data Science.”</span> Journal Article. <em>Genome Biol</em> 21 (1): 31. <a href="https://doi.org/10.1186/s13059-020-1926-6">https://doi.org/10.1186/s13059-020-1926-6</a>.
+</div>
+<div id="ref-RN145" class="csl-entry">
+Levine, J. H., E. F. Simonds, S. C. Bendall, K. L. Davis, A. D. Amir el, M. D. Tadmor, O. Litvin, et al. 2015. <span>“Data-Driven Phenotypic Dissection of AML Reveals Progenitor-Like Cells That Correlate with Prognosis.”</span> Journal Article. <em>Cell</em> 162 (1): 184–97. <a href="https://doi.org/10.1016/j.cell.2015.05.047">https://doi.org/10.1016/j.cell.2015.05.047</a>.
+</div>
+<div id="ref-RN221" class="csl-entry">
+Li, H., E. T. Courtois, D. Sengupta, Y. Tan, K. H. Chen, J. J. L. Goh, S. L. Kong, et al. 2017. <span>“Reference Component Analysis of Single-Cell Transcriptomes Elucidates Cellular Heterogeneity in Human Colorectal Tumors.”</span> Journal Article. <em>Nat Genet</em> 49 (5): 708–18. <a href="https://doi.org/10.1038/ng.3818">https://doi.org/10.1038/ng.3818</a>.
+</div>
+<div id="ref-RN31" class="csl-entry">
+Li, W. V., and J. J. Li. 2018. <span>“An Accurate and Robust Imputation Method scImpute for Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Nat Commun</em> 9 (1): 997. <a href="https://doi.org/10.1038/s41467-018-03405-7">https://doi.org/10.1038/s41467-018-03405-7</a>.
+</div>
+<div id="ref-RN118" class="csl-entry">
+Li, X., K. Wang, Y. Lyu, H. Pan, J. Zhang, D. Stambolian, K. Susztak, M. P. Reilly, G. Hu, and M. Li. 2020. <span>“Deep Learning Enables Accurate Clustering with Batch Effect Removal in Single-Cell RNA-Seq Analysis.”</span> Journal Article. <em>Nat Commun</em> 11 (1): 2338. <a href="https://doi.org/10.1038/s41467-020-15851-3">https://doi.org/10.1038/s41467-020-15851-3</a>.
+</div>
+<div id="ref-RN194" class="csl-entry">
+Lieberman, Y., L. Rokach, and T. Shay. 2018. <span>“CaSTLe - Classification of Single Cells by Transfer Learning: Harnessing the Power of Publicly Available Single Cell RNA Sequencing Experiments to Annotate New Experiments.”</span> Journal Article. <em>PLoS One</em> 13 (10): e0205499. <a href="https://doi.org/10.1371/journal.pone.0205499">https://doi.org/10.1371/journal.pone.0205499</a>.
+</div>
+<div id="ref-RN193" class="csl-entry">
+Lin, C., S. Jain, H. Kim, and Z. Bar-Joseph. 2017. <span>“Using Neural Networks for Reducing the Dimensions of Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Nucleic Acids Res</em> 45 (17): e156. <a href="https://doi.org/10.1093/nar/gkx681">https://doi.org/10.1093/nar/gkx681</a>.
+</div>
+<div id="ref-RN113" class="csl-entry">
+Lin, P., M. Troup, and J. W. Ho. 2017. <span>“CIDR: Ultrafast and Accurate Clustering Through Imputation for Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Genome Biol</em> 18 (1): 59. <a href="https://doi.org/10.1186/s13059-017-1188-0">https://doi.org/10.1186/s13059-017-1188-0</a>.
+</div>
+<div id="ref-RN141" class="csl-entry">
+Lindenbaum, Stanley, O., and S. Krishnaswamy. 2018. <span>“Geometry-Based Data Generation.”</span> Journal Article. <em>Advances in Neural Information Processing Systems</em>.
+</div>
+<div id="ref-RN34" class="csl-entry">
+Linderman, G. C., M. Rachh, J. G. Hoskins, S. Steinerberger, and Y. Kluger. 2019. <span>“Fast Interpolation-Based t-SNE for Improved Visualization of Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Nat Methods</em> 16 (3): 243–45. <a href="https://doi.org/10.1038/s41592-018-0308-4">https://doi.org/10.1038/s41592-018-0308-4</a>.
+</div>
+<div id="ref-RN88" class="csl-entry">
+Lopez, R., J. Regier, M. B. Cole, M. I. Jordan, and N. Yosef. 2018. <span>“Deep Generative Modeling for Single-Cell Transcriptomics.”</span> Journal Article. <em>Nat Methods</em> 15 (12): 1053–58. <a href="https://doi.org/10.1038/s41592-018-0229-2">https://doi.org/10.1038/s41592-018-0229-2</a>.
+</div>
+<div id="ref-RN179" class="csl-entry">
+Lotfollahi, M., F. A. Wolf, and F. J. Theis. 2019. <span>“scGen Predicts Single-Cell Perturbation Responses.”</span> Journal Article. <em>Nat Methods</em> 16 (8): 715–21. <a href="https://doi.org/10.1038/s41592-019-0494-8">https://doi.org/10.1038/s41592-019-0494-8</a>.
+</div>
+<div id="ref-RN89" class="csl-entry">
+Lun, A. T., K. Bach, and J. C. Marioni. 2016. <span>“Pooling Across Cells to Normalize Single-Cell RNA Sequencing Data with Many Zero Counts.”</span> Journal Article. <em>Genome Biol</em> 17: 75. <a href="https://doi.org/10.1186/s13059-016-0947-7">https://doi.org/10.1186/s13059-016-0947-7</a>.
+</div>
+<div id="ref-RN147" class="csl-entry">
+Maaten, G. van der, L. &amp; Hinton. 2008. <span>“Visualizing Data Using t-SNE.”</span> Journal Article. <em>J. Mach. Learn</em> 9: 2579–2605.
+</div>
+<div id="ref-RN90" class="csl-entry">
+Macosko, E. Z., A. Basu, R. Satija, J. Nemesh, K. Shekhar, M. Goldman, I. Tirosh, et al. 2015. <span>“Highly Parallel Genome-Wide Expression Profiling of Individual Cells Using Nanoliter Droplets.”</span> Journal Article. <em>Cell</em> 161 (5): 1202–14. <a href="https://doi.org/10.1016/j.cell.2015.05.002">https://doi.org/10.1016/j.cell.2015.05.002</a>.
+</div>
+<div id="ref-RN91" class="csl-entry">
+Mannarapu, M., B. Dariya, and O. R. Bandapalli. 2021. <span>“Application of Single-Cell Sequencing Technologies in Pancreatic Cancer.”</span> Journal Article. <em>Mol Cell Biochem</em> 476 (6): 2429–37. <a href="https://doi.org/10.1007/s11010-021-04095-4">https://doi.org/10.1007/s11010-021-04095-4</a>.
+</div>
+<div id="ref-RN139" class="csl-entry">
+Marouf, M., P. Machart, V. Bansal, C. Kilian, D. S. Magruder, C. F. Krebs, and S. Bonn. 2020. <span>“Realistic in Silico Generation and Augmentation of Single-Cell RNA-Seq Data Using Generative Adversarial Networks.”</span> Journal Article. <em>Nat Commun</em> 11 (1): 166. <a href="https://doi.org/10.1038/s41467-019-14018-z">https://doi.org/10.1038/s41467-019-14018-z</a>.
+</div>
+<div id="ref-RN192" class="csl-entry">
+McGinnis, C. S., L. M. Murrow, and Z. J. Gartner. 2019. <span>“DoubletFinder: Doublet Detection in Single-Cell RNA Sequencing Data Using Artificial Nearest Neighbors.”</span> Journal Article. <em>Cell Syst</em> 8 (4): 329–337 e4. <a href="https://doi.org/10.1016/j.cels.2019.03.003">https://doi.org/10.1016/j.cels.2019.03.003</a>.
+</div>
+<div id="ref-RN148" class="csl-entry">
+McInnes, Healy, L. 2018. <span>“Umap: Uniform Manifold Approximation and Projection for Dimension Reduction.”</span> Journal Article. <em>ArXiv</em>. https://doi.org/<a href=" https://arxiv.org/
+abs/1802.03426"> https://arxiv.org/
+abs/1802.03426</a>.
+</div>
+<div id="ref-RN42" class="csl-entry">
+Miao, Z., K. Deng, X. Wang, and X. Zhang. 2018. <span>“DEsingle for Detecting Three Types of Differential Expression in Single-Cell RNA-Seq Data.”</span> Journal Article. <em>Bioinformatics</em> 34 (18): 3223–24. <a href="https://doi.org/10.1093/bioinformatics/bty332">https://doi.org/10.1093/bioinformatics/bty332</a>.
+</div>
+<div id="ref-RN140" class="csl-entry">
+Miyato, T., and M Koyama. 2018. <span>“cGANs with Projection Discriminator.”</span> Journal Article. <em>Preprint</em>. https://doi.org/<a href="https://arxiv.org/abs/1802.05637 ">https://arxiv.org/abs/1802.05637</a>.
+</div>
+<div id="ref-RN146" class="csl-entry">
+Moon, K. R. et al. 2017. <span>“PHATE: A Dimensionality Reduction Method for Visualizing Trajectory Structures in High-Dimensional Biological Data.”</span> Journal Article. <em>bioRxiv</em>. https://doi.org/<a href="https://doi.org/10.1101/120378">https://doi.org/10.1101/120378</a>.
+</div>
+<div id="ref-RN209" class="csl-entry">
+Muraro, M. J., G. Dharmadhikari, D. Grun, N. Groen, T. Dielen, E. Jansen, L. van Gurp, et al. 2016. <span>“A Single-Cell Transcriptome Atlas of the Human Pancreas.”</span> Journal Article. <em>Cell Syst</em> 3 (4): 385–394 e3. <a href="https://doi.org/10.1016/j.cels.2016.09.002">https://doi.org/10.1016/j.cels.2016.09.002</a>.
+</div>
+<div id="ref-RN59" class="csl-entry">
+Navin, N. E. 2015. <span>“The First Five Years of Single-Cell Cancer Genomics and Beyond.”</span> Journal Article. <em>Genome Res</em> 25 (10): 1499–1507. <a href="https://doi.org/10.1101/gr.191098.115">https://doi.org/10.1101/gr.191098.115</a>.
+</div>
+<div id="ref-RN235" class="csl-entry">
+Nestorowa, S., F. K. Hamey, B. Pijuan Sala, E. Diamanti, M. Shepherd, E. Laurenti, N. K. Wilson, D. G. Kent, and B. Gottgens. 2016. <span>“A Single-Cell Resolution Map of Mouse Hematopoietic Stem and Progenitor Cell Differentiation.”</span> Journal Article. <em>Blood</em> 128 (8): e20–31. <a href="https://doi.org/10.1182/blood-2016-05-716480">https://doi.org/10.1182/blood-2016-05-716480</a>.
+</div>
+<div id="ref-RN166" class="csl-entry">
+Newman, M. E. 2006. <span>“Modularity and Community Structure in Networks.”</span> Journal Article. <em>Proc Natl Acad Sci U S A</em> 103 (23): 8577–82. <a href="https://doi.org/10.1073/pnas.0601602103">https://doi.org/10.1073/pnas.0601602103</a>.
+</div>
+<div id="ref-RN214" class="csl-entry">
+Patel, A. P., I. Tirosh, J. J. Trombetta, A. K. Shalek, S. M. Gillespie, H. Wakimoto, D. P. Cahill, et al. 2014. <span>“Single-Cell RNA-Seq Highlights Intratumoral Heterogeneity in Primary Glioblastoma.”</span> Journal Article. <em>Science</em> 344 (6190): 1396–1401. <a href="https://doi.org/10.1126/science.1254257">https://doi.org/10.1126/science.1254257</a>.
+</div>
+<div id="ref-RN159" class="csl-entry">
+Patel, N. D., S. K. Nguang, and G. G. Coghill. 2007. <span>“Neural Network Implementation Using Bit Streams.”</span> Journal Article. <em>IEEE Trans Neural Netw</em> 18 (5): 1488–1504. <a href="https://doi.org/10.1109/tnn.2007.895822">https://doi.org/10.1109/tnn.2007.895822</a>.
+</div>
+<div id="ref-RN228" class="csl-entry">
+Paul, F., Y. Arkin, A. Giladi, D. A. Jaitin, E. Kenigsberg, H. Keren-Shaul, D. Winter, et al. 2015. <span>“Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors.”</span> Journal Article. <em>Cell</em> 163 (7): 1663–77. <a href="https://doi.org/10.1016/j.cell.2015.11.013">https://doi.org/10.1016/j.cell.2015.11.013</a>.
+</div>
+<div id="ref-RN29" class="csl-entry">
+Peng, T., Q. Zhu, P. Yin, and K. Tan. 2019. <span>“SCRABBLE: Single-Cell RNA-Seq Imputation Constrained by Bulk RNA-Seq Data.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 88. <a href="https://doi.org/10.1186/s13059-019-1681-8">https://doi.org/10.1186/s13059-019-1681-8</a>.
+</div>
+<div id="ref-RN206" class="csl-entry">
+Peng, Y., E. Baulier, Y. Ke, A. Young, N. B. Ahmedli, S. D. Schwartz, and D. B. Farber. 2018. <span>“Human Embryonic Stem Cells Extracellular Vesicles and Their Effects on Immortalized Human Retinal Muller Cells.”</span> Journal Article. <em>PLoS One</em> 13 (3): e0194004. <a href="https://doi.org/10.1371/journal.pone.0194004">https://doi.org/10.1371/journal.pone.0194004</a>.
+</div>
+<div id="ref-RN93" class="csl-entry">
+Petegrosso, R., Z. Li, and R. Kuang. 2020. <span>“Machine Learning and Statistical Methods for Clustering Single-Cell RNA-Sequencing Data.”</span> Journal Article. <em>Brief Bioinform</em> 21 (4): 1209–23. <a href="https://doi.org/10.1093/bib/bbz063">https://doi.org/10.1093/bib/bbz063</a>.
+</div>
+<div id="ref-RN94" class="csl-entry">
+Picelli, S., A. K. Bjorklund, O. R. Faridani, S. Sagasser, G. Winberg, and R. Sandberg. 2013. <span>“Smart-Seq2 for Sensitive Full-Length Transcriptome Profiling in Single Cells.”</span> Journal Article. <em>Nat Methods</em> 10 (11): 1096–98. <a href="https://doi.org/10.1038/nmeth.2639">https://doi.org/10.1038/nmeth.2639</a>.
+</div>
+<div id="ref-RN233" class="csl-entry">
+Pijuan-Sala, B., J. A. Griffiths, C. Guibentif, T. W. Hiscock, W. Jawaid, F. J. Calero-Nieto, C. Mulas, et al. 2019. <span>“A Single-Cell Molecular Map of Mouse Gastrulation and Early Organogenesis.”</span> Journal Article. <em>Nature</em> 566 (7745): 490–95. <a href="https://doi.org/10.1038/s41586-019-0933-9">https://doi.org/10.1038/s41586-019-0933-9</a>.
+</div>
+<div id="ref-RN115" class="csl-entry">
+Polanski, K., M. D. Young, Z. Miao, K. B. Meyer, S. A. Teichmann, and J. E. Park. 2020. <span>“BBKNN: Fast Batch Alignment of Single Cell Transcriptomes.”</span> Journal Article. <em>Bioinformatics</em> 36 (3): 964–65. <a href="https://doi.org/10.1093/bioinformatics/btz625">https://doi.org/10.1093/bioinformatics/btz625</a>.
+</div>
+<div id="ref-RN150" class="csl-entry">
+Qiu, X., Q. Mao, Y. Tang, L. Wang, R. Chawla, H. A. Pliner, and C. Trapnell. 2017. <span>“Reversed Graph Embedding Resolves Complex Single-Cell Trajectories.”</span> Journal Article. <em>Nat Methods</em> 14 (10): 979–82. <a href="https://doi.org/10.1038/nmeth.4402">https://doi.org/10.1038/nmeth.4402</a>.
+</div>
+<div id="ref-RN245" class="csl-entry">
+Racle, J., K. de Jonge, P. Baumgaertner, D. E. Speiser, and D. Gfeller. 2017. <span>“Simultaneous Enumeration of Cancer and Immune Cell Types from Bulk Tumor Gene Expression Data.”</span> Journal Article. <em>Elife</em> 6. <a href="https://doi.org/10.7554/eLife.26476">https://doi.org/10.7554/eLife.26476</a>.
+</div>
+<div id="ref-RN125" class="csl-entry">
+Rashid, S., S. Shah, Z. Bar-Joseph, and R. Pandya. 2019. <span>“Dhaka: Variational Autoencoder for Unmasking Tumor Heterogeneity from Single Cell Genomic Data.”</span> Journal Article. <em>Bioinformatics</em>. <a href="https://doi.org/10.1093/bioinformatics/btz095">https://doi.org/10.1093/bioinformatics/btz095</a>.
+</div>
+<div id="ref-RN135" class="csl-entry">
+Regev, A., S. A. Teichmann, E. S. Lander, I. Amit, C. Benoist, E. Birney, B. Bodenmiller, et al. 2017. <span>“The Human Cell Atlas.”</span> Journal Article. <em>Elife</em> 6. <a href="https://doi.org/10.7554/eLife.27041">https://doi.org/10.7554/eLife.27041</a>.
+</div>
+<div id="ref-RN104" class="csl-entry">
+Rosenberg, A., and J. Hirschberg. 2007. <span>“Proceedings of the 2007 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP-CoNLL).”</span> Journal Article, 410–20.
+</div>
+<div id="ref-RN181" class="csl-entry">
+Rousseeuw, P. J. 1987. <span>“Silhouettes: A Graphical Aid to the Interpretation and Validation of Cluster Analysis.”</span> Journal Article. <em>Journal of Computational and Applied Mathematics</em> 20: 583–617.
+</div>
+<div id="ref-RN32" class="csl-entry">
+Roweis, S. T., and L. K. Saul. 2000. <span>“Nonlinear Dimensionality Reduction by Locally Linear Embedding.”</span> Journal Article. <em>Science</em> 290 (5500): 2323–26. <a href="https://doi.org/10.1126/science.290.5500.2323">https://doi.org/10.1126/science.290.5500.2323</a>.
+</div>
+<div id="ref-RN236" class="csl-entry">
+Setty, M., M. D. Tadmor, S. Reich-Zeliger, O. Angel, T. M. Salame, P. Kathail, K. Choi, S. Bendall, N. Friedman, and D. Pe’er. 2016. <span>“Wishbone Identifies Bifurcating Developmental Trajectories from Single-Cell Data.”</span> Journal Article. <em>Nat Biotechnol</em> 34 (6): 637–45. <a href="https://doi.org/10.1038/nbt.3569">https://doi.org/10.1038/nbt.3569</a>.
+</div>
+<div id="ref-RN163" class="csl-entry">
+Shekhar, K., S. W. Lapan, I. E. Whitney, N. M. Tran, E. Z. Macosko, M. Kowalczyk, X. Adiconis, et al. 2016. <span>“Comprehensive Classification of Retinal Bipolar Neurons by Single-Cell Transcriptomics.”</span> Journal Article. <em>Cell</em> 166 (5): 1308–1323 e30. <a href="https://doi.org/10.1016/j.cell.2016.07.054">https://doi.org/10.1016/j.cell.2016.07.054</a>.
+</div>
+<div id="ref-RN95" class="csl-entry">
+Srinivasan, S., A. Leshchyk, N. T. Johnson, and D. Korkin. 2020. <span>“A Hybrid Deep Clustering Approach for Robust Cell Type Profiling Using Single-Cell RNA-Seq Data.”</span> Journal Article. <em>RNA</em> 26 (10): 1303–19. <a href="https://doi.org/10.1261/rna.074427.119">https://doi.org/10.1261/rna.074427.119</a>.
+</div>
+<div id="ref-RN207" class="csl-entry">
+Stoeckius, M., C. Hafemeister, W. Stephenson, B. Houck-Loomis, P. K. Chattopadhyay, H. Swerdlow, R. Satija, and P. Smibert. 2017. <span>“Simultaneous Epitope and Transcriptome Measurement in Single Cells.”</span> Journal Article. <em>Nat Methods</em> 14 (9): 865–68. <a href="https://doi.org/10.1038/nmeth.4380">https://doi.org/10.1038/nmeth.4380</a>.
+</div>
+<div id="ref-RN103" class="csl-entry">
+Strehland, A., and J. Ghosh. 2002. <span>“Cluster Ensembles—a Knowledge Reuse Framework for Combining Multiple Partitions.”</span> Journal Article. <em>J Mach Learn Res</em> 3: 583–617.
+</div>
+<div id="ref-RN96" class="csl-entry">
+Stuart, T., A. Butler, P. Hoffman, C. Hafemeister, E. Papalexi, 3rd Mauck W. M., Y. Hao, M. Stoeckius, P. Smibert, and R. Satija. 2019. <span>“Comprehensive Integration of Single-Cell Data.”</span> Journal Article. <em>Cell</em> 177 (7): 1888–1902 e21. <a href="https://doi.org/10.1016/j.cell.2019.05.031">https://doi.org/10.1016/j.cell.2019.05.031</a>.
+</div>
+<div id="ref-RN36" class="csl-entry">
+Subelj, L., and M. Bajec. 2011. <span>“Unfolding Communities in Large Complex Networks: Combining Defensive and Offensive Label Propagation for Core Extraction.”</span> Journal Article. <em>Phys Rev E Stat Nonlin Soft Matter Phys</em> 83 (3 Pt 2): 036103. <a href="https://doi.org/10.1103/PhysRevE.83.036103">https://doi.org/10.1103/PhysRevE.83.036103</a>.
+</div>
+<div id="ref-RN200" class="csl-entry">
+Subramanian, A., P. Tamayo, V. K. Mootha, S. Mukherjee, B. L. Ebert, M. A. Gillette, A. Paulovich, et al. 2005. <span>“Gene Set Enrichment Analysis: A Knowledge-Based Approach for Interpreting Genome-Wide Expression Profiles.”</span> Journal Article. <em>Proc Natl Acad Sci U S A</em> 102 (43): 15545–50. <a href="https://doi.org/10.1073/pnas.0506580102">https://doi.org/10.1073/pnas.0506580102</a>.
+</div>
+<div id="ref-RN43" class="csl-entry">
+Sun, Zhu, S., and X. Zhou. 2019. <span>“Accuracy, Robustness and Scalability of Dimensionality Reduction Methods for Single-Cell RNA-Seq Analysis.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 269. <a href="https://doi.org/10.1186/s13059-019-1898-6">https://doi.org/10.1186/s13059-019-1898-6</a>.
+</div>
+<div id="ref-RN143" class="csl-entry">
+Svensson, V., A. Gayoso, N. Yosef, and L. Pachter. 2020. <span>“Interpretable Factor Models of Single-Cell RNA-Seq via Variational Autoencoders.”</span> Journal Article. <em>Bioinformatics</em> 36 (11): 3418–21. <a href="https://doi.org/10.1093/bioinformatics/btaa169">https://doi.org/10.1093/bioinformatics/btaa169</a>.
+</div>
+<div id="ref-RN133" class="csl-entry">
+Tian, Wan, T. 2019. <span>“Clustering Single-Cell RNA-Seq Data with a Model-Based Deep Learning Approach.”</span> Journal Article. <em>Nat Mach Intell</em> 1. https://doi.org/<a href=" https://doi.org/10.1038/s42256-019-0037-0"> https://doi.org/10.1038/s42256-019-0037-0</a>.
+</div>
+<div id="ref-RN188" class="csl-entry">
+Tirosh, I., B. Izar, S. M. Prakadan, 2nd Wadsworth M. H., D. Treacy, J. J. Trombetta, A. Rotem, et al. 2016. <span>“Dissecting the Multicellular Ecosystem of Metastatic Melanoma by Single-Cell RNA-Seq.”</span> Journal Article. <em>Science</em> 352 (6282): 189–96. <a href="https://doi.org/10.1126/science.aad0501">https://doi.org/10.1126/science.aad0501</a>.
+</div>
+<div id="ref-RN216" class="csl-entry">
+Tirosh, I., A. S. Venteicher, C. Hebert, L. E. Escalante, A. P. Patel, K. Yizhak, J. M. Fisher, et al. 2016. <span>“Single-Cell RNA-Seq Supports a Developmental Hierarchy in Human Oligodendroglioma.”</span> Journal Article. <em>Nature</em> 539 (7628): 309–13. <a href="https://doi.org/10.1038/nature20123">https://doi.org/10.1038/nature20123</a>.
+</div>
+<div id="ref-RN156" class="csl-entry">
+Torroja, C., and F. Sanchez-Cabo. 2019. <span>“Digitaldlsorter: Deep-Learning on scRNA-Seq to Deconvolute Gene Expression Data.”</span> Journal Article. <em>Front Genet</em> 10: 978. <a href="https://doi.org/10.3389/fgene.2019.00978">https://doi.org/10.3389/fgene.2019.00978</a>.
+</div>
+<div id="ref-RN37" class="csl-entry">
+Traag, V. A., L. Waltman, and N. J. van Eck. 2019. <span>“From Louvain to Leiden: Guaranteeing Well-Connected Communities.”</span> Journal Article. <em>Sci Rep</em> 9 (1): 5233. <a href="https://doi.org/10.1038/s41598-019-41695-z">https://doi.org/10.1038/s41598-019-41695-z</a>.
+</div>
+<div id="ref-RN44" class="csl-entry">
+Tran, H. T. N., K. S. Ang, M. Chevrier, X. Zhang, N. Y. S. Lee, M. Goh, and J. Chen. 2020. <span>“A Benchmark of Batch-Effect Correction Methods for Single-Cell RNA Sequencing Data.”</span> Journal Article. <em>Genome Biol</em> 21 (1): 12. <a href="https://doi.org/10.1186/s13059-019-1850-9">https://doi.org/10.1186/s13059-019-1850-9</a>.
+</div>
+<div id="ref-RN234" class="csl-entry">
+Tusi, B. K., S. L. Wolock, C. Weinreb, Y. Hwang, D. Hidalgo, R. Zilionis, A. Waisman, J. R. Huh, A. M. Klein, and M. Socolovsky. 2018. <span>“Population Snapshots Predict Early Haematopoietic and Erythroid Hierarchies.”</span> Journal Article. <em>Nature</em> 555 (7694): 54–60. <a href="https://doi.org/10.1038/nature25741">https://doi.org/10.1038/nature25741</a>.
+</div>
+<div id="ref-RN241" class="csl-entry">
+Usoskin, D., A. Furlan, S. Islam, H. Abdo, P. Lonnerberg, D. Lou, J. Hjerling-Leffler, et al. 2015. <span>“Unbiased Classification of Sensory Neuron Types by Large-Scale Single-Cell RNA Sequencing.”</span> Journal Article. <em>Nat Neurosci</em> 18 (1): 145–53. <a href="https://doi.org/10.1038/nn.3881">https://doi.org/10.1038/nn.3881</a>.
+</div>
+<div id="ref-RN97" class="csl-entry">
+Vallejos, C. A., J. C. Marioni, and S. Richardson. 2015. <span>“BASiCS: Bayesian Analysis of Single-Cell Sequencing Data.”</span> Journal Article. <em>PLoS Comput Biol</em> 11 (6): e1004333. <a href="https://doi.org/10.1371/journal.pcbi.1004333">https://doi.org/10.1371/journal.pcbi.1004333</a>.
+</div>
+<div id="ref-RN98" class="csl-entry">
+Vitak, S. A., K. A. Torkenczy, J. L. Rosenkrantz, A. J. Fields, L. Christiansen, M. H. Wong, L. Carbone, F. J. Steemers, and A. Adey. 2017. <span>“Sequencing Thousands of Single-Cell Genomes with Combinatorial Indexing.”</span> Journal Article. <em>Nat Methods</em> 14 (3): 302–8. <a href="https://doi.org/10.1038/nmeth.4154">https://doi.org/10.1038/nmeth.4154</a>.
+</div>
+<div id="ref-RN38" class="csl-entry">
+Wang, B., J. Zhu, E. Pierson, D. Ramazzotti, and S. Batzoglou. 2017. <span>“Visualization and Analysis of Single-Cell RNA-Seq Data by Kernel-Based Similarity Learning.”</span> Journal Article. <em>Nat Methods</em> 14 (4): 414–16. <a href="https://doi.org/10.1038/nmeth.4207">https://doi.org/10.1038/nmeth.4207</a>.
+</div>
+<div id="ref-RN131" class="csl-entry">
+Wang, D., and J. Gu. 2018. <span>“VASC: Dimension Reduction and Visualization of Single-Cell RNA-Seq Data by Deep Variational Autoencoder.”</span> Journal Article. <em>Genomics Proteomics Bioinformatics</em> 16 (5): 320–31. <a href="https://doi.org/10.1016/j.gpb.2018.08.003">https://doi.org/10.1016/j.gpb.2018.08.003</a>.
+</div>
+<div id="ref-RN123" class="csl-entry">
+Wang, D., S. Hou, L. Zhang, X. Wang, B. Liu, and Z. Zhang. 2021. <span>“iMAP: Integration of Multiple Single-Cell Datasets by Adversarial Paired Transfer Networks.”</span> Journal Article. <em>Genome Biol</em> 22 (1): 63. <a href="https://doi.org/10.1186/s13059-021-02280-8">https://doi.org/10.1186/s13059-021-02280-8</a>.
+</div>
+<div id="ref-RN204" class="csl-entry">
+Wang, J., D. Agarwal, M. Huang, G. Hu, Z. Zhou, C. Ye, and N. R. Zhang. 2019. <span>“Data Denoising with Transfer Learning in Single-Cell Transcriptomics.”</span> Journal Article. <em>Nat Methods</em> 16 (9): 875–78. <a href="https://doi.org/10.1038/s41592-019-0537-1">https://doi.org/10.1038/s41592-019-0537-1</a>.
+</div>
+<div id="ref-RN157" class="csl-entry">
+Wang, Nie, L. 2020. <span>“An Interpretable Deep-Learning Architecture of Capsule Networks for Identifying Cell-Type Gene Expression Programs from Single-Cell RNA-Sequencing Data.”</span> Journal Article. <em>Nat Mach Intell</em> 2: 693–703. https://doi.org/<a href="ttps://doi.org/10.1038/s42256-020-00244-4">ttps://doi.org/10.1038/s42256-020-00244-4</a>.
+</div>
+<div id="ref-RN183" class="csl-entry">
+Wang, T., T. S. Johnson, W. Shao, Z. Lu, B. R. Helm, J. Zhang, and K. Huang. 2019. <span>“BERMUDA: A Novel Deep Transfer Learning Method for Single-Cell RNA Sequencing Batch Correction Reveals Hidden High-Resolution Cellular Subtypes.”</span> Journal Article. <em>Genome Biol</em> 20 (1): 165. <a href="https://doi.org/10.1186/s13059-019-1764-6">https://doi.org/10.1186/s13059-019-1764-6</a>.
+</div>
+<div id="ref-RN197" class="csl-entry">
+Wang, Y. X., M. S. Waterman, and H. Huang. 2014. <span>“Gene Coexpression Measures in Large Heterogeneous Samples Using Count Statistics.”</span> Journal Article. <em>Proc Natl Acad Sci U S A</em> 111 (46): 16371–76. <a href="https://doi.org/10.1073/pnas.1417128111">https://doi.org/10.1073/pnas.1417128111</a>.
+</div>
+<div id="ref-RN99" class="csl-entry">
+Wauters, E., P. Van Mol, A. D. Garg, S. Jansen, Y. Van Herck, L. Vanderbeke, A. Bassez, et al. 2021. <span>“Discriminating Mild from Critical COVID-19 by Innate and Adaptive Immune Single-Cell Profiling of Bronchoalveolar Lavages.”</span> Journal Article. <em>Cell Res</em> 31 (3): 272–90. <a href="https://doi.org/10.1038/s41422-020-00455-9">https://doi.org/10.1038/s41422-020-00455-9</a>.
+</div>
+<div id="ref-RN33" class="csl-entry">
+Welch, J. D., A. J. Hartemink, and J. F. Prins. 2016. <span>“SLICER: Inferring Branched, Nonlinear Cellular Trajectories from Single Cell RNA-Seq Data.”</span> Journal Article. <em>Genome Biol</em> 17 (1): 106. <a href="https://doi.org/10.1186/s13059-016-0975-3">https://doi.org/10.1186/s13059-016-0975-3</a>.
+</div>
+<div id="ref-RN100" class="csl-entry">
+Wolf, F. A., P. Angerer, and F. J. Theis. 2018. <span>“SCANPY: Large-Scale Single-Cell Gene Expression Data Analysis.”</span> Journal Article. <em>Genome Biol</em> 19 (1): 15. <a href="https://doi.org/10.1186/s13059-017-1382-0">https://doi.org/10.1186/s13059-017-1382-0</a>.
+</div>
+<div id="ref-RN191" class="csl-entry">
+Wolock, S. L., R. Lopez, and A. M. Klein. 2019. <span>“Scrublet: Computational Identification of Cell Doublets in Single-Cell Transcriptomic Data.”</span> Journal Article. <em>Cell Syst</em> 8 (4): 281–291 e9. <a href="https://doi.org/10.1016/j.cels.2018.11.005">https://doi.org/10.1016/j.cels.2018.11.005</a>.
+</div>
+<div id="ref-RN253" class="csl-entry">
+Xie, Junyuan, Ross Girshick, and Ali Farhadi. n.d. <span>“Unsupervised Deep Embedding for Clustering Analysis.”</span> Conference Proceedings. In <em>International Conference on Machine Learning</em>, 478–87. PMLR.
+</div>
+<div id="ref-RN169" class="csl-entry">
+Xu, C., R. Lopez, E. Mehlman, J. Regier, M. I. Jordan, and N. Yosef. 2021. <span>“Probabilistic Harmonization and Annotation of Single-Cell Transcriptomics Data with Deep Generative Models.”</span> Journal Article. <em>Mol Syst Biol</em> 17 (1): e9620. <a href="https://doi.org/10.15252/msb.20209620">https://doi.org/10.15252/msb.20209620</a>.
+</div>
+<div id="ref-RN102" class="csl-entry">
+Xu, Y., Z. Zhang, L. You, J. Liu, Z. Fan, and X. Zhou. 2020. <span>“scIGANs: Single-Cell RNA-Seq Imputation Using Generative Adversarial Networks.”</span> Journal Article. <em>Nucleic Acids Res</em> 48 (15): e85. <a href="https://doi.org/10.1093/nar/gkaa506">https://doi.org/10.1093/nar/gkaa506</a>.
+</div>
+<div id="ref-RN196" class="csl-entry">
+Yevshin, I., R. Sharipov, T. Valeev, A. Kel, and F. Kolpakov. 2017. <span>“GTRD: A Database of Transcription Factor Binding Sites Identified by ChIP-Seq Experiments.”</span> Journal Article. <em>Nucleic Acids Res</em> 45 (D1): D61–67. <a href="https://doi.org/10.1093/nar/gkw951">https://doi.org/10.1093/nar/gkw951</a>.
+</div>
+<div id="ref-RN248" class="csl-entry">
+Yoshihara, K., M. Shahmoradgoli, E. Martinez, R. Vegesna, H. Kim, W. Torres-Garcia, V. Trevino, et al. 2013. <span>“Inferring Tumour Purity and Stromal and Immune Cell Admixture from Expression Data.”</span> Journal Article. <em>Nat Commun</em> 4: 2612. <a href="https://doi.org/10.1038/ncomms3612">https://doi.org/10.1038/ncomms3612</a>.
+</div>
+<div id="ref-RN109" class="csl-entry">
+Yu, B., C. Chen, R. Qi, R. Zheng, P. J. Skillman-Lawrence, X. Wang, A. Ma, and H. Gu. 2020. <span>“scGMAI: A Gaussian Mixture Model for Clustering Single-Cell RNA-Seq Data Based on Deep Autoencoder.”</span> Journal Article. <em>Brief Bioinform</em>. <a href="https://doi.org/10.1093/bib/bbaa316">https://doi.org/10.1093/bib/bbaa316</a>.
+</div>
+<div id="ref-RN174" class="csl-entry">
+Yuan, Y., and Z. Bar-Joseph. 2019. <span>“Deep Learning for Inferring Gene Relationships from Single-Cell Expression Data.”</span> Journal Article. <em>Proc Natl Acad Sci U S A</em>. <a href="https://doi.org/10.1073/pnas.1911536116">https://doi.org/10.1073/pnas.1911536116</a>.
+</div>
+<div id="ref-RN189" class="csl-entry">
+Zahn, H., A. Steif, E. Laks, P. Eirew, M. VanInsberghe, S. P. Shah, S. Aparicio, and C. L. Hansen. 2017. <span>“Scalable Whole-Genome Single-Cell Library Preparation Without Preamplification.”</span> Journal Article. <em>Nat Methods</em> 14 (2): 167–73. <a href="https://doi.org/10.1038/nmeth.4140">https://doi.org/10.1038/nmeth.4140</a>.
+</div>
+<div id="ref-RN190" class="csl-entry">
+Zappia, L., B. Phipson, and A. Oshlack. 2017. <span>“Splatter: Simulation of Single-Cell RNA Sequencing Data.”</span> Journal Article. <em>Genome Biol</em> 18 (1): 174. <a href="https://doi.org/10.1186/s13059-017-1305-0">https://doi.org/10.1186/s13059-017-1305-0</a>.
+</div>
+<div id="ref-RN240" class="csl-entry">
+Zeisel, A., A. B. Munoz-Manchado, S. Codeluppi, P. Lonnerberg, G. La Manno, A. Jureus, S. Marques, et al. 2015. <span>“Brain Structure. Cell Types in the Mouse Cortex and Hippocampus Revealed by Single-Cell RNA-Seq.”</span> Journal Article. <em>Science</em> 347 (6226): 1138–42. <a href="https://doi.org/10.1126/science.aaa1934">https://doi.org/10.1126/science.aaa1934</a>.
+</div>
+<div id="ref-RN161" class="csl-entry">
+Zheng, G. X., J. M. Terry, P. Belgrader, P. Ryvkin, Z. W. Bent, R. Wilson, S. B. Ziraldo, et al. 2017. <span>“Massively Parallel Digital Transcriptional Profiling of Single Cells.”</span> Journal Article. <em>Nat Commun</em> 8: 14049. <a href="https://doi.org/10.1038/ncomms14049">https://doi.org/10.1038/ncomms14049</a>.
+</div>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Survey.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/edit/main/Manuscript/Tables.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["survey-of-DL-for-scRNA-seq-analysis.pdf", "survey-of-DL-for-scRNA-seq-analysis.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

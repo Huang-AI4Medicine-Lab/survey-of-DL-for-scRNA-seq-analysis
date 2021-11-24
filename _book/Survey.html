@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Survey of deep learning models for scRNA-Seq analysis | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</title>
+  <meta name="description" content="5 Survey of deep learning models for scRNA-Seq analysis | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Survey of deep learning models for scRNA-Seq analysis | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Survey of deep learning models for scRNA-Seq analysis | Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis" />
+  
+  
+  
+
+<meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
+
+
+<meta name="date" content="2021-11-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="DatasetEvalMetric.html"/>
+<link rel="next" href="Table.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About the authors</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html"><i class="fa fa-check"></i>About this book</a>
+<ul>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#key-points"><i class="fa fa-check"></i>Key Points</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="scRNA-seq-pipeline.html"><a href="scRNA-seq-pipeline.html"><i class="fa fa-check"></i><b>2</b> Overview of scRNA-seq processing pipeline</a></li>
+<li class="chapter" data-level="3" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html"><i class="fa fa-check"></i><b>3</b> Overview of common deep learning models for scRNA-seq analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#vae"><i class="fa fa-check"></i><b>3.1</b> Variational Autoencoder</a></li>
+<li class="chapter" data-level="3.2" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#ch-3-2"><i class="fa fa-check"></i><b>3.2</b> Autoencoders (AEs) for scRNA-seq data</a></li>
+<li class="chapter" data-level="3.3" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#GANs"><i class="fa fa-check"></i><b>3.3</b> Generative adversarial networks (GANs) for scRNA-seq data</a></li>
+<li class="chapter" data-level="3.4" data-path="dl-model-for-scRNA-seq.html"><a href="dl-model-for-scRNA-seq.html#supervised"><i class="fa fa-check"></i><b>3.4</b> Supervised deep learning models</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html"><i class="fa fa-check"></i><b>4</b> Overview of datasets and evaluation metrics</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#EvalMethod"><i class="fa fa-check"></i><b>4.1</b> Evaluation methods</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#imputation"><i class="fa fa-check"></i><b>4.1.1</b> Imputation</a></li>
+<li class="chapter" data-level="4.1.2" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#batch-effect-correction"><i class="fa fa-check"></i><b>4.1.2</b> Batch effect correction</a></li>
+<li class="chapter" data-level="4.1.3" data-path="DatasetEvalMetric.html"><a href="DatasetEvalMetric.html#clustering"><i class="fa fa-check"></i><b>4.1.3</b> Clustering</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="Survey.html"><a href="Survey.html"><i class="fa fa-check"></i><b>5</b> Survey of deep learning models for scRNA-Seq analysis</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="Survey.html"><a href="Survey.html#imputation-2"><i class="fa fa-check"></i><b>5.1</b> Imputation</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="Survey.html"><a href="Survey.html#dca"><i class="fa fa-check"></i><b>5.1.1</b> DCA:deep count autoencoder</a></li>
+<li class="chapter" data-level="5.1.2" data-path="Survey.html"><a href="Survey.html#saver-x"><i class="fa fa-check"></i><b>5.1.2</b> SAVER-X: single-cell analysis via expression recovery harnessing external data</a></li>
+<li class="chapter" data-level="5.1.3" data-path="Survey.html"><a href="Survey.html#deepimpute"><i class="fa fa-check"></i><b>5.1.3</b> DeepImpute (Deep neural network Imputation)</a></li>
+<li class="chapter" data-level="5.1.4" data-path="Survey.html"><a href="Survey.html#late"><i class="fa fa-check"></i><b>5.1.4</b> LATE: Learning with AuToEncoder</a></li>
+<li class="chapter" data-level="5.1.5" data-path="Survey.html"><a href="Survey.html#scGMAI"><i class="fa fa-check"></i><b>5.1.5</b> scGMAI</a></li>
+<li class="chapter" data-level="5.1.6" data-path="Survey.html"><a href="Survey.html#scIGANs"><i class="fa fa-check"></i><b>5.1.6</b> scIGANs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="Survey.html"><a href="Survey.html#batch-effect-correction-2"><i class="fa fa-check"></i><b>5.2</b> Batch effect correction</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="Survey.html"><a href="Survey.html#bermuda"><i class="fa fa-check"></i><b>5.2.1</b> BERMUDA: Batch Effect ReMoval Using Deep Autoencoders</a></li>
+<li class="chapter" data-level="5.2.2" data-path="Survey.html"><a href="Survey.html#desc"><i class="fa fa-check"></i><b>5.2.2</b> DESC: batch correction based on clustering</a></li>
+<li class="chapter" data-level="5.2.3" data-path="Survey.html"><a href="Survey.html#imap"><i class="fa fa-check"></i><b>5.2.3</b> iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="Survey.html"><a href="Survey.html#dimension-reduction"><i class="fa fa-check"></i><b>5.3</b> Dimension reduction, latent representation, clustering, and data augmentation</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="Survey.html"><a href="Survey.html#dimension-reduction-by-aes"><i class="fa fa-check"></i><b>5.3.1</b> Dimension reduction by AEs with gene-interaction constrained architecture</a></li>
+<li class="chapter" data-level="5.3.2" data-path="Survey.html"><a href="Survey.html#dhaka"><i class="fa fa-check"></i><b>5.3.2</b> Dhaka: a VAE-based dimension reduction model</a></li>
+<li class="chapter" data-level="5.3.3" data-path="Survey.html"><a href="Survey.html#scvis"><i class="fa fa-check"></i><b>5.3.3</b> scvis: a VAE for capturing low-dimensional structures</a></li>
+<li class="chapter" data-level="5.3.4" data-path="Survey.html"><a href="Survey.html#scVAE"><i class="fa fa-check"></i><b>5.3.4</b> scVAE: VAE for single-cell gene expression data</a></li>
+<li class="chapter" data-level="5.3.5" data-path="Survey.html"><a href="Survey.html#VASC"><i class="fa fa-check"></i><b>5.3.5</b> VASC: VAE for scRNA-seq</a></li>
+<li class="chapter" data-level="5.3.6" data-path="Survey.html"><a href="Survey.html#scDeepCluster"><i class="fa fa-check"></i><b>5.3.6</b> scDeepCluster</a></li>
+<li class="chapter" data-level="5.3.7" data-path="Survey.html"><a href="Survey.html#cscGAN"><i class="fa fa-check"></i><b>5.3.7</b> cscGAN: Conditional single-cell generative adversarial neural networks</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="Survey.html"><a href="Survey.html#multi-functional"><i class="fa fa-check"></i><b>5.4</b> Multi-functional models</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="Survey.html"><a href="Survey.html#scVI"><i class="fa fa-check"></i><b>5.4.1</b> scVI: single-cell variational inference</a></li>
+<li class="chapter" data-level="5.4.2" data-path="Survey.html"><a href="Survey.html#ldvae"><i class="fa fa-check"></i><b>5.4.2</b> LDVAE: linearly decoded variational autoencoder</a></li>
+<li class="chapter" data-level="5.4.3" data-path="Survey.html"><a href="Survey.html#saucie"><i class="fa fa-check"></i><b>5.4.3</b> SAUCIE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="Survey.html"><a href="Survey.html#scScope"><i class="fa fa-check"></i><b>5.4.4</b> scScope</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="Survey.html"><a href="Survey.html#doubletClassification"><i class="fa fa-check"></i><b>5.5</b> Doublet Classification</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="Survey.html"><a href="Survey.html#solo"><i class="fa fa-check"></i><b>5.5.1</b> Solo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="Survey.html"><a href="Survey.html#automatedCellType"><i class="fa fa-check"></i><b>5.6</b> Automated cell type identification</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="Survey.html"><a href="Survey.html#digitalDLSorter"><i class="fa fa-check"></i><b>5.6.1</b> DigitalDLSorter</a></li>
+<li class="chapter" data-level="5.6.2" data-path="Survey.html"><a href="Survey.html#scCapsNet"><i class="fa fa-check"></i><b>5.6.2</b> scCapsNet</a></li>
+<li class="chapter" data-level="5.6.3" data-path="Survey.html"><a href="Survey.html#netAE"><i class="fa fa-check"></i><b>5.6.3</b> netAE: network-enhanced autoencoder</a></li>
+<li class="chapter" data-level="5.6.4" data-path="Survey.html"><a href="Survey.html#scDGN"><i class="fa fa-check"></i><b>5.6.4</b> scDGN - supervised adversarial alignment of single-cell RNA-seq data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="Survey.html"><a href="Survey.html#biologicalFunctionPrediction"><i class="fa fa-check"></i><b>5.7</b> Biological function prediction</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="Survey.html"><a href="Survey.html#CNNC"><i class="fa fa-check"></i><b>5.7.1</b> CNNC: convolutional neural network for coexpression</a></li>
+<li class="chapter" data-level="5.7.2" data-path="Survey.html"><a href="Survey.html#scGen"><i class="fa fa-check"></i><b>5.7.2</b> scGen, a generative model to predict perturbation response of single cells across cell types</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Table.html"><a href="Table.html"><i class="fa fa-check"></i><b>6</b> Table</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#Table1"><i class="fa fa-check"></i>Table1</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#a.-deep-learning-algorithms-reviewed-in-the-paper"><i class="fa fa-check"></i>A. Deep Learning algorithms reviewed in the paper</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#b.-comparison-of-deep-learning-algorithms-reviewed-in-the-paper"><i class="fa fa-check"></i>B. Comparison of Deep Learning algorithms reviewed in the paper</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#Table2"><i class="fa fa-check"></i>Table2</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#a.-simulated-single-cell-dataalgorithms"><i class="fa fa-check"></i>A. Simulated single-cell data/algorithms</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#b.-human-single-cell-data-sources-used-by-different-dl-algorithms"><i class="fa fa-check"></i>B. Human single-cell data sources used by different DL algorithms</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#c.-mouse-single-cell-data-sources-used-by-different-dl-algorithms"><i class="fa fa-check"></i>C. Mouse single-cell data sources used by different DL algorithms</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#d.-single-cell-data-derived-from-other-species"><i class="fa fa-check"></i>D. Single-cell data derived from other species</a></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#e.-large-single-cell-data-source-used-by-various-algorithms"><i class="fa fa-check"></i>E. Large single-cell data source used by various algorithms</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#Table3"><i class="fa fa-check"></i>Table3</a>
+<ul>
+<li class="chapter" data-level="" data-path="Table.html"><a href="Table.html#evaluation-metrics-used-in-surveyed-dl-algorithms"><i class="fa fa-check"></i>Evaluation metrics used in surveyed DL algorithms</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Deep learning tackles single-cell analysis - A survey of deep learning for scRNA-seq analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Survey" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Survey of deep learning models for scRNA-Seq analysis</h1>
+<p>In this section, we survey applications of DL models for scRNA-seq analysis. To better understand the relationship between the problems that each surveyed work addresses and the key challenges in the general scRNA-seq processing pipeline, we divide the survey into sections according to steps in the scRNA-seq processing pipeline illustrated in Fig.<a href="scRNA-seq-pipeline.html#fig:Figure1">2.1</a>. For each DL model, we present the model details under the general model framework introduced in Section <a href="dl-model-for-scRNA-seq.html#dl-model-for-scRNA-seq">3</a> and discuss the specific loss functions. We also survey the evaluation metrics and summarize the evaluation results. To facilitate cross-references of the information, we summarized all algorithms reviewed in this section in <a href="Table.html#Table1">Table1</a> and tabulate the datasets and evaluation metrics used in each paper in <a href="Table.html#Table2">Table2</a> &amp; <a href="Table.html#Table3">Table3</a>. We also listed all other algorithms that each surveyed method evaluated against in Fig.<a href="Survey.html#fig:Figure3">5.1</a>, highlighting the extensiveness these algorithms were assessed for their performance.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure3"></span>
+<img src="Figures/Figure3.png" alt="Add figure caption here" width="928" />
+<p class="caption">
+Figure 5.1: Add figure caption here
+</p>
+</div>
+
+<div id="imputation-2" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Imputation</h2>
+<p>The goal of imputation is to estimate the missing gene expression values due to dropout, or the failure to amplify the original RNA transcripts. These missing expression values can affect downstream bioinformatics analysis significantly as it decreases the power of the studies and introduces biases in gene expression <span class="citation">(<a href="Table.html#ref-RN46" role="doc-biblioref">Arisdakessian et al. 2019</a>)</span><!--[17]-->. VAE, AE, and GAN have been applied for imputation and we review their specific model designs in this section.</p>
+
+<div id="dca" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> DCA:deep count autoencoder</h3>
+<p>DCA <span class="citation">(<a href="Table.html#ref-RN53" role="doc-biblioref">Eraslan et al. 2019</a>)</span><!--[15]--> is an AE designed for imputation (Fig.<a href="dl-model-for-scRNA-seq.html#fig:Figure2">3.1</a>B. DCA is implemented in Python as a command line and also integrated into the Scanpy framework.</p>
+<p><strong>Model</strong> DCA models UMI counts of a cell with missing values using the ZINB distribution as</p>
+<p><span class="math display" id="eq:eq11">\[\begin{equation}
+p(x_{gn} \vert \Theta)=\pi_{gn}\delta(0)+(1-\pi_{gn})NB(v_{gn},\alpha_{gn}),\space for\space g=1,…G; n=1,…N \tag{5.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\delta(⋅\)</span>) is a Dirac delta function,<span class="math inline">\(NB(,)\)</span> denotes the negative binomial distribution and <span class="math inline">\(\pi_{gn},v_{gn}, \space and \space \alpha_{gn}\)</span> are dropout rate, mean, and dispersion, which are functions of DCA decoder output <span class="math inline">\(\bf{\hat{x}_{n}}\)</span> as</p>
+<p><span class="math display" id="eq:eq12">\[\begin{equation}
+\bf{\pi_{n}}=sigmoid(\bf{W_{\pi}\hat{x}_{n}}); \bf{v_{n}}=exp(\bf{W_{v}\hat{x}_{n}}); \bf{\alpha_{n}}=exp(\bf{W}_{\alpha}\hat{x}_{n}) \tag{5.2}
+\end{equation}\]</span></p>
+<p>where the <span class="math inline">\(g\)</span>th element of <span class="math inline">\(\bf{\pi_{n}}\)</span>, <span class="math inline">\(\bf{v_{n}}\)</span>, and <span class="math inline">\(\bf{\alpha_{n}}\)</span> are <span class="math inline">\(\pi_{gn}\)</span> and <span class="math inline">\(\alpha_{gn}\)</span>, respectively and <span class="math inline">\(\bf{W_{\pi}}\)</span>, <span class="math inline">\(\bf{W_{v}}\)</span>, and <span class="math inline">\(\bf{W_{\alpha}}\)</span> are additional weights to be estimated.
+The DCA encoder and decoder follow the general AE formulation as in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq7">(3.7)</a> but the encoder takes the size factor normalized, log-transformed expression as input.
+The encoder and decoder architecture are the conventional deep neural networks.
+The parameters to be trained are <span class="math inline">\(\Theta=\{\theta,\phi,W_{\pi},W_{v},W_{\alpha}\}\)</span>.
+To train the model, DCA uses a constrained log-likelihood as the loss function as</p>
+<p><span class="math display" id="eq:eq13">\[\begin{equation}
+L(\Theta)=\sum_{n=1}^{N} \sum_{g=1}^{G} (-logp(x_{gn}\vert \Theta) + \lambda\pi^{2}_{gn} ) \tag{5.3}
+\end{equation}\]</span></p>
+<p>where the second term functions as a ridge prior on the dropout probabilities.
+Once the DCA is trained, the mean counts <span class="math inline">\(v_{n}\)</span> are used as the denoised and imputed counts for cell <span class="math inline">\(n\)</span>.</p>
+<p><strong>Evaluation metrics</strong> A Density Resampled Estimate of Mutual Information (DREMI) measure was adapted for the higher dimensionality and sparsity of scRNA-seq data.</p>
+<p><strong>Results</strong> For evaluation, DCA is compared to other methods using simulated data (using Splatter R package), and a real bulk transcriptomics data from a developmental C. elegans time-course experiment was used with added simulating single-cell specific noise. For this. gene expression was measured from 206 developmentally synchronized young adults over a twelve-hour period (C elegans). Single-cell specific noise was added in silico by genewise subtracting values drawn from the exponential distribution such that 80<span class="math inline">\(%\)</span> of values were zeros. The paper analyzed the Bulk contains less noise than single-cell transcriptomics data and can thus aid in evaluating single-cell denoising methods by providing a good ground truth model. The authors also did a comparison of other methods like SAVER <span class="citation">(<a href="Table.html#ref-RN30" role="doc-biblioref">Huang et al. 2018</a>)</span><!--[32]-->, scImpute <span class="citation">(<a href="Table.html#ref-RN31" role="doc-biblioref">W. V. Li and Li 2018</a>)</span><!--[33]-->, and MAGIC <span class="citation">(<a href="Table.html#ref-RN111" role="doc-biblioref">Dijk et al. 2018</a>)</span><!--[55]-->. DCA denoising recovered original time-course gene expression pattern while removing single-cell specific noise. Overall, DCA demonstrates the strongest recovery of the top 500 genes most strongly associated with development in the original data without noise; is shown to outperform other existing methods in capturing cell population structure in real data (using PBMC, CITE-seq, runtime scales linearly with the number of cells.</p>
+
+</div>
+<div id="saver-x" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> SAVER-X: single-cell analysis via expression recovery harnessing external data</h3>
+<p>SAVER-X <span class="citation">(<a href="Table.html#ref-RN204" role="doc-biblioref">J. Wang et al. 2019</a>)</span><!--[56]--> is an AE model developed to denoise and impute scRNA-seq data with transfer learning from other data resources. SAVER-X is implemented in R with the support of Python package sctransfer.</p>
+<p><strong>Model</strong> SAVER-X decomposes the variation in the observed counts <span class="math inline">\(x_{n}\)</span> with missing values into three components: i predictable structured component that represents the shared variation across genes, ii) unpredictable cell-level biological variation and gene-specific dispersions, and iii) technical noise. Specifically, <span class="math inline">\(x_{gn}\)</span> is modeled as a Poisson-Gamma hierarchical model,</p>
+<p><span class="math display" id="eq:eq14">\[\begin{equation}
+p(x_{gn}\vert \Theta)=Poisson(l_{n}x&#39;_{gn}), \space \space p(x&#39;_{gn}\vert v_{gn},\alpha_{g})=Gamma(v_{gn},\alpha_{g}v_{gn}^{2}) \tag{5.4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(l_{n}\)</span> is the sequencing depth of cell <span class="math inline">\(n\)</span>, <span class="math inline">\(ν_{gn}\)</span> is the mean, and <span class="math inline">\(\alpha_{g}\)</span> is the dispersion. This Poisson-Gamma mixture is an equivalent expression to the NB distribution. As a result, the ZINB distribution as Eq.<a href="Survey.html#eq:eq11">(5.1)</a> in DCA is also adopted to model missing values.
+To train the model, a similar log-likelihood function as Eq.<a href="Survey.html#eq:eq13">(5.3)</a> in DCA is used as the loss function. However, <span class="math inline">\(ν_{gn}\)</span> is initially learned by an AE pre-trained using external datasets from an identical or similar tissue and then transferred to and updated using data <span class="math inline">\(x_{n}\)</span> to be denoised. Such transfer learning can be applied to data between species (e.g., human and mouse in the study), cell types, batches, and single-cell profiling technologies. After <span class="math inline">\(ν_{gn}\)</span> is inferred, SAVER-X generates the final denoised data <span class="math inline">\(\hat{x}_{gn}\)</span> by an empirical Bayesian shrinkage.</p>
+<p><strong>Evaluation metrics</strong> <span class="math inline">\(t\)</span>-SNE visualization and ARI were used to evaluate the clustering performance after imputation. Pearson correlation coefficients between protein and corresponding gene expression levels after denoising CITE-seq data were computed.</p>
+<p><strong>Results</strong> SAVER-X was applied to multiple human single-cell datasets of different scenarios: i) T-cell subtypes, ii) a cell type (CD4+ tegulatory T cells) that was absent from the pretraining dataset, iii) gene-protein correlations of CITE-seq data, and iv) immune cells of primary breast cancer samples with a pretraining on normal immune cells. SAVER-X with pretraining on HCA and/or PBMCs outperformed the same model without pretraining and other denoising methods, including DCA <span class="citation">(<a href="Table.html#ref-RN80" role="doc-biblioref">Chen, Ning, and Shi 2019</a>)</span><!--[23]-->, scVI <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[13]-->, scImpute <span class="citation">(<a href="Table.html#ref-RN31" role="doc-biblioref">W. V. Li and Li 2018</a>)</span><!--[33]-->, and MAGIC <span class="citation">(<a href="Table.html#ref-RN111" role="doc-biblioref">Dijk et al. 2018</a>)</span><!--[55]-->. The model achieved promising results even for genes with very low UMI counts. SAVER-X was also applied for a cross-species study in which the model was pretrained on a human or mouse dataset and transferred to denoise another. The results demonstrated the merit of transferring public data resources to denoise in-house scRNA-seq data even when the study species, cell types, or single-cell profiling technologies are different.</p>
+
+</div>
+<div id="deepimpute" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> DeepImpute (Deep neural network Imputation)</h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:Figure4"></span>
+<img src="Figures/Figure4.png" alt="Add figure caption" width="740" />
+<p class="caption">
+Figure 5.2: Add figure caption
+</p>
+</div>
+<p>DeepImpute <span class="citation">(<a href="Table.html#ref-RN46" role="doc-biblioref">Arisdakessian et al. 2019</a>)</span><!--[17]--> imputes genes in a divide-and-conquer approach, using a bank of DNN models (Fig.<a href="Survey.html#fig:Figure4">5.2</a>A) with 512 output, each to predict gene expression levels of a cell.</p>
+<p><strong>Model</strong> For each dataset, DeepImpute selects to impute a list of genes or highly variable genes (variance over mean ratio, default = 0.5). Each sub-neural network aims to understand the relationship between the input genes (input layer) and a subset of target genes (output layer). Genes are first divided into N random subsets of size 512 called target genes. For each subset, a neural network of four layers (input, dense, dropout and output layers) is trained where the input layer includes genes (predictor genes) who are among top 5 best correlated genes to target genes but not part of the target genes in the subset. The loss is defined as the weighted MSE</p>
+<p><span class="math display" id="eq:eq15">\[\begin{equation}
+\mathcal{L}_{c}=\sum x_{n}(x_{n}-\hat{x}_{n})^{2}\tag{5.5}
+\end{equation}\]</span></p>
+<p>This function gives higher weights to genes with higher expression values, thus emphasizing accuracy on high confidence values and avoiding over penalizing genes with extremely low values.</p>
+<p><strong>Evaluation metrics</strong> DeepImpute computes mean squared error (MSE) and Pearson’s correlation coefficient between imputed and true expression.</p>
+<p><strong>Result</strong> DeepImpute had the highest overall accuracy and offered faster computation time with less demand on computer memory compared to other methods like MAGIC, DrImpute, ScImpute, SAVER, VIPER, and DCA. Using simulated and experimental datasets (Table <a href="Table.html#tab:Table2a">6.3</a>), DeepImpute showed benefits in increasing clustering results and identifying significantly differentially expressed genes. DeepImpute and DCA, show overall advantages over other methods and between which DeepImpute performs even better. The properties of DeepImpute contribute to its superior performance include 1) a divide-and-conquer approach which contrary to an autoencoder as implemented in DCA, resulting in a lower complexity in each sub-model and stabilizing neural networks, and 2) the subnetworks are trained without using the target genes as the input which reduces overfitting while enforcing the network to understand true relationships between genes.</p>
+
+</div>
+<div id="late" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> LATE: Learning with AuToEncoder</h3>
+<p>LATE <span class="citation">(<a href="Table.html#ref-RN184" role="doc-biblioref">Badsha et al. 2020</a>)</span><!--[57]--> is an AE whose encoder takes the log-transformed expression as input. LATE implemented in Python with TensorFlow.</p>
+<p><strong>Model</strong> LATE sets zeros for all missing values at the input and generates the imputed expressions at the decoder’s output. LATE experimented with three different network architectures composed of 1, 3 and 5 hidden layers. LATE minimizes the MSE loss as defined in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq9">(3.9)</a>. One problem with this model is that it assumes that all the zeros in the scRNA-seq data are missing values but some zeros could be real and reflect the actual lack of expression.</p>
+<p><strong>Evaluation metrics</strong> Like DeepImpute, LATE used MSE to evaluate the performance.</p>
+<p><strong>Result</strong> Using synthetic data generated from pre-imputed data followed with random dropout selection at different degree, LATE is shown to outperform other existing methods like MAGIC, SAVER, DCA, scVI, particularly when the ground truth contains only a few or no zeros. However, when the data contain many zero expression values, DCA achieved a lower MSE than LATE, although LATE still has a smaller MSE than scVI. This result suggests that DCA likely does a better job identifying true zeros gene expression, partly due to that LATE does not make assumptions on the statistical distributions of the single-cell data that potentially have inflated zero counts.</p>
+
+</div>
+<div id="scGMAI" class="section level3" number="5.1.5">
+<h3><span class="header-section-number">5.1.5</span> scGMAI</h3>
+<p>Technically, scGMAI <span class="citation">(<a href="Table.html#ref-RN109" role="doc-biblioref">Yu et al. 2020</a>)</span><!--[58]--> is a model for clustering but it includes an AE in the first step to combat dropout. The scGAMI’s AE model is implemented with TensorFlow.</p>
+<p><strong>Model</strong> To impute the missing values, scGMAI applies an AE like LATE to reconstruct log-transformed expressions with dropout. One difference is that it chooses Softplus as the activation function since it is smoother than ReLU and thus more suitable for scRNA-seq data. The MSE loss as in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq9">(3.9)</a> is adopted. After imputation, scGMAI uses fast independent component analysis (ICA) on the AE reconstructed expression to reduce the dimension and then applies a Gaussian mixture model on the ICA reduced data to perform the clustering.</p>
+<p><strong>Evaluation metrics</strong> It used clustering metrics including NMI, ARI, Homogeneity, and Completeness to evaluate the performance.</p>
+<p><strong>Results</strong> To assess the performance, the AE in scGMAI was replaced by five other imputation methods including SAVER <span class="citation">(<a href="Table.html#ref-RN30" role="doc-biblioref">Huang et al. 2018</a>)</span><!--[32]-->, MAGIC <span class="citation">(<a href="Table.html#ref-RN111" role="doc-biblioref">Dijk et al. 2018</a>)</span><!--[55]-->, DCA <span class="citation">(<a href="Table.html#ref-RN80" role="doc-biblioref">Chen, Ning, and Shi 2019</a>)</span><!--[23]-->, scImpute <span class="citation">(<a href="Table.html#ref-RN31" role="doc-biblioref">W. V. Li and Li 2018</a>)</span><!--[33]-->, and CIDR <span class="citation">(<a href="Table.html#ref-RN113" role="doc-biblioref">P. Lin, Troup, and Ho 2017</a>)</span><!--[59]-->. A scGMAI implementation without AE was also compared. Seventeen scRNA-seq data (part of them are listed in Table <a href="Table.html#tab:Table2a">6.3</a> as marked) were used to evaluate cell clustering performances. The results indicated that the AEs significantly improved the clustering performance in eight of seventeen scRNA-Seq datasets.</p>
+
+</div>
+<div id="scIGANs" class="section level3" number="5.1.6">
+<h3><span class="header-section-number">5.1.6</span> scIGANs</h3>
+<p>Imputation approaches based on information from cells with similar expressions suffer from oversmoothing, especially for rare cell types. scIGANs <span class="citation">(<a href="Table.html#ref-RN102" role="doc-biblioref">Y. Xu et al. 2020</a>)</span><!--[16]--> is a GAN-based imputation algorithm, which overcomes this problem by using the observed samples with missing values to train a GAN to generate samples with imputed expressions.</p>
+<p><strong>Model</strong> The gene expression vector <span class="math inline">\(x_{n}\)</span> is first reshaped into a square image-like format and scIGAN takes the reshaped data as input. The model follows a BEGAN <span class="citation">(<a href="Table.html#ref-RN116" role="doc-biblioref">Berthelot and Metz 2017</a>)</span><!--[60]--> framework, which substitutes the generator with an autoencoder that includes an encoder E and a decoder G and also replaces the discriminator <span class="math inline">\(D\)</span> with a function <span class="math inline">\(R_{\phi_{R}}\)</span>) that computes the reconstruction error of the autoencoder (e.g. MSE). Then, the Wasserstein distance between the reconstruction errors of the real and generated samples are computed as the loss</p>
+<p><span class="math display" id="eq:eq16">\[\begin{equation}
+L(\theta,\phi) = \max_{\phi_{R}}\sum_{n=1}^{N}R_{\phi_{R}}(x_{n})-\sum_{n=1}^{N}R_{\phi_{R}}(G_{\theta}(E_{\phi}(x_{n}),y) \tag{5.6}
+\end{equation}\]</span></p>
+<p>The encoder and decoder are trained in a GAN fashion to minimize this Wasserstein distance. This framework forces the model to meet two computing objectives, i.e. reconstructing the real samples and discriminating between real and generated samples. Proportional Control Theory was applied to balance these two goals during the training.<br />
+After training, the decoder <span class="math inline">\(G_{\theta}\)</span> is used to generate new samples of a specific cell type. Then, the k-nearest neighbors (KNN) approach is applied to the real and generated samples to impute the real samples’ missing expressions.</p>
+<p><strong>Evaluation metrics</strong> It used a variety of clustering- and classification-based metrics including ARI, ACC, AUC and F-score.</p>
+<p><strong>Results</strong> scIGANs was first tested on simulated samples with different dropout rates. Performance of rescuing the correct clusters was compared with 11 existing imputation approaches including DCA, DeepImpute, SAVER, scImpute, MAGIC, etc. scIGANs reported the best performance for all metrics. scIGAN was next evaluated for correctly clustering cell types on the Human brain scRNA-seq data and showed superior performance than existing methods again. scIGANs was next evaluated for identifying cell-cycle states using scRNA-seq datasets from mouse embryonic stem cells. The results showed that scIGANs outperformed competing existing approaches for recovering subcellular states of cell cycle dynamics. scIGANs was further shown to improve the identification of differentially expressed genes and enhance the inference of cellular trajectory using time-course scRNA-seq data from the differentiation from H1 ESC to definitive endoderm cells (DEC). Finally, scIGAN was also shown to scale to scRNA-seq methods and data sizes.</p>
+
+</div>
+</div>
+<div id="batch-effect-correction-2" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Batch effect correction</h2>
+<p>The goal of imputation is to estimate the missing gene expression values due to dropout, or the failure to amplify the original RNA transcripts. These missing expression values can affect downstream bioinformatics analysis significantly as it decreases the power of the studies and introduces biases in gene expression <span class="citation">(<a href="Table.html#ref-RN46" role="doc-biblioref">Arisdakessian et al. 2019</a>)</span><!--[17]-->. VAE, AE, and GAN have been applied for imputation and we review their specific model designs in this section.</p>
+
+<div id="bermuda" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> BERMUDA: Batch Effect ReMoval Using Deep Autoencoders</h3>
+<p>BERMUDA <span class="citation">(<a href="Table.html#ref-RN183" role="doc-biblioref">T. Wang et al. 2019</a>)</span><!--[61]--> deploys a transfer-learning method to remove the batch effect. It performs correction to the shared cell clusters among batches and therefore preserves batch-specific cell populations.</p>
+<p><strong>Model</strong> BERMUDA has a conventional AE architecture that takes normalized, log-transformed expression of a cell as input. It has the general loss function but consists of two parts as</p>
+<p><span class="math display" id="eq:equ17">\[\begin{equation}
+L(\Theta) = L_{0}(\Theta) + \lambda L_{MMD}(\Theta) \tag{5.7}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L_{0}(\Theta)\)</span> is the MSE reconstruction loss as defined in Eq. <a href="dl-model-for-scRNA-seq.html#eq:eq9">(3.9)</a> (Eq9 is removed!) and L_MMD is the maximum mean discrepancy (MMD) loss that measures the differences in distributions among similar cell clusters in different batches. MMD is a non-parametric distance between distributions based on the reproducing kernel Hilbert space (RKHS) <span class="citation">(<a href="Table.html#ref-RN185" role="doc-biblioref">Borgwardt et al. 2006</a>)</span><!--[51]-->. Instead of applying the MMD loss on batches entirely, BERMUDA considers the loss only between pairs of similar cell clusters shared among batches, where the MMD loss is defined as:</p>
+<p><span class="math display" id="eq:eq18">\[\begin{equation}
+L_{MMD}(\Theta) = \sum_{i_{a},i_{b},j_{a},j_{b}}M_{i_{a},i_{b},j_{a},j_{b}}MMD(z_{i_{a},j_{a}},z_{i_{b}.j_{b}}) \tag{5.8}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(z_{i,j}\)</span> is the latent variable of <span class="math inline">\(x_{i,j}\)</span>, the input expression profile of a cell from cluster j of batch <span class="math inline">\(i\)</span>, <span class="math inline">\(M_{i_{a},j_{a},i_{b},j_{b}}\)</span> is 1 if cluster <span class="math inline">\(i_{a}\)</span> of batch <span class="math inline">\(j_{a}\)</span> and cluster <span class="math inline">\(i_{b}\)</span> of batch <span class="math inline">\(j_{b}\)</span> are determined to be similar by MetaNeighbor <span class="citation">(<a href="Table.html#ref-RN186" role="doc-biblioref">Crow et al. 2018</a>)</span><!--[62]--> and 0, otherwise. <span class="math inline">\(MMD()\)</span> equals zero when the underlying distributions of the observed samples are the same. By minimizing the MMD loss between the distributions of the latent variables of similar clusters, BERMUDA can be trained to remove batch effects in its latent variables.</p>
+<p><strong>Evaluation metrics</strong> Evaluation of BERMUDA included three metrics: KBET, entropy of mixing, and silhouette index.</p>
+<p><strong>Results</strong> BERMUDA was shown to outperform other methods like mnnCorrect <span class="citation">(<a href="Table.html#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span><!--[28]-->, BBKNN <span class="citation">(<a href="Table.html#ref-RN115" role="doc-biblioref">Polanski et al. 2020</a>)</span><!--[63]-->, Seurat <span class="citation">(<a href="Table.html#ref-RN96" role="doc-biblioref">Stuart et al. 2019</a>)</span><!--[9]-->, and scVI <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[13]--> in removing batch effects on simulated and human pancreas data while preserving batch-specific biological signals. BERMUDA provides several improvements compared to existing methods: 1) capable of removing batch effects even when the cell population compositions across different batches are vastly different; and 2) preserving batch-specific biological signals through transfer-learning which enables discovering new information that might be hard to extract by analyzing each batch individually.</p>
+
+</div>
+<div id="desc" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> DESC: batch correction based on clustering</h3>
+<p>DESC <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[64]--> is an AE that removes batch effect through clustering with hypothesis that batch differences in expressions are smaller than true biological variations between cell types, and, therefore, properly performing clustering on cells across multiple batches can remove batch effects without the need to define batches explicitly.</p>
+<p><strong>Model</strong> DESC has a conventional AE architecture. Its encoder takes normalized, log-transformed expression as the input and uses decoder output <span class="math inline">\(\hat{x}_{n}\)</span> as the reconstructed gene expression, which is equivalent to a Gaussian data distribution with <span class="math inline">\(\hat{x}_{n}\)</span> being the mean. The loss function is</p>
+<p><span class="math display" id="eq:eq19">\[\begin{equation}
+  L(\Theta) = L_{0}(\Theta)+\gamma L_{c}(\Theta) \tag{5.9}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L_{0}\)</span> is reconstruction MSE as defined in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq8">(3.8)</a> and <span class="math inline">\(L_{c}\)</span> is the clustering loss that regularizes the learned feature representations to form clusters. The clustering loss follows the design in the deep embedded clustering <span class="citation">(<a href="Table.html#ref-RN119" role="doc-biblioref">Guo and Yin 2017</a>)</span><!--[65]--> . Let <span class="math inline">\(k \in \{1,…K\}\)</span> be the cluster index of a cell and assume that there are <span class="math inline">\(K\)</span> clusters. Then, the clustering loss is defined as a Kullback–Leibler (KL) divergence</p>
+<p><span class="math display" id="eq:eq20">\[\begin{equation}
+L_{c}(\Theta) - KL(P\|Q)  = \sum_{n=1}^{N} \sum_{k=1}^{K}p_{nk}\log{\frac{p_{nk}}{q_{nk}}} \tag{5.10}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(q_{nk}\)</span> is the probability of cell n belonging to cluster <span class="math inline">\(k\)</span> and computed as</p>
+<p><span class="math display" id="eq:eq21">\[\begin{equation}
+q_{nk} = \frac{ (1+\|z_{n}-\mu_{k}\|^{2})^{-1}}{\sum_{k&#39;}(1+\|z_{n}-\mu_{k&#39;}\|^{2})^{-1}} \tag{5.11}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(μ_{k}\)</span> is the center of cluster <span class="math inline">\(k\)</span> and <span class="math inline">\(p_{nk}\)</span> is the target distribution calculated by normalizing <span class="math inline">\(q_{nk}^{2}\)</span> with frequency per cluster</p>
+<p><span class="math display" id="eq:eq22">\[\begin{equation}
+p_{nk}=\frac{q&#39;_{nk}}{\sum_{k&#39;=1}^{K}q&#39;_{nk&#39;}}, \space and \space q&#39;_{nk}=\frac{q_{nk}^{2}}{\sum_{n=1}^{N}q_{nk}} \tag{5.12}
+\end{equation}\]</span></p>
+<p>A standard <span class="math inline">\(k\)</span>-means clustering algorithm is used to initialize cluster centers. The model is first trained to minimize <span class="math inline">\(L_{0}\)</span> only to obtain the initial weights before the model is trained to optimize the combined loss (Eq.<a href="Survey.html#eq:eq19">(5.9)</a>). When the training is done, each cell’s cluster index can be assigned based on <span class="math inline">\(p_{nk}\)</span>. After the training, each cell is assigned with a cluster ID.</p>
+<p><strong>Evaluation metrics</strong> ARI was used for clustering and the KL divergence (Eq. <a href="Survey.html#eq:eq20">(5.10)</a>) was used to assess the batch effect removal.</p>
+<p><strong>Results</strong> DESC was applied to the macaque retina dataset, which includes animal level, region level, and sample-level batch effects. The results showed that DESC is effective in removing the batch effect, whereas CCA <span class="citation">(<a href="Table.html#ref-RN79" role="doc-biblioref">Butler et al. 2018</a>)</span><!--[29]-->, MNN <span class="citation">(<a href="Table.html#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span><!--[28]-->, Seurat 3.0 <span class="citation">(<a href="Table.html#ref-RN96" role="doc-biblioref">Stuart et al. 2019</a>)</span><!--[9]-->, scVI <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[13]-->, BERMUDA <span class="citation">(<a href="Table.html#ref-RN183" role="doc-biblioref">T. Wang et al. 2019</a>)</span><!--[61]-->, and scanorama <span class="citation">(<a href="Table.html#ref-RN121" role="doc-biblioref">Hie, Bryson, and Berger 2019</a>)</span><!--[66]--> were all sensitive to batch definitions. DESC was then applied to human pancreas datasets to test its ability to remove batch effects from multiple scRNA-seq platforms and yielded the highest ARI among the comparing approaches mentioned above. When applied to human PBMC data with interferon-beta stimulation, where biological variations are compounded by batch effect, DESC was shown to be the best in removing batch effect while preserving biological variations. DESC was also shown to remove batch effect for the monocytes and mouse bone marrow data and DESC was shown to preserve the pseudotemporal structure. Finally, DESC scales linearly with the number of cells and its running time is not affected by the increasing number of batches.</p>
+
+</div>
+<div id="imap" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks</h3>
+<p>iMAP <span class="citation">(<a href="Table.html#ref-RN123" role="doc-biblioref">D. Wang et al. 2021</a>)</span><!--[67]--> combines AE and GAN for batch effect removal. It is designed to remove batch biases while preserving dataset-specific biological variations.</p>
+<p><strong>Model</strong> iMAP consists of two processing stages, each including a separate DL model. In the first stage, a special AE, whose decoder combines the output of two separate decoders <span class="math inline">\(D_{\theta_{1}}\)</span> and <span class="math inline">\(D_{\theta_{2}}\)</span>, is trained such that</p>
+<p><span class="math display" id="eq:eq23">\[\begin{equation}
+z_{n} = E_{\phi}; \hat{x}_{n}=D_{\theta}(z_{n},s_{n}) = ReLu(D_{\theta_{1}}(s_{n}) + D_{\theta_{2}}(z_{n}, s_{n})) \tag{5.13}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(s_{n}\)</span> is the one-hot encoded batch number of cell <span class="math inline">\(n\)</span>. <span class="math inline">\(D_{θ_{1}}\)</span> can be understood as decoding the batch noise, whereas <span class="math inline">\(D_{θ_{2}}\)</span> reconstructs batch-removed expression from the latent variable <span class="math inline">\(z_{n}\)</span>. The training minimizes the loss</p>
+<p><span class="math display" id="eq:eq24">\[\begin{equation}
+L(\Theta)=L_{0}(\Theta)+\gamma L_{t}(\Theta) \tag{5.14}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L_{0}(\Theta)\)</span> is the MSE reconstruction loss defined in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq7">(3.7)</a> and <span class="math inline">\(L_{c}\)</span> is the content loss</p>
+<p><span class="math display" id="eq:eq25">\[\begin{equation}
+L_{t}(\Theta)= \sum_{n=1}^{N} \| z_{n}-E_{\phi}(D_{\theta}(z_{n},\tilde{s}_{n})) \|_{2}^{2} \tag{5.15}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\tilde{s_{n}}\)</span> is a random batch number. Minimizing <span class="math inline">\(L_{t}(\Theta)\)</span> further ensures the reconstructed expression <span class="math inline">\(\hat{x_{n}}\)</span> would be batch agnostic and has the same content as <span class="math inline">\(x_{n}\)</span>.
+However, the author indicated that due to the limitation of AE, this step is still insufficient for batch removal. Therefore, a second stage is included to apply a GAN model to make expression distributions of the shared cell type across different baches indistinguishable. To identified the shared cell types, a mutual nearest neighbors (MNN) strategy adapted from <span class="citation">(<a href="Table.html#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span><!--[28]--> was developed to identify MNN pairs across batches using batch effect independent <span class="math inline">\(z_{n}\)</span> as opposed to <span class="math inline">\(x_{n}\)</span>. Then, a mapping generator <span class="math inline">\(G_{\theta_{G}}\)</span> is trained using MNN pairs based on GAN such that <span class="math inline">\(x_{n}^{(A)} =G_{\theta_{G}}(x_{n}^{(s)})\)</span>, where <span class="math inline">\(x_{n}^{(S)}\)</span> and <span class="math inline">\(x_{n}^{(A)}\)</span> are the MNN pairs from batch <span class="math inline">\(S\)</span> and an anchor batch <span class="math inline">\(A\)</span>. The WGAN-GP loss as in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq10">(3.10)</a> was adopted for the GAN training. After training, <span class="math inline">\(G_{\theta_{G}}\)</span> is applied to all cells of a batch to generate batch-corrected expression.</p>
+<p><strong>Evaluation matrics</strong> The classifier-based metric as described in section 4.2.2 (Section Not Found) was used.</p>
+<p><strong>Results</strong> iMAP was first tested on benchmark datasets from human dendritic cells and Jurkat and 293T cell lines and then human pancreas datasets from five different platforms. All the datasets contain both batch-specific cells and batch-shared cell types. iMAP was shown to separate the batch-specific cell types but mix batch shared cell types and outperformed 9 other existing batch correction methods including Harmony, scVI, fastMNN, Seurat, etc. iMAP was then applied to the large-scale Tabula Muris datasets containing over 100K cells sequenced from two platforms. iMAP could not only reliably integrate cells from the same tissues but identify cells from platform-specific tissues. Finally, iMAP was applied to datasets of tumor-infiltrating immune cells and shown to reduce the dropout ratio and the percentage of ribosomal genes and noncoding RNAs, thus improving detection of rare cell types and ligand-receptor interactions. iMAP scales with the number of cells, showing minimal time cost increase after the number of cells exceeds thousands. Its performance is also robust against model hyperparameters.</p>
+
+</div>
+</div>
+<div id="dimension-reduction" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Dimension reduction, latent representation, clustering, and data augmentation</h2>
+<p>Dimension reduction is indispensable for many type of scRNA-seq data analysis, considering the limited number of cell types in each biospecimen. Furthermore, biological processes of interests often involve the complex coordination of many genes, therefore, latent representation which capture biological variation in reduced dimentions are useful in interpreting many experiment conditions. In addition, many deep learning models further exploit latent dimentions and generative factors to produce augmented data that may in return to enhance the clustering, e.g., due to low representation of certain cell types. Therefore, we categories all these algorithms together in this section.</p>
+
+<div id="dimension-reduction-by-aes" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Dimension reduction by AEs with gene-interaction constrained architecture</h3>
+<p>This study <span class="citation">(<a href="Table.html#ref-RN193" role="doc-biblioref">C. Lin et al. 2017</a>)</span><!--[68]--> considers AEs for learning the low-dimensional representation and specifically explores the benefit of incorporating prior biological knowledge of gene-gene interactions to regularize the AE network architecture.</p>
+<p><strong>Model</strong> Several AE models with single or two hidden layers that incorporate gene interactions reflecting transcription factor (TF) regulations and protein-protein interactions (PPIs) are implemented. The models take normalized, log-transformed expressions and follow the general AE structure, including dimension-reducing and reconstructing layers, but the network architectures are not symmetrical. Specifically, gene interactions are incorporated such that each node of the first hidden layer represented a TF or a protein in the PPI; only genes that are targeted by TFs or involved in the PPI were connected to the node. Thus, the corresponding weights of <span class="math inline">\(E_{\phi}\)</span> and <span class="math inline">\(D_{\theta}\)</span> are set to be trainable and otherwise fixed at zero throughout the training process. Both unsupervised (AE-like) and supervised (cell-type label) learning were studied.</p>
+<p><strong>Evaluation metrics</strong> Performance of cells clustering was evaluated by six metrics including NMI, ARI, completeness, Fowlkes–Mallows score <span class="citation">(<a href="Table.html#ref-RN187" role="doc-biblioref">Fowlkes and Mallows 1983</a>)</span><!--[69]-->, homogeneity, and v-measure <span class="citation">(<a href="Table.html#ref-RN104" role="doc-biblioref">Rosenberg and Hirschberg 2007</a>)</span><!--[44]-->. Performance of cell-type retrieval was evaluated by the mean of average precision.</p>
+<p><strong>Results</strong> Regularizing encoder connections with TF and PPI information considerably reduced the model complexity by almost 90% (7.5-7.6M to 1.0-1.1M). The clusters formed on the data representations learned from the models with or without TF and PPI information were compared to those from PCA, NMF, independent component analysis (ICA), t-SNE, and SIMLR <span class="citation">(<a href="Table.html#ref-RN38" role="doc-biblioref">B. Wang et al. 2017</a>)</span><!--[40]-->. The model with TF/PPI information and 2 hidden layers achieved the best performance by five of the six measures (0.87-0.92) and the best average performance (0.90). In terms of the cell-type retrieval of single cells, the encoder models with and without TF/PPI information achieved the best performance in 4 and 3 cell types, respectively. PCA yielded the best performance in only 2 cell types. The DNN model with TF/PPI information and 2 hidden layers again achieved the best average performance (mean of average precision, 0.58) across all cell types. In summary, this study demonstrated a biologically meaningful way to regularize AEs by the prior biological knowledge for learning the representation of scRNA-Seq data for cell clustering and retrieval.</p>
+
+</div>
+<div id="dhaka" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Dhaka: a VAE-based dimension reduction model</h3>
+<p>Dhaka <span class="citation">(<a href="Table.html#ref-RN125" role="doc-biblioref">Rashid et al. 2019</a>)</span><!--[70]--> was proposed to reduce the dimension of scRNA-Seq data for efficient stratification of tumor subpopulations.</p>
+<p><strong>Model</strong> Dhaka adopts a general VAE formulation. It takes the normalized, log-transformed expressions of a cell as input and outputs the low-dimensional representation.</p>
+<p><strong>Evaluation matrics</strong> ARI was used to determine the quality of the resulting clustering for each dimensionality reduction method. Spearman rank correlation was assessed to the scoring metric (lineage or differentiation) to contrast with other programs.</p>
+<p><strong>Result</strong> Dhaka was first tested on the simulated dataset. The simulated dataset contains 500 cells, each including 3K genes, clustered into 5 different clusters with 100 cells each. The clustering performance was compared with other methods including t-SNE, PCA, SIMLR, NMF, an autoencoder, MAGIC, and scVI. Dhaka was shown to have an ARI higher than most other comparing methods. Dhaka was then applied to the Oligodendroglioma data and could separate malignant cells from non-malignant microglia/macrophage cells. It also uncovered the shared glial lineage and differentially expressed genes for the lineages. Dhaka was also applied to the Glioblastoma data and revealed an evolutionary trajectory of the malignant cells where cells were gradually progressing from a stemlike state to a more differentiated state. In contrast, other methods failed to capture this underlying structure. Dhaka was next applied to the Melanoma cancer dataset <span class="citation">(<a href="Table.html#ref-RN188" role="doc-biblioref">Tirosh, Izar, et al. 2016</a>)</span><!--[71]--> and uncovered two distinct clusters that showed the intra-tumor heterogeneity of the Melanoma samples. Dhaka was finally applied to copy number variation data <span class="citation">(<a href="Table.html#ref-RN189" role="doc-biblioref">Zahn et al. 2017</a>)</span><!--[72]--> and shown to identify one major and one minor cell clusters, of which other methods could not find.</p>
+
+</div>
+<div id="scvis" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> scvis: a VAE for capturing low-dimensional structures</h3>
+<p>scvis <span class="citation">(<a href="Table.html#ref-RN127" role="doc-biblioref">Ding, Condon, and Shah 2018</a>)</span><!--[73]--> is a VAE network that learns the low-dimensional representations capture both local and global neighboring structures in scRNA-Seq data.</p>
+<p><strong>Model</strong> scvis adopts the generic VAE formulation described in section <a href="DatasetEvalMetric.html#EvalMethod">4.1</a> However, it has a unique loss function defined as</p>
+<p><span class="math display" id="eq:eq26">\[\begin{equation}
+L(\Theta)= - \mathcal{L}(\Theta) + \lambda L_{t}(\Theta) \tag{5.16}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L(\Theta)\)</span> is ELBO as in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq3">(3.3)</a> and <span class="math inline">\(L_{t}\)</span> is a regularizer using non-symmetrized t-SNE objective function <span class="citation">(<a href="Table.html#ref-RN127" role="doc-biblioref">Ding, Condon, and Shah 2018</a>)</span><!--[73]-->, which is defined as</p>
+<p><span class="math display" id="eq:eq27">\[\begin{equation}
+L_{t}(\Theta)= \sum_{i=1}^{N}\sum_{j=1,j\neq i}^{N} p_{j\vert i}\log{\frac{p_{j \vert i}}{q_{j \vert i}} } \tag{5.17}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are two different cells, <span class="math inline">\(p_{i\vert j}\)</span> measures the local cell relationship in the data space, and <span class="math inline">\(q_{j \vert i}\)</span> measures such relationship in the latent space as</p>
+<p><span class="math display" id="eq:eq28">\[\begin{equation}
+p_{i \vert j} = \frac{exp(- \frac{\|x_{i}-x_{j} \|^{2}}{2\sigma_{i}^{2}})}{\sum_{k\ne i}exp(- \frac{\|x_{i}-x_{k} \|^{2}}{2\sigma_{i}^{2}})},\space q_{j \vert i} = \frac{(1+\|z_{i}-z_{j} \|^{2})^{-1}}{\sum_{k\ne i}(1+\|z_{i}-z_{k} \|^{2})^{-1}} \tag{5.18}
+\end{equation}\]</span></p>
+<p>with <span class="math inline">\(\sigma_{i}\)</span> defined as the perplexity <span class="citation">(<a href="Table.html#ref-RN147" role="doc-biblioref">Maaten 2008</a>)</span><!--[74]-->. Because t-SNE algorithm preserves the local structure of high dimensional space after projecting to the lower dimension, <span class="math inline">\(L_{t}\)</span> promotes the learning of local structures of cells.</p>
+<p><strong>Evaluation matrics</strong> KNN preservation and log-likelihood of low dimensional mapping are used to evaluate model performance.</p>
+<p><strong>Results</strong> scvis was tested on the simulated data and outperformed t-SNE in a nine-dimensional space task. scvis preserved both local structure and global structure. The relative positions of all clusters were well kept but outliers were scattered around clusters. Using simulated data and comparing to t-SNE, scvis generally produced consistent and better patterns among different runs while t-SNE could not. scvis also presented good results on adding new data to an existing embedding, with median accuracy on new data at 98.1% for K= 5 and 94.8% for K= 65, when train K cluster on original data then test the classifier on new generated sample points. scvis was subsequently tested on four real datasets including metastatic melanoma, oligodendroglioma, mouse bipolar and mouse retina datasets. In each dataset, scvis was showed to preserve both the global and local structure of the data.</p>
+
+</div>
+<div id="scVAE" class="section level3" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> scVAE: VAE for single-cell gene expression data</h3>
+<p>scVAE <span class="citation">(<a href="Table.html#ref-RN129" role="doc-biblioref">Gronbech et al. 2020</a>)</span><!--[75]--> includes multiple VAE models for denoising gene expression levels and learning the low-dimensional latent representation of cells. It investigates different choices of the likelihood functions in the VAE model to model different data sets.</p>
+<p><strong>Model</strong> scVAE is a conventional fully connected network. However, different distributions have been discussed for <span class="math inline">\(p(x_{gn}\vert v_{gn},\alpha_{gn})\)</span> to model different data behaviors. Specifically, scVAE considers Poisson, constrained Poisson, and negative binomial distributions for count data, piece-wise categorical Poisson for data including both high and low counts, and zero-inflated version of these distributions to model missing values. To model multiple modes in cell expressions, a Gaussian mixture is also considered for <span class="math inline">\(q(z_{n}\vert x_{n},s_{n})\)</span>, resulting a GMVAE. The inference process still follows that of a VAE as discussed in section <a href="dl-model-for-scRNA-seq.html#vae">3.1</a>.</p>
+<p><strong>Evaluation metrics</strong> ARI was used to assess the performance.</p>
+<p><strong>Results</strong> scVAEs were evaluated on the PBMC data and compared with factor analysis (FA) models. The results showed that GMVAE with negative binomial distribution achieved the highest lower bound and ARI. Zero-inflated Poisson distribution performed the second best. All scVAE models outperformed the baseline linear factor analysis model, which suggested that a non-linear model is needed to capture single-cell genomic features. GMVAE was also compared with Seurat and shown to perform better using the withheld data. However, scVAE performed no better than scVI <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[13]--> or scvis <span class="citation">(<a href="Table.html#ref-RN127" role="doc-biblioref">Ding, Condon, and Shah 2018</a>)</span><!--[73]-->, both are VAE models.</p>
+
+</div>
+<div id="VASC" class="section level3" number="5.3.5">
+<h3><span class="header-section-number">5.3.5</span> VASC: VAE for scRNA-seq</h3>
+<p>VASC <span class="citation">(<a href="Table.html#ref-RN131" role="doc-biblioref">D. Wang and Gu 2018</a>)</span><!--[76]--> is another VAE for dimension reduction and latent representation but it models dropout.</p>
+<p><strong>Model</strong> VASC’s input is the log-transformed expression but rescaled in the range [0,1]. A dropout layer (dropout rate of 0.5) is added after the input layer to force subsequent layers to learn to avoid dropout noise. The encoder network has three layers fully connected and the first layer uses linear activation, which acts like an embedded PCA transformation. The next two layers use the ReLU activation, which ensures a sparse and stable output. This model’s novelty is the zero-inflation layer (ZI layer), which is added after the decoder to model scRNA-seq dropout events. The probability of dropout event is defined as <span class="math inline">\(e^{-\hat{x}^{2}}\)</span> where x ̂ is the recovered expression value obtained by the decoder network. Since backpropagation cannot deal with stochastic network with categorical variables, a Gumbel-softmax distribution <span class="citation">(<a href="Table.html#ref-RN132" role="doc-biblioref">Jang E. and B. 2016</a>)</span><!--[77]--> is introduced to address the difficulty of ZI layer. The loss function of the model takes the form <span class="math inline">\(L = L_{0}(\Theta)+\lambda L_{c}(\Theta)\)</span>, where <span class="math inline">\(L_{0}\)</span> is the binary entropy because of the input is scaled to [0 1], and <span class="math inline">\(L_{c}\)</span> a loss performed using <span class="math inline">\(KL\)</span> divergence <span class="math inline">\(KL(Q(z\vert x)\|P(z))\)</span>, where <span class="math inline">\(z\)</span> is the latent variables (Gaussian distribution). After the model is well trained, the latent code can be used as the dimension-reduced features for downstream tasks and visualization.</p>
+<p><strong>Evaluation metrics</strong> Four measures are used to assess the performance including NMI, ARI, homogeneity, and completeness.</p>
+<p><strong>Results</strong> VASC was compared with PCA, t-SNE, ZIFA, and SIMLR on 20 datasets. In the study of embryonic development from zygote to blast cells, all methods roughly re-established the development stages of different cell types in the dimension-reduced space. However, VASC showed better performance to model embryo developmental progression. In the Goolam, Biase and Yan datasets, scRNA-seq data were generated through embryonic development stages from zygote to blast, VASC re-established development stage from 1, 2, 4, 8, 16 to blast, while other methods failed. In the Pollen, Kolodziejczyk ,and Baron dataset, VASC formed appropriate cluster, either with homogeneous cell type, preserved proper relative postions, or minimal batch influerence. Interestingly, tested on the PBMC dataset, VASC showed to identify the major global structure (B cells, CD4+, CD8+ T cells, NK cells, Dendritic cells), it also detected subtle differences within monocytes (FCGR3A+ vs CD14+ monocytes), indicating the capability of VASC handling large number of cells or cell types. Quantitative clustering performance in NMI, ARI, homogeneity and completeness was also performed. VASC always ranked top two in all the datasets. In terms of NMI and ARI, VASC best performed on 15 and 17 out of 20 datasets, respectively.</p>
+
+</div>
+<div id="scDeepCluster" class="section level3" number="5.3.6">
+<h3><span class="header-section-number">5.3.6</span> scDeepCluster</h3>
+<p>scDeepCluster <span class="citation">(<a href="Table.html#ref-RN133" role="doc-biblioref">Tian 2019</a>)</span><!--[78]--> is an AE network that simultaneously learns feature representation and performs clustering via explicit modeling of cell clusters as in DESC.</p>
+<p><strong>Model</strong> Similar to DCA, scDeepCluster adopts a ZINB distribution for <span class="math inline">\(x_{n}\)</span> as in Eq.<a href="Survey.html#eq:eq11">(5.1)</a> and <a href="Survey.html#eq:eq12">(5.2)</a>. The loss function is</p>
+<p><span class="math display" id="eq:eq30">\[\begin{equation}
+L(\Theta)=L_{0}(\Theta)+\gamma L_{c}(\Theta) \tag{5.19}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L_{0}\)</span> is the negative log-likelihood of the ZINB data distribution as defined in Eq.<a href="Survey.html#eq:eq13">(5.3)</a> and <span class="math inline">\(L_{c}\)</span> a clustering loss performed using <span class="math inline">\(KL\)</span> divergence as Eq.<a href="Survey.html#eq:eq20">(5.10)</a> defined in DESC algorithm. Comparing to csvis, in terms of clustering regularization, scvis uses t-SNE objective function which is faithful to feature representation by keeping local structure, while scDeepcluster uses KL divergence based clustering which focuses more on clustering assignment.</p>
+<p><strong>Evaluation metrics</strong> The following three metrics are used to evaluate the performance, NMI, clustering accuracy, and ARI.</p>
+<p><strong>Results</strong> scDeepCluster was first tested on the simulation data and compared with other seven methods including DCA <span class="citation">(<a href="Table.html#ref-RN53" role="doc-biblioref">Eraslan et al. 2019</a>)</span><!--[15]-->, two multi-kernel spectral clustering methods MPSSC <span class="citation">(<a href="Table.html#ref-RN135" role="doc-biblioref">Regev et al. 2017</a>)</span><!--[79]--> and SIMLR <span class="citation">(<a href="Table.html#ref-RN38" role="doc-biblioref">B. Wang et al. 2017</a>)</span><!--[40]-->, CIDR <span class="citation">(<a href="Table.html#ref-RN113" role="doc-biblioref">P. Lin, Troup, and Ho 2017</a>)</span><!--[59]-->, PCA + k-mean, scvis <span class="citation">(<a href="Table.html#ref-RN127" role="doc-biblioref">Ding, Condon, and Shah 2018</a>)</span><!--[73]--> and DEC <span class="citation">(<a href="Table.html#ref-RN253" role="doc-biblioref">Xie, Girshick, and Farhadi, n.d.</a>)</span><!--[80]-->. In different dropout rate simulations, scDeepCluster significantly outperformed the other methods consistently. In signal strength, imbalanced sample size, and scalability simulations, scDeepcluster outperformed all other algorithms and scDeepCluster and most notably advantages for weak signals, robust against different data imbalance levels and scaled linearly with the number of cells. scDeepCluster was then tested on four real datasets (10X PBMC, Mouse ES cells, Mouse bladder cells, Worm neuron cells) and shown to outperform all other comparing algorithms. Particularly, MPSSC and SIMLR failed to process the full datasets due to quadratic complexity.</p>
+
+</div>
+<div id="cscGAN" class="section level3" number="5.3.7">
+<h3><span class="header-section-number">5.3.7</span> cscGAN: Conditional single-cell generative adversarial neural networks</h3>
+<p>cscGAN <span class="citation">(<a href="Table.html#ref-RN139" role="doc-biblioref">Marouf et al. 2020</a>)</span><!--[82]--> is a GAN model designed to augment the existing scRNA-seq samples by generating expression profiles of specific cell types or subpopulations.</p>
+<p><strong>Model</strong> Two models, csGAN and cscGAN, were developed following the general formulation of WGAN described in section <a href="dl-model-for-scRNA-seq.html#GANs">3.3</a> The difference between the two models is that cscGAN is a conditional GAN such that the input to the generator also includes a class label y or cell type, i.e. <span class="math inline">\(\phi_{G}(z,y)\)</span>. The projection-based conditioning (PCGAN) method <span class="citation">(<a href="Table.html#ref-RN140" role="doc-biblioref">Miyato and Koyama 2018</a>)</span><!--[83]--> was adopted to obtain the conditional GAN. For both models, the generator (three layers of 1024, 512, and 256 neurons) and discriminator (three layers of 256, 512, and 1024 neurons) are fully connected DNNs.</p>
+<p><strong>Evaluation metrics</strong> The performance of cscGAN was assessed qualitatively by comparing the t-SNE plots of the real and generated samples. In the first approach, cluster-specific marker genes were obtained and SCENIC <span class="citation">(<a href="Table.html#ref-RN252" role="doc-biblioref">Aibar et al. 2017</a>)</span><!--[84]--> was applied to learn the regulons for data including real and generated samples. Then, the ability of cscGAN to uncover the regulons from the real data was assessed. In the second approach, MMD between real and generated samples from cscGAN and other approaches were computed to measure their similarity. In the third approach, a classifier was trained to discriminate real from generated samples and the classification AUC was compared with that of a random guess.</p>
+<p><strong>Results</strong> The performance of scGAN was first evaluated using PBMC data. The generated samples were shown to capture the desired clusters and the real data’s regulons. Additionally, the AUC performance for classifying real from generated samples by a Random Forest classifier only reached 0.65, performance close to 0.5. Finally, scGAN’s generated samples had a smaller MMD than those of Splatter, a state-of-the-art scRNA-seq data simulator <span class="citation">(<a href="Table.html#ref-RN190" role="doc-biblioref">Zappia, Phipson, and Oshlack 2017</a>)</span><!--[85]-->. Even though a large MMD was observed for scGAN when compared with that of SUGAR, another scRNA-seq simulator, SUGAR <span class="citation">(<a href="Table.html#ref-RN141" role="doc-biblioref">Lindenbaum and Krishnaswamy 2018</a>)</span><!--[86]--> was noted for prohibitively high runtime and memory. scGAN was further trained and assessed on the bigger mouse brain data and shown to model the expression dynamics across tissues. Then, the performance of cscGAN for generating cell-type-specific samples was evaluated using the PBMC data. cscGAN was shown to generate high-quality scRAN-seq data for specific cell types. Finally, the real PBMC samples were augmented with the generated samples. This augmentation improved the identification of rare cell types and the ability to capture transitional cell states from trajectory analysis.</p>
+
+</div>
+</div>
+<div id="multi-functional" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Multi-functional models</h2>
+<p>Given the versatility of AE and VAE in addressing different scRAN-seq analysis challenges, DL models possessing multiple analysis functions have been developed. We survey these models in this section.</p>
+
+<div id="scVI" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> scVI: single-cell variational inference</h3>
+<p>scVI <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span><!--[13]--> is designed to address a range of fundamental analysis tasks, including batch correction, visualization, clustering, and differential expression.</p>
+<p><strong>Model</strong> scVI is a VAE that models the counts of each cell from different batches. scVI adopts a ZINB distribution for <span class="math inline">\(x_{gn}\)</span></p>
+<p><span class="math display" id="eq:eq31">\[\begin{equation}
+p(x_{gn}\vert \pi_{gn},L_{n},\nu_{gn},\alpha) = \pi_{gn}\delta(0)+(1-\pi_{gn})NB(L_{n}\nu_{gn},\alpha_{g}) \tag{5.20}
+\end{equation}\]</span></p>
+<p>which is defined similarly as Eq.<a href="Survey.html#eq:eq11">(5.1)</a> in DCA, except that <span class="math inline">\(L_{n}\)</span> denotes the scaling factor for cell <span class="math inline">\(n\)</span>, which follows a log-Normal (<span class="math inline">\(\log \mathcal{N}\)</span>) prior as <span class="math inline">\(p(L_{n}) = \log{\mathcal{N}(\mu_{L_{n}},\sigma_{L_{n}}^{2})}\)</span>, therefore, <span class="math inline">\(v_{gn}\)</span> represents the mean counts normalized by <span class="math inline">\(L_{n}\)</span>. Now, let <span class="math inline">\(s_n \in \{0,1\}^{B}\)</span> be the batch ID of cell <span class="math inline">\(n\)</span> with <span class="math inline">\(B\)</span> being the total number of batches. Then, <span class="math inline">\(ν_{gn}\)</span> and <span class="math inline">\(\pi_{g}\)</span> are further modeled as functions of the d-dimension latent variable <span class="math inline">\(z_{n} \in \mathbb{R}^{d}\)</span> and the batch ID <span class="math inline">\(s_{n}\)</span> by the decoder networks <span class="math inline">\(D_{θ_{ν}}\)</span> and <span class="math inline">\(D_{θ_{\pi}}\)</span> as</p>
+<p><span class="math display" id="eq:eq32">\[\begin{equation}
+\mathbf{ν}_{n}=D_{θ_{ν}}(z_{n},s_{n}), \boldsymbol{\pi}_{n} = D_{θ_{π}}(\mathbf{z}_{n},s_{n}) \tag{5.21}
+\end{equation}\]</span></p>
+<p>where the <span class="math inline">\(g\)</span>th element of <span class="math inline">\(\mathbf{ν}_{n}\)</span> and <span class="math inline">\(\boldsymbol{\pi}_{n}\)</span> are <span class="math inline">\(ν_{gn}\)</span> and <span class="math inline">\(\pi_{g}\)</span>, respectively, and <span class="math inline">\(\boldsymbol{\theta}_{ν}\)</span> and <span class="math inline">\(\boldsymbol{\theta}_{\pi}\)</span> are the decoder weights. Note that the lower layers of the two decoders are shared. For inference, both <span class="math inline">\(z_{n}\)</span> and <span class="math inline">\(L_{n}\)</span> are considered as latent variables and therefore <span class="math inline">\(q(x_{n},s_{n}) = q(z_{n} | x_{n},s_{n})q(L_{n} | x_{n},s_{n})\)</span> is a mean-field approximate to the intractable posterior distribution <span class="math inline">\(p(z_{n},L_{n} | x_{n},s_{n})\)</span> and</p>
+<p><span class="math display" id="eq:eq33">\[\begin{equation}
+q(\mathbf{z}_{n}│x_{n},s_{n})= \mathcal{N}(\boldsymbol{\mu}_{z_{n}}, diag(\sigma_{Z_{n}}^{2})), \space  
+q(L_{n}│x_{n},s_{n} ) =  \log\mathcal{N}(\mu_{L_{n}}, diag(\sigma_{L_{n}}^{2} )) \tag{5.22}
+\end{equation}\]</span></p>
+<p>whose means and variances <span class="math inline">\(\{\mu_{z_{n}}, \sigma_{Z_{n}}^{2}\}\)</span> and <span class="math inline">\(\{\mu_{L_{n}},\sigma_{L_{n}}^{2} \}\)</span> are defined by the encoder networks <span class="math inline">\(E_{Z}\)</span> and <span class="math inline">\(E_{L}\)</span> applied to <span class="math inline">\(x_{n}\)</span> and <span class="math inline">\(s_{n}\)</span> as</p>
+<p><span class="math display" id="eq:eq34">\[\begin{equation}
+\{ \mu_{z_{n}},\sigma_{Z_{n}}^{2} \} = E_{\phi_{z}}(x_{n},s_{n}), \space \{\mu_{L_{n}},\sigma_{L_{n}}^{2} \} = E_{\phi_{L}}(z_{n},s_{n}) \tag{5.23}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\phi_{z}\)</span>, and <span class="math inline">\(\phi_{L}\)</span> are the encoder weights. Note that, like the decoders, the lower layers of the two encoders are also shared. Overall, the model parameters to be estimated by the variational optimization is <span class="math inline">\(\Theta=\{ \theta_{ν}, \theta_{\pi}, \phi_{z}, \phi_{L}, \alpha_{g} \}\)</span>. After inference is made, the latent vectors <span class="math inline">\(z_{n}\)</span> are used for visualization and clustering. <span class="math inline">\(ν_{gn}\)</span> provides a batch-corrected, size-factor normalized estimate of gene expression for each gene <span class="math inline">\(g\)</span> in each cell <span class="math inline">\(n\)</span>. An added advantage of the probabilistic representation by scVI is that it provides a natural probabilistic treatment of the subsequent differential analysis, resulting in lower variance in the adopted hypothesis tests.</p>
+<p><strong>Evaluation metrics</strong> Run-time vs. dataset size was used to assess the scalability. To assess imputation, randomly selected non-zero entries in the count matrix were used as hold-out data and the <span class="math inline">\(L_{1}\)</span> distance between the imputed and the original values in the hold-out data were used to measure the imputation accuracy. For clustering, ARI, NMI, and the Silhouette index were used. The entropy of bach mixing was adopted to measure batch correction performance.</p>
+<p><strong>Results</strong> scVI was evaluated for its scalability, the performance of imputation. For scalability, ScVI was shown to be faster than most nonDL algorithms and scalable to handle twice as many cells as nonDL algorithms with a fixed memory. For imputation, ScVI, together with other ZINB-based models, performed better than methods using alternative distributions. However, it underperformed for the dataset (HEMATO) with fewer cells. For the latent space, scVI was shown to provide a comparable stratification of cells into previously annotated cell types. Although scVI failed to ravel SIMLR, it is among the best in capturing biological structures (hierarchical structure, dynamics, etc.) and recognizing noise in data. For batch correction, it outperforms ComBat. For normalizing sequencing depth, the size factor inferred by scVI was shown to be strongly correlated with the sequencing depth. Interestingly, the negative binomial distribution in the ZINB was found to explain the proportions of zero expressions in the cells, whereas the zero probability <span class="math inline">\(\pi_{gn}\)</span> is found to be more correlated with alignment errors. For differential expression analysis, scVI was shown to be among the best.</p>
+
+</div>
+<div id="ldvae" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> LDVAE: linearly decoded variational autoencoder</h3>
+<p>LDVAE <span class="citation">(<a href="Table.html#ref-RN143" role="doc-biblioref">Svensson et al. 2020</a>)</span><!--[87]--> is an adaption of scVI to improve the model interpretability but it still benefits from the scalability and efficiency of scVI. Also, this formulation applies to general VAE models and thus is not restricted to scRNA-seq analysis.</p>
+<p><strong>Model</strong> LDVAE follows scVI’s formulation but replaces the decoder <span class="math inline">\(D_{\theta_{ν}}\)</span> in Eq.<a href="Survey.html#eq:eq32">(5.21)</a> by a linear model</p>
+<p><span class="math display" id="eq:eq35">\[\begin{equation}
+    \mathbf{ν}_{n}=\mathbf{Wz}_{n}  \tag{5.24}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mathbf{W} \in \mathbb{R}^{d×G}\)</span> is the wieight matrix. Being the linear decoder provides interpretability in the sense that the relationship between latent representation <span class="math inline">\(z_{n}\)</span> and gene expression <span class="math inline">\(ν_{n}\)</span> can be readily identified. LDVAE still follows the same loss and non-linear inference scheme as scVI.</p>
+<p><strong>Evaluation metrics</strong> The reconstruction errors of the VAEs were used to assess the performance.</p>
+<p><strong>Results</strong> LDVAE’s latent variable <span class="math inline">\(z_{n}\)</span> could be used for clustering of cells with similar accuracy as a VAE. Although LDVAE had a higher reconstruction error than VAE, due to the linear decoder, the variations along the different axes of <span class="math inline">\(z_{n}\)</span> establish direct linear relationships with input genes. As an example from analyzing mouse embryo scRNA-seq, <span class="math inline">\(z_{1,n}\)</span>, the second element of <span class="math inline">\(z_{n}\)</span>, is shown to relate to simultaneous variations in the expression of gene <span class="math inline">\(Pou5f1\)</span> and <span class="math inline">\(Tdgf1\)</span>. In contrast, such interpretability would be intractable without approximation for a VAE. LDVAE was also shown to induce fewer correlations between latent variables and improved the grouping of the regulatory programs. LDVAE also scaled to a large dataset with ~2M cells.</p>
+
+</div>
+<div id="saucie" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> SAUCIE</h3>
+<p>SAUCIE <span class="citation">(<a href="Table.html#ref-RN76" role="doc-biblioref">Amodio et al. 2019</a>)</span><!--[14]--> is an AE designed to perform multiple functions, including clustering, batch correlation, imputation, and visualization. SAUCIE is applied to the normalized data instead of count data.</p>
+<p><strong>Model</strong> SAUCIE includes multiple model components designed for different functions.</p>
+<ol style="list-style-type: decimal">
+<li>Clustering: SAUCIE first introduced a “digital” binary encoding layer <span class="math inline">\(\mathbf{h}^{c} \in \{0,1\}^{J}\)</span> in the decoder <span class="math inline">\(D\)</span> that functions to encode the cluster ID. To learn this encoding, an entropy loss is introduced
+<span class="math display" id="eq:eq37">\[\begin{equation}
+L_{D} = \sum_{k=1}^{K}p_{k}\log{p_{k}} \tag{5.25}
+\end{equation}\]</span></li>
+</ol>
+<p>where <span class="math inline">\(p_{k}\)</span> is the probability (proportion) of activation on neuron <span class="math inline">\(k\)</span> by the previous layer. Minimizing this entropy loss promotes sparse neurons, thus forcing a binary encoding. To encourage clustering behavior, SAUCIE also introduced an intracluster loss as</p>
+<p><span class="math display" id="eq:eq38">\[\begin{equation}
+L_{C} = \sum_{i,j:h_{i}^{C}=h_{j}^{C}} \| \widehat{x}_{i}-\widehat{x}_{j}\|^{2} \tag{5.26}
+\end{equation}\]</span></p>
+<p>which computes the distance <span class="math inline">\(L_{C}\)</span> between the expressions of a pair of cells <span class="math inline">\((\widehat{x}_{i},\widehat{x}_{j})\)</span> that have the same cluster ID <span class="math inline">\((h_{i}^{c}=h_{j}^{c})\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Batch correction: To correct the batch effect, an MMD loss is introduced to measure the differences in terms of the distribution between batches in the latent space</li>
+</ol>
+<p><span class="math display" id="eq:eq39">\[\begin{equation}
+L_{B} = \sum_{l=1,l\ne ref}^{B}MMD(\mathbf{z}_{ref},\mathbf{z}_{l}) \tag{5.27}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(B\)</span> is the total number of batches and <span class="math inline">\(z_{ref}\)</span> is the latent variable of an arbitrarily chosen reference batch.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Imputation and visualization: The output of the decoder is taken by SAUCIE as an imputed version of the input gene expression. To visualize the data without performing an additional dimension reduction directly, the dimension of the latent variable <span class="math inline">\(z_{n}\)</span> is forced to 2.</li>
+</ol>
+<p>Training the model includes two sequential runs. In the first run, an autoencoder is trained to minimize the loss <span class="math inline">\(L_{0}+ \lambda_{B}L_{B}\)</span> with <span class="math inline">\(L_{0}\)</span> being the MSE reconstruction loss defined in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq9">(3.9)</a> so that a batch-corrected, imputed input <span class="math inline">\(\tilde{x}\)</span> can be obtained at the output of the decoder. In the second run, the bottleneck layer of the encoder from the first run is replaced by a 2-D latent code for visualization and a digital encoding layer is also introduced. This model takes the cleaned <span class="math inline">\(\tilde{x}\)</span> as the input and is trained for clustering by minimizing the loss <span class="math inline">\(L_{0}+\lambda_{D}L_{D}+\lambda_{C}L_{C}\)</span>. After the model is trained, <span class="math inline">\(\tilde{x}\)</span> is the imputed, batch-corrected gene expression. The 2-D latent code is used for visualization and the binary encoder encodes the cluster ID.</p>
+<p><strong>Evaluation metrics</strong> For clustering, the Silhouette index was used. For batch correction, a mixing score similar in spirit to KBET is introduced to assess how well samples from two batches mix. For visualization, the precision and recall of the consistency of the neighboring cells of each cell between the original data space and the SAUCIE embedding space were calculated. For imputation, in addition to visual comprision of the imputed results, <span class="math inline">\(R^{2}\)</span> statistics of the imputation results on a synthetic data were reported.</p>
+<p><strong>Results</strong> SAUCIE was evaluated for clustering, batch correction, imputation, and visualization on both simulated and real scRNA-seq and scCyToF datasets. The performance was compared to minibatch kmeans, Phenograph <span class="citation">(<a href="Table.html#ref-RN145" role="doc-biblioref">Levine et al. 2015</a>)</span><!--[88]--> and 22 for clustering; MNN <span class="citation">(<a href="Table.html#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span><!--[28]--> and canonical correlation analysis (CCA) <span class="citation">(<a href="Table.html#ref-RN79" role="doc-biblioref">Butler et al. 2018</a>)</span><!--[29]--> for batch correction; PCA, Monocle2 <span class="citation">(<a href="Table.html#ref-RN150" role="doc-biblioref">Qiu et al. 2017</a>)</span><!--[89]-->, diffusion maps, UMAP <span class="citation">(<a href="Table.html#ref-RN148" role="doc-biblioref">McInnes 2018</a>)</span><!--[90]-->, tSNE <span class="citation">(<a href="Table.html#ref-RN147" role="doc-biblioref">Maaten 2008</a>)</span><!--[74]--> and PHATE <span class="citation">(<a href="Table.html#ref-RN146" role="doc-biblioref">Moon 2017</a>)</span><!--[91]--> for visualization; MAGIC <span class="citation">(<a href="Table.html#ref-RN111" role="doc-biblioref">Dijk et al. 2018</a>)</span><!--[55]-->, scImpute <span class="citation">(<a href="Table.html#ref-RN31" role="doc-biblioref">W. V. Li and Li 2018</a>)</span><!--[33]--> and nearest neighbors completion (NN completion) for imputation. Results showed that SAUCIE had a better or comparable performance with other approaches. Also, SAUCIE has better scalability and faster runtimes than any of the other models. SAUCIE’s results on the scCyToF dengue dataset were further analyzed in greater detail. SAUCIE was able to identify subtypes of the T cell populations and demonstrated distinct cell manifold between acute and healthy subjects.</p>
+
+</div>
+<div id="scScope" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> scScope</h3>
+<p>scScope <span class="citation">(<a href="Table.html#ref-RN152" role="doc-biblioref">Deng et al. 2019</a>)</span><!--[92]--> is an AE with recurrent steps designed for imputation and batch correction.</p>
+<p><strong>Model</strong> scScope has the following model design for batch correction and imputation.</p>
+<ol style="list-style-type: decimal">
+<li>Batch correction: A batch correction layer is applied to the input expression as</li>
+</ol>
+<p><span class="math display" id="eq:eq40">\[\begin{equation}
+\mathbf{x}_{n}^{c}=ReLu(\mathbf{x}_{n}-\boldsymbol{Bu}_{c} ) \tag{5.28}
+\end{equation}\]</span></p>
+<p>where and <span class="math inline">\(ReLU\)</span> is the ReLu activation function, <span class="math inline">\(\boldsymbol{B} \in \mathbb{R}^{G×K}\)</span> is the batch correction matrix, <span class="math inline">\(\boldsymbol{u}_c \in \{0,1\}^{K×1}\)</span> is an indicator vector with entry 1 indicates the batch of the input, and <span class="math inline">\(K\)</span> is the total number of batches.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Recursive imputation: Instead of using the reconstructed expression <span class="math inline">\(\hat{x}_{n}\)</span> as the imputed expression like in SAUCIE, scScope adds an imputer to <span class="math inline">\(\hat{x}_{n}\)</span> to recursively improve the imputation result. The imputer is a single-layer autoencoder, whose decoder performs the imputation as</li>
+</ol>
+<p><span class="math display" id="eq:eq41">\[\begin{equation}
+\widehat{\widehat{x}}_{n} = P_{I}[D_{I}(\widehat{\widehat{\mathbf{z}}}_{n})] \tag{5.29}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\widehat{\widehat{\mathbf{z}}}_{n}\)</span> is the output of the imputer encoder, <span class="math inline">\(D_{I}\)</span> is the imputer decoder, and <span class="math inline">\(P_{I}\)</span> is a masking function that set the elements in <span class="math inline">\(\widehat{\widehat{\mathbf{x}}}_{n}\)</span> that correspond to the non-missing values to zero. Then, <span class="math inline">\(\widehat{\widehat{\mathbf{x}}}_{n}\)</span> will be fed back to fill the missing value in the batch corrected input as <span class="math inline">\(x_{n}^{c}+\widehat{\widehat{\mathbf{x}}}_{n}\)</span>, which will be passed on to the main autoencoder. This recursive imputation can iterate multiple cycles as selected.
+The loss function modifies the conventional reconstruction loss <span class="math inline">\(L_{0}\)</span> as</p>
+<p><span class="math display" id="eq:eq42">\[\begin{equation}
+L_{0} = \sum_{n=1}^{N}\sum_{t=1}^{T}\|P_{I}^{-}[x_{n}^{c}-\widehat{x}_{n}^{}t]\|^{2} \tag{5.30}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(T\)</span> is the total number of recursion, <span class="math inline">\(\widehat{x}_{n}^{t}\)</span> is the reconstructed expression at <span class="math inline">\(t\)</span>th recursion, <span class="math inline">\(P_{I}^{-}\)</span> is another masking function that forces the loss to compute only the non-missing values in <span class="math inline">\(x_{n}^{c}\)</span>.</p>
+<p><strong>Evaluation metrics</strong> The performance was tested on both real and simulated datasets. ARI was used to evaluate the ability to match SAUCIE outputs to capture cell subpopulations. For imputation, the reconstruction error on held-out biological data was used. For batch correction, entropy of mixing was applied.</p>
+<p><strong>Results</strong> scScope was evaluated for its scalability, clustering, imputation, and batch correction. It was compared with PCA, MAGIC, ZINB-WaVE, SIMLR, AE, scVI, and DCA. For scalability and training speed, scScope was shown to offer scalability (for &gt;100K cells) with high efficiency (faster than most of the approaches). For clustering results, scScope was shown to outperform most of the algorithms on small simulated datasets but offer similar performance on large simulated datasets. For batch correction, scScope performed comparably with other approaches but with faster runtime. For imputation, scScope produced smaller errors consistently across a different range of expression. scScope was further shown to be able to identify rear cell populations from a large mix of cells.</p>
+
+</div>
+</div>
+<div id="doubletClassification" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Doublet Classification</h2>
+<p>In scRNA-Seq, doublets are technical artifacts formed when two or more cells are encapsulated into one reaction volume by chance, therefore need to be removed before quantifying gene expression.</p>
+
+<div id="solo" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Solo</h3>
+<p>Solo <span class="citation">(<a href="Table.html#ref-RN154" role="doc-biblioref">Bernstein et al. 2020</a>)</span><!--[93]--> is a semi-supervised deep learning approach that identifies doublets with greater accuracy than other existing methods.</p>
+<p><strong>Model</strong> Solo identifies doublets by embedding cells using VAE first and then appends a feed-forward neural network layer to the encoder to form a supervised classifier on the labeled training samples. The method assumes that most cells in an experiment are singlets and one can approximate a view into the doublet population by generating simulated doublets in silico from the observed data. In Solo, doublets are assumed to have less than twice the UMI depth on average but an option to scale the merged counts by a specific factor is also provided. The method operates in three phases: (1) doublet simulation where a number <span class="math inline">\(N_{d}\)</span> of doublets are generated by taking the sum of randomly chosen observed cells considered putative singlets, and then model was trained to differentiate these in silico doublets from the observed data; (2) cell embedding where Solo embeds cells in a nonlinear latent space via a VAE that follows the scVI architecture; and (3) classifier training where a standard discriminative classifier is added to the end of the scVI encoder and trained using the simulated doublet samples and the observed cells to predict doublet status. Only the added classifier layer was trained with a binary cross-entropy loss, the scVI encoder was fixed during training.</p>
+<p><strong>Evaluation metrics</strong> The performance was measured using precision-recall (PR) and receiver operator characteristic (ROC) curves and summarized with average precision (AP) and area under the receiver operator curve (AUROC).</p>
+<p><strong>Results</strong> Solo performance was tested on a singlet/doublet population simulated using the Splatter toolkit <span class="citation">(<a href="Table.html#ref-RN190" role="doc-biblioref">Zappia, Phipson, and Oshlack 2017</a>)</span><!--[85]--> and several experimental datasets, where Solo exceeds the performance of previous non-deep learning methods like Scrublet <span class="citation">(<a href="Table.html#ref-RN191" role="doc-biblioref">Wolock, Lopez, and Klein 2019</a>)</span><!--[94]--> and DoubletFinder <span class="citation">(<a href="Table.html#ref-RN192" role="doc-biblioref">McGinnis, Murrow, and Gartner 2019</a>)</span><!--[95]--> by greater margins in the larger and more complex datasets. Solo also outperformed existing computational methods for this task on a variety of cell line and tissue datasets with experimental doublet annotations.</p>
+
+</div>
+</div>
+<div id="automatedCellType" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Automated cell type identification</h2>
+<p>scRNA-Seq is able to catalog cell types in complex tissues under different conditions. However, the commonly adopted manual cell typing approach based on known markers is time-consuming and less reproducible. We survey deep learning models that take the task of automated cell type identification.</p>
+
+<div id="digitalDLSorter" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> DigitalDLSorter</h3>
+<p>DigitalDLSorter <span class="citation">(<a href="Table.html#ref-RN156" role="doc-biblioref">Torroja and Sanchez-Cabo 2019</a>)</span><!--[96]--> was proposed to identify and quantify the immune cells infiltrated in tumors captured in bulk RNA-seq, utilizing single-cell RNA-seq data.</p>
+<p><strong>Model</strong> DigitalDLSorter is a 4-layer DNN (Fig.<a href="Survey.html#fig:Figure4">5.2</a>A, 2 hidden layers of 200 neurons each and an output of 10 cell types). The DigitalDLSorter is trained with two single-cell datasets: breast cancers <span class="citation">(<a href="Table.html#ref-RN220" role="doc-biblioref">Chung et al. 2017</a>)</span><!--[97]--> and corectal cancers <span class="citation">(<a href="Table.html#ref-RN221" role="doc-biblioref">H. Li et al. 2017</a>)</span><!--[98]-->. For each cell, it is determined to be tumor cell or non-tumor cell using RNA-seq based CNV method <span class="citation">(<a href="Table.html#ref-RN220" role="doc-biblioref">Chung et al. 2017</a>)</span><!--[97]-->, followed with using xCell algorithm <span class="citation">(<a href="Table.html#ref-RN249" role="doc-biblioref">Aran, Hu, and Butte 2017</a>)</span><!--[99]--> to determine immune cell types for non-tumor cells. Different pseudo bulk (from 100 cells) RNA-seq datasets were prepared with known mixture proportion to train the DNN. The output of DigitalDLSorter is the predicted proportions of cell types in the input bulk sample.</p>
+<p><strong>Evaluation</strong> Pearson Correlation between the predicted and real cell type proportions was used to assess the performance.</p>
+<p><strong>Result</strong> DigitalDLSorter was first tested on simulated bulk RNA-seq samples. DigitalDLSorter achieved excellent agreement (linear correlation of 0.99 for colorectual cancer, and good agreement in quadratic relationship for breast cancer) at predicting cell types proportion. The proportion of immune and nonimmune cell subtypes of test bulk TCGA samples was predicted by DigitalDLSorter and the results showed very good correlation to other deconvolution tools including TIMER <span class="citation">(<a href="Table.html#ref-RN220" role="doc-biblioref">Chung et al. 2017</a>)</span><!--[97]-->, ESTIMATE <span class="citation">(<a href="Table.html#ref-RN248" role="doc-biblioref">Yoshihara et al. 2013</a>)</span><!--[100]-->, EPIC <span class="citation">(<a href="Table.html#ref-RN245" role="doc-biblioref">Racle et al. 2017</a>)</span><!--[101]--> and MCPCounter <span class="citation">(<a href="Table.html#ref-RN247" role="doc-biblioref">Becht et al. 2016</a>)</span><!--[102]-->. Using DigitalDLSorter predicted CD8+ (good prognosis for overall and disease-free survival) and Monocytes-Macrophages (MM, indicator for protumoral activity) proportions, it is found that patients with higher CD8+/MM ratio had better survival for both cancer types than those with lower CD8+/MM ratio. Both EPIC and MCPCounter yielded non-significant survival association using their cell proportion estimate.</p>
+
+</div>
+<div id="scCapsNet" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> scCapsNet</h3>
+<p>scCapsNet <span class="citation">(<a href="Table.html#ref-RN157" role="doc-biblioref">N. Wang L. 2020</a>)</span><!--[103]--> is an interpretable capsule network designed for cell type prediction. The paper showed that the trained network could be interpreted to inform marker genes and regulatory modules of cell types.</p>
+<p><strong>Model</strong> Two-layer architecture of scCapsNet takes log-transformed, normalized expressions as input to form a feature extraction network (consists of L parallel sigle-layer neural networks) followed by a capsule network for cell-type classification (type capsules). For each of L parallel feature extraction layer, it generates a primary capsule <span class="math inline">\(\boldsymbol{u}_{l} \in \mathbb{R}^{d_{p}}\)</span> as</p>
+<p><span class="math display" id="eq:eq43">\[\begin{equation}
+\boldsymbol{u}_{l} = ReLU(\boldsymbol{W}_{P,l} \boldsymbol{x}_{n}) \forall = 1 , … , L  \tag{5.31}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\boldsymbol{W}_{P,l} \in \mathbb{R}^{d_{p}×G}\)</span> is the weight matrix. Then, the primary capsules are fed into the capsule network to compute <span class="math inline">\(K\)</span> type capsules <span class="math inline">\(v_{k} \in \mathbb{R}^{d_{t}}\)</span>, one for each cell type, as</p>
+<p><span class="math display" id="eq:eq44">\[\begin{equation}
+v_{k}=squash(\sum_{l}^{L}c_{kl}\boldsymbol{W}_{kl}\boldsymbol{u}_{l}) \forall k=1,…,K   \tag{5.32}
+\end{equation}\]</span></p>
+<p>where squash is the squashing function <span class="citation">(<a href="Table.html#ref-RN159" role="doc-biblioref">N. D. Patel, Nguang, and Coghill 2007</a>)</span><!--[104]--> to normalize the magnitude of its input vector to be less than one, <span class="math inline">\(\boldsymbol{W}_{kl}\)</span> is another trainable weight matrix, and <span class="math inline">\(c_{kl} \forall l=1,…,L\)</span> are the coupling coefficients that represent the probability distribution of each primary capsule’s impact on the prediction of cell type <span class="math inline">\(k\)</span>. <span class="math inline">\(c_{kl}\)</span> is not trained but computed through the dynamic routing process proposed in the original capsule networks <span class="citation">(<a href="Table.html#ref-RN157" role="doc-biblioref">N. Wang L. 2020</a>)</span><!--[103]-->. The magnitude of each type of capsule <span class="math inline">\(v_{k}\)</span> represents the probability of a single cell <span class="math inline">\(x_{n}\)</span> belonging to cell type <span class="math inline">\(k\)</span>, which will be used for cell type classification.</p>
+<p>The training of the network minimizes the cross-entropy loss by the back-propagation algorithm. Once trained, the interpretation of marker genes and regulatory modules can be achieved by determining first the important primary capsules for each cell type and then the most significant genes for each important primary capsule (identified based on <span class="math inline">\(c_{kl}\)</span> directly). To determine the genes that are important for an important primary capsule <span class="math inline">\(l\)</span>, genes are ranked base on the scores of the first principal component computed from the columns of <span class="math inline">\(\boldsymbol{W}_{P,l}\)</span> and then the markers are obtained by a greedy search along with the ranked list for the best classification performance.</p>
+<p><strong>Evaluation matrics</strong> Accuracy of the predicted cell types was evaluated.</p>
+<p><strong>Results</strong> scCapsNet’s performance was evaluated on human PBMCs <span class="citation">(<a href="Table.html#ref-RN161" role="doc-biblioref">Zheng et al. 2017</a>)</span><!--[105]--> and mouse retinal bipolar cells <span class="citation">(<a href="Table.html#ref-RN163" role="doc-biblioref">Shekhar et al. 2016</a>)</span><!--[106]--> datasets and shown to have comparable accuracies (99% and 97% respectively) with DNN and other popular ML algorithms (SVM, random forest, LDA and nearest neighbor). However, the interpretability of scCapsNet was demonstrated extensively. First, examining the coupling coefficients for each cell type showed that only a few primary capsules have high values and thus is effective. Subsequently, a set of core genes were identified for each effective capsules using the greedy search on the PC-score ranked gene list. GO enrichment analysis showed that these core genes were enriched in cell type related biological functions. Mapping the expression data into space spanned by PCs of the columns of <span class="math inline">\(\boldsymbol{W}_{P,l}\)</span> corresponding to all core genes uncovered regulatory modules that would be missed by the T-SNE of gene expressions, which demonstrated the effectiveness of the embeddings learned by scCapsNet in capturing the functionally important features.</p>
+
+</div>
+<div id="netAE" class="section level3" number="5.6.3">
+<h3><span class="header-section-number">5.6.3</span> netAE: network-enhanced autoencoder</h3>
+<p>netAE <span class="citation">(<a href="Table.html#ref-RN165" role="doc-biblioref">Dong and Alterovitz 2021</a>)</span><!--[107]--> is a VAE-based semi-supervised cell type prediction model that deals with scenarios of having a small number of labeled cells.</p>
+<p><strong>Model</strong> netAE works with UMI counts and assumes a ZINB distribution for <span class="math inline">\(x_{gn}\)</span> as in Eq.<a href="Survey.html#eq:eq32">(5.21)</a> in scVI. However, netAE adopts the general VAE loss as in Eq.<a href="dl-model-for-scRNA-seq.html#eq:eq6">(3.6)</a> with two function-specific loss as</p>
+<p><span class="math display" id="eq:eq45">\[\begin{equation}
+L(\Theta)=-\mathcal{L}(\Theta)+\lambda_{1} \sum_{n\in S}Q(\mathbf{z}_{n}) +\lambda_{2}\sum_{n \in S_{L}} \log{ f(y_{n}│\mathbf{z}_{n})} \tag{5.33}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(S\)</span> is a set of indices for all cells and <span class="math inline">\(S_{L}\)</span> is a subset of <span class="math inline">\(S\)</span> for only cells with cell type labels, <span class="math inline">\(Q\)</span> is modified Newman and Girvan modularity <span class="citation">(<a href="Table.html#ref-RN166" role="doc-biblioref">Newman 2006</a>)</span><!--[108]--> that quantifies cluster strength using <span class="math inline">\(z_{n}\)</span>, f is the softmax function, and <span class="math inline">\(y_{n}\)</span> is the cell type label. The second loss in Eq.<a href="Survey.html#eq:eq34">(5.23)</a> functions as a clustering constraint and the last term is the cross-entropy loss that constrains the cell type classification.</p>
+<p><strong>Evaluation metrics</strong> Accuracy of cell type classification was used to assess the performance.</p>
+<p><strong>Results</strong> netAE was compared with popular dimension reduction methods including scVI, ZIFA, PCA and AE as well as a semi-supervised method scANVI <span class="citation">(<a href="Table.html#ref-RN169" role="doc-biblioref">C. Xu et al. 2021</a>)</span><!--[109]-->. For different dimension reduction methods, cell type classification from latent features of cells was carried out using KNN and logistic regression. The effect of different labeled samples sizes on classification performance was also investigated, where the sample size varied from as few as 10 cells to 70% of all cells. Among 3 test datasets (mouse brain cortex, human embryo development, and mouse hematopoietic stem and progenitor cells), netAE outperformed most of the baseline methods. Latent features were visualized using t-SNE and cell clusters by netAE were tighter than those by other embedding spaces. There was also consistency of better cell-type classification with improved cell type clustering by netAE. This suggested that the latent spaces learned with added modularity constraint in the loss helped identify clusters of similar cells. Ablation study by removing each of the three loss terms in Eq.<a href="Survey.html#eq:eq45">(5.33)</a> showed a drop of cell-type classification accuracy, suggesting all three were necessary for the optimal performance.</p>
+
+</div>
+<div id="scDGN" class="section level3" number="5.6.4">
+<h3><span class="header-section-number">5.6.4</span> scDGN - supervised adversarial alignment of single-cell RNA-seq data</h3>
+<p>scDGN <span class="citation">(<a href="Table.html#ref-RN172" role="doc-biblioref">Ge et al. 2021</a>)</span><!--[110]-->, or Single Cell Domain Generalization Network (Fig.<a href="Survey.html#fig:Figure4">5.2</a>G), is an domain adversarial network that aims to accurately assign cell types of single cells while performing batch removal (domain adaptation) at the same time. It benefits from the superior ability of domain adversarial learning to learn representations that are invariant to technical confounders.</p>
+<p><strong>Model</strong> scDGN takes the log-transformed, normalized expression as the input and has three main modules: i) an encoder (<span class="math inline">\(E_{\phi}(x_{n})\)</span>) for dimension reduction of scRNA-Seq data, ii) cell-type classifier, <span class="math inline">\(C_{\phi_{C}}(E_{\phi}(x_{n}))\)</span> with parameters <span class="math inline">\(\phi_{C}\)</span>, and iii) domain (batch) discriminator, <span class="math inline">\(D_{ϕ_{D}} (E_{\phi}(x_{n}))\)</span>. The model has a Siamese design and the training takes a pair of cells <span class="math inline">\((x_{1},x_{2})\)</span>, each from the same or different batches. The encoder network contains two hidden layers with 1146 and 100 neurons. <span class="math inline">\(C_{\phi_{C}}\)</span> classifies the cell type and <span class="math inline">\(D_{\phi_{D}}\)</span> predicts whether <span class="math inline">\(x_{1}\)</span> and <span class="math inline">\(x_{2}\)</span> are from the same batch or not. The overall loss is denoted by</p>
+<p><span class="math display" id="eq:eq46">\[\begin{equation}
+    L(\phi,\phi_{C},\phi_{D}) = L_{C}(C_{\phi_{C}}(E_{\phi}(x_{1}))) - \lambda L_{D}(D_{\phi_{D}}(E_{\phi}(x_{1})), D_{\phi_{D}}(E_{\phi}(x_{2})))  \tag{5.34}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L_{C}\)</span> is the cross entropy loss, <span class="math inline">\(L_{D}\)</span> is a contrastive loss as described in <span class="citation">(<a href="Table.html#ref-RN244" role="doc-biblioref">Hadsell, Chopra, and LeCun, n.d.</a>)</span><!--[111]-->. Notice that Eq.<a href="Survey.html#eq:eq46">(5.34)</a> has an adversarial formulation and minimizing this loss maximizes the misclassification of cells from different batches, thus making them indistinguishable. Similar to GAN training, scDGN is trained to iteratively solve: <span class="math inline">\(\widehat{\phi}_{D} = argmin_{\phi_{D}}L(\widehat{\phi},\widehat{\phi}_{C},\phi_{D})\)</span> and <span class="math inline">\((\widehat{\phi},\widehat{\phi}_{C} ) = argmin_{\phi,\phi_{C}}L(\phi,\phi_{C}, \widehat{\phi}_{D})\)</span>.</p>
+<p><strong>Evaluation metrics</strong> Prediction accuracy was used to evaluate the performance.</p>
+<p><strong>Results</strong> scDGN was tested for classifying cell types and aligning batches ranging in size from 10 to 39 cell types and from 4 to 155 batches. The performance was compared to a series of deep learning and traditional machine learning methods, including Lin et al. DNN <span class="citation">(<a href="Table.html#ref-RN193" role="doc-biblioref">C. Lin et al. 2017</a>)</span><!--[68]-->, CaSTLe <span class="citation">(<a href="Table.html#ref-RN194" role="doc-biblioref">Lieberman, Rokach, and Shay 2018</a>)</span><!--[112]-->, MNN <span class="citation">(<a href="Table.html#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span><!--[28]-->, scVI <span class="citation">(<a href="Table.html#ref-RN88" role="doc-biblioref">Lopez et al. 2018</a>)</span> <!--[13]-->, and Seurat <span class="citation">(<a href="Table.html#ref-RN96" role="doc-biblioref">Stuart et al. 2019</a>)</span><!--[9]-->. scDGN outperformed all other methods in the classification accuracy on a subset of scQuery datasets (0.29), PBMC (0.87), and 4 of the six Seurat pancreatic datasets (0.86-0.95). PCA visualization of the learned data representations demonstrated that scDGN overcame the batch differences and clearly separated cell clusters based on cell types, while other methods were vulnerable to batch effects. In summary, scDGN is a supervised adversarial alignment method to eliminate the batch effect of scRNA-Seq data and create cleaner representations of cell types.</p>
+
+</div>
+</div>
+<div id="biologicalFunctionPrediction" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Biological function prediction</h2>
+<p>Predicting biological function and/reponse to treatment at single cell level or cell types is critical to understand cell system functioning and potent response to stimulation. Utilize DL models that captures gene-gene relationship and their property at latent space, several models we reviewed below provide some exciting approach to achieve complex biological functions and outcomes.</p>
+
+<div id="CNNC" class="section level3" number="5.7.1">
+<h3><span class="header-section-number">5.7.1</span> CNNC: convolutional neural network for coexpression</h3>
+<p>CNNC <span class="citation">(<a href="Table.html#ref-RN174" role="doc-biblioref">Yuan and Bar-Joseph 2019</a>)</span><!--[113]--> is proposed to infer causal interactions between genes from scRNA-seq data.</p>
+<p><strong>Model</strong> CNNC is a Convolutional Neural Network (CNN, Fig.<a href="Survey.html#fig:Figure4">5.2</a>F), the most popular DL model. CNNC takes expression levels of two genes from many cells and transforms them into a 32 x 32 image-like normalized empirical probability function (NEPDF), which measures the probabilities of observing different coexpression levels between the two genes. CNNC includes 6 convolutional layers, 3 maxpooling layers, 1 flatten layer, and one output layer. All convolution layers have 32 kernels of size 3x3. Depending on the application, the output layer can be designed to predict the state of interaction (Yes/No) between the genes or the causal interaction between the input genes (no interaction, gene A regulates gene B, or gene B regulates gene A).</p>
+<p><strong>Evaluation matrics</strong> Prediction AUROC, AUPRC, and accuracy were assessed.</p>
+<p><strong>Result</strong> CNNC was trained to predict transcription factor (TF)-Gene interactions using the mESC data from scQuery <span class="citation">(<a href="Table.html#ref-RN195" role="doc-biblioref">Alavi et al. 2018</a>)</span><!--[114]-->, where the ground truth interactions were obtained from the ChIP-seq dataset from the GTRD database <span class="citation">(<a href="Table.html#ref-RN196" role="doc-biblioref">Yevshin et al. 2017</a>)</span><!--[115]-->. The performance was compared with DNN, count statistics <span class="citation">(<a href="Table.html#ref-RN197" role="doc-biblioref">Y. X. Wang, Waterman, and Huang 2014</a>)</span><!--[116]-->, and mutual information-based approach <span class="citation">(<a href="Table.html#ref-RN178" role="doc-biblioref">Krishnaswamy et al. 2014</a>)</span><!--[117]-->. CNNC was shown to have more than 20% higher AUPRC than other methods and reported almost no false-negative for the top 5% predictions. CNNC was also trained to predict the pathway regulator-target gene pairs. The positive regulator-gene pairs were obtained from KEGG <span class="citation">(<a href="Table.html#ref-RN198" role="doc-biblioref">Kanehisa et al. 2017</a>)</span><!--[118]-->, Reactome <span class="citation">(<a href="Table.html#ref-RN176" role="doc-biblioref">Fabregat et al. 2018</a>)</span><!--[119]-->, and negative samples were genes pairs that appeared in pathways but not interacted. CNNC was shown to have better performance of predicting regulator-gene pairs on both KEGG and Reactome pathways than other methods including Pearson correlation, count statistics, GENIE3 <span class="citation">(<a href="Table.html#ref-RN199" role="doc-biblioref">Huynh-Thu et al. 2010</a>)</span><!--[120]-->, Mutual information, Bayesian directed network (BDN), and DREMI <span class="citation">(<a href="Table.html#ref-RN178" role="doc-biblioref">Krishnaswamy et al. 2014</a>)</span><!--[117]-->. CNNC was also applied for causality prediction between two genes, that is if two genes regulate each other and if they do, which gene is the regulator. The ground truth causal relationships were also obtained from the KEGG and Reactome datasets. Again, CNNC reported better performance than BDN, the common method developed to learn casual relationshop from gene expression data. CNNC was finally trained to assign 3 essential cell functions (cell cycle, circadian rhythm, and immune system) to genes. This is achieved by training CNNC to predict pair of genes from same function (e.g. Cell Cycle defined by mSigDB from gene set enrichment analysis (GSEA <span class="citation">(<a href="Table.html#ref-RN200" role="doc-biblioref">Subramanian et al. 2005</a>)</span><!--[121]-->) as 1 and all other pairs as 0. The performance was compared with “guilt by association” and DNN, and CNNC were shown to have more than 4% higher AUROC and reported all positives for the top 10% predictions.</p>
+
+</div>
+<div id="scGen" class="section level3" number="5.7.2">
+<h3><span class="header-section-number">5.7.2</span> scGen, a generative model to predict perturbation response of single cells across cell types</h3>
+<p>scGen <span class="citation">(<a href="Table.html#ref-RN179" role="doc-biblioref">Lotfollahi, Wolf, and Theis 2019</a>)</span><!--[122]--> is designed to learn cell response to certain perturbation (drug treatment, gene knockout, etc) from single cell expression data and predict the response to the same perturbation for a new sample or a new cell type. The novelty of scGen is that it learns the response in the latent space instead of the expression data space.</p>
+<p><strong>Model</strong> ScGen follows the general VAE for scRNA-seq data but uses the “latent space arithmetics” to learn perturbations’ response. Given scRNAseq samples of perturbed (denoted as <span class="math inline">\(p\)</span>) and unperturbed cells (denoted as <span class="math inline">\(unp\)</span>), a VAE model is trained. Then, the latent space representation <span class="math inline">\(z_{p}\)</span> and <span class="math inline">\(z_{unpare}\)</span> obtained for the perturbed and unperturbed cells. Following the notion that VAE could map nonlinear operations (e.g., perturbation) in the data space to linear operations in the latent space, ScGen estimate the response in the latent space as <span class="math inline">\(\delta=\bar{z}_{p}-\bar{z}_{unp}\)</span>, where <span class="math inline">\(\bar{z}\)</span> is the average representation of samples from the same cell type or different cell types. Then, given the latent representation <span class="math inline">\(z&#39;_{unp}\)</span> of an unperturbed cell for a new sample from the same or different cell type, the latent representation of the corresponding perturbed cell can be predicted as <span class="math inline">\(z&#39;_{p}=z&#39;_{unp}+\delta\)</span>. The expression of the perturbed cell can also be estimated by feeding <span class="math inline">\(z&#39;_{p}\)</span> into the VAE decoder. The scGen can also be expanded to samples and treatment across two species (using orthologues between species). When scGen is trained for species 1, or <span class="math inline">\(s1\)</span>, with both perturbed and unperturbed cells but species 2, <span class="math inline">\(s2\)</span>, with only unperturbed cells, then the latent code for the perturbed cells from <span class="math inline">\(s2\)</span> can be predicted as <span class="math inline">\(z_{s_{2},p} = \frac{1}{2}(z_{s_{1},p} + z_{s_{2},unp} + \delta_{s} + \delta_{p})\)</span> where <span class="math inline">\(\delta_{p} = z_{s_{1},unp} - z_{s_{1},p}\)</span> captures the response of perturbation and <span class="math inline">\(\delta_{s} = z_{s_{1}}-z_{s_{2}}\)</span> represents the difference between species.</p>
+<p><strong>Evaluation matrics</strong> Correlation and UMAP visualization were used to assess the performance.</p>
+<p><strong>Result</strong> scGen was applied to predict perturbation of out-of-samples response in human PBMCs data, and scGen showed a higher average correlation (<span class="math inline">\(R^{2}\)</span>= 0.948) between predicted and real data for six cell types. Comparing with other methods including CVAE <span class="citation">(<a href="Table.html#ref-RN201" role="doc-biblioref">Duvenaud 2015</a>)</span><!--[123]-->, style transfer GAN [<em>124:reference not found</em>]<!--[124]-->, linear approaches based on vector arithmetics (VA) <span class="citation">(<a href="Table.html#ref-RN179" role="doc-biblioref">Lotfollahi, Wolf, and Theis 2019</a>)</span><!--[122]--> and PCA+VA, scGen predicted full distribution of ISG15 gene (strongest regulated gene by IFN-<span class="math inline">\(\beta\)</span>) response to IFN-<span class="math inline">\(\beta\)</span> <span class="citation">(<a href="Table.html#ref-RN218" role="doc-biblioref">Kang et al. 2018</a>)</span><!--[125]-->, while others might predicted mean (CAVE and style transfer GAN) but failed to produce the full distribution. scGen was also tested on predicting the intestinal epithelial cells’ response to infection <span class="citation">(<a href="Table.html#ref-RN226" role="doc-biblioref">Haber et al. 2017</a>)</span><!--[126]-->. For early transit-amplifying cells, scGen showed good prediction (<span class="math inline">\(R^{2}\)</span>=0.98) for both H. poly and Salmonella infection. Finally, scGen was evaluated for perturbation across species using scRNA-seq data set by Hagai et al <span class="citation">(<a href="Table.html#ref-RN202" role="doc-biblioref">Hagai et al. 2018</a>)</span><!--[127]-->, which comprised of bone marrow-derived mononuclear phagocytes from mice, rats, rabbits, and pigs perturbed with lipopolysaccharide (LPS). scGen’s predictions of LPS perturbion responses were shown to be highly correlated (<span class="math inline">\(R^{2}\)</span> = 0.91) with the real responses.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="DatasetEvalMetric.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/Huang-AI4Medicine-Lab/survey-of-DL-for-scRNA-seq-analysis/edit/main/Manuscript/survey-of-dl-models-for-scRNA-seq-analysis.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["survey-of-DL-for-scRNA-seq-analysis.pdf", "survey-of-DL-for-scRNA-seq-analysis.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

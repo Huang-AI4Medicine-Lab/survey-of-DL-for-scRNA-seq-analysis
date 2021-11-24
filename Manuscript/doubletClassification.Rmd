@@ -1,0 +1,4 @@
+
+## Doublet Classification  {#doubletClassification}
+
+In scRNA-Seq, doublets are technical artifacts formed when two or more cells are encapsulated into one reaction volume by chance, therefore need to be removed before quantifying gene expression. 
