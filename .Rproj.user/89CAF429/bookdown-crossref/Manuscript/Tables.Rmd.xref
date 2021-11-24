@@ -14,6 +14,8 @@ tab:Table2c Mouse single-cell data sources used by different DL algorithms
 h3:d.-single-cell-data-derived-from-other-species D. Single-cell data derived from other species
 tab:Table2d Single-cell data derived from other species
 h3:e.-large-single-cell-data-source-used-by-various-algorithms E. Large single-cell data source used by various algorithms
+tab:Table2e Large single-cell data source used by various algorithms
 h2:table3 Table3
 h3:evaluation-metrics-used-in-surveyed-dl-algorithms Evaluation metrics used in surveyed DL algorithms
+tab:Table3 Evaluation metrics used in surveyed DL algorithms
 

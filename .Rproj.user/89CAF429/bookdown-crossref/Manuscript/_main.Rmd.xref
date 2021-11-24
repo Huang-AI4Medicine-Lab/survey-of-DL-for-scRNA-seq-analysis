@@ -1,0 +1,75 @@
+h1:bibliography-book.bib bibliography: [book.bib]
+h1:bibliography-references.bib bibliography: References.bib
+h1:biblio-style-cell.cls biblio-style: cell.cls
+h1:bibliography-book.bib-1 bibliography: [book.bib]
+h4:corresponding-authors 
+h4:affiliations 
+h2:ae Autoencoders (AEs) for scRNA-seq data
+h2:automatedCellType Automated cell type identification
+h2:batch-effect-correction-2 Batch effect correction
+h3:batch-effect-correction Batch effect correction
+h3:bermuda BERMUDA: Batch Effect ReMoval Using Deep Autoencoders
+h2:biologicalFunctionPrediction Biological function prediction
+h3:clustering Clustering
+h3:CNNC CNNC: convolutional neural network for coexpression
+h3:dca DCA:deep count autoencoder
+h3:deepimpute DeepImpute (Deep neural network Imputation)
+h3:desc DESC: batch correction based on clustering
+h3:dhaka Dhaka: a VAE-based dimension reduction model
+h3:digitalDLSorter DigitalDLSorter
+h3:dimension-reduction-by-aes Dimension reduction by AEs with gene-interaction constrained architecture
+h2:dimension-reduction Dimension reduction, latent representation, clustering, and data augmentation
+h2:doubletClassification Doublet Classification
+h2:EvalMethod Evaluation methods
+h2:GANs Generative adversarial networks (GANs) for scRNA-seq data
+h3:imap iMAP: Integration of Multiple single-cell datasets by Adversarial Paired-style transfer networks
+h2:imputation-2 Imputation
+h3:imputation Imputation
+h1:intro Introduction
+h3:late LATE: Learning with AuToEncoder
+h3:ldvae LDVAE: linearly decoded variational autoencoder
+h2:multi-functional Multi-functional models
+h3:netAE netAE: network-enhanced autoencoder
+h1:dl-model-for-scRNA-seq Overview of common deep learning models for scRNA-seq analysis
+fig:Figure2 Graphical models of the surveyed DL models including A) Variational Autoencoder (VAE); B) Autoencoder (AE); and C) Generative Adversarial Network (GAN)
+h1:DatasetEvalMetric Overview of datasets and evaluation metrics
+h1:scRNA-seq-pipeline Overview of scRNA-seq processing pipeline
+h3:saucie SAUCIE
+h3:saver-x SAVER-X: single-cell analysis via expression recovery harnessing external data
+h3:scCapsNet scCapsNet
+h3:scDeepCluster scDeepCluster
+h3:scDGN scDGN - supervised adversarial alignment of single-cell RNA-seq data
+h3:scGen scGen, a generative model to predict perturbation response of single cells across cell types
+h3:scGMAI scGMAI
+h3:scIGANs scIGANs
+h3:scScope scScope
+h3:scsGAN cscGAN: Conditional single-cell generative adversarial neural networks
+h3:scVAE scVAE: VAE for single-cell gene expression data
+h3:scVI scVI: single-cell variational inference
+h3:scvis scvis: a VAE for capturing low-dimensional structures
+h3:solo Solo
+h1:about-this-book About this book
+h2:abstract Abstract
+h2:key-points Key Points
+h2:supervised Supervised deep learning models
+h1:Survey Survey of deep learning models for scRNA-Seq analysis
+fig:Figure3 Add figure caption here
+h1:table Table
+h2:table1 Table1
+h3:a.-deep-learning-algorithms-reviewed-in-the-paper A. Deep Learning algorithms reviewed in the paper
+tab:Table1a Deep Learning algorithms reviewed in the paper
+h3:b.-comparison-of-deep-learning-algorithms-reviewed-in-the-paper B. Comparison of Deep Learning algorithms reviewed in the paper
+tab:Table1b Comparison of Deep Learning algorithms reviewed in the paper
+h2:table2 Table2
+h3:a.-simulated-single-cell-dataalgorithms A. Simulated single-cell data/algorithms
+tab:Table2a Simulated single-cell data/algorithms
+h3:b.-human-single-cell-data-sources-used-by-different-dl-algorithms B. Human single-cell data sources used by different DL algorithms
+tab:Table2b Human single-cell data sources used by different DL algorithms
+h3:c.-mouse-single-cell-data-sources-used-by-different-dl-algorithms C. Mouse single-cell data sources used by different DL algorithms
+tab:Table2c Mouse single-cell data sources used by different DL algorithms
+h3:d.-single-cell-data-derived-from-other-species D. Single-cell data derived from other species
+tab:Table2d Single-cell data derived from other species
+h3:e.-large-single-cell-data-source-used-by-various-algorithms E. Large single-cell data source used by various algorithms
+h2:vae Variational Autoencoder
+h3:VASC VASC: VAE for scRNA-seq
+

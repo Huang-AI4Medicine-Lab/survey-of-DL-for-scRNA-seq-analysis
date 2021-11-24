@@ -24,7 +24,7 @@
 <meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
 
 
-<meta name="date" content="2021-11-23" />
+<meta name="date" content="2021-11-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -99,7 +99,7 @@ div.csl-indent {
 <li><a href="./">A Survey of Deep Learning for scRNA-seq Analysis</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="about-the-authors.html"><a href="about-the-authors.html"><i class="fa fa-check"></i>About the authors</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About the authors</a></li>
 <li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html"><i class="fa fa-check"></i>About this book</a>
 <ul>
 <li class="chapter" data-level="" data-path="about-this-book.html"><a href="about-this-book.html#abstract"><i class="fa fa-check"></i>Abstract</a></li>
@@ -3105,155 +3105,434 @@ bone marrow-derived phagocyte
 </div>
 <div id="e.-large-single-cell-data-source-used-by-various-algorithms" class="section level3 unnumbered">
 <h3>E. Large single-cell data source used by various algorithms</h3>
-<table>
-<caption><span id="tab:Table2e">Table 5.7: </span> Large single-cell data source used by various algorithms</caption>
-<colgroup>
-<col width="29%" />
-<col width="41%" />
-<col width="29%" />
-</colgroup>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table2e">Table 5.7: </span>Large single-cell data source used by various algorithms
+</caption>
 <thead>
-<tr class="header">
-<th>Title</th>
-<th>Sources</th>
-<th>Notes</th>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Sources
+</th>
+<th style="text-align:left;">
+Notes
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>10X Single-cell gene expression dataset</td>
-<td><a href="https://support.10xgenomics.com/single-cell-gene-expression/datasets" class="uri">https://support.10xgenomics.com/single-cell-gene-expression/datasets</a></td>
-<td>Contains large collection of scRNA-seq dataset generated using 10X system</td>
+<tr>
+<td style="text-align:left;">
+10X Single-cell gene expression dataset
+</td>
+<td style="text-align:left;">
+<a href="https://support.10xgenomics.com/single-cell-gene-expression/datasets" class="uri">https://support.10xgenomics.com/single-cell-gene-expression/datasets</a>
+</td>
+<td style="text-align:left;">
+Contains large collection of scRNA-seq dataset generated using 10X system
+</td>
 </tr>
-<tr class="even">
-<td>Tabula Muris</td>
-<td><a href="https://tabula-muris.ds.czbiohub.org/" class="uri">https://tabula-muris.ds.czbiohub.org/</a></td>
-<td>Compendium of scRNA-seq data from mouse</td>
+<tr>
+<td style="text-align:left;">
+Tabula Muris
+</td>
+<td style="text-align:left;">
+<a href="https://tabula-muris.ds.czbiohub.org/" class="uri">https://tabula-muris.ds.czbiohub.org/</a>
+</td>
+<td style="text-align:left;">
+Compendium of scRNA-seq data from mouse
+</td>
 </tr>
-<tr class="odd">
-<td>HCA</td>
-<td><a href="https://data.humancellatlas.org/" class="uri">https://data.humancellatlas.org/</a></td>
-<td>Human single-cell atlas</td>
+<tr>
+<td style="text-align:left;">
+HCA
+</td>
+<td style="text-align:left;">
+<a href="https://data.humancellatlas.org/" class="uri">https://data.humancellatlas.org/</a>
+</td>
+<td style="text-align:left;">
+Human single-cell atlas
+</td>
 </tr>
-<tr class="even">
-<td>MCA</td>
-<td><a href="https://figshare.com/s/865e694ad06d5857db4b" class="uri">https://figshare.com/s/865e694ad06d5857db4b</a>, or GSE108097</td>
-<td>Mouse single-cell atlas</td>
+<tr>
+<td style="text-align:left;">
+MCA
+</td>
+<td style="text-align:left;">
+<a href="https://figshare.com/s/865e694ad06d5857db4b" class="uri">https://figshare.com/s/865e694ad06d5857db4b</a>, or GSE108097
+</td>
+<td style="text-align:left;">
+Mouse single-cell atlas
+</td>
 </tr>
-<tr class="odd">
-<td>scQuery</td>
-<td><a href="https://scquery.cs.cmu.edu/" class="uri">https://scquery.cs.cmu.edu/</a></td>
-<td>A web server cell type matching and key gene visualization. It is also a source for scRNA-seq collection (processed with common pipeline)</td>
+<tr>
+<td style="text-align:left;">
+scQuery
+</td>
+<td style="text-align:left;">
+<a href="https://scquery.cs.cmu.edu/" class="uri">https://scquery.cs.cmu.edu/</a>
+</td>
+<td style="text-align:left;">
+A web server cell type matching and key gene visualization. It is also a source for scRNA-seq collection (processed with common pipeline)
+</td>
 </tr>
-<tr class="even">
-<td>SeuratData</td>
-<td><a href="https://github.com/satijalab/seurat-data" class="uri">https://github.com/satijalab/seurat-data</a></td>
-<td>List of datasets, including PBMC and human pancreatic islet cells</td>
+<tr>
+<td style="text-align:left;">
+SeuratData
+</td>
+<td style="text-align:left;">
+<a href="https://github.com/satijalab/seurat-data" class="uri">https://github.com/satijalab/seurat-data</a>
+</td>
+<td style="text-align:left;">
+List of datasets, including PBMC and human pancreatic islet cells
+</td>
 </tr>
-<tr class="odd">
-<td>cytoBank</td>
-<td><a href="https://cytobank.org/" class="uri">https://cytobank.org/</a></td>
-<td>Community of big data cytometry</td>
+<tr>
+<td style="text-align:left;">
+cytoBank
+</td>
+<td style="text-align:left;">
+<a href="https://cytobank.org/" class="uri">https://cytobank.org/</a>
+</td>
+<td style="text-align:left;">
+Community of big data cytometry
+</td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <div id="table3" class="section level2 unnumbered">
 <h2>Table3</h2>
 <div id="evaluation-metrics-used-in-surveyed-dl-algorithms" class="section level3 unnumbered">
 <h3>Evaluation metrics used in surveyed DL algorithms</h3>
-<table>
-<caption><span id="tab:Table3">Table 5.8: </span> Evaluation metrics used in surveyed DL algorithms</caption>
-<colgroup>
-<col width="45%" />
-<col width="24%" />
-<col width="29%" />
-</colgroup>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Table3">Table 5.8: </span>Evaluation metrics used in surveyed DL algorithms
+</caption>
 <thead>
-<tr class="header">
-<th>Evaluation Method</th>
-<th>Equations</th>
-<th>Explanation</th>
+<tr>
+<th style="text-align:left;">
+EvaluationMethod
+</th>
+<th style="text-align:left;">
+Equations
+</th>
+<th style="text-align:left;">
+Explanation
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>Pseudobulk RNA-seq</td>
-<td></td>
-<td>Average of normalized (log2-transformed) scRNA-seq counts across cells is calculated and then correlation coefficient between the pseudobulk and the actual bulk RNA-seq profile of the same cell type is evaluated.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Pseudobulk RNA-seq
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Average of normalized (log2-transformed) scRNA-seq counts across cells is calculated and then correlation coefficient between the pseudobulk and the actual bulk RNA-seq profile of the same cell type is evaluated.
+</td>
 </tr>
-<tr class="even">
-<td>Mean squared error (MSE)</td>
-<td><span class="math inline">\(MSE=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\hat{x}_{i})^{2}\)</span></td>
-<td>MSE assesses the quality of a predictor, or an estimator, from a collection of observed data <span class="math inline">\(x\)</span>, with <span class="math inline">\(\hat{x}\)</span> being the predicted values.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Mean squared error (MSE)
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MSE=\frac{1}{n} \sum_{i=1}^{n}(x_{i}- \hat{x}_{i})^{2}\)</span>
+</td>
+<td style="text-align:left;">
+MSE assesses the quality of a predictor, or an estimator, from a collection of observed data <span class="math inline">\(x\)</span>, with <span class="math inline">\(\hat{x}\)</span> being the predicted values.
+</td>
 </tr>
-<tr class="odd">
-<td>Pearson correlation</td>
-<td><span class="math inline">\(\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X} \sigma_{Y}}\)</span> where <span class="math inline">\(cov()\)</span> is the covariance, <span class="math inline">\(\sigma_{X}\)</span> and <span class="math inline">\(\sigma_{Y}\)</span> are the standard deviation of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively.</td>
-<td></td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Pearson correlation
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X}\sigma_{Y}}\)</span>
+</td>
+<td style="text-align:left;">
+where cov() is the covariance, <span class="math inline">\(\sigma X\)</span> and <span class="math inline">\(\sigma Y\)</span> are the standard deviation of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, respectively.
+</td>
 </tr>
-<tr class="even">
-<td>Spearman correlation</td>
-<td><span class="math inline">\(\rho_{s}=\rho_{r_{X},r_{Y}}=\frac{cov(r_{X},r_{Y})}{\sigma_{r_{X}}\sigma_{r_{Y}}}\)</span></td>
-<td>The Spearman correlation coefficient is defined as the Pearson correlation coefficient between the rank variables, where <span class="math inline">\(r_{X}\)</span> is the rank of <span class="math inline">\(X\)</span>.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Spearman correlation
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\rho_{s}=\rho_{r_{X},r_{Y}}=\frac{cov(r_X,r_Y)}{\sigma_{r_X}\sigma_{r_Y}}\)</span>
+</td>
+<td style="text-align:left;">
+The Spearman correlation coefficient is defined as the Pearson correlation coefficient between the rank variables, where <span class="math inline">\(r_{X}\)</span> is the rank of <span class="math inline">\(X\)</span>.
+</td>
 </tr>
-<tr class="odd">
-<td>Entropy of accuracy, Hacc [20]</td>
-<td><span class="math inline">\(H_{acc}=-\frac{1}{M}\sum_{i=1}^{M}\sum_{j=1}^{N_{i}}p_{i}\log{(p_{i}(x_{j}))}\)</span></td>
-<td>Measures the diversity of the ground-truth labels within each predicted cluster group. <span class="math inline">\(p_{i}(x_{j})\)</span> (or <span class="math inline">\(q_{i}(x_{j})\)</span>) are the proportions of cells in the <span class="math inline">\(j\)</span>th ground-truth cluster (or predicted cluster) relative to the total number of cells in the <span class="math inline">\(i\)</span>th predicted cluster (or ground-truth clusters), respectively.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Entropy of accuracy, Hacc [21]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_{acc}=-\frac{1}{M} \sum_{i=1}^{M} \sum_{j=1}^{N_i} p_i(x_j)logp_{i}(x_{j})\)</span>
+</td>
+<td style="text-align:left;">
+Measures the diversity of the ground-truth labels within each predicted cluster group. <span class="math inline">\(p_{i}(x_{j})\)</span> (or <span class="math inline">\(q_{i}(x_{j})\)</span>) are the proportions of cells in the <span class="math inline">\(j\)</span>th ground-truth cluster (or predicted cluster) relative to the total number of cells in the <span class="math inline">\(i\)</span>th predicted cluster (or ground-truth clusters), respectively.
+</td>
 </tr>
-<tr class="even">
-<td>Entropy of purity, Hpur [20]</td>
-<td></td>
-<td>Measures the diversity of the predicted cluster labels within each ground-truth group</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Entropy of purity, Hpur [21]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(H_{pur}=-\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M_i}q_i(x_j)logq_{i}(x_{j})\)</span>
+</td>
+<td style="text-align:left;">
+Measures the diversity of the predicted cluster labels within each ground-truth group
+</td>
 </tr>
-<tr class="odd">
-<td>Entropy of mixing [31]</td>
-<td><span class="math inline">\(E=\sum_{i}\)</span></td>
-<td>This metric evaluates the mixing of cells from different batches in the neighborhood of each cell. <span class="math inline">\(C\)</span> is the number of batches, and <span class="math inline">\(p_{i}\)</span> is the proportion of cells from batch <span class="math inline">\(i\)</span> among <span class="math inline">\(N\)</span> nearest cells.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Entropy of mixing [32]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(E=\sum_{i=1}^{C}p_{i}\log(p_{i})\)</span>
+</td>
+<td style="text-align:left;">
+This metric evaluates the mixing of cells from different batches in the neighborhood of each cell. <span class="math inline">\(C\)</span> is the number of batches, and <span class="math inline">\(p_{i}\)</span> is the proportion of cells from batch <span class="math inline">\(i\)</span> among <span class="math inline">\(N\)</span> nearest cells.
+</td>
 </tr>
-<tr class="even">
-<td>Mutual Information (MI) [157]</td>
-<td></td>
-<td></td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Mutual Information (MI) [164]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MI(U,V)=\sum_{i}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(P_{U}(i)=\frac{|U_{i}|}{N}\)</span> and <span class="math inline">\(P_{V}(j)=\frac{|V_{j}|}{N}\)</span>. Also, define the joint distribution probability is <span class="math inline">\(P_{UV}(i,j)=\frac{|U_{i} \cap V_{j}|}{N}\)</span>. The <span class="math inline">\(MI\)</span> is a measure of mutual dependency between two cluster assignments <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>.
+</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(MI(U,V) = \sum_{i=1}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})\)</span></td>
-<td>where <span class="math inline">\(P_{U}(i)=\frac{|U_{i}|}{N}\)</span> and <span class="math inline">\(P_{V}(j)=\frac{|V_{j}|}{N}\)</span>. Also, define the joint distribution probability is <span class="math inline">\(P_{UV}(i,j)=\frac{|U_{i} \cap V_{j}|}{N}\)</span>. The <span class="math inline">\(MI\)</span> is a measure of mutual dependency between two cluster assignments <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>.</td>
-<td></td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Normalized Mutual Information (NMI) [165]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(NMI(U,V)=\frac{2 \times MI(U,V)}{[H(U)+H(V)]}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{V}(i)log(P_V(i))\)</span>. The <span class="math inline">\(NMI\)</span> is a normalization of the <span class="math inline">\(MI\)</span> score between 0 and 1.
+</td>
 </tr>
-<tr class="even">
-<td>Normalized Mutual Information (NMI) [158]</td>
-<td><span class="math inline">\(NMI(U,V)=\frac{2\times MI(U,V)}{[H(U)+H(V)]}\)</span></td>
-<td>where <span class="math inline">\(H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{V}(i)log(P_V(i))\)</span>. The <span class="math inline">\(NMI\)</span> is a normalization of the <span class="math inline">\(MI\)</span> score between 0 and 1.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Kullback–Leibler (KL) divergence [166]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(D_{KL}(P||Q)=\sum_{x \in \chi}P(x)log(\frac{P(x)}{Q(x)})\)</span>
+</td>
+<td style="text-align:left;">
+where discrete probability distributions <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are defined on the same probability space <span class="math inline">\(&amp;lt;U+03C7&amp;gt;\)</span>. This relative entropy is the measure for directed divergence between two distributions.
+</td>
 </tr>
-<tr class="odd">
-<td>Kullback–Leibler (KL) divergence [159]</td>
-<td><span class="math inline">\(D_{KL} (P||Q)=∑_{x∈χ}P(x)log(\frac{P(x)}{Q(x)})\)</span></td>
-<td>where discrete probability distributions P and Q are defined on the same probability space <span class="math inline">\(χ\)</span>. This relative entropy is the measure for directed divergence between two distributions.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Jaccard Index
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(J(U,V)=\frac{\lfloor U \cap V \rfloor}{\lfloor U \cup V \rfloor}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(0 = J(U,V) = 1\)</span>. <span class="math inline">\(J = 1\)</span> if clusters <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are the same. If <span class="math inline">\(U\)</span> are <span class="math inline">\(V\)</span> are empty, <span class="math inline">\(J\)</span> is defined as 1.
+</td>
 </tr>
-<tr class="even">
-<td>Jaccard Index</td>
-<td><span class="math inline">\(J(U,V)=\frac{|U\cap V|}{|U \cup V|}\)</span></td>
-<td><span class="math inline">\(0 ≤ J(U,V) ≤ 1\)</span>. <span class="math inline">\(J = 1\)</span> if clusters <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are the same. If <span class="math inline">\(U\)</span> are <span class="math inline">\(V\)</span> are empty, <span class="math inline">\(J\)</span> is defined as 1.</td>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Fowlkes-Mallows Index for two clustering algorithms (FM)
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(FM=\sqrt{ \frac{TP}{TP + FP} \times \frac{TP}{TP+FN} }\)</span>
+</td>
+<td style="text-align:left;">
+TP as the number of pairs of points that are present in the same cluster in both <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span>; <span class="math inline">\(FP\)</span> as the number of pairs of points that are present in the same cluster in <span class="math inline">\(U\)</span> but not in <span class="math inline">\(V\)</span>; <span class="math inline">\(FN\)</span> as the number of pairs of points that are present in the same cluster in <span class="math inline">\(V\)</span> but not in <span class="math inline">\(U\)</span>; and TN as the number of pairs of points that are in different clusters in both U and V.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Rand index (RI)
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(RI=\frac{(a+b)}{\binom{n}{2}}\)</span>
+</td>
+<td style="text-align:left;">
+Measure of constancy between two clustering outcomes, where <span class="math inline">\(a\)</span> (or <span class="math inline">\(b\)</span>) is the count of pairs of cells in one cluster (or different clusters) from one clustering algorithm but also fall in the same cluster (or different clusters) from the other clustering algorithm.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Adjusted Rand index (ARI) [167]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(ARI=\frac{RI-E[RI]}{max(RI)-E[RI]}\)</span>
+</td>
+<td style="text-align:left;">
+ARI is a corrected-for-chance version of RI, where <span class="math inline">\(E[RI]\)</span> is the expected Rand Index.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Silhouette index
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(s(i)=\frac{b(i)-a(i)}{max(a(i),b(i))}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(a(i)\)</span> is the average dissimilarity of ith cell to all other cells in the same cluster, and <span class="math inline">\(b(i)\)</span> is the average dissimilarity of ith cell to all cells in the closest cluster. The range of <span class="math inline">\(s(i)\)</span> is [-1,1], with 1 to be well-clustered and -1 to be completely misclassified.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Maximum Mean Discrepancy (MMD) [65]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MMD(F,p,q)=sup_{f \in F}||\mu_{p}-\mu_{q}||_{f}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(MMD\)</span> is a non-parametric distance between distributions based on the reproducing kernel Hilbert space, or, a distance-based measure between two distribution <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> based on the mean embeddings <span class="math inline">\(\mu_{p}\)</span> and <span class="math inline">\(\mu_{q}\)</span> in a reproducing kernel Hilbert space <span class="math inline">\(F\)</span>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+k-Nearest neighbor batch-effect test (kBET) [168]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(a_{n}^{k}=\sum_{l=1}^{L}\frac{(N_{nl}^{k} - k \bullet f_{l})^{2}}{k \bullet f_{l}} ~ X_{L-1}^{2}\)</span>
+</td>
+<td style="text-align:left;">
+Given a dataset of <span class="math inline">\(N\)</span> cells from <span class="math inline">\(L\)</span> batches with <span class="math inline">\(N_l\)</span> denoting the number of cells in batch <span class="math inline">\(l\)</span>, <span class="math inline">\(N_{nl}^{k}\)</span> is the number of cells from batch <span class="math inline">\(l\)</span> in the <span class="math inline">\(k\)</span>-nearest neighbors of cell <span class="math inline">\(n\)</span>, <span class="math inline">\(f_{l}\)</span> is the global fraction of cells in batch <span class="math inline">\(l\)</span>, or <span class="math inline">\(f_{l}=\frac{N_l}{N}\)</span>, and <span class="math inline">\(X_{L-1}^{2}\)</span> denotes the <span class="math inline">\(X^{2}\)</span> distribution with <span class="math inline">\(L-1\)</span> degrees of freedom. It uses a <span class="math inline">\(X^{2}\)</span>-based test for random neighborhoods of fixed size to determine the significance (“well-mixed”).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Local Inverse Simpson’s Index (LISI) [34]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{1}{ \lambda(n)}=\frac{1}{\sum_{l=1}^{L}(p(l))^{2}}\)</span>
+</td>
+<td style="text-align:left;">
+This is the inverse Simpson’s Index in the <span class="math inline">\(k\)</span>-nearest neighbors of cell <span class="math inline">\(n\)</span> for all batches, where <span class="math inline">\(p(l)\)</span> denotes the proportion of batch <span class="math inline">\(l\)</span> in the <span class="math inline">\(k\)</span>-nearest neighbors. The score reports the effective number of batches in the <span class="math inline">\(k\)</span>-nearest neighbors of cell <span class="math inline">\(n\)</span>.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Homogeneity
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(HS=1-\frac{H(P(U|V))}{H(P(U))}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(H()\)</span> is the entropy, and <span class="math inline">\(U\)</span> is the ground-truth assignment and <span class="math inline">\(V\)</span> is the predicted assignment. The <span class="math inline">\(HS\)</span> range from 0 to 1, where 1 indicates perfectly homogeneous labeling.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Completeness
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(CS=1-\frac{H(P(V|U))}{H(P(V))}\)</span>
+</td>
+<td style="text-align:left;">
+Its values range from 0 to 1, where 1 indicates all members from a ground-truth label are assigned to a single cluster.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+V-Measure [169]
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(V_{\beta}=\frac{(1+\beta)HS \times CS}{\beta HS + CS}\)</span>
+</td>
+<td style="text-align:left;">
+where <span class="math inline">\(\beta\)</span> indicates the weight of <span class="math inline">\(HS\)</span>. <span class="math inline">\(V\)</span>-Measure is symmetric, i.e. switching the true and predicted cluster labels does not change <span class="math inline">\(V\)</span>-Measure.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Precision, recall
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(Precision = \frac{TP}{TP+FP}, recall=\frac{TP}{TP+FN}\)</span>
+</td>
+<td style="text-align:left;">
+TP: true positive, FP: false positive, FN, false negative.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+Accuracy
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(Accuracy = \frac{TP+TN}{N}\)</span>
+</td>
+<td style="text-align:left;">
+N: all samples tested, TN: true negative
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+F1-score
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(F_{1}=\frac{2Precision \bullet Recall}{Precision+Recall}\)</span>
+</td>
+<td style="text-align:left;">
+A harmonic mean of precision and recall. It can be extended to <span class="math inline">\(F_\beta\)</span> where <span class="math inline">\(\beta\)</span> is a weight between precision and recall (similar to <span class="math inline">\(V\)</span>-measure).
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1em; ">
+AUC, RUROC
+</td>
+<td style="text-align:left;">
+<img src="Figures/Table3_AUC_Figure.png" title="fig:" alt="curve" />
+</td>
+<td style="text-align:left;">
+Area Under Curve (grey area). Receiver operating characteristic (ROC) curve (red line). A similar measure can be performed on the Precision-Recall curve (PRC), or AUPRC. Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value for a predictive model (mostly for an imbalanced dataset).
+</td>
 </tr>
 </tbody>
 </table>
-<!-- |Fowlkes-Mallows Index for two clustering algorithms (FM)|$FM= √(TP/(TP+FP)×TP/(TP+FN))    $|TP as the number of pairs of points that are present in the same cluster in both U and V; FP as the number of pairs of points that are present in the same cluster in U but not in V; FN as the number of pairs of points that are present in the same cluster in V but not in U; and TN as the number of pairs of points that are in different clusters in both U and V.| -->
-<!-- |Rand index (RI)|$ RI=(a+b)/(█(n@2))   $|Measure of constancy between two clustering outcomes, where a (or b) is the count of number of pairs of cells in one cluster (or different clusters) from one clustering algorithm but also fall in the same cluster (or different clusters) from the other clustering algorithm.|  -->
-<!-- |Adjusted Rand index (ARI) [160]|$ARI=  (RI-E[RI])/(max⁡(RI)-E[RI]$  | ARI is a corrected-for-chance version of RI, where E[RI] is the expected Rand Index.| -->
-<!-- |Silhouette index |$   s(i)=(b(i)-a(i))/(max⁡(a(i),b(i)))$|where a(i) is the average dissimilarity of ith cell to all other cells in the same cluster, and b(i) is the average dissimilarity of ith cell to all cells in the closest cluster. The range of s(i) is [−1,1], with 1 to be well-clustered and -1 to be completely misclassified.|  -->
-<!-- |Maximum Mean Discrepancy (MMD) [58] |$ MMD(F,p,q)=   (sup)┬(f∈F)⁡〖‖μ_p-μ_q ‖_f 〗$|MMD is a non-parametric distance between distributions based on the reproducing kernel Hilbert space, or, a distance-based measure between two distribution p and q based on the mean embeddings p and q in a reproducing kernel Hilbert space F.| -->
-<!-- |k-Nearest neighbor batch-effect test (kBET) [161]|$a_n^k=∑_(l=1)^L▒〖〖(N〗_nl^k-k∙f_l)〗^2/(k∙f_l )  ~X_(L-1)^2  $|Given a dataset of N cells from L batches with N_l denoting the number of cells in batch l, N_nl^k is the number of cells from batch l in the k-nearest neighbors of cell n, fl is the global fraction of cells in batch l, or f_l=N_l/N,  and  X_(L-1)^2 denotes the X^2 distribution with L-1 degrees of freedom. It uses a X^2-based test for random neighborhoods of fixed size to determine the significance (“well mixed”).| -->
-<!-- |Local Inverse Simpson’s Index (LISI) [33]|$1/λ(n) =1/(Σ_(l=1)^L (p(l))^2 )    $| This is the inverse Simpson’s Index in the k-nearest neighbors of cell n for all batches, where p(l) denotes the proportion of batch l in the k-nearest neighbors. The score reports the effective number of batches in the k-nearest neighbors of cell n.| -->
-<!-- |Homogeneity   | $HS=1-(H(P(U│V)))/H(P(U)) $|  where H() is the entropy, and U is the ground-truth assignment and V is the predicted assignment. The HS range from 0 to 1, where 1 indicates perfectly homogeneous labelling.| -->
-<!-- |Completeness| $   CS=1-H(P(V│U))/H(P(V))  $|Its values range from 0 to 1, where 1 indicates all member from a ground-truth label are assigned to a single cluster.| -->
-<!-- |V-Measure [162]| $V_β=((1+β)HS×CS)/(βHC+CS)   $| where  indicates the weight of HS. V-Measure is symmetric, i.e. switching the true and predicted cluster labels does not change V-Measure.| -->
-<!-- |Precision, recall|$Precision=  TP/(TP+FP),recall=  TP/(TP+FN) $| TP: true positive, FP: false positive, FN, false negative. | -->
-<!-- |Accuracy  | $Accuracy=  (TP+TN)/N $| N: all samples tested, TN: true negative| -->
-<!-- |F1-score|$    F_1=  (2 Precision∙Recall)/(Precision+Recall)   $| A harmonic mean of precision and recall. It can be extended to F_β where β is a weight between precision and recall (similar to V-measure). | -->
-<!-- |AUC, RUROC    | ![](Figures/Table3_AUC_Figure.png)|Area Under Curve (grey area).  Receiver operating characteristic (ROC) curve (red line). The similar measure can be performed on Precision-Recall curve (PRC), or AUPRC. Precision-Recall curves summarize the trade-off between the true positive rate and the positive predictive value for a predictive model (mostly for imbalanced dataset).| -->
+</div>
+<!-- Table: (\#tab:Table2e) Large single-cell data source used by various algorithms -->
+<!-- |Title|Sources|Notes|  -->
+<!-- |-----|-------|-----| -->
+<!-- |10X Single-cell gene expression dataset|  https://support.10xgenomics.com/single-cell-gene-expression/datasets | Contains large collection of scRNA-seq dataset generated using 10X system| -->
+<!-- |Tabula Muris|https://tabula-muris.ds.czbiohub.org/ |Compendium of scRNA-seq data from mouse| -->
+<!-- |HCA|https://data.humancellatlas.org/|Human single-cell atlas| -->
+<!-- |MCA|https://figshare.com/s/865e694ad06d5857db4b, or GSE108097|Mouse single-cell atlas| -->
+<!-- |scQuery|https://scquery.cs.cmu.edu/ |A web server cell type matching and key gene visualization. It is also a source for scRNA-seq collection (processed with common pipeline)| -->
+<!-- |SeuratData|https://github.com/satijalab/seurat-data|List of datasets, including PBMC and human pancreatic islet cells|  -->
+<!-- |cytoBank|https://cytobank.org/|Community of big data cytometry| -->
+<!-- ![curve](D:/Github/survey-of-DL-for-scRNA-seq-analysis/Figures/Table3_AUC_Figure.png) -->
+<!-- Table: (\#tab:Table3) Evaluation metrics used in surveyed DL algorithms -->
+<!-- |Evaluation Method|Equations|Explanation| -->
+<!-- |-----------------|---------|-----------| -->
+<!-- |Pseudobulk RNA-seq| |Average of normalized (log2-transformed) scRNA-seq counts across cells is calculated and then correlation coefficient between the pseudobulk and the actual bulk RNA-seq profile of the same cell type is evaluated.| -->
+<!-- |Mean squared error (MSE)|$MSE=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\hat{x}_{i})^{2}$|MSE assesses the quality of a predictor, or an estimator, from a collection of observed data $x$, with $\hat{x}$ being the predicted values.| -->
+<!-- |Pearson correlation|$\rho_{X,Y}=\frac{cov(X,Y)}{\sigma_{X} \sigma_{Y}}$   where $cov()$ is the covariance, $\sigma_{X}$ and $\sigma_{Y}$ are the standard deviation of $X$ and $Y$, respectively.| -->
+<!-- |Spearman correlation|$\rho_{s}=\rho_{r_{X},r_{Y}}=\frac{cov(r_{X},r_{Y})}{\sigma_{r_{X}}\sigma_{r_{Y}}}$| The Spearman correlation coefficient is defined as the Pearson correlation coefficient between the rank variables, where $r_{X}$ is the rank of $X$.| -->
+<!-- |Entropy of accuracy, Hacc [20]|$H_{acc}=-\frac{1}{M}\sum_{i=1}^{M}\sum_{j=1}^{N_{i}}p_{i}\log{(p_{i}(x_{j}))}$| Measures the diversity of the ground-truth labels within each predicted cluster group. $p_{i}(x_{j})$ (or $q_{i}(x_{j})$) are the proportions of cells in the $j$th ground-truth cluster (or predicted cluster) relative to the total number of cells in the $i$th predicted cluster (or ground-truth clusters), respectively.| -->
+<!-- |Entropy of purity, Hpur [20]| |Measures the diversity of the predicted cluster labels within each ground-truth group| -->
+<!-- |Entropy of mixing [31]|$E=\sum_{i}$ |This metric evaluates the mixing of cells from different batches in the neighborhood of each cell. $C$ is the number of batches, and $p_{i}$ is the proportion of cells from batch $i$ among $N$ nearest cells.| -->
+<!-- |Mutual Information (MI) [157]| -->
+<!-- $MI(U,V) = \sum_{i=1}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})$ | where $P_{U}(i)=\frac{|U_{i}|}{N}$ and $P_{V}(j)=\frac{|V_{j}|}{N}$. Also, define the joint distribution probability is $P_{UV}(i,j)=\frac{|U_{i} \cap V_{j}|}{N}$. The $MI$ is a measure of mutual dependency between two cluster assignments $U$ and $V$.| -->
+<!-- |Normalized Mutual Information (NMI) [158]|$NMI(U,V)=\frac{2\times MI(U,V)}{[H(U)+H(V)]}$| where $H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{V}(i)log(P_V(i))$. The $NMI$ is a normalization of the $MI$ score between 0 and 1.| -->
+<!-- |Kullback–Leibler (KL) divergence [159]|$D_{KL} (P||Q)=∑_{x∈χ}P(x)log(\frac{P(x)}{Q(x)})$| where discrete probability distributions P and Q  are defined on the same probability space $χ$. This relative entropy is the measure for directed divergence between two distributions.| -->
+<!-- |Jaccard Index|$J(U,V)=\frac{|U\cap V|}{|U \cup V|}$| $0 ≤ J(U,V) ≤ 1$. $J = 1$ if clusters $U$ and $V$ are the same. If $U$ are $V$ are empty, $J$ is defined as 1.| -->
+<!-- |Fowlkes-Mallows Index for two clustering algorithms (FM)|$FM=\sqrt{\frac{TP}{TP+FP}\times\frac{TP}{TP+FN}}$| TP as the number of pairs of points that are present in the same cluster in both $U$ and $V$; $FP$ as the number of pairs of points that are present in the same cluster in $U$ but not in $V$; $FN$ as the number of pairs of points that are present in the same cluster in $V$ but not in $U$; and TN as the number of pairs of points that are in different clusters in both U and V.| -->
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-RN75" class="csl-entry">
