@@ -1,6 +1,0 @@
-
-## Imputation {#ch-5-1}
-
-The goal of imputation is to estimate the missing gene expression values due to dropout, or the failure to amplify the original RNA transcripts.  These missing expression values can affect downstream bioinformatics analysis significantly as it decreases the power of the studies and introduces biases in gene expression [@RN46]<!--[17]-->. VAE, AE, and GAN have been applied for imputation and we review their specific model designs in this section.
-
-

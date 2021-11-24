@@ -1,4 +1,0 @@
-
-# Tables  {#ch7}
-[Tables]: Tables
-
