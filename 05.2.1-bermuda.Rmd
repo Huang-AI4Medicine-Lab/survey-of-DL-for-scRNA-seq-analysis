@@ -1,0 +1,26 @@
+
+### BERMUDA: Batch Effect ReMoval Using Deep Autoencoders {#ch-5-2-1}
+
+BERMUDA [@RN183]<!--[61]--> deploys a transfer-learning method to remove the batch effect. It performs correction to the shared cell clusters among batches and therefore preserves batch-specific cell populations.
+Model.  BERMUDA has a conventional AE architecture that takes normalized, log-transformed expression of a cell as input. It has the general loss function but consists of two parts as 
+
+\begin{equation}
+L(\Theta) = L_{0}(\Theta) + \lambda L_{MMD}(\Theta) (\#eq:equ17)
+\end{equation}
+
+
+where $L_{0}(\Theta)$ is the MSE reconstruction loss as defined in Eq. (\@ref(eq:eq9)) and L_MMD is the maximum mean discrepancy (MMD) loss that measures the differences in distributions among similar cell clusters in different batches. MMD is a non-parametric distance between distributions based on the reproducing kernel Hilbert space (RKHS) [@RN185]<!--[51]-->. Instead of applying the MMD loss on batches entirely, BERMUDA considers the loss only between pairs of similar cell clusters shared among batches, where the MMD loss is defined as:
+
+\begin{equation}
+L_{MMD}(\Theta) = \sum_{i_{a},i_{b},j_{a},j_{b}}M_{i_{a},i_{b},j_{a},j_{b}}MMD(z_{i_{a},j_{a}},z_{i_{b}.j_{b}}) (\#eq:equ18)
+\end{equation}
+
+where $z_{i,j}$ is the latent variable of $x_{i,j}$, the input expression profile of a cell from cluster j of batch $i$, $M_{i_{a},j_{a},i_{b},j_{b}}$ is 1 if cluster $i_{a}$ of batch $j_{a}$  and cluster $i_{b}$ of batch $j_{b}$ are determined to be similar by MetaNeighbor [@RN186]<!--[62]--> and 0, otherwise. $MMD()$ equals zero when the underlying distributions of the observed samples are the same. By minimizing the MMD loss between the distributions of the latent variables of similar clusters, BERMUDA can be trained to remove batch effects in its latent variables.  
+
+*Evaluation metrics.*  Evaluation of BERMUDA included three metrics: KBET, entropy of mixing, and silhouette index.  
+
+*Results.* BERMUDA was shown to outperform other methods like mnnCorrect [@RN84]<!--[28]-->, BBKNN [@RN115]<!--[63]-->, Seurat [@RN96]<!--[9]-->, and scVI [@RN88]<!--[13]--> in removing batch effects on simulated and human pancreas data while preserving batch-specific biological signals.  BERMUDA provides several improvements compared to existing methods: 1) capable of removing batch effects even when the cell population compositions across different batches are vastly different; and 2) preserving batch-specific biological signals through transfer-learning which enables discovering new information that might be hard to extract by analyzing each batch individually.
+
+
+
+

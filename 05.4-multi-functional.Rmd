@@ -1,0 +1,4 @@
+
+## Multi-functional models {#ch-5-4}
+
+Given the versatility of AE and VAE in addressing different scRAN-seq analysis challenges, DL models possessing multiple analysis functions have been developed.  We survey these models in this section. 

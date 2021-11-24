@@ -1,0 +1,6 @@
+
+# Conclusion and Discussions  {#ch-6}
+
+Single cell RNA-Seq technologies are tools that help exploring the cell-type composition of a particular sample and how it is dysregulated during development and disease. 
+
+
