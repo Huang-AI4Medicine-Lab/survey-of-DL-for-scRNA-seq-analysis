@@ -101,3 +101,4 @@ scDGN
 biologicalFunctionPrediction
 CNNC
 scGen
+Table
