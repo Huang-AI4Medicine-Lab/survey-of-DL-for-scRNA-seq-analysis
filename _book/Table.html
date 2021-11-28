@@ -24,7 +24,7 @@
 <meta name="author" content="Mario Flores1§, Zhentao Liu1, Tinghe Zhang1, Md Musaddaqui Hasib1, Yu-Chiao Chiu2, Zhenqing Ye2,3, Karla Paniagua1, Sumin Jo1, Jianqiu Zhang1, Shou-Jiang Gao4,6, Yufang Jin1, Yidong Chen2,3§, and Yufei Huang5,6§" />
 
 
-<meta name="date" content="2021-11-24" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -3272,7 +3272,7 @@ The Spearman correlation coefficient is defined as the Pearson correlation coeff
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Entropy of accuracy, Hacc [21]
+Entropy of accuracy, Hacc <span class="citation">(<a href="Table.html#ref-RN44" role="doc-biblioref">Tran et al. 2020</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(H_{acc}=-\frac{1}{M} \sum_{i=1}^{M} \sum_{j=1}^{N_i} p_i(x_j)logp_{i}(x_{j})\)</span>
@@ -3283,7 +3283,7 @@ Measures the diversity of the ground-truth labels within each predicted cluster 
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Entropy of purity, Hpur [21]
+Entropy of purity, Hpur <span class="citation">(<a href="Table.html#ref-RN44" role="doc-biblioref">Tran et al. 2020</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(H_{pur}=-\frac{1}{N}\sum_{i=1}^{N}\sum_{j=1}^{M_i}q_i(x_j)logq_{i}(x_{j})\)</span>
@@ -3294,7 +3294,7 @@ Measures the diversity of the predicted cluster labels within each ground-truth 
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Entropy of mixing [32]
+Entropy of mixing <span class="citation">(<a href="Table.html#ref-RN84" role="doc-biblioref">Haghverdi et al. 2018</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(E=\sum_{i=1}^{C}p_{i}\log(p_{i})\)</span>
@@ -3305,7 +3305,7 @@ This metric evaluates the mixing of cells from different batches in the neighbor
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Mutual Information (MI) [164]
+Mutual Information (MI) <span class="citation">(<a href="Table.html#ref-RN103" role="doc-biblioref">Strehland and Ghosh 2002</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(MI(U,V)=\sum_{i}^{|U|}\sum_{j=1}^{|V|}P_{UV}(i,j)log(\frac{P_{UV}(i,j)}{P_{U}(i)P_{V}(j)})\)</span>
@@ -3316,7 +3316,7 @@ where <span class="math inline">\(P_{U}(i)=\frac{|U_{i}|}{N}\)</span> and <span 
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Normalized Mutual Information (NMI) [165]
+Normalized Mutual Information (NMI) [165, BIB not found]
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(NMI(U,V)=\frac{2 \times MI(U,V)}{[H(U)+H(V)]}\)</span>
@@ -3327,7 +3327,7 @@ where <span class="math inline">\(H(U)=\sum P_{U}(i)log(P_{U}(i)), H(V)=\sum P_{
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Kullback–Leibler (KL) divergence [166]
+Kullback–Leibler (KL) divergence [166, BIB not found]
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(D_{KL}(P||Q)=\sum_{x \in \chi}P(x)log(\frac{P(x)}{Q(x)})\)</span>
@@ -3371,7 +3371,7 @@ Measure of constancy between two clustering outcomes, where <span class="math in
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Adjusted Rand index (ARI) [167]
+Adjusted Rand index (ARI) <span class="citation">(<a href="Table.html#ref-RN107" role="doc-biblioref">Hubert and Arabie 1985</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(ARI=\frac{RI-E[RI]}{max(RI)-E[RI]}\)</span>
@@ -3393,7 +3393,7 @@ where <span class="math inline">\(a(i)\)</span> is the average dissimilarity of 
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Maximum Mean Discrepancy (MMD) [65]
+Maximum Mean Discrepancy (MMD) <span class="citation">(<a href="Table.html#ref-RN185" role="doc-biblioref">Borgwardt et al. 2006</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(MMD(F,p,q)=sup_{f \in F}||\mu_{p}-\mu_{q}||_{f}\)</span>
@@ -3404,7 +3404,7 @@ Maximum Mean Discrepancy (MMD) [65]
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-k-Nearest neighbor batch-effect test (kBET) [168]
+k-Nearest neighbor batch-effect test (kBET) <span class="citation">(<a href="Table.html#ref-RN105" role="doc-biblioref">Buttner et al. 2019</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(a_{n}^{k}=\sum_{l=1}^{L}\frac{(N_{nl}^{k} - k \bullet f_{l})^{2}}{k \bullet f_{l}} ~ X_{L-1}^{2}\)</span>
@@ -3415,7 +3415,7 @@ Given a dataset of <span class="math inline">\(N\)</span> cells from <span class
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-Local Inverse Simpson’s Index (LISI) [34]
+Local Inverse Simpson’s Index (LISI) <span class="citation">(<a href="Table.html#ref-RN74" role="doc-biblioref">Korsunsky et al. 2019</a>)</span>
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(\frac{1}{ \lambda(n)}=\frac{1}{\sum_{l=1}^{L}(p(l))^{2}}\)</span>
@@ -3448,7 +3448,7 @@ Its values range from 0 to 1, where 1 indicates all members from a ground-truth 
 </tr>
 <tr>
 <td style="text-align:left;width: 1em; ">
-V-Measure [169]
+V-Measure [169, BIB not found]
 </td>
 <td style="text-align:left;">
 <span class="math inline">\(V_{\beta}=\frac{(1+\beta)HS \times CS}{\beta HS + CS}\)</span>
